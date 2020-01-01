@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="container">
-        <h2>マギレコ簡易ダメ計算<small>（超ベ〇ータ3版）</small></h2>
+        <h2>マギレコ簡易ダメ計算<small>（超ベ〇ータ版）</small></h2>
         <h5>算出されたダメージ値に乱数はかかっていません</h5>
         <div class="row">
             

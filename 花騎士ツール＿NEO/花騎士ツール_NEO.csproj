@@ -240,6 +240,9 @@
     <Content Include="Scripts\jquery.inview.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.min.js" />
+    <Content Include="Scripts\yonkim_script\Magia_original_20200101.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\yonkim_script\Magia _v01.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
