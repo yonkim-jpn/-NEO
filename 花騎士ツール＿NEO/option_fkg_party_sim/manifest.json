@@ -1,0 +1,10 @@
+{
+  "name": "Option_FKG_Party_Sim",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "This is a chrome extension.",
+  
+  "permissions": [
+    "tabs"
+  ]
+}

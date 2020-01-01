@@ -1,0 +1,8 @@
+{
+    "azureFunctions.deploySubpath": ".",
+    "azureFunctions.projectLanguage": "JavaScript",
+    "azureFunctions.projectRuntime": "~1",
+    "azureFunctions.preDeployTask": "npm prune",
+    "appService.defaultWebAppToDeploy": "/subscriptions/8c6810ac-38c9-4e7e-9184-43c7401da226/resourceGroups/yonkim/providers/Microsoft.Web/sites/yonkim",
+    "appService.deploySubpath": "yonkim_script"
+}

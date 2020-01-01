@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="花騎士ツール＿NEO.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="ja">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="description" content="DMMゲーム　フラワーナイトガール（花騎士）のパーティー編成シミュレーターです。スキル発動率、デバフ効果、付与される属性等計算します。アビリティによる検索や、能力値ランキングもあります。昇華石必要数計算機
+        もオヌヌメ。"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="Content/handsontable/handsontable.full.min.css" />
+    <link rel="stylesheet" href="Content/add.css" />
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (a) {
+            function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement("script"); b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;)b("track" + f.pop()); if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b("stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) { f = "onerror", b("_" + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c["_" + f](a, b, d, e, h), i } } return c
+        }({
+            instrumentationKey: "ebbb90e3-81c3-4489-bbaa-48b333be9cf2"
+        });
+
+        window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();
+     </script>
+    
+    
+</head>
+<body style="padding-top:70px;">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--ScriptManager でのスクリプトのバンドルの詳細については、https://go.microsoft.com/fwlink/?LinkID=301884 を参照してください --%>
+                <%--Framework スクリプト--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--サイト スクリプト--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <!--挿入したスクリプト -->
+        <script src="Scripts/js-cookie/js.cookie.js"></script>
+        <script src="Scripts/jquery.inview.js"></script>
+        <script src="Scripts/jquery.rwdImageMaps.js"></script>
+        <script src="Scripts/handsontable/handsontable.full.min.js"></script>
+        <script src="Scripts/yonkim_script/FkgSelect.js"></script>
+        <script src="Scripts/yonkim_script/Magia.js"></script>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">花騎士編成支援ツール</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/Fkg_select_neo">編成シミュ</a></li>
+                        <li><a runat="server" href="~/Fkg_ability_serch_neo">アビリティ検索</a></li>
+                        <li><a runat="server" href="~/Fkg_ranking_neo">ランキング</a></li>
+                        <li class="dropdown active">
+	                    <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">おまけ<span class="caret"></span></a>
+	                        <ul class="dropdown-menu" role="menu">
+                                <li><a runat="server" href="~/Fkg_omake_neo">おまけ</a></li>
+                                <li><a runat="server" href="~/Fkg_omake_darkness">闇のおまけ</a></li>
+                                <li><a runat="server" href="~/Fkg_register">花騎士登録</a></li>
+	                        </ul>
+                        </li>
+                        <li class="dropdown active">
+                        <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">管理人の趣味<span class="caret"></span></a>
+	                        <ul class="dropdown-menu" role="menu">
+                                <li><a runat="server" href="~/La_via_al_paraiso">天上への道</a></li>
+                                <li><a runat="server" href="~/Magia_damage_calc">マギレコダメージ計算（作成中）</a></li>
+	                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <%--<p>&copy; <%: DateTime.Now.Year %> - マイ ASP.NET アプリケーション</p>--%>
+                <p>ご意見ご要望については下記製作者のツイッターアカウントにお願いします。</p>
+                <a href="javascript:void(0);" target="_blank" onclick="window.open('https://twitter.com/chiyokanemaru','_blank')">千代金丸@chiyokanemaru</a>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
