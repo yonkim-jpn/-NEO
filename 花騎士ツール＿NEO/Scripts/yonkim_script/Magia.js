@@ -76,16 +76,16 @@ function CalcDano() {
     DefUp = (DefUp > 200) ? 200 : DefUp;
     DefUp = ((DefUp < 5) && (DefUp > -5)) ? 0 : DefUp;
     DefUp = (DefUp < -100) ? -100 : DefUp;
-    
+
 
     AtkUp = 1 + AtkUp / 100;
     DefUp = 1 + DefUp / 100;
 
     //UPDOWN補正をいったん抜いて簡易作成
     var AtkReal = (Atk * (1 + atkDespierto) + mAtk) * AtkUp * ordenAtk;
-    var DefReal = (Def * (1 + defDespierto ) + mDef) * DefUp * ordenDef;
+    var DefReal = (Def * (1 + defDespierto) + mDef) * DefUp * ordenDef;
     var dano = AtkReal - DefReal / 3;
-    
+
     return dano;
 }
 
@@ -93,10 +93,10 @@ function CalcDano() {
 //補正ダメージ計算関数
 //補正係数は複雑なので、いったん考えない（2019/12/04）
 function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
-    var eleccion = [ eleccion1, eleccion2, eleccion3];
+    var eleccion = [eleccion1, eleccion2, eleccion3];
     var ventana = $("input[name='ctl00$MainContent$ventana']:checked").val();
 
-    
+
     //a ディスク倍率
     var calcA = 1;
     switch (eleccion[orden - 1]) {
@@ -153,7 +153,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
         if (conjunto === "B")
             calcB = 1.5;
     } else {
-    //puella有りの場合
+        //puella有りの場合
         switch (eleccion[orden - 1]) {
             case "A":
                 {
@@ -165,7 +165,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
                     //Blastコンボの場合
                     if (conjunto === "B")
                         calcB = 2;
-                    else 
+                    else
                         calcB = 1.5;
                     break;
                 }
@@ -176,8 +176,8 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
                 }
         }
     }
-        
-   
+
+
 
 
     //c チャージ倍率 ついでに獲得MPもこちらで処理
@@ -185,10 +185,10 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     //溜まっているチャージ数に応じてテーブルより値を取得する必要有り。
     //今回の行動がAccelかBlastかにより、テーブルは異なる
     var tablaA = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3];
-    var tablaB = [ 1.4, 1.7, 2, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 4.5, 4.6, 4.7, 4.8, 4.9, 5];
+    var tablaB = [1.4, 1.7, 2, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 4.5, 4.6, 4.7, 4.8, 4.9, 5];
     var tablaMp = [1.3, 1.6, 1.9, 2.2, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5, 3.9, 4.3, 4.7, 5.1, 5.5, 6, 6.5, 7, 7.5, 8];
 
-    
+
 
 
     //チャージ倍率取得
@@ -266,7 +266,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
                     break;
                 }
         }
-        
+
     }
 
     //そもそもチャージ補正可能なのか判定
@@ -293,7 +293,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
             }
     }
 
-    
+
     if (calcC > 5.5)//チャージ倍率上限
         calcC = 5.5;
 
@@ -301,18 +301,18 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     //mp獲得量計算
 
     //mpテーブル
-    var tablaMagiaA = [[10, 10.5, 14],[13.5,15.75,21]];
-    var tablaMagiaC = [[2, 3, 4],[3,4.5,6]];
+    var tablaMagiaA = [[10, 10.5, 14], [13.5, 15.75, 21]];
+    var tablaMagiaC = [[2, 3, 4], [3, 4.5, 6]];
 
     var calcMp = 0;
-    var bonusA = [0,0,0];
+    var bonusA = [0, 0, 0];
     var bonusC = 0;
 
     //A:ボーナス決定
     switch (eleccion[0]) {
         case "A":
             {
-                bonusA = [0,3,3];
+                bonusA = [0, 3, 3];
                 break;
             }
         case "C":
@@ -327,7 +327,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     switch (eleccion[orden - 1]) {
         case "A":
             {
-                calcMp = tablaMagiaA[ventana][orden - 1] + bonusA[orden -1];
+                calcMp = tablaMagiaA[ventana][orden - 1] + bonusA[orden - 1];
                 break;
             }
         case "B":
@@ -375,12 +375,12 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     //C:MP獲得量UP
     //メモリア側
     var MpUp = Number($("#MainContent_MpUp").val());
-    var calcMpC = MpUp === 0 ? 1 : 1+(2.5 + 2.5 * MpUp)/100;
+    var calcMpC = MpUp === 0 ? 1 : 1 + (2.5 + 2.5 * MpUp) / 100;
     //calcMp = Math.floor(calcMp * calcMpC * 10)/10;
 
     //D:AccelMPUP
     //メモリア側 アクセルのみかかる
-    var AMpUp = eleccion[orden-1]==="A" ? Number($("#MainContent_AMpUp").val()) : 0;
+    var AMpUp = eleccion[orden - 1] === "A" ? Number($("#MainContent_AMpUp").val()) : 0;
     var calcMpD = AMpUp === 0 ? 1 : 1 + (7.5 + 2.5 * AMpUp) / 100;
     //calcMp = Math.floor(calcMp * calcMpD * 100)/100;
 
@@ -388,10 +388,10 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     //calcMp = Math.floor(calcMp * cmp * 100) / 100;
 
     //そらまめ氏の指摘により、CとDの計算順を変更し、D処理後、小数点以下2位を切り上げ
-    calcMp = Math.ceil(calcMp * calcMpD * 10)/10;
+    calcMp = Math.ceil(calcMp * calcMpD * 10) / 10;
     calcMp = Math.floor(calcMp * calcMpC * cmp * 10) / 10;
 
-    
+
 
     ////アクセルコンボ確認
     //if ((eleccion[0] === "A") && (eleccion[1] === "A") && (eleccion[3] === "A"))
@@ -443,16 +443,16 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     var calcBsub = 0;
     if (eleccion[orden - 1] === "B")
         calcBsub = 0.1;
-    if (ventana === "1"){
+    if (ventana === "1") {
         calcFinal = (calcA * calcB + calcBsub) * calcSub * calcC * calcD * calcE;
     }
     else
-       calcFinal = calcA * calcB * calcSub * calcC * calcD * calcE;
-    
+        calcFinal = calcA * calcB * calcSub * calcC * calcD * calcE;
+
 
     //取り合えず小数点以下3桁で切り捨てる
     calcFinal = Math.floor(calcFinal * 1000) / 1000;
-    return [calcFinal,calcMp];
+    return [calcFinal, calcMp];
 
 }
 
@@ -461,26 +461,26 @@ function Zenhan(str) {
     str = str.replace(/[０-９]/g, function (s) {
         return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
     });
-    str = str.replace(/[\%\％]/,"");
-    str = str.replace("－","-");
+    str = str.replace(/[\%\％]/, "");
+    str = str.replace("－", "-");
     return str;
 }
 
 //表示補助関数
-function ChequeaPorcentaje(str){
+function ChequeaPorcentaje(str) {
     var Add = "";
-    if(String(str).match(/[%％]/) === null){
+    if (String(str).match(/[%％]/) === null) {
         add = "%";
     }
     return str + add;
 }
 
 //数値チェック関数
-function ChequeaLimite(str,id){
+function ChequeaLimite(str, id) {
     //数値部取り出し
-    str = str.replace(/[%％]/,"");
+    str = str.replace(/[%％]/, "");
     var obj = document.getElementById(id);
-    if(((Number(str)< -200)  || ((Number(str)< 5) && (Number(str)> -5)) || (Number(str)>200)) && (Number(str)!==0))
+    if (((Number(str) < -200) || ((Number(str) < 5) && (Number(str) > -5)) || (Number(str) > 200)) && (Number(str) !== 0))
         obj.style.color = "red";
     else
         obj.style.color = "blue";
@@ -490,16 +490,16 @@ function ChequeaLimite(str,id){
 
 
 //覚醒テーブル取得関数
-function ConsigoTablaDespierta(tipo){
-     //覚醒補正テーブル
-     var tablaDespiertaB = [0.07,0.07,0.07,0.05,0.09,0.05];
-     var tablaDespiertaM = [0.06,0.08,0.07,0.07,0.05,0.07];
-     var tablaDespiertaD = [0.09,0.05,0.07,0.07,0.07,0.05];
-     var tablaDespiertaH = [0.08,0.06,0.07,0.07,0.05,0.07];
-     var tablaDespiertaA = [0.05,0.09,0.06,0.09,0.05,0.05];
-     var tablaDespiertaS = [0.06,0.06,0.09,0.05,0.07,0.07];
- 
-     //魔法少女タイプにより、覚醒テーブルを確定
+function ConsigoTablaDespierta(tipo) {
+    //覚醒補正テーブル
+    var tablaDespiertaB = [0.07, 0.07, 0.07, 0.05, 0.09, 0.05];
+    var tablaDespiertaM = [0.06, 0.08, 0.07, 0.07, 0.05, 0.07];
+    var tablaDespiertaD = [0.09, 0.05, 0.07, 0.07, 0.07, 0.05];
+    var tablaDespiertaH = [0.08, 0.06, 0.07, 0.07, 0.05, 0.07];
+    var tablaDespiertaA = [0.05, 0.09, 0.06, 0.09, 0.05, 0.05];
+    var tablaDespiertaS = [0.06, 0.06, 0.09, 0.05, 0.07, 0.07];
+
+    //魔法少女タイプにより、覚醒テーブルを確定
     var tablaDespierta;
     if (tipo === 1) {
         tipoMagia = $("input[name='ctl00$MainContent$tipoPuella']:checked").val();
@@ -507,39 +507,39 @@ function ConsigoTablaDespierta(tipo){
     else {
         tipoMagia = $("input[name='ctl00$MainContent$tipoPuella2']:checked").val();
     }
-     switch (tipoMagia) {
-         case "マギア":
-             {
-                 tablaDespierta = tablaDespiertaM;
-                 break;
-             }
-         case "サポート":
-             {
-                 tablaDespierta = tablaDespiertaS;
-                 break;
-             }
-         case "ヒール":
-             {
-                 tablaDespierta = tablaDespiertaH;
-                 break;
-             }
-         case "ディフェンス":
-             {
-                 tablaDespierta = tablaDespiertaD;
-                 break;
-             }
-         case "アタック":
-             {
-                 tablaDespierta = tablaDespiertaA;
-                 break;
-             }
-         case "バランス":
-             {
-                 tablaDespierta = tablaDespiertaB;
-                 break;
-             }
-     }
-     return tablaDespierta;
+    switch (tipoMagia) {
+        case "マギア":
+            {
+                tablaDespierta = tablaDespiertaM;
+                break;
+            }
+        case "サポート":
+            {
+                tablaDespierta = tablaDespiertaS;
+                break;
+            }
+        case "ヒール":
+            {
+                tablaDespierta = tablaDespiertaH;
+                break;
+            }
+        case "ディフェンス":
+            {
+                tablaDespierta = tablaDespiertaD;
+                break;
+            }
+        case "アタック":
+            {
+                tablaDespierta = tablaDespiertaA;
+                break;
+            }
+        case "バランス":
+            {
+                tablaDespierta = tablaDespiertaB;
+                break;
+            }
+    }
+    return tablaDespierta;
 }
 
 
@@ -557,11 +557,11 @@ function IndicaResultado() {
     document.getElementById('MainContent_modificado1').innerText = calc1[0];
     document.getElementById('MainContent_modificado2').innerText = calc2[0];
     document.getElementById('MainContent_modificado3').innerText = calc3[0];
-    document.getElementById('MainContent_modificado4').innerText = (calc1[0] * 1000 + calc2[0] * 1000 + calc3[0] * 1000)/1000;
+    document.getElementById('MainContent_modificado4').innerText = (calc1[0] * 1000 + calc2[0] * 1000 + calc3[0] * 1000) / 1000;
 
     ////////
     //MP処理
-    var calcTodo = Math.floor((calc1[1] + calc2[1] + calc3[1])*10)/10;
+    var calcTodo = Math.floor((calc1[1] + calc2[1] + calc3[1]) * 10) / 10;
     //小数点チェックボックスoff時
     if ($("input[name='ctl00$MainContent$decimal']:checked").val() !== "on") {
         calcTodo = Math.floor(calc1[1] + calc2[1] + calc3[1]);
@@ -569,17 +569,17 @@ function IndicaResultado() {
         calc2[1] = Math.floor(calc2[1]);
         calc3[1] = Math.floor(calc3[1]);
     }
-    else{
-        calc1[1] = Math.floor(calc1[1]*10)/10;
-        calc2[1] = Math.floor(calc2[1]*10)/10;
-        calc3[1] = Math.floor(calc3[1]*10)/10;
+    else {
+        calc1[1] = Math.floor(calc1[1] * 10) / 10;
+        calc2[1] = Math.floor(calc2[1] * 10) / 10;
+        calc3[1] = Math.floor(calc3[1] * 10) / 10;
     }
     //MP表示処理
     //AAAのみ特殊処理
     var AAA = "";
-    if(eleccion1 === "A" && eleccion2 === "A" && eleccion3 ==="A")
-    AAA = " + 20";
-    
+    if (eleccion1 === "A" && eleccion2 === "A" && eleccion3 === "A")
+        AAA = " + 20";
+
     document.getElementById('MainContent_magia1').innerText = calc1[1];
     document.getElementById('MainContent_magia2').innerText = calc2[1];
     document.getElementById('MainContent_magia3').innerText = calc3[1];
@@ -590,11 +590,11 @@ function IndicaResultado() {
     if (dano < 500)
         dano = 500;
     //覚醒補正
-    var ajusteDespierto = [0,0,0];
-    var eleccion = [eleccion1,eleccion2,eleccion3];
+    var ajusteDespierto = [0, 0, 0];
+    var eleccion = [eleccion1, eleccion2, eleccion3];
     var tablaDespierta = ConsigoTablaDespierta(1);
-    for(let i = 0; i < 3; i++){
-        switch(eleccion[i]){
+    for (let i = 0; i < 3; i++) {
+        switch (eleccion[i]) {
             case "A":
                 {
                     if (color[3] === 1)
@@ -617,7 +617,7 @@ function IndicaResultado() {
         }
     }
 
-    var danoFinal = [calc1[0] * dano * (1 + ajusteDespierto[0]), calc2[0] * dano * (1 + ajusteDespierto[1]), calc3[0] * dano * ( 1 + ajusteDespierto[2])];
+    var danoFinal = [calc1[0] * dano * (1 + ajusteDespierto[0]), calc2[0] * dano * (1 + ajusteDespierto[1]), calc3[0] * dano * (1 + ajusteDespierto[2])];
 
     for (var j = 0; j < 3; j++) {
         if (danoFinal[j] < 250)
@@ -638,9 +638,8 @@ function IndicaResultado() {
 }
 
 //モバイル版表示時にモバイル用文字を表示
-function CambiaLetra(){
-    if(window.parent.screen.width <= 750)
-    {
+function CambiaLetra() {
+    if (window.parent.screen.width <= 750) {
         $("#pequeno11").removeClass("hidden");
         $("#pequeno12").removeClass("hidden");
         $("#pequeno13").removeClass("hidden");
@@ -690,28 +689,28 @@ $(function () {
     });
     $('input[name="ctl00$MainContent$RadioButtonList669"]:radio').change(function () {
         var elegido = $('input[name="ctl00$MainContent$RadioButtonList669"]:checked').val();
-        switch(elegido){
+        switch (elegido) {
             case "A":
-            {
-                $('input[name="ctl00$MainContent$RadioButtonList666"]:radio').val(["A"]);
-                $('input[name="ctl00$MainContent$RadioButtonList667"]:radio').val(["A"]);
-                $('input[name="ctl00$MainContent$RadioButtonList668"]:radio').val(["A"]);
-                break;
-            }
+                {
+                    $('input[name="ctl00$MainContent$RadioButtonList666"]:radio').val(["A"]);
+                    $('input[name="ctl00$MainContent$RadioButtonList667"]:radio').val(["A"]);
+                    $('input[name="ctl00$MainContent$RadioButtonList668"]:radio').val(["A"]);
+                    break;
+                }
             case "B":
-            {
-                $('input[name="ctl00$MainContent$RadioButtonList666"]:radio').val(["B"]);
-                $('input[name="ctl00$MainContent$RadioButtonList667"]:radio').val(["B"]);
-                $('input[name="ctl00$MainContent$RadioButtonList668"]:radio').val(["B"]);
-                break;
-            }
+                {
+                    $('input[name="ctl00$MainContent$RadioButtonList666"]:radio').val(["B"]);
+                    $('input[name="ctl00$MainContent$RadioButtonList667"]:radio').val(["B"]);
+                    $('input[name="ctl00$MainContent$RadioButtonList668"]:radio').val(["B"]);
+                    break;
+                }
             case "C":
-            {
-                $('input[name="ctl00$MainContent$RadioButtonList666"]:radio').val(["C"]);
-                $('input[name="ctl00$MainContent$RadioButtonList667"]:radio').val(["C"]);
-                $('input[name="ctl00$MainContent$RadioButtonList668"]:radio').val(["C"]);
-                break;
-            }
+                {
+                    $('input[name="ctl00$MainContent$RadioButtonList666"]:radio').val(["C"]);
+                    $('input[name="ctl00$MainContent$RadioButtonList667"]:radio').val(["C"]);
+                    $('input[name="ctl00$MainContent$RadioButtonList668"]:radio').val(["C"]);
+                    break;
+                }
         }
         IndicaResultado();
     });
@@ -763,7 +762,7 @@ $(function () {
         //表示処理
         var AtkUp = Number(Zenhan($('#MainContent_AtkUp').val())) || 0;
         AtkUp = ChequeaPorcentaje(AtkUp);
-        ChequeaLimite(AtkUp,'MainContent_AtkUp');
+        ChequeaLimite(AtkUp, 'MainContent_AtkUp');
 
         $('#MainContent_AtkUp').val(AtkUp);
     });
@@ -773,7 +772,7 @@ $(function () {
         //表示処理
         var DefUp = Number(Zenhan($('#MainContent_DefUp').val())) || 0;
         DefUp = ChequeaPorcentaje(DefUp);
-        ChequeaLimite(DefUp,'MainContent_DefUp');
+        ChequeaLimite(DefUp, 'MainContent_DefUp');
 
         $('#MainContent_DefUp').val(DefUp);
     });
@@ -788,25 +787,25 @@ $(function () {
 
 
     //アコーデオン
-    $('#atkCollapse').on("click", {name: '#atkCollapse'}, CambiaEstado );
-    $('#defCollapse').on("click", {name: '#defCollapse'}, CambiaEstado );
+    $('#atkCollapse').on("click", { name: '#atkCollapse' }, CambiaEstado);
+    $('#defCollapse').on("click", { name: '#defCollapse' }, CambiaEstado);
 });
 
 //アコーデオン処理関数
-function CambiaEstado(event){
+function CambiaEstado(event) {
     var address = event.data.name;
     var str = $(address).text();
-    str=str.substr(0,5);
+    str = str.substr(0, 5);
     $(address).toggleClass("active");
-    if(str === "攻撃側設定")
+    if (str === "攻撃側設定")
         $("#multiCollapseExample1").collapse("toggle");
     else
         $("#multiCollapseExample2").collapse("toggle");
-    if($(address).hasClass("active")){
+    if ($(address).hasClass("active")) {
         str += " ひらく";
-        
+
     }
-    else{
+    else {
         str += " とじる";
     }
     $(address).html(str);
@@ -815,30 +814,30 @@ function CambiaEstado(event){
 
 //////////////////////////////////////////////////////
 //canvas処理
-//
-window.addEventListener("load",function(){
+//////////////////////////////////////////////////////
+window.addEventListener("load", function () {
     draw();
-    draw2();    
-    craw3();
+    draw2();
+    draw3();
 });
 var color = [0, 0, 0, 0, 0, 0];
 var color2 = [0, 0, 0, 0, 0, 0];
 
-function draw(){
+function draw() {
     var canvas = document.getElementById("canvas1");
     // canvas.id = "canvas1";
     var scaleF = 0.6;
     // canvas.width = 320;
     // canvas.height = 300;
     // document.body.appendChild(canvas);
-    if(!canvas || !canvas.getContext){
-    return;
+    if (!canvas || !canvas.getContext) {
+        return;
     }
 
     //設定
     var ctx = canvas.getContext("2d");
     var r = 20;
-    var letra = ["DEF","ATK","HP","A","C","B"];
+    var letra = ["DEF", "ATK", "HP", "A", "C", "B"];
 
     const c1 = {
         x: 40 * scaleF,
@@ -865,24 +864,24 @@ function draw(){
         y: 160 * scaleF,
     };
 
-    var circle = [c1,c2,c3,c4,c5,c6];
+    var circle = [c1, c2, c3, c4, c5, c6];
 
     //描画
-    for(let i = 0; i<6;i++){
+    for (let i = 0; i < 6; i++) {
         ctx.save();
         ctx.beginPath();
-        if(color[i]===1)
+        if (color[i] === 1)
             ctx.fillStyle = "red";
         else
             ctx.fillStyle = "whitesmoke";
-        ctx.arc(circle[i].x,circle[i].y,r,0,2*Math.PI);
+        ctx.arc(circle[i].x, circle[i].y, r, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
         ctx.restore();
 
         ctx.save();
         ctx.font = '15px sans-serif';
-        if(color[i]===1)
+        if (color[i] === 1)
             ctx.fillStyle = "whitesmoke";
         else
             ctx.fillStyle = "red";
@@ -891,12 +890,12 @@ function draw(){
         ctx.fillText(letra[i], circle[i].x, circle[i].y);
         ctx.restore();
     }
-    
+
     //on offボタン
     ctx.save();
     ctx.beginPath();
     ctx.fillStyle = "whitesmoke";
-    ctx.arc(circle[1].x,(circle[4].y + circle[1].y)/2 ,r * 1.2,0,2*Math.PI);
+    ctx.arc(circle[1].x, (circle[4].y + circle[1].y) / 2, r * 1.2, 0, 2 * Math.PI);
     ctx.fill();
     ctx.stroke();
     ctx.restore();
@@ -906,7 +905,7 @@ function draw(){
     ctx.fillStyle = "red";
     ctx.textAlign = "center";
     ctx.textBaseline = 'middle';
-    ctx.fillText("ON", circle[1].x,(circle[4].y + circle[1].y)/2 );
+    ctx.fillText("ON", circle[1].x, (circle[4].y + circle[1].y) / 2);
     ctx.restore();
     //描画ここまで
 
@@ -917,7 +916,7 @@ function draw(){
 
     //クリックイベント
     var timer = null;
-    canvas.addEventListener("click",function(e){
+    canvas.addEventListener("click", function (e) {
         clearInterval(timer);
         //座標取得 真ん中の中心からの位置
         const rect = canvas.getBoundingClientRect();
@@ -935,7 +934,7 @@ function draw(){
         //周囲の円check
         for (let i = 0; i < 6; i++) {
             if (hit[i] === true) {
-                color[i] = CheckHit(color[i], circle[i], letra[i], r, ctx,true);
+                color[i] = CheckHit(color[i], circle[i], letra[i], r, ctx, true);
             }
         }
 
@@ -943,55 +942,55 @@ function draw(){
         hitOn = Math.pow(circle[1].x - point.x, 2) + Math.pow((circle[4].y + circle[1].y) / 2 - point.y, 2) <= Math.pow(r * 1.2, 2);
 
         //Onボタンのみの処理
-        if (hitOn === false){
+        if (hitOn === false) {
             IndicaResultado();
             return;
         }
         //描画メイン処理
-        timer = setInterval(function(){
-            ctx.clearRect(0,0,canvas.width,canvas.height,2*r,2 * r);
-            DrawObject(ctx, color,circle, r, letra, checkOnoff);
+        timer = setInterval(function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height, 2 * r, 2 * r);
+            DrawObject(ctx, color, circle, r, letra, checkOnoff);
             ctx.beginPath();
             //クリック地点を中心とする円
             ctx.save();
             ctx.globalCompositeOperation = "source-atop";//交差部分のみ着色
-            var radialGrad = ctx.createRadialGradient(point.x,point.y,1,point.x,point.y,variantR);
-            if (checkOnoff === 0){
+            var radialGrad = ctx.createRadialGradient(point.x, point.y, 1, point.x, point.y, variantR);
+            if (checkOnoff === 0) {
                 // ctx.fillStyle = "red";
                 radialGrad.addColorStop(0, "white");
                 radialGrad.addColorStop(0.90, "white");
                 radialGrad.addColorStop(0.95, "red");
-                radialGrad.addColorStop(1,"red");
+                radialGrad.addColorStop(1, "red");
             }
-            else{
+            else {
                 // ctx.fillStyle = "white";
                 radialGrad.addColorStop(0, "red");
                 radialGrad.addColorStop(0.90, "red");
                 radialGrad.addColorStop(0.95, "white");
-                radialGrad.addColorStop(1,"whitesmoke");
+                radialGrad.addColorStop(1, "whitesmoke");
             }
             ctx.globalAlpha = 0.8;
             ctx.arc(point.x, point.y, variantR, 0, 2 * Math.PI);
             ctx.fillStyle = radialGrad;
             ctx.fill();
             ctx.restore();
-            LetraEscrita(ctx, color, circle, r, letra,checkOnoff);
+            LetraEscrita(ctx, color, circle, r, letra, checkOnoff);
             variantR += 3;
             //終了条件
-            if (variantR > canvas.width * 2 /3) {
+            if (variantR > canvas.width * 2 / 3) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height, 2 * r, 2 * r);
                 clearInterval(timer);
                 //DrawObject(ctx, circle, r, letra);
-                
 
-                
+
+
                 if (hitOn === true) {
                     switch (checkOnoff) {
                         case 0:
                             {
                                 //全部on
                                 for (let i = 0; i < 6; i++) {
-                                    color[i] = CheckHit(0, circle[i], letra[i], r, ctx,true);
+                                    color[i] = CheckHit(0, circle[i], letra[i], r, ctx, true);
                                 }
                                 checkOnoff = 1;
 
@@ -1016,7 +1015,7 @@ function draw(){
                             {
                                 //全部off
                                 for (let i = 0; i < 6; i++) {
-                                    color[i] = CheckHit(1, circle[i], letra[i], r, ctx,true);
+                                    color[i] = CheckHit(1, circle[i], letra[i], r, ctx, true);
                                 }
                                 checkOnoff = 0;
 
@@ -1041,11 +1040,11 @@ function draw(){
                 }
                 IndicaResultado();
             }
-        },1000/60);
+        }, 1000 / 60);
     });
 }
 
-function DrawObject(ctx, color, circle, r, letra,checkOnoff){
+function DrawObject(ctx, color, circle, r, letra, checkOnoff) {
     //外周描画
     // for(let i = 0; i<6; i++){
     //     ctx.save();
@@ -1071,63 +1070,63 @@ function DrawObject(ctx, color, circle, r, letra,checkOnoff){
     //     ctx.restore();
     // }
     //中心描画
-        switch (checkOnoff) {
-            case 1:
-                {
-                    //全部on状態の描画
-                    for (let i = 0; i < 6; i++) {
-                        CheckHit(0, circle[i], letra[i], r, ctx,false);
-                    }
-                    // checkOnoff = 1;
-
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.fillStyle = "red";
-                    ctx.arc(circle[1].x, (circle[4].y + circle[1].y) / 2, r * 1.2, 0, 2 * Math.PI);
-                    ctx.fill();
-                    ctx.stroke();
-                    ctx.restore();
-
-                    ctx.save();
-                    ctx.font = '20px sans-serif';
-                    ctx.fillStyle = "whitesmoke";
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText("OFF", circle[1].x, (circle[4].y + circle[1].y) / 2);
-                    ctx.restore();
-                    break;
+    switch (checkOnoff) {
+        case 1:
+            {
+                //全部on状態の描画
+                for (let i = 0; i < 6; i++) {
+                    CheckHit(0, circle[i], letra[i], r, ctx, false);
                 }
-            case 0:
-                {
-                    //全部off状態の描画
-                    for (let i = 0; i < 6; i++) {
-                        CheckHit(1, circle[i], letra[i], r, ctx,false);
-                    }
-                    // checkOnoff = 0;
+                // checkOnoff = 1;
 
-                    ctx.save();
-                    ctx.beginPath();
-                    ctx.fillStyle = "whitesmoke";
-                    ctx.arc(circle[1].x, (circle[4].y + circle[1].y) / 2, r * 1.2, 0, 2 * Math.PI);
-                    ctx.fill();
-                    ctx.stroke();
-                    ctx.restore();
+                ctx.save();
+                ctx.beginPath();
+                ctx.fillStyle = "red";
+                ctx.arc(circle[1].x, (circle[4].y + circle[1].y) / 2, r * 1.2, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
 
-                    ctx.save();
-                    ctx.font = '20px sans-serif';
-                    ctx.fillStyle = "red";
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText("ON", circle[1].x, (circle[4].y + circle[1].y) / 2);
-                    ctx.restore();
-                    break;
+                ctx.save();
+                ctx.font = '20px sans-serif';
+                ctx.fillStyle = "whitesmoke";
+                ctx.textAlign = "center";
+                ctx.textBaseline = 'middle';
+                ctx.fillText("OFF", circle[1].x, (circle[4].y + circle[1].y) / 2);
+                ctx.restore();
+                break;
+            }
+        case 0:
+            {
+                //全部off状態の描画
+                for (let i = 0; i < 6; i++) {
+                    CheckHit(1, circle[i], letra[i], r, ctx, false);
                 }
-        }
+                // checkOnoff = 0;
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.fillStyle = "whitesmoke";
+                ctx.arc(circle[1].x, (circle[4].y + circle[1].y) / 2, r * 1.2, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+
+                ctx.save();
+                ctx.font = '20px sans-serif';
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.textBaseline = 'middle';
+                ctx.fillText("ON", circle[1].x, (circle[4].y + circle[1].y) / 2);
+                ctx.restore();
+                break;
+            }
+    }
 }
 
 //円内の文字描画処理
-function LetraEscrita(ctx, color, circle, r, letra,checkOnoff){
-    
+function LetraEscrita(ctx, color, circle, r, letra, checkOnoff) {
+
     //中心
     switch (checkOnoff) {
         case 0:
@@ -1163,19 +1162,19 @@ function LetraEscrita(ctx, color, circle, r, letra,checkOnoff){
             }
     }
     //外周円
-    for(let i = 0; i<6; i++){
+    for (let i = 0; i < 6; i++) {
         CheckHit2();
     }
 }
 
 //フラグに合わせて周囲の円を描画する関数
-function CheckHit(color,circle,letra,r,ctx,returnFlag){
+function CheckHit(color, circle, letra, r, ctx, returnFlag) {
     // alert("clicked");
-    if(color===0){
+    if (color === 0) {
         ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "red";
-        ctx.arc(circle.x,circle.y,r,0,2*Math.PI);
+        ctx.arc(circle.x, circle.y, r, 0, 2 * Math.PI);
         ctx.fill();
         ctx.font = '20px sans-serif';
         ctx.fillStyle = "whitesmoke";
@@ -1183,14 +1182,14 @@ function CheckHit(color,circle,letra,r,ctx,returnFlag){
         ctx.textBaseline = 'middle';
         ctx.fillText(letra, circle.x, circle.y);
         ctx.restore();
-        if(returnFlag === true)
+        if (returnFlag === true)
             color = 1;
     }
-    else if(color === 1){
+    else if (color === 1) {
         ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "whitesmoke";
-        ctx.arc(circle.x,circle.y,r,0,2*Math.PI);
+        ctx.arc(circle.x, circle.y, r, 0, 2 * Math.PI);
         ctx.fill();
         ctx.font = '20px sans-serif';
         ctx.fillStyle = "red";
@@ -1198,19 +1197,19 @@ function CheckHit(color,circle,letra,r,ctx,returnFlag){
         ctx.textBaseline = 'middle';
         ctx.fillText(letra, circle.x, circle.y);
         ctx.restore();
-        if(returnFlag === true)
+        if (returnFlag === true)
             color = 0;
     }
-    if(returnFlag === true)
+    if (returnFlag === true)
         return color;
     else
         return;
 }
 
 //フラグに合わせて周囲の文字を描画する関数
-function CheckHit2(color,circle,letra,r,ctx){
+function CheckHit2(color, circle, letra, r, ctx) {
     // alert("clicked");
-    if(color===0){
+    if (color === 0) {
         ctx.save();
         ctx.font = '20px sans-serif';
         ctx.fillStyle = "whitesmoke";
@@ -1219,7 +1218,7 @@ function CheckHit2(color,circle,letra,r,ctx){
         ctx.fillText(letra, circle.x, circle.y);
         ctx.restore();
     }
-    else if(color === 1){
+    else if (color === 1) {
         ctx.save();
         ctx.font = '20px sans-serif';
         ctx.fillStyle = "red";
@@ -1230,21 +1229,21 @@ function CheckHit2(color,circle,letra,r,ctx){
     }
 }
 
-function draw2(){
+function draw2() {
     var canvas = document.getElementById("canvas2");
     // canvas.id = "canvas1";
     var scaleF = 0.6;
     // canvas.width = 320;
     // canvas.height = 300;
     // document.body.appendChild(canvas);
-    if(!canvas || !canvas.getContext){
-    return;
+    if (!canvas || !canvas.getContext) {
+        return;
     }
 
     //設定
     var ctx = canvas.getContext("2d");
     var r = 20;
-    var letra = ["DEF","ATK","HP","A","C","B"];
+    var letra = ["DEF", "ATK", "HP", "A", "C", "B"];
 
     const c1 = {
         x: 40 * scaleF,
@@ -1271,14 +1270,14 @@ function draw2(){
         y: 160 * scaleF,
     };
 
-    var circle = [c1,c2,c3,c4,c5,c6];
+    var circle = [c1, c2, c3, c4, c5, c6];
 
     //描画
-    for(let i = 0; i<3;i++){
+    for (let i = 0; i < 3; i++) {
         ctx.save();
         ctx.beginPath();
         ctx.fillStyle = "whitesmoke";
-        ctx.arc(circle[i].x,circle[i].y,r,0,2*Math.PI);
+        ctx.arc(circle[i].x, circle[i].y, r, 0, 2 * Math.PI);
         ctx.fill();
         ctx.stroke();
         ctx.restore();
@@ -1295,42 +1294,233 @@ function draw2(){
     var hit = new Array(6);
 
     //クリックイベント
-    canvas.addEventListener("click", e  => {
+    canvas.addEventListener("click", e => {
         const rect = canvas.getBoundingClientRect();
         const point = {
             x: e.clientX - rect.left,
             y: e.clientY - rect.top
         };
-        
-        for(let j = 0; j < 3; j++){
-            hit[j] = Math.pow(circle[j].x - point.x,2) + Math.pow(circle[j].y - point.y, 2) <= Math.pow(r, 2);
+
+        for (let j = 0; j < 3; j++) {
+            hit[j] = Math.pow(circle[j].x - point.x, 2) + Math.pow(circle[j].y - point.y, 2) <= Math.pow(r, 2);
         }
-        
+
         //check
-        for(let i = 0; i < 1; i++){
-            if(hit[i] === true){
-                color2[i] = CheckHit(color2[i],circle[i],letra[i],r,ctx,true);
+        for (let i = 0; i < 1; i++) {
+            if (hit[i] === true) {
+                color2[i] = CheckHit(color2[i], circle[i], letra[i], r, ctx, true);
             }
         }
         IndicaResultado();
     });
 }
 
-function draw3(){
+////////////////////////////
+//キャラ選択画面用描画関数
+////////////////////////////
+var elegida = -1;
+
+function draw3() {
     var canvas = document.getElementById("canvas3");
-    var scaleF = 1;
-    if(!canvas || !canvas.getContext){
-    return;
+    if (!canvas || !canvas.getContext) {
+        return;
     }
 
     //設定
     var ctx = canvas.getContext("2d");
+    var personas = 10;
+    var scaleF = 1;
+    var r = 30;
+    var x0 = r;
+    var x = [personas];
+    var y = 40;
+    var offset = 2 * r + 10;
+    var letra = [personas];
+
+    //JSONGET処理
+    $.getJSON("Scripts/magia_json/magia.json", function (data) {
+        data;  
+    });
+
+    for (let i = 0; i < personas; i++) {
+        x[i] = i === 0 ? x0 : x[i - 1] + offset;
+        letra[i] = i + 1;
+    }
+
+    for (let i = 0; i < personas; i++) {
+        DrawCircle(ctx, x[i], y, r, 1);
+        DrawText(ctx, x[i], y, letra[i], 1);
+    }
+
+    var pointerFlag = false;
+    // console.log(pointerFlag + "0");
+
+    //向き判定
+    var direction;
+
+    var number;
+    var clickX;
+    var clickY;
+
+    var isStatic = 0;
+
+    canvas.addEventListener("pointerdown", function (e) {
+        isStatic = 1;
+        //エリア内ならフラグon
+        //ポインタがcanvas内にあるか判定
+        const rect = canvas.getBoundingClientRect();
+        clickX = e.clientX - rect.left;
+        clickY = e.clientY - rect.top;
+        if ((clickX < canvas.width) && (clickY < canvas.height)) {
+            pointerFlag = true;
+            // console.log(pointerFlag + " down");
+        }
+
+        //クリックした物体の判定処理
+        // if(number === -1)
+        //     return;
+        number = -1;
+        //ポインタが円内にあるか判定
+        for (let i = 0; i < personas; i++) {
+            if ((clickX - x[i]) ** 2 + (clickY - y) ** 2 < r ** 2) {
+                number = i;
+                break;
+            }
+        }
+    });
+    //ポインタ乗ったらドラッグ処理
+    canvas.addEventListener('pointermove', function (e) {
+        if (!pointerFlag) {
+            // console.log(pointerFlag + " move");
+            return;
+        }
+        //オフセット位置取得
+        const rect = canvas.getBoundingClientRect();
+        var px = e.clientX - rect.left - clickX;
+        var py = e.clientY - rect.top - clickY;
+        clickX = e.clientX - rect.left;
+        clickY = e.clientY - rect.top;
+
+        //canvas外は受け付けない
+        if ((clickX > canvas.width) || (clickX < 0) || (clickY > canvas.height) || (clickY < 0)) {
+            pointerFlag = false;
+            // console.log(pointerFlag + " limit");
+            return;
+        }
+
+        //両端の移動制限
+        //左端
+        if ((px > 0) && (x[0] >= x0)) {
+            if (clickX > canvas.width)
+                pointerFlag = false;
+            // console.log(pointerFlag + " left");
+            return;
+        }
+        //右端
+        if ((px < 0) && (x[personas - 1] <= canvas.width - (x0))) {
+            if (clickX < 0)
+                pointerFlag = false;
+            // console.log(pointerFlag + " right");
+            return;
+        }
+        console.log("px " + px);
+        //pxが少ない場合は色変え
+        if (Math.abs(px) > 3)
+            isStatic = 0;
+
+        //描画メイン処理
+        if (pointerFlag) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < personas; i++) {
+                x[i] += px;
+                if (elegida === i) {//色変え
+                    DrawCircle(ctx, x[i], y, r, -1);
+                    DrawText(ctx, x[i], y, letra[i], -1);
+                }
+                else {//通常色
+                    DrawCircle(ctx, x[i], y, r, 1);
+                    DrawText(ctx, x[i], y, letra[i], 1);
+                }
+            }
+            direction = px;
+
+        }
+
+    });
+
+
+
+    //ポインタ離れたらドラッグ終了
+    canvas.addEventListener("pointerup", function (e) {
+        pointerFlag = false;
+        // console.log(pointerFlag + " UP");
+
+        if (isStatic === 1 && number !== -1) {
+            console.log("elegida " + elegida + " number" + number);
+            switch (elegida) {
+                case number:
+                    {//同色の場合は色を初期に戻す
+                        //同じ番号の場合
+                        //色を戻す処理
+                        elegida = -1;
+                        console.log(elegida + " 同番の場合色戻し");
+                        DrawCircle(ctx, x[number], y, r, 1);
+                        DrawText(ctx, x[number], y, letra[number], 1);
+                        break;
+                    }
+                default://他番号の場合
+                    {
+                        //もともとの色を戻す
+                        if (elegida !== -1) {//もともと未選択の場合はここをパス
+                            DrawCircle(ctx, x[elegida], y, r, 1);
+                            DrawText(ctx, x[elegida], y, letra[elegida], 1);
+                        }
+                        //新しく選択されたものの色を変える
+                        DrawCircle(ctx, x[number], y, r, -1);
+                        DrawText(ctx, x[number], y, letra[number], -1);
+                        elegida = number;
+                        console.log(elegida + " 他番の場合色変え");
+                        break;
+                    }
+            }
+        }
+    });
+
+    canvas.addEventListener('pointercancel', function (e) {
+        pointerFlag = false;
+        // console.log(pointerFlag + " cancel");
+    });
 }
+//color 
+//1 black それ以外 white
+function DrawCircle(ctx, x, y, r, color) {
+    ctx.beginPath();
+    ctx.save();
+    ctx.fillStyle = color === 1 ? "black" : "white";
+    ctx.strokeStyle = "black";
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+}
+function DrawText(ctx, x, y, letra, color) {
+    ctx.save();
+    ctx.font = "16px sans-serif";
+    ctx.fillStyle = color === 1 ? "white" : "black";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(letra, x, y);
+    ctx.restore();
+}
+
+
+
+
 
 ///////////////////////////////////////////////////////////
 //ガチャ石計算
 ///////////////////////////////////////////////////////////
-function CalcResultado(){
+function CalcResultado() {
     //入力値から値取得
     var type = $("input[name='ctl00$MainContent$RadioButtonList777']:checked").val();
     var typeText = $('#MainContent_numero_de_paraiso').val();
@@ -1365,16 +1555,16 @@ function CalcResultado(){
         resultado2.innerText = "石価格を設定して下さい";
         return;
     }
-    
+
 
     //計算部分
     //必要な石の計算
     var realLimite = type - gachaNum;
     if ((realLimite > type) || (realLimite < 0))
         resultado.innerText = "いっぱい石あるんで回しましょ";
-        
 
-    
+
+
 
     //石が何個必要か算出
     //10連を何回するか
@@ -1398,7 +1588,7 @@ function CalcResultado(){
     var prikoneCuenta = 0;
     var cuenta7500 = $("input[name='ctl00$MainContent$RadioButtonList780']:checked").val();
     if (juego == "プリコネ") {
-            if (cuenta7500 != 3) {
+        if (cuenta7500 != 3) {
             for (var i = 0; i < (3 - cuenta7500); i++) {
                 piedraNecesitada -= 7500;
                 if (piedraNecesitada < 0) {
@@ -1425,11 +1615,11 @@ function CalcResultado(){
     }
 
     var piedraUnidad = Math.floor(piedraNecesitada / piedra);
-    var kakin = (piedraUnidad + prikoneCuenta ) * billete;
+    var kakin = (piedraUnidad + prikoneCuenta) * billete;
     //あまり分算出
     var sobraFinal = Math.floor(piedraNecesitada % piedra);
 
-    
+
 
 
     //最終結果表示
@@ -1516,7 +1706,7 @@ function CambioPropiedades() {
     }
 
     //得られた情報により計算
-    
+
 
     //天井
     var type = $("input[name='ctl00$MainContent$RadioButtonList777']:radio");

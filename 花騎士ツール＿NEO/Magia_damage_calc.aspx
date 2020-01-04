@@ -48,7 +48,7 @@
             <div class="collapse in" id="multiCollapseExample1">
                 <div class="row">
                     <div class ="col-xs-12">
-                        <canvas id ="canvas3" width="300" height="100">Canvasに対応したブラウザを使用してください。</canvas>
+                        <canvas id ="canvas3" width="300" height="80">Canvasに対応したブラウザを使用してください。</canvas>
                     </div>
                 </div>
                 <div class="col-sm-6 col-xs-12 bg-info">

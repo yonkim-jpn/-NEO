@@ -9,6 +9,7 @@
       "Rarerity": 5,
       "TipoMagia": "’P‘Ì",
       "Attribute": "ˆÅ",
+      "Disk" :  "AABBC",
       "data" : ""
     },
     {
@@ -20,6 +21,7 @@
       "Rarerity": 5,
       "TipoMagia": "‘S‘Ì",
       "Attribute": "–Ø",
+      "Disk": "AABCC",
       "data": ""
     },
     {
@@ -31,6 +33,7 @@
       "Rarerity": 5,
       "TipoMagia": "’P‘Ì",
       "Attribute": "…",
+      "Disk": "AABCC",
       "data": ""
     }
   ]
