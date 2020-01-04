@@ -819,6 +819,7 @@ function CambiaEstado(event){
 window.addEventListener("load",function(){
     draw();
     draw2();    
+    craw3();
 });
 var color = [0, 0, 0, 0, 0, 0];
 var color2 = [0, 0, 0, 0, 0, 0];
@@ -1313,11 +1314,18 @@ function draw2(){
         }
         IndicaResultado();
     });
-
-
-
 }
 
+function draw3(){
+    var canvas = document.getElementById("canvas3");
+    var scaleF = 1;
+    if(!canvas || !canvas.getContext){
+    return;
+    }
+
+    //設定
+    var ctx = canvas.getContext("2d");
+}
 
 ///////////////////////////////////////////////////////////
 //ガチャ石計算

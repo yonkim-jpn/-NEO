@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="container">
-        <h2>マギレコ簡易ダメ計算<small>（超ベ〇ータ2版）</small></h2>
+        <h3>マギレコ簡易ダメ計算<small>（超ベ〇ータ2版）</small></h3>
         <h5>算出されたダメージ値に乱数はかかっていません</h5>
         <div class="row">
             
@@ -46,6 +46,11 @@
         
         <div class="row">
             <div class="collapse in" id="multiCollapseExample1">
+                <div class="row">
+                    <div class ="col-xs-12">
+                        <canvas id ="canvas3" width="300" height="100">Canvasに対応したブラウザを使用してください。</canvas>
+                    </div>
+                </div>
                 <div class="col-sm-6 col-xs-12 bg-info">
                     <div class="row">
                          <div class="col-xs-6">

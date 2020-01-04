@@ -1,0 +1,37 @@
+{
+  "personas": [
+    {
+      "name": "古町　みくら",
+      "HP": "21520",
+      "ATK": "9276",
+      "DEF": "6792",
+      "Despierta": [ "6", "8", "7", "7", "5", "7" ],
+      "Rarerity": 5,
+      "TipoMagia": "単体",
+      "Attribute": "闇",
+      "data" : ""
+    },
+    {
+      "name": "巴　マミ",
+      "HP": "20941",
+      "ATK": "9652",
+      "DEF": "6553",
+      "Despierta": [ "6", "8", "7", "7", "7", "5" ],
+      "Rarerity": 5,
+      "TipoMagia": "全体",
+      "Attribute": "木",
+      "data": ""
+    },
+    {
+      "name": "美樹　さやか",
+      "HP": "29266",
+      "ATK": "7595",
+      "DEF": "9493",
+      "Despierta": [ "9", "5", "7", "7", "7", "5" ],
+      "Rarerity": 5,
+      "TipoMagia": "単体",
+      "Attribute": "水",
+      "data": ""
+    }
+  ]
+}
