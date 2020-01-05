@@ -1293,6 +1293,12 @@ function draw2(){
 
     var hit = new Array(6);
 
+    //JSONGET処理
+    $.getJSON("magia.json", function (data) {
+        data;
+    });
+
+
     //クリックイベント
     canvas.addEventListener("click", e  => {
         const rect = canvas.getBoundingClientRect();
