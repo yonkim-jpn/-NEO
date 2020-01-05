@@ -1294,7 +1294,7 @@ function draw2(){
     var hit = new Array(6);
 
     //JSONGET処理
-    $.getJSON("magia.json", function (data) {
+    $.getJSON("Scripts/yonkim_script/test.json", function (data) {
         data;
     });
 
