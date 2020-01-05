@@ -4,7 +4,7 @@
 
 <html lang="ja">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="application/json; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="description" content="DMMゲーム　フラワーナイトガール（花騎士）のパーティー編成シミュレーターです。スキル発動率、デバフ効果、付与される属性等計算します。アビリティによる検索や、能力値ランキングもあります。昇華石必要数計算機
         もオヌヌメ。"/>

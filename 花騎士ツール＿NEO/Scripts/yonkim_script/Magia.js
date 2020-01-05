@@ -815,6 +815,7 @@ function CambiaEstado(event) {
 //////////////////////////////////////////////////////
 //canvas処理
 //////////////////////////////////////////////////////
+
 window.addEventListener("load", function () {
     draw();
     draw2();
@@ -1328,14 +1329,34 @@ function draw3() {
 
     //設定
     var ctx = canvas.getContext("2d");
-    var personas ;
+    // var personas ;
     
     //JSONGET処理
-    $.getJSON("Scripts/magia_json/magia.json", function (data) {
+    // $.getJSON("Scripts/magia_json/magia.json", function (data) {
         
-        personas = data["personas"].length;
-    });
-    
+    //     personas = data["personas"].length;
+    //     jsonData = data;
+    // });
+    // var jsonData;
+    var personas;
+    var jsonData;
+    var xhr = new XMLHttpRequest;
+    (function (handleload) {
+        // var xhr = new XMLHttpRequest;
+
+        xhr.addEventListener('load', handleload, false);
+        xhr.open('GET', 'Scripts/magia_json/magia.json', false);//同期処理。
+        xhr.send(null);
+        //xhr.send();
+    }(function handleLoad(event) {
+        var xhr = event.target,
+            obj = JSON.parse(xhr.responseText);
+        
+        personas = obj.personas.length;
+        console.log(obj);
+        jsonData = obj;
+    }));
+
     var scaleF = 1;
     var r = 30;
     var x0 = r;
@@ -1343,16 +1364,10 @@ function draw3() {
     var y = 40;
     var offset = 2 * r + 10;
     var letra = [personas];
-    var jsonData;
-
-    //JSONGET処理
-    $.getJSON("Scripts/magia_json/magia.json", function (data) {
-        jsonData = data["personas"][0];
-    });
-
+    
     for (let i = 0; i < personas; i++) {
         x[i] = i === 0 ? x0 : x[i - 1] + offset;
-        letra[i] = i + 1;
+        letra[i] = jsonData.personas[i].name;
     }
 
     for (let i = 0; i < personas; i++) {
@@ -1498,6 +1513,7 @@ function draw3() {
         pointerFlag = false;
         // console.log(pointerFlag + " cancel");
     });
+    console.log("draw3終わり");
 }
 //color 
 //1 black それ以外 white
