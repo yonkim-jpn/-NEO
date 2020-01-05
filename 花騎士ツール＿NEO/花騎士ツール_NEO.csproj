@@ -253,6 +253,7 @@
     <Content Include="libman.json" />
     <Content Include="Fkg_omake_neo.aspx" />
     <Content Include="Connected Services\Application Insights\ConnectedService.json" />
+    <Content Include="Scripts\yonkim_script\test.json" />
     <None Include="参考コード\花騎士登録フォーム_neo_old.aspx" />
     <None Include="参考コード\花騎士登録フォーム.aspx" />
     <None Include="参考コード\ability_search.aspx" />
