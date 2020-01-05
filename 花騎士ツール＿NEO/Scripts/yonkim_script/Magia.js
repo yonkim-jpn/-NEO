@@ -1329,6 +1329,12 @@ function draw3() {
     //設定
     var ctx = canvas.getContext("2d");
     var personas = 10;
+    
+    //JSONGET処理
+    $.getJSON("Scripts/magia_json/magia.json", function (data) {
+        personas = data.length;
+    });
+    
     var scaleF = 1;
     var r = 30;
     var x0 = r;
@@ -1336,10 +1342,11 @@ function draw3() {
     var y = 40;
     var offset = 2 * r + 10;
     var letra = [personas];
+    var jsonData;
 
     //JSONGET処理
     $.getJSON("Scripts/magia_json/magia.json", function (data) {
-        data;  
+         jsonData = JSON.parse(data);
     });
 
     for (let i = 0; i < personas; i++) {
