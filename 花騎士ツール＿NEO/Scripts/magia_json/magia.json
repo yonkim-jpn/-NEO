@@ -1,38 +1,38 @@
 {
   "personas": [
     {
-      "name": "ŒÃ’¬@‚İ‚­‚ç",
+      "name": "å¤ç”ºã€€ã¿ãã‚‰",
       "HP": "21520",
       "ATK": "9276",
       "DEF": "6792",
       "Despierta": [ "6", "8", "7", "7", "5", "7" ],
       "Rarerity": 5,
-      "TipoMagia": "’P‘Ì",
-      "Attribute": "ˆÅ",
+      "TipoMagia": "ãƒã‚®ã‚¢",
+      "Attribute": "é—‡",
       "Disk" :  "AABBC",
       "data" : ""
     },
     {
-      "name": "”b@ƒ}ƒ~",
+      "name": "å·´ã€€ãƒãƒŸ",
       "HP": "20941",
       "ATK": "9652",
       "DEF": "6553",
       "Despierta": [ "6", "8", "7", "7", "7", "5" ],
       "Rarerity": 5,
-      "TipoMagia": "‘S‘Ì",
-      "Attribute": "–Ø",
+      "TipoMagia": "ãƒã‚®ã‚¢",
+      "Attribute": "æœ¨",
       "Disk": "AABCC",
       "data": ""
     },
     {
-      "name": "”ü÷@‚³‚â‚©",
+      "name": "ç¾æ¨¹ã€€ã•ã‚„ã‹",
       "HP": "29266",
       "ATK": "7595",
       "DEF": "9493",
       "Despierta": [ "9", "5", "7", "7", "7", "5" ],
       "Rarerity": 5,
-      "TipoMagia": "’P‘Ì",
-      "Attribute": "…",
+      "TipoMagia": "ãƒ‡ã‚£ãƒ•ã‚§ãƒ³ã‚¹",
+      "Attribute": "æ°´",
       "Disk": "AABCC",
       "data": ""
     }
