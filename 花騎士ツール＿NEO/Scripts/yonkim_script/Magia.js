@@ -1352,6 +1352,12 @@ function draw2() {
 
     var hit = new Array(6);
 
+    //JSONGET処理
+    $.getJSON("Scripts/yonkim_script/test.json", function (data) {
+        data;
+    });
+
+
     //クリックイベント
     canvas.addEventListener("click", e => {
         const rect = canvas.getBoundingClientRect();
