@@ -231,6 +231,12 @@
     </Content>
     <Content Include="Magia_damage_calc.aspx" />
     <Content Include="La_via_al_paraiso.aspx" />
+    <Content Include="png\sayaka.png" />
+    <Content Include="png\sayakaOn.png" />
+    <Content Include="png\mikura.png" />
+    <Content Include="png\mikuraOn.png" />
+    <Content Include="png\mami.png" />
+    <Content Include="png\mamiOn.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\handsontable\handsontable.full.js" />

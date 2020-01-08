@@ -10,7 +10,8 @@
       "TipoMagia": "マギア",
       "Attribute": "闇",
       "Disk" :  "AABBC",
-      "data" : ""
+      "data1" : "mikura.png",
+      "data2" : "mikuraOn.png"
     },
     {
       "name": "巴　マミ",
@@ -22,7 +23,8 @@
       "TipoMagia": "マギア",
       "Attribute": "木",
       "Disk": "AABCC",
-      "data": ""
+      "data1": "mami.png",
+      "data2": "mamiOn.png"
     },
     {
       "name": "美樹　さやか",
@@ -34,7 +36,47 @@
       "TipoMagia": "ディフェンス",
       "Attribute": "水",
       "Disk": "AABCC",
-      "data": ""
+      "data1": "sayaka.png",
+      "data2": "sayakaOn.png"
+    },
+    {
+      "name": "佐倉　杏子",
+      "HP": "22580",
+      "ATK": "9562",
+      "DEF": "7268",
+      "Despierta": [ "6", "8", "7", "6", "5", "8" ],
+      "Rarerity": 5,
+      "TipoMagia": "アタック",
+      "Attribute": "火",
+      "Disk": "ABBBC",
+      "data1": "",
+      "data2": ""
+    },
+    {
+      "name": "七瀬　ゆきか",
+      "HP": "27502",
+      "ATK": "8801",
+      "DEF": "8563",
+      "Despierta": [ "7", "7", "7", "7", "7", "5" ],
+      "Rarerity": 5,
+      "TipoMagia": "バランス",
+      "Attribute": "光",
+      "Disk": "AABCC",
+      "data1": "",
+      "data2": ""
+    },
+    {
+      "name": "水波　レナ",
+      "HP": "22144",
+      "ATK": "9776",
+      "DEF": "7366",
+      "Despierta": [ "5", "9", "6", "9", "5", "5" ],
+      "Rarerity": 5,
+      "TipoMagia": "アタック",
+      "Attribute": "水",
+      "Disk": "AAABC",
+      "data1": "",
+      "data2": ""
     }
   ]
 }

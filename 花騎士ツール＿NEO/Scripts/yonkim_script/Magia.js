@@ -1425,7 +1425,7 @@ function draw3() {
     var charaR = 30;
     var x0 = charaR;
     var charaX = [personas];
-    var charaY = 40;
+    var charaY = 35;
     var offset = 2 * charaR + 10;
     var nombre = [personas];
     
@@ -1434,9 +1434,35 @@ function draw3() {
         nombre[i] = jsonData.personas[i].name.substring(jsonData.personas[i].name.indexOf("　")+1);
     }
 
+    //画像load処理
+    var image = [personas];
+    for(let i = 0; i < personas ; i++){
+        image[i] = [2];
+        image[i][0] = new Image;
+        image[i][0].src = "png/" + (jsonData.personas[i].data1);
+        image[i][1] = new Image;
+        image[i][1].src = "png/" + (jsonData.personas[i].data2);
+    }
+
+    var loadedCount = 1;//確認用
+            for (let i = 0; i<personas ; i++) {
+                for(let j = 0; j < 2; j++){
+                    image[i][j].addEventListener('load', function() {
+                        // if (loadedCount == image.length * 2) {
+                        //     ctx3.drawImage("png" + image[i][0], x[i] - r, y - r, 2 * r, 2 * r);
+                        // }
+                        loadedCount++;
+                    }, false);
+                }
+            }
     for (let i = 0; i < personas; i++) {
-        DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
-        DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+        if (image[i][0].src.match(/png$/)!==null) {
+            DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, 1);
+        }
+        else {
+            DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+            DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+        }
     }
 
     var pointerFlag = false;
@@ -1521,12 +1547,22 @@ function draw3() {
             for (let i = 0; i < personas; i++) {
                 charaX[i] += px;
                 if (elegida === i) {//色変え
-                    DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
-                    DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
+                    if (image[i][1].src.match(/png$/)!==null) {
+                        DrawImage(ctx3, x[i], y, r, image[i][0].src, image[i][1].src, -1);
+                    }
+                    else {
+                        DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
+                        DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
+                    }
                 }
                 else {//通常色
-                    DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
-                    DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                    if (image[i][0].src.match(/png$/)!==null) {
+                        DrawImage(ctx3, x[i], y, r, image[i][0].src, image[i][1].src, 1);
+                    }
+                    else {
+                        DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+                        DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                    }
                 }
             }
             direction = px;
@@ -1555,8 +1591,13 @@ function draw3() {
                         ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
                         for (let i = 0; i < personas; i++) {
                             //全て通常色
+                            if (image[i][0].src.match(/png$/)!==null) {
+                                DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, 1);
+                            }
+                            else {
                                 DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
                                 DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                            }
                         }
                         // DrawCircle(ctx3, charaX[number], charaY, charaR, 1);
                         // DrawText(ctx3, charaX[number], charaY, nombre[number], 1);
@@ -1587,13 +1628,23 @@ function draw3() {
                         for (let i = 0; i < personas; i++) {
                             if (i === number) {
                                 //新しく選択されたものの色を変える
-                                DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
-                                DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
+                                if (image[i][1].src.match(/png$/)!==null) {
+                                    DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, -1);
+                                }
+                                else {
+                                    DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
+                                    DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
+                                }
                             }
                             else {
                                 //全て通常色
-                                DrawCircle(ctx3, charaX[i], charaY,charaR, 1);
-                                DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                                if (image[i][0].src.match(/png$/)!==null) {
+                                    DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, 1);
+                                }
+                                else {
+                                    DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+                                    DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                                }
                             }
                         }
                         elegida = number;
@@ -1655,7 +1706,13 @@ function DrawText(ctx, x, y, letra, charColor) {
     ctx.fillText(letra, x, y);
     ctx.restore();
 }
-
+function DrawImage(ctx, x, y, r, image0, image1, onoff) {
+    var image = new Image;
+    image.src = onoff === 1 ? image0 : image1;
+    image.addEventListener('load', function(){
+        ctx.drawImage(image, x - r, y - r, r * 2, r * 2);
+    }, false);
+}
 
 
 
