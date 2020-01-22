@@ -58,6 +58,7 @@
         <script src="Scripts/jquery.inview.js"></script>
         <script src="Scripts/jquery.rwdImageMaps.js"></script>
         <script src="Scripts/handsontable/handsontable.full.min.js"></script>
+        <script src="Scripts/angular.min.js"></script>
         <script src="Scripts/yonkim_script/FkgSelect.js"></script>
         <script src="Scripts/yonkim_script/Magia.js"></script>
 

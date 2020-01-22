@@ -64,3 +64,16 @@ textarea {
     border: 1px solid gray;
     touch-action: none; /* surfaceでタッチする為に超大事 */
 }
+
+#canvas31 {
+    border: 1px solid gray;
+    touch-action: none; /* surfaceでタッチする為に超大事 */
+}
+
+.filterMagia {
+    display: flex;
+}
+
+.statusMagia {
+    display: flex;
+}

@@ -8,18 +8,25 @@
 //ATKとDEFより、基礎ダメージ算出
 //ATKに値が入力されていない時のみエラー
 
-function CalcDano() {
+function CalcDano(numero) {
     //値取得
-    var Atk = Number(Zenhan($('#MainContent_TextBox666').val())) || 0;
-    var mAtk = Number(Zenhan($('#MainContent_TextBox667').val())) || 0;
+    var Atk = [3];
+    Atk[0] = Number(Zenhan($('#MainContent_TextBox666').val())) || 0;
+    Atk[1] = Number(Zenhan($('#MainContent_TextBox666_2').val())) || 0;
+    Atk[2] = Number(Zenhan($('#MainContent_TextBox666_3').val())) || 0;
+    var mAtk = [3];
+    mAtk[0] = Number(Zenhan($('#MainContent_TextBox667').val())) || 0;
+    mAtk[1] = Number(Zenhan($('#MainContent_TextBox667_2').val())) || 0;
+    mAtk[2] = Number(Zenhan($('#MainContent_TextBox667_3').val())) || 0;
     var Def = Number(Zenhan($('#MainContent_TextBox668').val())) || 0;
     var mDef = Number(Zenhan($('#MainContent_TextBox669').val())) || 0;
 
     //覚醒補正
     var atkDespierto = 0;
     var defDespierto = 0;
-    if (color[1] === 1) {
-        atkDespierto = valorAjustado[1]/100 ;
+    
+    if (color[numero][1] === 1) {
+        atkDespierto = valorAjustado[numero][1]/100 ;
     }
     //相手側DEFにより
     if (color2[0] === 1) {
@@ -27,22 +34,25 @@ function CalcDano() {
     }
 
     //陣形補正
-    var ordenAtk = $("input[name='ctl00$MainContent$ordendeBatalla']:checked").val();
-    var ordenDef = $("input[name='ctl00$MainContent$ordendeBatalla2']:checked").val();
-    switch (ordenAtk) {
+    var ordenAtk = [3];
+    ordenAtk[0] = $("input[name='ctl00$MainContent$ordendeBatalla']:checked").val();
+    ordenAtk[1] = $("input[name='ctl00$MainContent$ordendeBatalla2']:checked").val();
+    ordenAtk[2] = $("input[name='ctl00$MainContent$ordendeBatalla3']:checked").val();
+    var ordenDef = $("input[name='ctl00$MainContent$ordendeBatalla4']:checked").val();
+    switch (ordenAtk[numero]) {
         case "1":
             {
-                ordenAtk = 1.1;
+                ordenAtk[numero] = 1.1;
                 break;
             }
         case "2":
             {
-                ordenAtk = 1.15;
+                ordenAtk[numero] = 1.15;
                 break;
             }
         case "0":
             {
-                ordenAtk = 1;
+                ordenAtk[numero] = 1;
                 break;
             }
     }
@@ -65,22 +75,25 @@ function CalcDano() {
     }
 
     //攻撃力UP補正
-    var AtkUp = Number(Zenhan($('#MainContent_AtkUp').val())) || 0;
+    var AtkUp = [3];
+    AtkUp[0] = Number(Zenhan($('#MainContent_AtkUp').val())) || 0;
+    AtkUp[1] = Number(Zenhan($('#MainContent_AtkUp2').val())) || 0;
+    AtkUp[2] = Number(Zenhan($('#MainContent_AtkUp3').val())) || 0;
     var DefUp = Number(Zenhan($('#MainContent_DefUp').val())) || 0;
 
-    AtkUp = (AtkUp > 200) ? 200 : AtkUp;
-    AtkUp = ((AtkUp < 5) && (AtkUp > -5)) ? 0 : AtkUp;
-    AtkUp = (AtkUp < -100) ? -100 : AtkUp;
+    AtkUp[numero] = (AtkUp[numero] > 200) ? 200 : AtkUp[numero];
+    AtkUp[numero] = ((AtkUp[numero] < 5) && (AtkUp[numero] > -5)) ? 0 : AtkUp[numero];
+    AtkUp[numero] = (AtkUp[numero] < -100) ? -100 : AtkUp[numero];
     DefUp = (DefUp > 200) ? 200 : DefUp;
     DefUp = ((DefUp < 5) && (DefUp > -5)) ? 0 : DefUp;
     DefUp = (DefUp < -100) ? -100 : DefUp;
 
 
-    AtkUp = 1 + AtkUp / 100;
+    AtkUp[numero] = 1 + AtkUp[numero] / 100;
     DefUp = 1 + DefUp / 100;
 
     //UPDOWN補正をいったん抜いて簡易作成
-    var AtkReal = (Atk * (1 + atkDespierto) + mAtk) * AtkUp * ordenAtk;
+    var AtkReal = (Atk[numero] * (1 + atkDespierto) + mAtk[numero]) * AtkUp[numero] * ordenAtk[numero];
     var DefReal = (Def * (1 + defDespierto) + mDef) * DefUp * ordenDef;
     var dano = AtkReal - DefReal / 3;
 
@@ -341,7 +354,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     }
 
     //B:魔法少女タイプ取得
-    var tipoPuella = $("input[name='ctl00$MainContent$tipoPuella']:checked").val();
+    var tipoPuella = $("#MainContent_tipoPuella1").val();
     var calcMpB = 1;
     switch (tipoPuella) {
         case "マギア":
@@ -557,6 +570,8 @@ function IndicaResultado() {
     document.getElementById('MainContent_modificado3').innerText = calc3[0];
     document.getElementById('MainContent_modificado4').innerText = (calc1[0] * 1000 + calc2[0] * 1000 + calc3[0] * 1000) / 1000;
 
+    
+
     ////////
     //MP処理
     var calcTodo = Math.floor((calc1[1] + calc2[1] + calc3[1]) * 10) / 10;
@@ -583,38 +598,49 @@ function IndicaResultado() {
     document.getElementById('MainContent_magia3').innerText = calc3[1];
     document.getElementById('MainContent_magia4').innerText = calcTodo + AAA;
 
-
-    var dano = CalcDano();
-    if (dano < 500)
-        dano = 500;
+    var estadoAtk = $("input[name='ctl00$MainContent$estadoAtk']:checked").val();
+    var dano = [3];
+    for (let i = 0; i < 3; i++){
+        if (estadoAtk === "1")//ピュエラ
+            dano[i] = CalcDano(0);
+        else//通常
+            dano[i] = CalcDano(i);
+        dano[i] = dano[i] < 500 ? 500 : dano[i];
+    }
+    // var dano = CalcDano(0);
+    // if (dano < 500)
+    //     dano = 500;
     //覚醒補正
+    var numero = 0;//ピュエラ
     var ajusteDespierto = [0, 0, 0];
     var eleccion = [eleccion1, eleccion2, eleccion3];
     for (let i = 0; i < 3; i++) {
+        if (estadoAtk === "0")//通常
+            numero = i;
         switch (eleccion[i]) {
             case "A":
                 {
-                    if (color[3] === 1)
-                        ajusteDespierto[i] = valorAjustado[3]/100;
+                    if (color[numero][3] === 1)
+                        ajusteDespierto[i] = valorAjustado[numero][3]/100;
                     break;
                 }
             case "B":
                 {
-                    if (color[5] === 1)
-                        ajusteDespierto[i] = valorAjustado[5]/100;
+                    if (color[numero][5] === 1)
+                        ajusteDespierto[i] = valorAjustado[numero][5]/100;
                     break;
                 }
             case "C":
                 {
-                    if (color[4] === 1)
-                        ajusteDespierto[i] = valorAjustado[4]/100;
+                    if (color[numero][4] === 1)
+                        ajusteDespierto[i] = valorAjustado[numero][4]/100;
                     break;
                 }
 
         }
     }
 
-    var danoFinal = [calc1[0] * dano * (1 + ajusteDespierto[0]), calc2[0] * dano * (1 + ajusteDespierto[1]), calc3[0] * dano * (1 + ajusteDespierto[2])];
+    var danoFinal = [calc1[0] * dano[0] * (1 + ajusteDespierto[0]), calc2[0] * dano[1] * (1 + ajusteDespierto[1]), calc3[0] * dano[2] * (1 + ajusteDespierto[2])];
 
     for (var j = 0; j < 3; j++) {
         if (danoFinal[j] < 250)
@@ -734,11 +760,57 @@ $(function () {
         IndicaResultado();
     });
     $('input[name="ctl00$MainContent$estadoAtk"]:radio').change(function () {
+        
+        var e0 = document.getElementById("MainContent_seleccionado_0");
+        var e1 = document.getElementById("MainContent_seleccionado_1");
+        var e2 = document.getElementById("MainContent_seleccionado_2");
+        if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
+            $('input:radio[name="ctl00$MainContent$seleccionado"]').val(["1"]);
+            //ピュエラの時は、2人目以降の選択不可
+            e0.disabled = true;
+            e1.disabled = true;
+            e2.disabled = true;
+            //名前コピー
+            var nombre = document.getElementById("MainContent_seleccionado_0").nextSibling.innerText;
+            if (nombre === "1人目選択 : 無")
+                nombre = "";
+            else {
+                nombre = nombre.substring(nombre.indexOf(" : ") + 3);
+                document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + nombre;
+                document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + nombre;
+            }
+            //アコーデオン閉じる
+            $("#collapse2").collapse('hide');
+        }
+        else {
+            e0.disabled = false;
+            e1.disabled = false;
+            e2.disabled = false;
+            //名前を下から拾う処理
+            var n2 = document.getElementById("MainContent_nombre2").innerText;
+            var n3 = document.getElementById("MainContent_nombre3").innerText;
+            //n2,n3に値があれば入れる
+            if (n2.substring(n2.indexOf(" : ") + 3) === "選択無") {
+                n2 = "無";
+            }
+            else
+                n2 = n2.substring(n2.indexOf(" : ") + 3);
+            if (n3.substring(n3.indexOf(" : ") + 3) === "選択無"){
+                n3 = "無";
+            }
+            else
+                n3 = n3.substring(n3.indexOf(" : ") + 3);
+            document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + n2;
+            document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + n3;
+
+            //アコーデオン開く
+            $("#collapse2").collapse('show');
+        }
         IndicaResultado();
     });
-    $('input[name="ctl00$MainContent$tipoPuella"]:radio').change(function () {
+    $("#MainContent_tipoPuella1").change(function () {
         IndicaResultado();
-    });
+    })
     $('input[name="ctl00$MainContent$tipoPuella2"]:radio').change(function () {
         IndicaResultado();
     });
@@ -750,7 +822,7 @@ $(function () {
     $('input[name="ctl00$MainContent$ordendeBatalla"]:radio').change(function () {
         IndicaResultado();
     });
-    $('input[name="ctl00$MainContent$ordendeBatalla2"]:radio').change(function () {
+    $('input[name="ctl00$MainContent$ordendeBatalla4"]:radio').change(function () {
         IndicaResultado();
     });
     $('input[name="ctl00$MainContent$AtkUp"]').change(function () {
@@ -794,7 +866,7 @@ function CambiaEstado(event) {
     var str = $(address).text();
     str = str.substr(0, 5);
     $(address).toggleClass("active");
-    if (str === "攻撃側設定")
+    if (str === "攻撃設定 ")
         $("#multiCollapseExample1").collapse("toggle");
     else
         $("#multiCollapseExample2").collapse("toggle");
@@ -814,13 +886,15 @@ function CambiaEstado(event) {
 //////////////////////////////////////////////////////
 
 window.addEventListener("load", function () {
-    draw();
+    draw(0);
+    draw(1);
+    draw(2);
     draw2();
     draw3();
 });
-var color = [0, 0, 0, 0, 0, 0];
+var color = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]];
 var color2 = [0, 0, 0, 0, 0, 0];
-var valorAjustado = [0, 0, 0, 0, 0, 0];//覚醒補正値
+var valorAjustado = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]];//覚醒補正値
 var valorAjustado2 = [0, 0, 0, 0, 0, 0];//覚醒補正値2
 var letra = ["DEF", "ATK", "HP", "A", "C", "B"];
 var r = 20;
@@ -852,10 +926,28 @@ const c6 = {
 
 var circle = [c1, c2, c3, c4, c5, c6];
 //on offボタン用
-var checkOnoff = 0;
+var checkOnoff = [0,0,0];
 
-function draw() {
-    var canvas = document.getElementById("canvas1");
+function draw(numero) {
+    var canvas;
+    switch (numero) {
+        case 0:
+            {
+                canvas = document.getElementById("canvas1");
+                break;
+            }
+        case 1:
+            {
+                canvas = document.getElementById("canvas12");
+                break;
+            }
+        case 2:
+            {
+                canvas = document.getElementById("canvas13");
+                break;
+            }
+    }
+    // var canvas = document.getElementById("canvas1");
     // var scaleF = 0.6;
     if (!canvas || !canvas.getContext) {
         return;
@@ -897,7 +989,7 @@ function draw() {
     for (let i = 0; i < 6; i++) {
         ctx.save();
         ctx.beginPath();
-        if (color[i] === 1)
+        if (color[numero][i] === 1)
             ctx.fillStyle = "red";
         else
             ctx.fillStyle = "whitesmoke";
@@ -908,7 +1000,7 @@ function draw() {
 
         ctx.save();
         ctx.font = '15px sans-serif';
-        if (color[i] === 1)
+        if (color[numero][i] === 1)
             ctx.fillStyle = "whitesmoke";
         else
             ctx.fillStyle = "red";
@@ -916,7 +1008,7 @@ function draw() {
         ctx.textBaseline = 'bottom';
         ctx.fillText(letra[i], circle[i].x, circle[i].y);
         ctx.textBaseline = 'top';
-        ctx.fillText(String(valorAjustado[i]) + "%", circle[i].x, circle[i].y);
+        ctx.fillText(String(valorAjustado[numero][i]) + "%", circle[i].x, circle[i].y);
         ctx.restore();
        
     }
@@ -963,7 +1055,7 @@ function draw() {
         //周囲の円check
         for (let i = 0; i < 6; i++) {
             if (hit[i] === true) {
-                color[i] = CheckHit(color[i], circle[i], letra[i], valorAjustado[i], r, ctx, true);
+                color[numero][i] = CheckHit(color[numero][i], circle[i], letra[i], valorAjustado[numero][i], r, ctx, true);
             }
         }
 
@@ -978,13 +1070,13 @@ function draw() {
         //描画メイン処理
         timer = setInterval(function () {
             ctx.clearRect(0, 0, canvas.width, canvas.height, 2 * r, 2 * r);
-            DrawObject(ctx, color,circle, r, letra, checkOnoff);
+            DrawObject(ctx, color[numero],circle, r, letra, checkOnoff[numero],valorAjustado[numero]);
             ctx.beginPath();
             //クリック地点を中心とする円
             ctx.save();
             ctx.globalCompositeOperation = "source-atop";//交差部分のみ着色
             var radialGrad = ctx.createRadialGradient(point.x, point.y, 1, point.x, point.y, variantR);
-            if (checkOnoff === 0) {
+            if (checkOnoff[numero] === 0) {
                 // ctx.fillStyle = "red";
                 radialGrad.addColorStop(0, "white");
                 radialGrad.addColorStop(0.90, "white");
@@ -1003,7 +1095,7 @@ function draw() {
             ctx.fillStyle = radialGrad;
             ctx.fill();
             ctx.restore();
-            LetraEscrita(ctx, color, circle, r, letra, checkOnoff);
+            LetraEscrita(ctx, color[numero], circle, r, letra, checkOnoff[numero]);
             variantR += 3;
             //終了条件
             if (variantR > canvas.width * 2 / 3) {
@@ -1011,14 +1103,14 @@ function draw() {
                 clearInterval(timer);
 
                 if (hitOn === true) {
-                    switch (checkOnoff) {
+                    switch (checkOnoff[numero]) {
                         case 0:
                             {
                                 //全部on
                                 for (let i = 0; i < 6; i++) {
-                                    color[i] = CheckHit(0, circle[i], letra[i], valorAjustado[i], r, ctx, true);
+                                    color[numero][i] = CheckHit(0, circle[i], letra[i], valorAjustado[numero][i], r, ctx, true);
                                 }
-                                checkOnoff = 1;
+                                checkOnoff[numero] = 1;
 
                                 ctx.save();
                                 ctx.beginPath();
@@ -1041,9 +1133,9 @@ function draw() {
                             {
                                 //全部off
                                 for (let i = 0; i < 6; i++) {
-                                    color[i] = CheckHit(1, circle[i], letra[i], valorAjustado[i], r, ctx, true);
+                                    color[numero][i] = CheckHit(1, circle[i], letra[i], valorAjustado[numero][i], r, ctx, true);
                                 }
-                                checkOnoff = 0;
+                                checkOnoff[numero] = 0;
 
                                 ctx.save();
                                 ctx.beginPath();
@@ -1071,7 +1163,7 @@ function draw() {
 }
 
 //checkOnoff :0 全off :1 全on :3 offボタンで現在の外周円 :4 onボタンで現在の外周円
-function DrawObject(ctx, color,circle, r, letra, checkOnoff) {
+function DrawObject(ctx, color,circle, r, letra, checkOnoff,valorAjustado) {
     //中心描画
     switch (checkOnoff) {
         case 1:
@@ -1346,7 +1438,7 @@ function draw2() {
         ctx.textBaseline = 'bottom';
         ctx.fillText(letra[i], circle[i].x, circle[i].y);
         ctx.textBaseline = 'top';
-        ctx.fillText(String(valorAjustado[i]) + "%", circle[i].x, circle[i].y);
+        ctx.fillText(String(valorAjustado[3][i]) + "%", circle[i].x, circle[i].y);
         ctx.restore();
     }
 
@@ -1373,7 +1465,7 @@ function draw2() {
         //check
         for (let i = 0; i < 1; i++) {
             if (hit[i] === true) {
-                color2[i] = CheckHit(color2[i], circle[i], letra[i], valorAjustado[i], r, ctx, true);
+                color2[i] = CheckHit(color2[i], circle[i], letra[i], valorAjustado[3][i], r, ctx, true);
             }
         }
         IndicaResultado();
@@ -1383,11 +1475,24 @@ function draw2() {
 ////////////////////////////
 //キャラ選択画面用描画関数
 ////////////////////////////
-var elegida = -1;
+var elegida = [-1,-1,-1];
 var personas;
+var jsonDataOri;
 var jsonData;
+// var canvasAry = [];
+// var canvasAryOn = [];
 function draw3() {
-    var canvas3 = document.getElementById("canvas3");
+    var canvas3;
+    var w = $(window).width();
+    var wSize = 768;
+
+    if (w < wSize) {
+        //画面サイズが768px未満のときの処理
+        canvas3 = document.getElementById("canvas3");
+    }
+    else
+    canvas3 = document.getElementById("canvas31");
+
     if (!canvas3 || !canvas3.getContext) {
         return;
     }
@@ -1418,53 +1523,169 @@ function draw3() {
         
         personas = obj.personas.length;
         console.log(obj);
-        jsonData = obj;
+        jsonDataOri = obj;
+        jsonData = angular.copy(jsonDataOri);
     }));
 
     var scaleF = 1;
     var charaR = 30;
     var x0 = charaR;
-    var charaX = [personas];
+    var charaXori = [personas];
     var charaY = 35;
     var offset = 2 * charaR + 10;
     var nombre = [personas];
+    var indiceCambia = [personas];
     
     for (let i = 0; i < personas; i++) {
-        charaX[i] = i === 0 ? x0 : charaX[i - 1] + offset;
-        nombre[i] = jsonData.personas[i].name.substring(jsonData.personas[i].name.indexOf("　")+1);
+        charaXori[i] = i === 0 ? x0 : charaXori[i - 1] + offset;
+        nombre[i] = jsonData.personas[i].name.substring(jsonData.personas[i].name.indexOf("　") + 1);
     }
+    var charaX = angular.copy(charaXori);
 
-    //画像load処理
-    var image = [personas];
-    for(let i = 0; i < personas ; i++){
-        image[i] = [2];
-        image[i][0] = new Image;
-        image[i][0].src = "png/" + (jsonData.personas[i].data1);
-        image[i][1] = new Image;
-        image[i][1].src = "png/" + (jsonData.personas[i].data2);
-    }
+    //プリロード処理
+    // personas = 3;
+    // for (let i = 0; i < personas; i++) {
+    //     let loadCount = 0;
+    //     var m_canvas = document.createElement("canvas");
+    //     canvasAry.push(m_canvas);
+    //     let img = new Image();
+    //     img.src = "png/" + jsonData.personas[i].data1;
+    //     // img.onload = function () {
+    //     //    loadCount++;
+    //     // };
+    //     // $("img").one("load", function() {
+    //     //     //do stuff
+    //     //  }).each(function() {
+    //     //     if(this.complete || /*for IE 10-*/ $(this).height() > 0)
+    //     //       $(this).load();
+    //     //  });
+    //     // $("img").one('load', function(){
+    //     //     alert('読み込みました。');
+    //     //     loadCount++;
+    //     //   }).load();
+    //     // img.addEventListener('load', function () {
+    //     //     loadCount++;
+    //     // });
+    //     (function(){
+    //         if(!img.naturalWidth){ //naturalWidthがセットされていなければ
+    //             setTimeout(arguments.callee); //次のフレームで再度チェック
+    //             return; //以下の処理を停止
+    //         }
+        
+    //         //naturalWidthがセットされていれば以下の処理を実行
+    //         alert(img.naturalWidth + '/' + img.naturalHeight);
+    //         loadCount++;
+    //     })();
+    //     var m_canvas1 = document.createElement("canvas");
+    //     canvasAryOn.push(m_canvas1);
+    //     let img1 = new Image();
+    //     img1.src = "png/" + jsonData.personas[i].data2;
+    //     // + "?_=" + (new Date().getTime())
+    //     img1.onload = function () {
+    //        loadCount++;
+    //     };
+    //     var count = 0;
+    //     // while (loadCount !== 1 || (img.naturalHeight>0)) {
+    //     //     //load待ち
+           
+    //     //     console.log(img.complete);
+    //     // }
+    //     var m_ctx = m_canvas.getContext("2d");
+    //     m_canvas.width = 2 * charaR;
+    //     m_canvas.height = 2 * charaR;
+    //     m_ctx.drawImage = (img, 0, 0, charaR * 2, charaR * 2);
+    //     var m_ctx1 = m_canvas1.getContext("2d");
+    //     m_canvas1.width = 2 * charaR;
+    //     m_canvas1.height = 2 * charaR;
+    //     m_ctx1.drawImage = (img1, 0, 0, charaR * 2, charaR * 2);
+    // }
 
-    var loadedCount = 1;//確認用
-            for (let i = 0; i<personas ; i++) {
-                for(let j = 0; j < 2; j++){
-                    image[i][j].addEventListener('load', function() {
-                        // if (loadedCount == image.length * 2) {
-                        //     ctx3.drawImage("png" + image[i][0], x[i] - r, y - r, 2 * r, 2 * r);
-                        // }
-                        loadedCount++;
-                    }, false);
-                }
-            }
-    for (let i = 0; i < personas; i++) {
-        if (image[i][0].src.match(/png$/)!==null) {
-            DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, 1);
+    // function LoadImage(src) {
+    //     return new Promise((resolve, reject) => {
+    //       const img = new Image();
+    //       img.onload = () => resolve(img);
+    //       img.onerror = (e) => reject(e);
+    //       img.src = src;
+    //     });
+    // }
+
+    // // personas = 3;
+    // async function Prerender() {
+    //     // let loadCount = 0;
+    //     for (let i = 0; i < personas; i++) {
+    //         var m_canvas = document.createElement("canvas");
+    //         canvasAry.push(m_canvas);
+
+    //         let img = await LoadImage("png/" + jsonData.personas[i].data1);
+    //         // let img = new Image();
+    //         // img.src = "png/" + jsonData.personas[i].data1;
+    //         // img.onload = function () {
+    //             var m_ctx = m_canvas.getContext("2d");
+    //             m_canvas.width = 2 * charaR;
+    //             m_canvas.height = 2 * charaR;
+    //             m_ctx.drawImage = (img, 0, 0, charaR * 2, charaR * 2);
+               
+    //         // };
+
+    //         // const result = await myPromise(canvasAry,jsonData.personas[i].data1);
+            
+    //         // const result1 = await myPromise(canvasAryOn,jsonData.personas[i].data2);
+
+    //         var m_canvas1 = document.createElement("canvas");
+    //         canvasAryOn.push(m_canvas1);
+
+    //         let img1 = await LoadImage("png/" + jsonData.personas[i].data2);
+
+    //         // let img1 = new Image();
+    //         // img1.src = "png/" + jsonData.personas[i].data2;
+    //         // img1.onload = function () {
+    //             var m_ctx1 = m_canvas1.getContext("2d");
+    //             m_canvas1.width = 2 * charaR;
+    //             m_canvas1.height = 2 * charaR;
+    //             m_ctx1.drawImage = (img1, 0, 0, charaR * 2, charaR * 2);
+    //         // };
+    //         console.log("完了 " + img.src);
+    //     }
+    // }
+
+    // Prerender();
+
+    //あいうえお順ソート
+    jsonData.personas.sort(function(a,b) {
+        if (a.name > b.name) {
+          return 1;
+        } else {
+          return -1;
         }
-        else {
+      })
+
+    //imageのみ準備
+    var imageAry1 = [personas];
+    for (let i = 0; i < personas; i++){
+        imageAry1[i] = new Image();
+        imageAry1[i].src = "png/" + jsonData.personas[i].data1;
+    }
+    var imageAry2 = [personas];
+    for (let i = 0; i < personas; i++) {
+        imageAry2[i] = new Image();
+        imageAry2[i].src = "png/" + jsonData.personas[i].data2;
+    }
+
+
+
+    for (let i = 0; i < personas; i++) {
+        if (jsonData.personas[i].data1 !== "") {
+            DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
+            // ctx3.drawImage(canvasAry[i], charaX[i] - charaR, charaY - charaR);
+        }
+        else 
+        {
             DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
             DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
         }
     }
 
+    console.log(Date() + " event end");
     var pointerFlag = false;
     // console.log(pointerFlag + "0");
 
@@ -1487,15 +1708,17 @@ function draw3() {
         if ((clickX < canvas3.width) && (clickY < canvas3.height)) {
             pointerFlag = true;
             // console.log(pointerFlag + " down");
+            $("#MainContent_debug").text(pointerFlag + " pointerOn");
         }
-
+        // else
+        // pointerFlag = false;
         //クリックした物体の判定処理
         // if(number === -1)
         //     return;
         number = -1;
         //ポインタが円内にあるか判定
         for (let i = 0; i < personas; i++) {
-            if ((clickX - charaX[i]) ** 2 + (clickY - charaY) ** 2 <charaR** 2) {
+            if ((clickX - charaX[i]) ** 2 + (clickY - charaY) ** 2 < charaR ** 2) {
                 number = i;
                 break;
             }
@@ -1507,6 +1730,8 @@ function draw3() {
             // console.log(pointerFlag + " move");
             return;
         }
+        // e.preventDefault();
+        // e.stopPropagation();
         //オフセット位置取得
         const rect = canvas3.getBoundingClientRect();
         var px = e.clientX - rect.left - clickX;
@@ -1518,57 +1743,85 @@ function draw3() {
         if ((clickX > canvas3.width) || (clickX < 0) || (clickY > canvas3.height) || (clickY < 0)) {
             pointerFlag = false;
             // console.log(pointerFlag + " limit");
+            $("#MainContent_debug").text(pointerFlag + " canvas外");
             return;
         }
 
         //両端の移動制限
         //左端
         if ((px > 0) && (charaX[0] >= x0)) {
-            if (clickX > canvas3.width)
+            if (clickX > canvas3.width) {
                 pointerFlag = false;
-            // console.log(pointerFlag + " left");
+                // console.log(pointerFlag + " left");
+                $("#MainContent_debug").text(pointerFlag + " 左端");
+            }
             return;
         }
         //右端
         if ((px < 0) && (charaX[personas - 1] <= canvas3.width - (x0))) {
-            if (clickX < 0)
+            if (clickX < 0) {
                 pointerFlag = false;
-            // console.log(pointerFlag + " right");
+                // console.log(pointerFlag + " right");
+                $("#MainContent_debug").text(pointerFlag + " 右端");
+            }
             return;
         }
         console.log("px " + px);
         //pxが少ない場合は色変え
         if (Math.abs(px) > 8)
             isStatic = 0;
-
-        //描画メイン処理
+        //描画メイン処理　ドラッグ
+        var numero = $('input[name="ctl00$MainContent$seleccionado"]:checked').val()-1;
         if (pointerFlag) {
             ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
             for (let i = 0; i < personas; i++) {
                 charaX[i] += px;
-                if (elegida === i) {//色変え
-                    if (image[i][1].src.match(/png$/)!==null) {
-                        DrawImage(ctx3, x[i], y, r, image[i][0].src, image[i][1].src, -1);
+                
+                if (elegida[numero] === i) {//色変え
+                    if (jsonData.personas[i].data1 !== "") {
+                        DrawImage(ctx3, charaX[i], charaY, charaR, imageAry2[i]);
+                        // ctx3.drawImage(canvasAry[i], charaX[i] - charaR, 0);
                     }
                     else {
-                        DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
-                        DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
+                    DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
+                    DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
                     }
                 }
                 else {//通常色
-                    if (image[i][0].src.match(/png$/)!==null) {
-                        DrawImage(ctx3, x[i], y, r, image[i][0].src, image[i][1].src, 1);
+                    if (jsonData.personas[i].data1 !== "") {
+                        // if(Math.abs(px) > 1)
+                        DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
+                        // ctx3.drawImage(canvasAry[i], charaX[i] - charaR, 0);
                     }
                     else {
-                        DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
-                        DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                    DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+                    DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
                     }
+                }
+                //sort時値表示
+                var tipoOrden = $("input[name='ctl00$MainContent$orden1']:checked").val();
+                switch (tipoOrden) {
+                    case "ATK":
+                        {
+                            DrawImageText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].ATK);
+                            break;
+                        }
+                    case "DEF":
+                            {
+                                DrawImageText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].DEF);
+                                break;
+                        }
+                    case "HP":
+                        {
+                            DrawImageText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].HP);
+                            break;
+                        }
                 }
             }
             direction = px;
-
+            console.log(px);
+            $("#MainContent_debug").text(pointerFlag + " drag描画処理中");
         }
-
     });
 
 
@@ -1577,49 +1830,70 @@ function draw3() {
     canvas3.addEventListener("pointerup", function (e) {
         pointerFlag = false;
         // console.log(pointerFlag + " UP");
-        
+        $("#MainContent_debug").text(pointerFlag + " pointerUp");
 
+        //描画処理
+        var numero = $('input[name="ctl00$MainContent$seleccionado"]:checked').val()-1;
         if (isStatic === 1 && number !== -1) {
-            console.log("elegida " + elegida + " number" + number);
-            switch (elegida) {
+            console.log("elegida " + elegida[numero] + " number" + number);
+            switch (elegida[numero]) {
                 case number:
                     {//同色の場合は色を初期に戻す
                         //同じ番号の場合
                         //色を戻す処理
-                        elegida = -1;
-                        console.log(elegida + " 同番の場合色戻し");
+                        elegida[numero] = -1;
+                        console.log(elegida[numero] + " 同番の場合色戻し");
                         ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
                         for (let i = 0; i < personas; i++) {
                             //全て通常色
-                            if (image[i][0].src.match(/png$/)!==null) {
-                                DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, 1);
+                            if (jsonData.personas[i].data1 !== "") {
+                                DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
+                                // ctx3.drawImage(canvasAry[i], charaX[i] - charaR, 0);
                             }
                             else {
-                                DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
-                                DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                            DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+                            DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
                             }
                         }
                         // DrawCircle(ctx3, charaX[number], charaY, charaR, 1);
                         // DrawText(ctx3, charaX[number], charaY, nombre[number], 1);
 
                         //データ側変更
-                        for (let i = 0; i < 6; i++){
-                            valorAjustado[i] = 0;
+                        var numero = 0;
+                        for (let i = 0; i < 6; i++) {
+                            valorAjustado[numero][i] = 0;
                         }
                         //canvas1描画処理
                         var canvas1 = document.getElementById("canvas1");
                         if (!canvas1 || !canvas1.getContext) {
                             return;
                         }
+                        //キャラ名表示
+                        // $("#MainContent_seleccionado1").text("選択キャラ : 無");
+                        // document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : 無";
+                        // document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : 選択無";
+                        if (document.getElementById("MainContent_seleccionado_0").checked) {
+                            document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : 無";
+                            document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : 選択無";
+                        }
+                        else if (document.getElementById("MainContent_seleccionado_1").checked) {
+                            document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
+                            document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : 選択無";
+                        }
+                        else {
+                            obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : 無";
+                            document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : 選択無";
+                        }
                         var ctx1 = canvas1.getContext("2d");
                         ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+                        
                         for (let i = 0; i < 6; i++) {
                             //colorの仕様により、色変更処理
-                            color[i] = color[i] === 0 ? 1 : 0;
-                            CheckHit(color[i], circle[i], letra[i], valorAjustado[i], r, ctx1, false);
-                            color[i] = color[i] === 0 ? 1 : 0;
+                            color[numero][i] = color[numero][i] === 0 ? 1 : 0;
+                            CheckHit(color[numero][i], circle[i], letra[i], valorAjustado[numero][i], r, ctx1, false);
+                            color[numero][i] = color[numero][i] === 0 ? 1 : 0;
                         }
-                        DrawObject(ctx1, color, circle, r, letra, checkOnoff +2);
+                        DrawObject(ctx1, color[numero], circle, r, letra, checkOnoff[numero] + 2,valorAjustado[numero]);
                         break;
                     }
                 default://他番号の場合
@@ -1628,38 +1902,98 @@ function draw3() {
                         for (let i = 0; i < personas; i++) {
                             if (i === number) {
                                 //新しく選択されたものの色を変える
-                                if (image[i][1].src.match(/png$/)!==null) {
-                                    DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, -1);
+                                if (jsonData.personas[i].data1 !== "") {
+                                    DrawImage(ctx3, charaX[i], charaY, charaR, imageAry2[i]);
+                                    // ctx3.drawImage(canvasAry[i], charaX[i] - charaR, 0);
                                 }
                                 else {
-                                    DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
-                                    DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
+                                DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
+                                DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
                                 }
                             }
                             else {
                                 //全て通常色
-                                if (image[i][0].src.match(/png$/)!==null) {
-                                    DrawImage(ctx3, charaX[i], charaY, charaR, image[i][0].src, image[i][1].src, 1);
+                                if (jsonData.personas[i].data1 !== "") {
+                                    DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
+                                    // ctx3.drawImage(canvasAry[i], charaX[i] - charaR, 0);
                                 }
                                 else {
-                                    DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
-                                    DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+                                DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+                                DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
                                 }
                             }
                         }
-                        elegida = number;
-                        console.log(elegida + " 他番の場合色変え");
-
-                        //データ側変更
-                        for (let i = 0; i < 6; i++){
-                            valorAjustado[i] = jsonData.personas[elegida].Despierta[i];
+                        elegida[numero] = number;
+                        console.log(elegida[numero] + " 他番の場合色変え");
+                        //キャラ名表示
+                        // $("#MainContent_seleccionado1").text("選択キャラ : " + jsonData.personas[elegida].name);
+                        if (document.getElementById("MainContent_seleccionado_0").checked) {
+                            document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : " + jsonData.personas[elegida[0]].name;
+                            document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : " + jsonData.personas[elegida[0]].name;
+                            if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
+                                //ピュエラコンボの場合
+                                document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[0]].name;
+                                document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[0]].name;
+                            }
+                            for (let i = 0; i < 6; i++) {
+                                valorAjustado[0][i] = jsonData.personas[elegida[0]].Despierta[i];
+                            }
+                            //ATK数値記入
+                            $('#MainContent_TextBox666').val(jsonData.personas[number].ATK);
+                            //魔法少女タイプ入力
+                            $("#MainContent_tipoPuella1").val(jsonData.personas[number].TipoMagia);
                         }
-                        //ATK数値記入
-                        $('#MainContent_TextBox666').val(jsonData.personas[number].ATK);
-                        //魔法少女タイプ入力
-                        $("input[name='ctl00$MainContent$tipoPuella']").val([jsonData.personas[number].TipoMagia]);
+                        else if (document.getElementById("MainContent_seleccionado_1").checked) {
+                            document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[1]].name;
+                            document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + jsonData.personas[elegida[1]].name;
+                            for (let i = 0; i < 6; i++) {
+                                valorAjustado[1][i] = jsonData.personas[elegida[1]].Despierta[i];
+                            }
+                            //ATK数値記入
+                            $('#MainContent_TextBox666_2').val(jsonData.personas[number].ATK);
+                            //魔法少女タイプ入力
+                            $("#MainContent_tipoPuella2").val(jsonData.personas[number].TipoMagia);
+                        }
+                        else {
+                            obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[2]].name;
+                            document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + jsonData.personas[elegida[2]].name;
+                            for (let i = 0; i < 6; i++) {
+                                valorAjustado[2][i] = jsonData.personas[elegida[2]].Despierta[i];
+                            }
+                            //ATK数値記入
+                            $('#MainContent_TextBox666_3').val(jsonData.personas[number].ATK);
+                            //魔法少女タイプ入力
+                            $("#MainContent_tipoPuella3").val(jsonData.personas[number].TipoMagia);
+                        }
+                            //データ側変更
+                        
+                        // for (let i = 0; i < 6; i++) {
+                        //     valorAjustado[numero][i] = jsonData.personas[elegida[numero]].Despierta[i];
+                        // }
+                        // //ATK数値記入
+                        // $('#MainContent_TextBox666').val(jsonData.personas[number].ATK);
+                        // //魔法少女タイプ入力
+                        // $("#MainContent_tipoPuella1").val(jsonData.personas[number].TipoMagia);                        
                         //canvas1描画処理
-                        var canvas1 = document.getElementById("canvas1");
+                        // var canvas1 = document.getElementById("canvas1");
+                        var canvas1;
+                        switch (numero) {
+                            case 0:
+                                {
+                                    canvas1 = document.getElementById("canvas1");
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    canvas1 = document.getElementById("canvas12");
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    canvas1 = document.getElementById("canvas13");
+                                    break;
+                                }
+                        }
                         if (!canvas1 || !canvas1.getContext) {
                             return;
                         }
@@ -1667,15 +2001,52 @@ function draw3() {
                         ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
                         for (let i = 0; i < 6; i++) {
                             //colorの仕様により、色変更処理
-                            color[i] = color[i] === 0 ? 1 : 0;
-                            CheckHit(color[i], circle[i], letra[i], valorAjustado[i], r, ctx1, false);
-                            color[i] = color[i] === 0 ? 1 : 0;
+                            color[numero][i] = color[numero][i] === 0 ? 1 : 0;
+                            CheckHit(color[numero][i], circle[i], letra[i], valorAjustado[numero][i], r, ctx1, false);
+                            color[numero][i] = color[numero][i] === 0 ? 1 : 0;
                         }
-                        DrawObject(ctx1, color,circle, r, letra, checkOnoff + 2);
+                        DrawObject(ctx1, color[numero], circle, r, letra, checkOnoff[numero] + 2,valorAjustado[numero]);
                         break;
                     }
             }
+            //sort時値表示
+            var tipoOrden = $("input[name='ctl00$MainContent$orden1']:checked").val();
+            var ordenLetra = "";
+            
+            for (let i = 0; i < personas; i++){
+                switch (tipoOrden) {
+                    case "ATK":
+                        {
+                            ordenLetra = jsonData.personas[i].ATK;
+                            break;
+                        }
+                    case "DEF":
+                            {
+                                ordenLetra = jsonData.personas[i].DEF;
+                                break;
+                        }
+                    case "HP":
+                        {
+                            ordenLetra = jsonData.personas[i].HP;
+                            break;
+                        }
+                    default:
+                        {
+                            ordenLetra = "";
+                            break;
+                        }
+                        
+                }
+                DrawImageText(ctx3, charaX[i], charaY, charaR, ordenLetra);
+            }
             IndicaResultado();
+
+            //testcode
+            // $("label#MainContent_orden1_0").text("BBQ");
+            // $("#MainContent_orden1_0").closest("label").text("BBQ");
+            // document.getElementsByTagName('input')[21].value = "BBQ";
+            // document.getElementsByTagName('label')[13].innerText = "BBQ";
+            // document.getElementById("MainContent_orden1_0").nextSibling.innerText = "BBQ";//これがうまくいく
         }
     });
 
@@ -1684,6 +2055,305 @@ function draw3() {
         // console.log(pointerFlag + " cancel");
     });
     console.log("draw3終わり");
+
+    //フィルター選択時
+    $('input[name="ctl00$MainContent$filtro1$0"]').change(function () {
+        if ($("#MainContent_filtro1_0").prop("checked") === true) {
+            //全チェック
+            $('input[name*="ctl00$MainContent$filtro1"]').prop('checked', true);
+        }
+        else {
+            //チェック全外し
+            $('input[name*="ctl00$MainContent$filtro1"]').prop('checked', false);
+        }
+        CheckChanged();
+    });
+    $('input[name="ctl00$MainContent$filtro1$1"]').change(function () {
+        CheckChanged();
+    });
+    $('input[name="ctl00$MainContent$filtro1$2"]').change(function () {
+        CheckChanged();
+    });
+    $('input[name="ctl00$MainContent$filtro1$3"]').change(function () {
+        CheckChanged();
+    });
+    $('input[name="ctl00$MainContent$filtro1$4"]').change(function () {
+        CheckChanged();
+    });
+    $('input[name="ctl00$MainContent$filtro1$5"]').change(function () {
+        CheckChanged();
+    });
+    $('#MainContent_tipo1').change(function () {
+        CheckChanged();
+    });
+    $('#MainContent_gorila').change(function () {
+        CheckChanged();
+    });
+    $('input[name="ctl00$MainContent$seleccionado"]:radio').change(function () {
+        elegida = [-1, -1, -1];
+        var ordena = OrdenaMagia();
+        ReDraw(ordena);
+    });
+    function CheckChanged() {
+        //チェックされた属性値を取得
+        var atributo = [6];
+        let i = 0;
+        $('input[name*="ctl00$MainContent$filtro1"]:checked').each(function () {
+            //値を取得
+            atributo[i] = $(this).val();
+            i++;
+        });
+
+        //魔法少女タイプ取得
+        var tipoPuella = $("#MainContent_tipo1").val();
+        //ゴリラタイプ取得
+        var tipoGorila = $("#MainContent_gorila").val();
+
+        //全チェックを消すか確認
+        if (atributo[0] === "全" && atributo.length < 6) {
+            //消す
+            $("#MainContent_filtro1_0").prop("checked",false);
+        } else if (atributo[0] !== "全" && atributo.length === 5) {
+            //付ける
+            $("#MainContent_filtro1_0").prop("checked",true);
+        }
+            
+
+        //フィルター処理
+        var checkFlag = [jsonData.personas.length];
+        jsonData = angular.copy(jsonDataOri);
+        jsonData.personas = jsonData.personas.filter(function (value, index, array) {
+            checkFlag[index] = 0;
+            for (let i = 0; i < atributo.length; i++) {
+                if (value.Attribute === atributo[i]) {
+                    checkFlag[index] += 1;
+                    // return true;
+                }
+            }
+            if (tipoPuella !== "タイプ無") {
+                if (value.TipoMagia === tipoPuella) {
+                    checkFlag[index] += 3;
+                }
+            }
+            if (tipoGorila !== "人間") {
+                switch (tipoGorila) {
+                    case "Bゴリ":
+                        {
+                            if (value.Disk === "ABBBC") {
+                                checkFlag[index] += 5;
+                            }
+                            break;
+                        }
+                    case "Aゴリ":
+                        {
+                            if (value.Disk === "AAABC") {
+                                checkFlag[index] += 5;
+                            }
+                            break;
+                        }
+                    case "Cゴリ":
+                        {
+                            if (value.Disk === "ABCCC") {
+                                checkFlag[index] += 5;
+                            }
+                            break;
+                        }
+                }
+            }
+
+            //フィルタ指定と結果の照合
+            
+            switch (checkFlag[index]) {
+                case 0:
+                case 3:
+                case 5:
+                case 8:
+                    //atributoがhitしない場合はfalse
+                    return false;
+                case 1:
+                    //atributoのみ選択した場合
+                    //その他項目を選択したがhitしなかった場合
+                    {
+                        if (tipoPuella !== "タイプ無" || tipoGorila !== "人間") 
+                            return false;
+                        else 
+                            return true;
+                    }
+                case 4:
+                    //魔法少女タイプhit
+                    //ゴリラがhitしなかった場合もある
+                    {
+                        if (tipoGorila !== "人間")
+                            return false;
+                        else
+                            return true;
+                    }
+                case 6:
+                    //ゴリラhit
+                    //魔法少女タイプがhitしない場合もある
+                    {
+                        if (tipoPuella !== "タイプ無")
+                            return false;
+                        else
+                            return true;
+                        
+                    }
+                case 9:
+                    return true;
+            }
+
+            console.log("フィルタ処理失敗 " + index + " " + value.name + " " + checkFlag[index]);
+        });
+
+
+
+        if (jsonData.personas.length === 0) {
+            ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+            return;
+        }
+        personas = jsonData.personas.length;
+        charaX = angular.copy(charaXori);
+        //ソート処理
+        var ordena = OrdenaMagia();
+        ReDraw(ordena);
+    }
+
+    //ソート方法選択時
+    $('input[name="ctl00$MainContent$orden1"]:radio').change(function () {
+        charaX = angular.copy(charaXori);//位置初期化
+        var ordena = OrdenaMagia();
+        ReDraw(ordena);
+    });
+
+    function ReDraw(ordena) {
+        //配列初期化
+        imageAry1.length = 0;
+        imageAry2.length = 0;
+        nombre.length = 0;
+        var numero = $('input[name="ctl00$MainContent$seleccionado"]:checked').val()-1;
+        elegida[numero] = -1;
+
+        for (let i = 0; i < jsonData.personas.length; i++){
+            imageAry1[i] = new Image();
+            imageAry1[i].src = "png/" + jsonData.personas[i].data1;
+
+            imageAry2[i] = new Image();
+            imageAry2[i].src = "png/" + jsonData.personas[i].data2;
+
+            nombre[i] = jsonData.personas[i].name.substring(jsonData.personas[i].name.indexOf("　") + 1);
+        }
+        //描画
+        ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
+        for (let i = 0; i < jsonData.personas.length; i++) {
+            if (jsonData.personas[i].data1 !== "") {
+                DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
+                var text;
+                if (ordena !== ""){
+                    switch (ordena) {
+                        case "ATK":
+                        {
+                            text = jsonData.personas[i].ATK;
+                            break;
+                        }
+                        case "DEF":
+                        {
+                            text = jsonData.personas[i].DEF;
+                            break;
+                        }
+                        case "HP":
+                        {
+                            text = jsonData.personas[i].HP;
+                            break;
+                        }
+                    }
+                    DrawImageText(ctx3, charaX[i], charaY, charaR,text);
+                    }
+            }
+            else 
+            {
+                DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
+                DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
+            }
+        }
+    }
+
+    function OrdenaMagia() {
+        var tipoOrden = $("input[name='ctl00$MainContent$orden1']:checked").val();
+        function compareFuncATK(a, b) {
+            return b.ATK - a.ATK;
+        }
+        function compareFuncDEF(a, b) {
+            return b.DEF - a.DEF;
+        }
+        function compareFuncHP(a, b) {
+            return b.HP - a.HP;
+        }
+        
+
+        // jsonData.personas.sort(function (a, b) {
+            switch (tipoOrden) {
+                case "ATK":
+                    {
+                        // if (a.ATK < b.ATK) {
+                        //     return 1;
+                        // } else {
+                        //     return -1;
+                        // }
+                        jsonData.personas.sort(compareFuncATK);
+                        break;
+                    }
+                case "DEF":
+                    {
+                        // if (a.DEF < b.DEF) {
+                        //     return 1;
+                        // } else {
+                        //     return -1;
+                        // }
+                        jsonData.personas.sort(compareFuncDEF);
+                        break;
+                    }
+                case "HP":
+                    {
+                        // if (a.HP < b.HP) {
+                        //     return 1;
+                        // } else {
+                        //     return -1;
+                        // }
+                        jsonData.personas.sort(compareFuncHP);
+                        break;
+                    }
+                default:
+                    {
+                        jsonData.personas.sort(function (a, b) {
+                            if (a.name > b.name) {
+                                return 1;
+                            } else {
+                                return -1;
+                            }
+                        });
+                        break;
+                    }
+            }
+            
+        // })
+        var returnValue = "";
+        switch (tipoOrden) {
+            case "ATK":{
+                returnValue = "ATK";
+                break;
+            }
+            case "DEF": {
+                returnValue = "DEF";
+                break;
+            }
+            case "HP":{
+                returnValue = "HP";
+                break;
+            }
+        }
+        return returnValue;
+    }
+
 }
 //color 
 //1 black それ以外 white
@@ -1706,16 +2376,37 @@ function DrawText(ctx, x, y, letra, charColor) {
     ctx.fillText(letra, x, y);
     ctx.restore();
 }
-function DrawImage(ctx, x, y, r, image0, image1, onoff) {
-    var image = new Image;
-    image.src = onoff === 1 ? image0 : image1;
-    image.addEventListener('load', function(){
+function DrawImage(ctx, x, y, r, data) {
+    var image = new Image();
+    image = data;
+    // console.log(Date() + " order " + data.src);
+    if (image.complete) {
         ctx.drawImage(image, x - r, y - r, r * 2, r * 2);
-    }, false);
+        // console.log(Date() + " comp " + data.src);
+    }
+    else {
+        image.addEventListener('load', function () {
+            ctx.save();
+            ctx.globalCompositeOperation = "destination-over";
+            ctx.drawImage(image, x - r, y - r, r * 2, r * 2);
+            ctx.restore();
+            // console.log(Date() + " " + data.src);
+        }, false);
+    }
 }
+function DrawImageText(ctx, x, y, r, text) {
+    ctx.save();
+    ctx.font = "12px sans-serif";
+    ctx.fillStyle = "black";
+    ctx.font = "bold 12px sans-serif";
+    ctx.strokeStyle = "white";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.strokeText(text,x + r /6, y - r * 5 / 6);
+    ctx.fillText(text, x + r / 6, y - r * 5 / 6);
+    ctx.restore();
 
-
-
+}
 
 ///////////////////////////////////////////////////////////
 //ガチャ石計算
