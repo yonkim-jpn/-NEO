@@ -5,6 +5,7 @@
     <section class="container">
         <h3>マギレコ簡易ダメ計算<small>（超ベ〇ータ2版）</small></h3>
         <h5>算出されたダメージ値に乱数はかかっていません</h5>
+        <h5>キャラデータは星5 LV100を想定しています</h5>
         <div class="row">
             
                 <div class="col-sm-3 col-xs-6">
@@ -41,36 +42,60 @@
             
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="filterMagia">
-                            <asp:CheckBoxList ID="filtro1" runat="server" RepeatDirection="Horizontal">
-                                <asp:ListItem Selected="True">全</asp:ListItem>
-                                <asp:ListItem Selected="True">光</asp:ListItem>
-                                <asp:ListItem Selected="True">闇</asp:ListItem>
-                                <asp:ListItem Selected="True">火</asp:ListItem>
-                                <asp:ListItem Selected="True">水</asp:ListItem>
-                                <asp:ListItem Selected="True">木</asp:ListItem>
-                            </asp:CheckBoxList>
-                            <asp:DropDownList ID="tipo1" runat="server">
-                                <asp:ListItem>タイプ無</asp:ListItem>
-                                <asp:ListItem>マギア</asp:ListItem>
-                                <asp:ListItem>サポート</asp:ListItem>
-                                <asp:ListItem>アタック</asp:ListItem>
-                                <asp:ListItem>ヒール</asp:ListItem>
-                                <asp:ListItem>バランス</asp:ListItem>
-                                <asp:ListItem>ディフェンス</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:DropDownList ID="gorila" runat="server">
-                                <asp:ListItem>人間</asp:ListItem>
-                                <asp:ListItem>Bゴリ</asp:ListItem>
-                                <asp:ListItem>Aゴリ</asp:ListItem>
-                                <asp:ListItem>Cゴリ</asp:ListItem>
-                            </asp:DropDownList>
+                        <div class ="row">
+                            <div class ="col-sm-4 col-xs-12">
+                                <div class="filterMagia">
+                                <asp:CheckBoxList ID="filtro1" runat="server" RepeatDirection="Horizontal">
+                                    <asp:ListItem Selected="True">全</asp:ListItem>
+                                    <asp:ListItem Selected="True">光</asp:ListItem>
+                                    <asp:ListItem Selected="True">闇</asp:ListItem>
+                                    <asp:ListItem Selected="True">火</asp:ListItem>
+                                    <asp:ListItem Selected="True">水</asp:ListItem>
+                                    <asp:ListItem Selected="True">木</asp:ListItem>
+                                    <asp:ListItem Selected="True">無</asp:ListItem>
+                                </asp:CheckBoxList>
+                                    
+                                <asp:DropDownList ID="tipo1" runat="server">
+                                    <asp:ListItem>タイプ無</asp:ListItem>
+                                    <asp:ListItem>マギア</asp:ListItem>
+                                    <asp:ListItem>サポート</asp:ListItem>
+                                    <asp:ListItem>アタック</asp:ListItem>
+                                    <asp:ListItem>ヒール</asp:ListItem>
+                                    <asp:ListItem>バランス</asp:ListItem>
+                                    <asp:ListItem>ディフェンス</asp:ListItem>
+                                    <asp:ListItem>アルティメット</asp:ListItem>
+                                </asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4 col-xs-12">
+                                <div class="filterMagia">
+                                <asp:DropDownList ID="tipoMagia" runat="server">
+                                    <asp:ListItem Selected="True">マギア指定無</asp:ListItem>
+                                    <asp:ListItem>敵全体</asp:ListItem>
+                                    <asp:ListItem>敵単体</asp:ListItem>
+                                    <asp:ListItem>HP回復全</asp:ListItem>
+                                    <asp:ListItem>HP回復自</asp:ListItem>
+                                    <asp:ListItem>HP自動回復全</asp:ListItem>
+                                    <asp:ListItem>HP自動回復自</asp:ListItem>
+
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="gorila" runat="server">
+                                    <asp:ListItem>人間</asp:ListItem>
+                                    <asp:ListItem>Bゴリ</asp:ListItem>
+                                    <asp:ListItem>Aゴリ</asp:ListItem>
+                                    <asp:ListItem>Cゴリ</asp:ListItem>
+                                </asp:DropDownList>
+                                </div>
+                            </div>
                         </div>
-                        <asp:RadioButtonList ID="orden1" runat="server" RepeatDirection="Horizontal">
-                            <asp:ListItem>ATK</asp:ListItem>
-                            <asp:ListItem>DEF</asp:ListItem>
-                            <asp:ListItem>HP</asp:ListItem>
-                        </asp:RadioButtonList>
+                        <div class="filterMagia">
+                            <p><small>ソート設定</small></p>
+                            <asp:RadioButtonList ID="orden1" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem>ATK</asp:ListItem>
+                                <asp:ListItem>DEF</asp:ListItem>
+                                <asp:ListItem>HP</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -110,9 +135,11 @@
             <div class="collapse in" id="multiCollapseExample1">
                 <div class="col-xs-12"><%--攻撃側1--%>
                     <div class="row bg-info">
-                         <div class="col-sm-3 col-xs-6">
-                             <asp:Label ID="nombre1" runat="server" Text="攻撃側1人目 : 選択無" Font-Size="Medium"></asp:Label>
-                             <%--<h5 style="font-weight: bold"><small>星5想定</small></h5>--%>
+                         <div class="col-sm-4 col-xs-6">
+                             <div class="row">
+                                 <asp:Label ID="nombre1" runat="server" Text="攻撃側1人目 : 選択無" Font-Size="Medium"></asp:Label>
+                                 <%--<h5 style="font-weight: bold"><small>星5想定</small></h5>--%>
+                            </div>
                             <canvas id ="canvas1" width ="150" height ="150">Canvasに対応したブラウザを使用してください。</canvas >
                         </div>
                         <div class="col-sm-4 col-xs-6">
@@ -196,9 +223,11 @@
                     <div id="collapse2" class="panel-collapse collapse">
                         <%--攻撃側2--%>
                         <div class="row">
-                             <div class="col-sm-3 col-xs-6">
-                                 <asp:Label ID="nombre2" runat="server" Text="攻撃側2人目 : 選択無" Font-Size="Medium"></asp:Label>
-                                 <%--<h5 style="font-weight: bold"><small>星5想定</small></h5>--%>
+                             <div class="col-sm-4 col-xs-6">
+                                <div class="row">
+                                     <asp:Label ID="nombre2" runat="server" Text="攻撃側2人目 : 選択無" Font-Size="Medium"></asp:Label>
+                                     <%--<h5 style="font-weight: bold"><small>星5想定</small></h5>--%>
+                                </div>
                                 <canvas id ="canvas12" width ="150" height ="150">Canvasに対応したブラウザを使用してください。</canvas >
                             </div>
                             <div class="col-sm-4 col-xs-6">
@@ -279,9 +308,11 @@
                         </div>
                     <%--攻撃側3--%>
                         <div class="row bg-info">
-                             <div class="col-sm-3 col-xs-6">
-                                 <asp:Label ID="nombre3" runat="server" Text="攻撃側3人目 : 選択無" Font-Size="Medium"></asp:Label>
-                                 <%--<h5 style="font-weight: bold"><small>星5想定</small></h5>--%>
+                             <div class="col-sm-4 col-xs-6">
+                                 <div class="row">
+                                     <asp:Label ID="nombre3" runat="server" Text="攻撃側3人目 : 選択無" Font-Size="Medium"></asp:Label>
+                                     <%--<h5 style="font-weight: bold"><small>星5想定</small></h5>--%>
+                                </div>
                                 <canvas id ="canvas13" width ="150" height ="150">Canvasに対応したブラウザを使用してください。</canvas >
                             </div>
                             <div class="col-sm-4 col-xs-6">

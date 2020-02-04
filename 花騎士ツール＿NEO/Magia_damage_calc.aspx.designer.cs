@@ -60,6 +60,15 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList tipo1;
 
         /// <summary>
+        /// tipoMagia コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tipoMagia;
+
+        /// <summary>
         /// gorila コントロール。
         /// </summary>
         /// <remarks>

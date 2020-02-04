@@ -358,6 +358,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     var calcMpB = 1;
     switch (tipoPuella) {
         case "マギア":
+        case "円環マギア":
         case "サポート":
             {
                 calcMpB = 1.2;
@@ -781,6 +782,11 @@ $(function () {
             }
             //アコーデオン閉じる
             $("#collapse2").collapse('hide');
+
+            //ハイライト解除
+            document.getElementById("MainContent_seleccionado_0").nextSibling.classList.remove("highlight");
+            document.getElementById("MainContent_seleccionado_1").nextSibling.classList.remove("highlight");
+            document.getElementById("MainContent_seleccionado_2").nextSibling.classList.remove("highlight");
         }
         else {
             e0.disabled = false;
@@ -805,9 +811,38 @@ $(function () {
 
             //アコーデオン開く
             $("#collapse2").collapse('show');
+
+            //ハイライト処理
+            document.getElementById("MainContent_seleccionado_0").nextSibling.classList.add("highlight");
         }
         IndicaResultado();
     });
+    $('input[name="ctl00$MainContent$seleccionado"]:radio').change(function () {
+        //ハイライト解除
+        document.getElementById("MainContent_seleccionado_0").nextSibling.classList.remove("highlight");
+        document.getElementById("MainContent_seleccionado_1").nextSibling.classList.remove("highlight");
+        document.getElementById("MainContent_seleccionado_2").nextSibling.classList.remove("highlight");
+        //付加
+        let selected = $('input[name="ctl00$MainContent$seleccionado"]:checked').val();
+        switch (selected) {
+            case "1":
+                {
+                    document.getElementById("MainContent_seleccionado_0").nextSibling.classList.add("highlight");
+                    break;
+                }
+            case "2":
+                {
+                    document.getElementById("MainContent_seleccionado_1").nextSibling.classList.add("highlight");
+                    break;
+                }
+            case "3":
+                {
+                    document.getElementById("MainContent_seleccionado_2").nextSibling.classList.add("highlight");
+                    break;
+                }
+
+        }
+    })
     $("#MainContent_tipoPuella1").change(function () {
         IndicaResultado();
     })
@@ -1859,7 +1894,7 @@ function draw3() {
                         // DrawText(ctx3, charaX[number], charaY, nombre[number], 1);
 
                         //データ側変更
-                        var numero = 0;
+                        numero = 0;
                         for (let i = 0; i < 6; i++) {
                             valorAjustado[numero][i] = 0;
                         }
@@ -1875,6 +1910,12 @@ function draw3() {
                         if (document.getElementById("MainContent_seleccionado_0").checked) {
                             document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : 無";
                             document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : 選択無";
+                            if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
+                                //ピュエラコンボの場合
+                                document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
+                                document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : 無";
+                            }
+
                         }
                         else if (document.getElementById("MainContent_seleccionado_1").checked) {
                             document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
@@ -1941,7 +1982,10 @@ function draw3() {
                             //ATK数値記入
                             $('#MainContent_TextBox666').val(jsonData.personas[number].ATK);
                             //魔法少女タイプ入力
-                            $("#MainContent_tipoPuella1").val(jsonData.personas[number].TipoMagia);
+                            if (jsonData.personas[number].TipoMagia === "円環マギア")
+                                $("#MainContent_tipoPuella1").val("マギア");
+                            else
+                                $("#MainContent_tipoPuella1").val(jsonData.personas[number].TipoMagia);
                         }
                         else if (document.getElementById("MainContent_seleccionado_1").checked) {
                             document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[1]].name;
@@ -1952,7 +1996,10 @@ function draw3() {
                             //ATK数値記入
                             $('#MainContent_TextBox666_2').val(jsonData.personas[number].ATK);
                             //魔法少女タイプ入力
-                            $("#MainContent_tipoPuella2").val(jsonData.personas[number].TipoMagia);
+                            if (jsonData.personas[number].TipoMagia === "円環マギア")
+                                $("#MainContent_tipoPuella2").val("マギア");
+                            else
+                                $("#MainContent_tipoPuella2").val(jsonData.personas[number].TipoMagia);
                         }
                         else {
                             obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[2]].name;
@@ -1963,7 +2010,10 @@ function draw3() {
                             //ATK数値記入
                             $('#MainContent_TextBox666_3').val(jsonData.personas[number].ATK);
                             //魔法少女タイプ入力
-                            $("#MainContent_tipoPuella3").val(jsonData.personas[number].TipoMagia);
+                            if (jsonData.personas[number].TipoMagia === "円環マギア")
+                                $("#MainContent_tipoPuella3").val("マギア");
+                            else
+                                $("#MainContent_tipoPuella3").val(jsonData.personas[number].TipoMagia);
                         }
                             //データ側変更
                         
@@ -2083,7 +2133,13 @@ function draw3() {
     $('input[name="ctl00$MainContent$filtro1$5"]').change(function () {
         CheckChanged();
     });
+    $('input[name="ctl00$MainContent$filtro1$6"]').change(function () {
+        CheckChanged();
+    });
     $('#MainContent_tipo1').change(function () {
+        CheckChanged();
+    });
+    $('#MainContent_tipoMagia').change(function () {
         CheckChanged();
     });
     $('#MainContent_gorila').change(function () {
@@ -2096,7 +2152,7 @@ function draw3() {
     });
     function CheckChanged() {
         //チェックされた属性値を取得
-        var atributo = [6];
+        var atributo = [7];
         let i = 0;
         $('input[name*="ctl00$MainContent$filtro1"]:checked').each(function () {
             //値を取得
@@ -2104,16 +2160,18 @@ function draw3() {
             i++;
         });
 
+        //マギアタイプ取得
+        var tipoMagia = $("#MainContent_tipoMagia").val();
         //魔法少女タイプ取得
         var tipoPuella = $("#MainContent_tipo1").val();
         //ゴリラタイプ取得
         var tipoGorila = $("#MainContent_gorila").val();
 
         //全チェックを消すか確認
-        if (atributo[0] === "全" && atributo.length < 6) {
+        if (atributo[0] === "全" && atributo.length < 7) {
             //消す
             $("#MainContent_filtro1_0").prop("checked",false);
-        } else if (atributo[0] !== "全" && atributo.length === 5) {
+        } else if (atributo[0] !== "全" && atributo.length === 6) {
             //付ける
             $("#MainContent_filtro1_0").prop("checked",true);
         }
@@ -2134,7 +2192,52 @@ function draw3() {
                 if (value.TipoMagia === tipoPuella) {
                     checkFlag[index] += 3;
                 }
+                else if (tipoPuella === "マギア" && value.TipoMagia === "円環マギア"){
+                    checkFlag[index] += 3;
+                }
             }
+
+            if (tipoMagia !== "マギア指定無") {
+                switch (tipoMagia) {
+                    case "敵全体":
+                        {
+                            if (value.MagiaEnemiga !== "全体")
+                                return false;
+                            break;
+                        }
+                    case "敵単体":
+                        {
+                            if (value.MagiaEnemiga !== "単体")
+                                return false;
+                            break;
+                        }
+                    case "HP回復全":
+                        {
+                            if (!(value.MagiaCurativa === "HP回復" && value.CuraDirigida === "全"))
+                                return false;
+                            break;
+                        }
+                    case "HP回復自":
+                        {
+                            if (!(value.MagiaCurativa === "HP回復" && value.CuraDirigida === "自"))
+                                return false;
+                            break;
+                        }
+                    case "HP自動回復全":
+                        {
+                            if (!(value.MagiaCurativa === "HP自動回復" && value.CuraDirigida === "全"))
+                                return false;
+                            break;
+                        }
+                    case "HP自動回復自":
+                        {
+                            if (!(value.MagiaCurativa === "HP自動回復" && value.CuraDirigida === "自"))
+                                return false;
+                            break;
+                        }
+                }
+            }
+
             if (tipoGorila !== "人間") {
                 switch (tipoGorila) {
                     case "Bゴリ":
