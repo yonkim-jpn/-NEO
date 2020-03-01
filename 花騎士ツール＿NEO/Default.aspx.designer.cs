@@ -7,11 +7,13 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace 花騎士ツール＿NEO {
-    
-    
-    public partial class _Default {
-        
+namespace 花騎士ツール＿NEO
+{
+
+
+    public partial class _Default
+    {
+
         /// <summary>
         /// Label1001 コントロール。
         /// </summary>
@@ -20,7 +22,7 @@ namespace 花騎士ツール＿NEO {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1001;
-        
+
         /// <summary>
         /// Label1002 コントロール。
         /// </summary>
@@ -29,7 +31,7 @@ namespace 花騎士ツール＿NEO {
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1002;
-        
+
         /// <summary>
         /// Label1003 コントロール。
         /// </summary>

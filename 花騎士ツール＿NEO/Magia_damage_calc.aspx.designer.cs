@@ -69,6 +69,15 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList tipoMagia;
 
         /// <summary>
+        /// tipoMagia2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tipoMagia2;
+
+        /// <summary>
         /// gorila コントロール。
         /// </summary>
         /// <remarks>
@@ -78,6 +87,24 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList gorila;
 
         /// <summary>
+        /// connect1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList connect1;
+
+        /// <summary>
+        /// connect2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList connect2;
+
+        /// <summary>
         /// orden1 コントロール。
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList orden1;
+
+        /// <summary>
+        /// indicaPersonas コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label indicaPersonas;
 
         /// <summary>
         /// debug コントロール。

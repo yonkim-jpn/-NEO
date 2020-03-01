@@ -13,6 +13,7 @@
         <asp:Label ID="Label1001" runat="server" Font-Bold="True"></asp:Label><br />
         <asp:Label ID="Label1002" runat="server" Font-Bold="True"></asp:Label><br />
         <asp:Label ID="Label1003" runat="server" Font-Bold="True"></asp:Label><br />
+        <p>花騎士のデータ登録を協力してくれる方いらっしゃいましたら<a href="javascript:void(0);"　target="_blank" onclick="window.open('https://twitter.com/chiyokanemaru/status/1229573710912221185?s=20','_blank')">Twitterアカウント</a>までご連絡下さい。</p>
         <p>以下の項目に関してコンテンツを公開しております。</p>
     </div>
     <div class="row">

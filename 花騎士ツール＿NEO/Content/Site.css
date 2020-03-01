@@ -81,3 +81,10 @@ textarea {
 .highlight {
     background-color: yellow;
 }
+.handsontable .currentRow {
+    background-color: rgba(225, 250, 255, 1);
+}
+
+.handsontable .currentCol {
+    background-color: rgba(225, 250, 255, 1);
+}

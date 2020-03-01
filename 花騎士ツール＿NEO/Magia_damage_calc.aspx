@@ -42,8 +42,9 @@
             
                 <div class="row">
                     <div class="col-xs-12">
+                        <h4 style="font-weight: bold">フィルタ設定</h4>
                         <div class ="row">
-                            <div class ="col-sm-4 col-xs-12">
+                            <div class ="col-lg-4 col-xs-12" style="margin-bottom:5px">
                                 <div class="filterMagia">
                                 <asp:CheckBoxList ID="filtro1" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem Selected="True">全</asp:ListItem>
@@ -67,45 +68,108 @@
                                 </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class ="col-sm-4 col-xs-12">
+                            <div class ="col-lg-4 col-sm-6 col-xs-12" style="margin-bottom:5px">
                                 <div class="filterMagia">
                                 <asp:DropDownList ID="tipoMagia" runat="server">
-                                    <asp:ListItem Selected="True">マギア指定無</asp:ListItem>
+                                    <asp:ListItem Selected="True">マギア指定1</asp:ListItem>
                                     <asp:ListItem>敵全体</asp:ListItem>
                                     <asp:ListItem>敵単体</asp:ListItem>
-                                    <asp:ListItem>HP回復全</asp:ListItem>
-                                    <asp:ListItem>HP回復自</asp:ListItem>
-                                    <asp:ListItem>HP自動回復全</asp:ListItem>
-                                    <asp:ListItem>HP自動回復自</asp:ListItem>
-
+                                    <asp:ListItem>敵縦一列</asp:ListItem>
+                                    <asp:ListItem>ランダム</asp:ListItem>
+                                    <asp:ListItem>属性強化</asp:ListItem>
+                                    <asp:ListItem>HP回復</asp:ListItem>
+                                    <asp:ListItem>HP自動回復</asp:ListItem>
+                                    <asp:ListItem>MP回復</asp:ListItem>
+                                    <asp:ListItem>低HPほど威力UP</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="tipoMagia2" runat="server">
+                                    <asp:ListItem Selected="True">マギア指定2</asp:ListItem>
+                                    <asp:ListItem>敵全体</asp:ListItem>
+                                    <asp:ListItem>敵単体</asp:ListItem>
+                                    <asp:ListItem>敵縦一列</asp:ListItem>
+                                    <asp:ListItem>ランダム</asp:ListItem>
+                                    <asp:ListItem>属性強化</asp:ListItem>
+                                    <asp:ListItem>HP回復</asp:ListItem>
+                                    <asp:ListItem>HP自動回復</asp:ListItem>
+                                    <asp:ListItem>MP回復</asp:ListItem>
+                                    <asp:ListItem>低HPほど威力UP</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:DropDownList ID="gorila" runat="server">
-                                    <asp:ListItem>人間</asp:ListItem>
-                                    <asp:ListItem>Bゴリ</asp:ListItem>
-                                    <asp:ListItem>Aゴリ</asp:ListItem>
-                                    <asp:ListItem>Cゴリ</asp:ListItem>
+                                    <asp:ListItem>ディスク</asp:ListItem>
+                                    <asp:ListItem>A3枚</asp:ListItem>
+                                    <asp:ListItem>A2枚</asp:ListItem>
+                                    <asp:ListItem>B3枚</asp:ListItem>
+                                    <asp:ListItem>B2枚</asp:ListItem>
+                                    <asp:ListItem>C3枚</asp:ListItem>
+                                    <asp:ListItem>C2枚</asp:ListItem>
                                 </asp:DropDownList>
                                 </div>
                             </div>
+                            <div class="col-lg-4 col-sm-6 col-xs-12" style="margin-bottom:5px">
+                                <asp:DropDownList ID="connect1" runat="server">
+                                    <asp:ListItem Selected="True">コネクト指定1</asp:ListItem>
+                                    <asp:ListItem>攻撃力UP</asp:ListItem>
+                                    <asp:ListItem>クリティカル</asp:ListItem>
+                                    <asp:ListItem>ダメージUP</asp:ListItem>
+                                    <asp:ListItem>BlastダメUP</asp:ListItem>
+                                    <asp:ListItem>回避</asp:ListItem>
+                                    <asp:ListItem>防御無視</asp:ListItem>
+                                    <asp:ListItem>拘束</asp:ListItem>
+                                    <asp:ListItem>魅了</asp:ListItem>
+                                    <asp:ListItem>幻惑</asp:ListItem>
+                                    <asp:ListItem>スタン</asp:ListItem>
+                                    <asp:ListItem>HP回復</asp:ListItem>
+                                    <asp:ListItem>MP回復</asp:ListItem>
+                                    <asp:ListItem>MP獲得量UP</asp:ListItem>
+                                    <asp:ListItem>AcceleMPUP</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="connect2" runat="server">
+                                    <asp:ListItem Selected="True">コネクト指定2</asp:ListItem>
+                                    <asp:ListItem>攻撃力UP</asp:ListItem>
+                                    <asp:ListItem>クリティカル</asp:ListItem>
+                                    <asp:ListItem>ダメージUP</asp:ListItem>
+                                    <asp:ListItem>BlastダメUP</asp:ListItem>
+                                    <asp:ListItem>回避</asp:ListItem>
+                                    <asp:ListItem>防御無視</asp:ListItem>
+                                    <asp:ListItem>拘束</asp:ListItem>
+                                    <asp:ListItem>魅了</asp:ListItem>
+                                    <asp:ListItem>幻惑</asp:ListItem>
+                                    <asp:ListItem>スタン</asp:ListItem>
+                                    <asp:ListItem>HP回復</asp:ListItem>
+                                    <asp:ListItem>MP回復</asp:ListItem>
+                                    <asp:ListItem>MP獲得量UP</asp:ListItem>
+                                    <asp:ListItem>AcceleMPUP</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
                         </div>
-                        <div class="filterMagia">
-                            <p><small>ソート設定</small></p>
-                            <asp:RadioButtonList ID="orden1" runat="server" RepeatDirection="Horizontal">
-                                <asp:ListItem>ATK</asp:ListItem>
-                                <asp:ListItem>DEF</asp:ListItem>
-                                <asp:ListItem>HP</asp:ListItem>
-                            </asp:RadioButtonList>
+                        <div class ="row">
+                            <div class="col-xs-12">
+                                <h4 style="font-weight: bold">ソート設定</h4>
+                                <div class="filterMagia">
+                                    <asp:RadioButtonList ID="orden1" runat="server" RepeatDirection="Horizontal">
+                                        <asp:ListItem>ATK</asp:ListItem>
+                                        <asp:ListItem>DEF</asp:ListItem>
+                                        <asp:ListItem>HP</asp:ListItem>
+                                        <asp:ListItem>名前50音</asp:ListItem>
+                                        <asp:ListItem Enabled="False">マギア値</asp:ListItem>
+                                        <asp:ListItem Enabled="False">コネクト値</asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <asp:Label ID="indicaPersonas" runat="server" Text="" Font-Bold="True" Font-Size="Small"></asp:Label>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class ="col-xs-12 visible-xs">
-                        <canvas id ="canvas3" width="300" height="70">Canvasに対応したブラウザを使用してください。</canvas>
+                        <canvas id ="canvas3" width="300" height="140">Canvasに対応したブラウザを使用してください。</canvas>
                     </div>
                 </div>
                 <div class="row">
                     <div class ="col-xs-12 hidden-xs">
-                        <canvas id ="canvas31" width="540" height="70">Canvasに対応したブラウザを使用してください。</canvas>
+                        <canvas id ="canvas31" width="550" height="140">Canvasに対応したブラウザを使用してください。</canvas>
                     </div>
                 </div>
                 <div class="row">
@@ -116,16 +180,28 @@
                 <div class="row">
                     <div class ="col-xs-12">
                         <asp:Label ID="seleccionado1" runat="server"></asp:Label>
-                        <asp:RadioButtonList ID="seleccionado" runat="server" RepeatDirection="Horizontal" Enabled="False">
+                        <asp:RadioButtonList ID="seleccionado" name="eleccion" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem Value="1" Selected="True">1人目選択 : 無</asp:ListItem>
-                            <asp:ListItem Value="2">2人目選択 : 無</asp:ListItem>
-                            <asp:ListItem Value="3">3人目選択 : 無</asp:ListItem>
+                            <asp:ListItem Value="2" Enabled="False">2人目選択 : 無</asp:ListItem>
+                            <asp:ListItem Value="3" Enabled="False">3人目選択 : 無</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
+                    <%--<div class="collapse in" id="multiCollapseExample3">
+                    <div id="collapseConnect" class="panel-collapse collapse">--%>
+                        <div class="col-xs-12">
+                            <h4 style="font-weight: bold">コネクト選択</h4>
+                            <div class="filterMagia">
+                                <input id="radioConnect1" type="radio" name="ctl00$MainContent$seleccionado" value="connect1"/> <label for="radioConnect1">1回目 : 無</label>
+                                <input id="radioConnect2" type="radio" name="ctl00$MainContent$seleccionado" value="connect2"/> <label for="radioConnect2">2回目 : 無</label>
+                                <input id="radioConnect3" type="radio" name="ctl00$MainContent$seleccionado" value="connect3"/> <label for="radioConnect3">3回目 : 無</label>
+                            </div>
+                        </div>
+                    <%--</div>
+                    </div>--%>
                 </div>
             
                 <div class="row">
-                    <div class="col-xs-12 visible-xs">
+                    <div class="col-xs-12">
                         <p>
                             <button id="atkCollapse" type="button" class="btn btn-info" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">攻撃設定 とじる</button>
                             <button id="defCollapse" type="button" class="btn btn-danger" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">守備設定 とじる</button>
@@ -493,37 +569,59 @@
         <!--結果表示-->
         <div class="row">
             <div class="col-xs-3 bg-success">
-                <div id ="grande11"><h4 style="font-weight: bold">補正分</h4></div>
-                <div id ="pequeno11" class="hidden"><h4 style="font-weight: bold">補正</h4></div>
-                <asp:Label ID="modificado1" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
-                <div id ="grande12"><h4 style="font-weight: bold">ダメージ</h4></div>
-                <div id ="pequeno12" class="hidden"><h4 style="font-weight: bold">ダメ</h4></div>
-                <asp:Label ID="dano1" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
-                <div id ="grande13"><h4 style="font-weight: bold">獲得MP</h4></div>
-                <div id ="pequeno13" class="hidden"><h4 style="font-weight: bold">MP増</h4></div>
-                <asp:Label ID="magia1" runat="server" Text="0" ForeColor="Red"></asp:Label>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div id ="grande11"><h4 style="font-weight: bold">補正分</h4></div>
+                        <div id ="pequeno11" class="hidden"><h4 style="font-weight: bold">補正</h4></div>
+                        <asp:Label ID="modificado1" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
+                        <div id ="grande12"><h4 style="font-weight: bold">ダメージ</h4></div>
+                        <div id ="pequeno12" class="hidden"><h4 style="font-weight: bold">ダメ</h4></div>
+                        <asp:Label ID="dano1" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
+                        <div id ="grande13"><h4 style="font-weight: bold">獲得MP</h4></div>
+                        <div id ="pequeno13" class="hidden"><h4 style="font-weight: bold">MP増</h4></div>
+                        <asp:Label ID="magia1" runat="server" Text="0" ForeColor="Red"></asp:Label>
+                    </div>
+                    <div class="col-sm-7 hidden-xs hidden-sm">
+                        <div id="grid1"></div>
+                    </div>
+                </div>
+
             </div>
             <div class="col-xs-3 bg-success">
-                <div id ="grande21"><h4 style="font-weight: bold">補正分</h4></div>
-                <div id ="pequeno21" class="hidden"><h4 style="font-weight: bold">補正</h4></div>
-                <asp:Label ID="modificado2" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
-                <div id ="grande22"><h4 style="font-weight: bold">ダメージ</h4></div>
-                <div id ="pequeno22" class="hidden"><h4 style="font-weight: bold">ダメ</h4></div>
-                <asp:Label ID="dano2" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
-                <div id ="grande23"><h4 style="font-weight: bold">獲得MP</h4></div>
-                <div id ="pequeno23" class="hidden"><h4 style="font-weight: bold">MP増</h4></div>
-                <asp:Label ID="magia2" runat="server" Text="0" ForeColor="Red"></asp:Label>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div id ="grande21"><h4 style="font-weight: bold">補正分</h4></div>
+                        <div id ="pequeno21" class="hidden"><h4 style="font-weight: bold">補正</h4></div>
+                        <asp:Label ID="modificado2" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
+                        <div id ="grande22"><h4 style="font-weight: bold">ダメージ</h4></div>
+                        <div id ="pequeno22" class="hidden"><h4 style="font-weight: bold">ダメ</h4></div>
+                        <asp:Label ID="dano2" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
+                        <div id ="grande23"><h4 style="font-weight: bold">獲得MP</h4></div>
+                        <div id ="pequeno23" class="hidden"><h4 style="font-weight: bold">MP増</h4></div>
+                        <asp:Label ID="magia2" runat="server" Text="0" ForeColor="Red"></asp:Label>
+                    </div>
+                    <div class="col-sm-7 hidden-xs hidden-sm">
+                        <div id="grid2"></div>
+                    </div>
+                </div>
             </div>
             <div class="col-xs-3 bg-success">
-                <div id ="grande31"><h4 style="font-weight: bold">補正分</h4></div>
-                <div id ="pequeno31" class="hidden"><h4 style="font-weight: bold">補正</h4></div>
-                <asp:Label ID="modificado3" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
-                <div id ="grande32"><h4 style="font-weight: bold">ダメージ</h4></div>
-                <div id ="pequeno32" class="hidden"><h4 style="font-weight: bold">ダメ</h4></div>
-                <asp:Label ID="dano3" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
-                <div id ="grande33"><h4 style="font-weight: bold">獲得MP</h4></div>
-                <div id ="pequeno33" class="hidden"><h4 style="font-weight: bold">MP増</h4></div>
-                <asp:Label ID="magia3" runat="server" Text="0" ForeColor="Red"></asp:Label>
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        <div id ="grande31"><h4 style="font-weight: bold">補正分</h4></div>
+                        <div id ="pequeno31" class="hidden"><h4 style="font-weight: bold">補正</h4></div>
+                        <asp:Label ID="modificado3" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
+                        <div id ="grande32"><h4 style="font-weight: bold">ダメージ</h4></div>
+                        <div id ="pequeno32" class="hidden"><h4 style="font-weight: bold">ダメ</h4></div>
+                        <asp:Label ID="dano3" runat="server" Text="1.0" ForeColor="Red"></asp:Label>
+                        <div id ="grande33"><h4 style="font-weight: bold">獲得MP</h4></div>
+                        <div id ="pequeno33" class="hidden"><h4 style="font-weight: bold">MP増</h4></div>
+                        <asp:Label ID="magia3" runat="server" Text="0" ForeColor="Red"></asp:Label>
+                    </div>
+                    <div class="col-sm-7 hidden-xs hidden-sm">
+                        <div id="grid3"></div>
+                    </div>
+                </div>
             </div>
             <div class="col-xs-3 bg-success">
                 <div id ="grande41"><h4 style="font-weight: bold">合計補正</h4></div>

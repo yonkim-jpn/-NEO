@@ -728,12 +728,14 @@ $(function () {
         $("#MainContent_DropDownList2012").val(selectedValue);
     });
 
+    var mouseCount = 0;
     $(document).on('scroll mouseover',function () {
         //登録画面初期化
         var str = location.href;//ページ名取得
-        if (str.match("/Fkg_register")) {
+        if (str.match("/Fkg_register")&&mouseCount===0) {
             Iniciar_FKG_register();
         }
+        mouseCount++;
     });
 
 
