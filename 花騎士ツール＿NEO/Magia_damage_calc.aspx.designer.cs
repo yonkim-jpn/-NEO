@@ -24,15 +24,6 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.RadioButtonList ventana;
 
         /// <summary>
-        /// estadoAtk コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList estadoAtk;
-
-        /// <summary>
         /// atributo コントロール。
         /// </summary>
         /// <remarks>
@@ -60,6 +51,15 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList tipo1;
 
         /// <summary>
+        /// gorila コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList gorila;
+
+        /// <summary>
         /// tipoMagia コントロール。
         /// </summary>
         /// <remarks>
@@ -76,15 +76,6 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList tipoMagia2;
-
-        /// <summary>
-        /// gorila コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList gorila;
 
         /// <summary>
         /// connect1 コントロール。
@@ -150,6 +141,15 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.RadioButtonList seleccionado;
 
         /// <summary>
+        /// estadoAtk コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList estadoAtk;
+
+        /// <summary>
         /// nombre1 コントロール。
         /// </summary>
         /// <remarks>
@@ -157,69 +157,6 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label nombre1;
-
-        /// <summary>
-        /// TextBox666 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox666;
-
-        /// <summary>
-        /// TextBox667 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox667;
-
-        /// <summary>
-        /// tipoPuella1 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tipoPuella1;
-
-        /// <summary>
-        /// ordendeBatalla コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ordendeBatalla;
-
-        /// <summary>
-        /// AtkUp コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AtkUp;
-
-        /// <summary>
-        /// MpUp コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MpUp;
-
-        /// <summary>
-        /// AMpUp コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList AMpUp;
 
         /// <summary>
         /// nombre2 コントロール。
@@ -231,69 +168,6 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.Label nombre2;
 
         /// <summary>
-        /// TextBox666_2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox666_2;
-
-        /// <summary>
-        /// TextBox667_2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox667_2;
-
-        /// <summary>
-        /// tipoPuella2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tipoPuella2;
-
-        /// <summary>
-        /// ordendeBatalla2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ordendeBatalla2;
-
-        /// <summary>
-        /// AtkUp2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AtkUp2;
-
-        /// <summary>
-        /// MpUp2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MpUp2;
-
-        /// <summary>
-        /// AMpUp2 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList AMpUp2;
-
-        /// <summary>
         /// nombre3 コントロール。
         /// </summary>
         /// <remarks>
@@ -301,69 +175,6 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label nombre3;
-
-        /// <summary>
-        /// TextBox666_3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox666_3;
-
-        /// <summary>
-        /// TextBox667_3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox667_3;
-
-        /// <summary>
-        /// tipoPuella3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tipoPuella3;
-
-        /// <summary>
-        /// ordendeBatalla3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ordendeBatalla3;
-
-        /// <summary>
-        /// AtkUp3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AtkUp3;
-
-        /// <summary>
-        /// MpUp3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList MpUp3;
-
-        /// <summary>
-        /// AMpUp3 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList AMpUp3;
 
         /// <summary>
         /// TextBox668 コントロール。

@@ -5,22 +5,65 @@ var salida3 = new Array();
 var salida4 = new Array();
 var salida = [salida1, salida2, salida3, salida4];
 
+var escogido;
+var escogidoOri;
+var xhr1 = new XMLHttpRequest;
+(function (handleload) {
+    xhr1.addEventListener('load', handleload, false);
+    xhr1.open('GET', 'Scripts/magia_json/escogido.json', false);//同期処理。
+    xhr1.send(null);
+    //xhr.send();
+}(function handleLoad(event) {
+    var xhr1 = event.target,
+        obj = JSON.parse(xhr1.responseText);
+    
+    personas = obj.personas.length;
+    console.log(obj);
+    escogidoOri = obj;
+    escogido = angular.copy(escogidoOri);
+}));
+window.onload = function(){
+    //初期設定
+    document.getElementById("MainContent_RadioButtonList666_0").nextSibling.classList.add("accele");
+    document.getElementById("MainContent_RadioButtonList666_1").nextSibling.classList.add("blast");
+    document.getElementById("MainContent_RadioButtonList666_2").nextSibling.classList.add("charge");
+
+    document.getElementById("MainContent_RadioButtonList667_0").nextSibling.classList.add("accele");
+    document.getElementById("MainContent_RadioButtonList667_1").nextSibling.classList.add("blast");
+    document.getElementById("MainContent_RadioButtonList667_2").nextSibling.classList.add("charge");
+
+    document.getElementById("MainContent_RadioButtonList668_0").nextSibling.classList.add("accele");
+    document.getElementById("MainContent_RadioButtonList668_1").nextSibling.classList.add("blast");
+    document.getElementById("MainContent_RadioButtonList668_2").nextSibling.classList.add("charge");
+
+    document.getElementById("MainContent_RadioButtonList669_0").nextSibling.classList.add("accele");
+    document.getElementById("MainContent_RadioButtonList669_1").nextSibling.classList.add("blast");
+    document.getElementById("MainContent_RadioButtonList669_2").nextSibling.classList.add("charge");
+};
+
+
+
 //ATKとDEFより、基礎ダメージ算出
 //ATKに値が入力されていない時のみエラー
 
 function CalcDano(numero,numeroDeConnect) {
     //値取得
     var Atk = [3];
-    Atk[0] = Number(Zenhan($('#MainContent_TextBox666').val())) || 0;
-    Atk[1] = Number(Zenhan($('#MainContent_TextBox666_2').val())) || 0;
-    Atk[2] = Number(Zenhan($('#MainContent_TextBox666_3').val())) || 0;
+    Atk[0] = Number(escogido.personas[0].atk) || 0;
+    Atk[1] = Number(escogido.personas[1].atk) || 0;
+    Atk[2] = Number(escogido.personas[2].atk) || 0;
     var mAtk = [3];
-    mAtk[0] = Number(Zenhan($('#MainContent_TextBox667').val())) || 0;
-    mAtk[1] = Number(Zenhan($('#MainContent_TextBox667_2').val())) || 0;
-    mAtk[2] = Number(Zenhan($('#MainContent_TextBox667_3').val())) || 0;
-    var Def = Number(Zenhan($('#MainContent_TextBox668').val())) || 0;
-    var mDef = Number(Zenhan($('#MainContent_TextBox669').val())) || 0;
-
+    mAtk[0] = Number(escogido.personas[0].mAtk) || 0;
+    mAtk[1] = Number(escogido.personas[1].mAtk) || 0;
+    mAtk[2] = Number(escogido.personas[2].mAtk) || 0;
+    var Def = Number(escogido.personas[3].def) || 0;
+    var ignoraDef = new Array(3);
+    //防御無視が入っている場合は0にする
+    if (typeof connectAjustado[numeroDeConnect][5] !== "undefined") {
+        Def = 0;
+        ignoraDef[numeroDeConnect] = 100;
+    }
+    var mDef = Number(escogido.personas[3].mDef) || 0;
     //覚醒補正
     var atkDespierto = 0;
     var defDespierto = 0;
@@ -35,10 +78,10 @@ function CalcDano(numero,numeroDeConnect) {
 
     //陣形補正
     var ordenAtk = [3];
-    ordenAtk[0] = $("input[name='ctl00$MainContent$ordendeBatalla']:checked").val();
-    ordenAtk[1] = $("input[name='ctl00$MainContent$ordendeBatalla2']:checked").val();
-    ordenAtk[2] = $("input[name='ctl00$MainContent$ordendeBatalla3']:checked").val();
-    var ordenDef = $("input[name='ctl00$MainContent$ordendeBatalla4']:checked").val();
+    ordenAtk[0] = escogido.personas[0].jinkei || 0;
+    ordenAtk[1] = escogido.personas[1].jinkei || 0;
+    ordenAtk[2] = escogido.personas[2].jinkei || 0;
+    var ordenDef = escogido.personas[3].jinkei || 0;
     switch (ordenAtk[numero]) {
         case "1":
             {
@@ -75,10 +118,8 @@ function CalcDano(numero,numeroDeConnect) {
     }
 
     //攻撃力UP補正
-    var AtkUp = [3];
-    AtkUp[0] = Number(Zenhan($('#MainContent_AtkUp').val())) || 0;
-    AtkUp[1] = Number(Zenhan($('#MainContent_AtkUp2').val())) || 0;
-    AtkUp[2] = Number(Zenhan($('#MainContent_AtkUp3').val())) || 0;
+    var AtkUp = [0,0,0];
+    
     var DefUp = Number(Zenhan($('#MainContent_DefUp').val())) || 0;
 
     //コネクト補正を加える
@@ -103,6 +144,7 @@ function CalcDano(numero,numeroDeConnect) {
 
     //出力データ作成
     salida[numeroDeConnect].unshift(GetSalida("攻撃力",AtkUp[numero]));
+    salida[numeroDeConnect].push(GetSalida("防御無視",ignoraDef[numeroDeConnect]));
 
     AtkUp[numero] = 1 + AtkUp[numero] / 100;
     DefUp = 1 + DefUp / 100;
@@ -387,7 +429,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     }
 
     //B:魔法少女タイプ取得
-    var tipoPuella = $("#MainContent_tipoPuella1").val();
+    var tipoPuella = escogido.personas[orden-1].type;
     var calcMpB = 1;
     switch (tipoPuella) {
         case "マギア":
@@ -423,20 +465,22 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     switch (orden) {
         case 1:
             {
-                MpUpM = Number($("#MainContent_MpUp").val());
+                // MpUpM = Number($("#MainContent_MpUp").val());
+                
                 break;
             }
         case 2:
             {
-                MpUpM = Number($("#MainContent_MpUp2").val());
+                // MpUpM = Number($("#MainContent_MpUp2").val());
                 break;
             }
         case 3:
             {
-                MpUpM = Number($("#MainContent_MpUp3").val());
+                // MpUpM = Number($("#MainContent_MpUp3").val());
                 break;
             }
     }
+    MpUpM = 0;
     var calcMpC = MpUpM === 0 ? 1 : 1 + (2.5 + 2.5 * MpUpM) / 100;
     //コネクト側
     var MpUpC = connectAjustado[orden - 1][11];
@@ -450,20 +494,21 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     switch (orden) {
         case 1:
             {
-                AMpUpM = Number($("#MainContent_AMpUp").val());
+                // AMpUpM = Number($("#MainContent_AMpUp").val());
                 break;
             }
         case 2:
             {
-                AMpUpM = Number($("#MainContent_AMpUp2").val());
+                // AMpUpM = Number($("#MainContent_AMpUp2").val());
                 break;
             }
         case 3:
             {
-                AMpUpM = Number($("#MainContent_AMpUp3").val());
+                // AMpUpM = Number($("#MainContent_AMpUp3").val());
                 break;
             }
     } 
+    AMpUpM = 0;
     var calcMpD = AMpUpM === 0 ? 1 : 1 + (7.5 + 2.5 * AMpUpM) / 100;
     //コネクト側
     var AMpUpC = connectAjustado[orden - 1][10];
@@ -550,10 +595,10 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     salida[orden-1].unshift(GetSalida("Bダメ", v));
     salida[orden-1].unshift(GetSalida("与ダメ",u));//これで配列の先頭に入る
     
-    var calcX = 100 + t + u + v + w + x - y;
+    var calcX = 100 + t + u + v + w + x ;
     calcX = calcX > 300 ? 300 : calcX;
 
-    calcE = calcX / 100;
+    calcE = (calcX - y ) / 100;
     //クリティカルの場合
     z = calcX > 100 ? 100 : calcX;
     var calcEcri = (calcX + z)/100;
@@ -843,8 +888,21 @@ function GenerateConnect() {
 function GetSalida(name, data) {
     data = typeof data === "undefined" ? 0 : data;
     data = Math.floor(data * 10) / 10;
-
-    let s = [name, "+" + String(data) + "%"];
+    let s;
+    switch (name) {
+        case "防御無視":
+            {
+                data = data > 100 ? 100 : data;
+                s = [name, String(data) + "%"];
+                break;
+            }
+        default:
+            {
+                s = [name, "+" + String(data) + "%"];
+            }
+    }
+    
+    
     return s;
 }
 
@@ -857,7 +915,7 @@ function IndicaResultado() {
     let d2 = new Array();
     let d3 = new Array();
     let d4 = new Array();
-    salida = [d1, d2, d3, d4];
+    salida = [d1, d2, d3, d4];//以下の過程を通ることによって、各関数で出力結果を書き込んでいく
     
     //ラジオボタン選択状態の取得
     var eleccion1 = $("input[name='ctl00$MainContent$RadioButtonList666']:checked").val();
@@ -996,6 +1054,29 @@ function IndicaSalida(data,g) {
     
 }
 
+function IndicaData(data, g) {
+    let grid = document.getElementById(g);
+
+    var hot1 = new Handsontable(grid, {//前のテーブルともども消すためのダミー
+        data: []
+    });
+    hot1.destroy();//テーブル削除
+    hot1 = new Handsontable(grid, {//本番のテーブル
+        data: [],
+        rowHeaders: ['名前','ATK','DEF','HP'],
+        colHeaders: false,
+        columnSorting: false,
+        readOnly: true,
+        currentRowClassName: 'currentRow',
+        currentColClassName: 'currentCol',        
+        className: "htCenter",
+        licenseKey: 'non-commercial-and-evaluation'
+    });
+    
+
+    hot1.loadData(data);
+}
+
 //モバイル版表示時にモバイル用文字を表示
 function CambiaLetra() {
     if (window.parent.screen.width <= 750) {
@@ -1080,18 +1161,18 @@ $(function () {
     $('input[name="ctl00$MainContent$atributo"]:radio').change(function () {
         IndicaResultado();
     });
-    $('input[name="ctl00$MainContent$TextBox666"]').change(function () {
-        IndicaResultado();
-    });
-    $('input[name="ctl00$MainContent$TextBox667"]').change(function () {
-        IndicaResultado();
-    });
+    
+    
     $('input[name="ctl00$MainContent$TextBox668"]').change(function () {
+        escogido.personas[3].def = Number(Zenhan($("#MainContent_TextBox668").val()));
         IndicaResultado();
     });
     $('input[name="ctl00$MainContent$TextBox669"]').change(function () {
+        escogido.personas[3].mDef = Number(Zenhan($("#MainContent_TextBox669").val()));
         IndicaResultado();
     });
+
+
     $('input[name="ctl00$MainContent$ventana"]:radio').change(function () {
         IndicaResultado();
     });
@@ -1100,54 +1181,103 @@ $(function () {
         var e0 = document.getElementById("MainContent_seleccionado_0");
         var e1 = document.getElementById("MainContent_seleccionado_1");
         var e2 = document.getElementById("MainContent_seleccionado_2");
-        if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
+        if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {//同一キャラで攻撃
             $('input:radio[name="ctl00$MainContent$seleccionado"]').val(["1"]);
             //ピュエラの時は、2人目以降の選択不可
             e0.disabled = false;
             e1.disabled = true;
             e2.disabled = true;
+            let iData;
             //名前コピー
             var nombre = document.getElementById("MainContent_seleccionado_0").nextSibling.innerText;
             if (nombre === "1人目選択 : 無")
-                nombre = "";
+                nombre = "";//何もしない
             else {
                 nombre = nombre.substring(nombre.indexOf(" : ") + 3);
                 document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + nombre;
                 document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + nombre;
+                document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + nombre;
+                document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + nombre;
+                
+                
+                //アイコン、データコピー
+                let image2a = document.getElementById('2a');
+                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' >';
+                iData = [[escogido.personas[0].nickName], [escogido.personas[0].atk], [escogido.personas[0].def], [escogido.personas[0].hp]];
+                IndicaData(iData, "grid2a");
+                let image3a = document.getElementById('3a');
+                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' >';
+                iData = [[escogido.personas[0].nickName], [escogido.personas[0].atk], [escogido.personas[0].def], [escogido.personas[0].hp]];
+                IndicaData(iData, "grid3a");
             }
-            //アコーデオン閉じる
-            $("#collapse2").collapse('hide');
-            $("#collapseConnect").collapse('hide');
+            
 
             //ハイライト解除
             document.getElementById("MainContent_seleccionado_0").nextSibling.classList.remove("highlight");
             document.getElementById("MainContent_seleccionado_1").nextSibling.classList.remove("highlight");
             document.getElementById("MainContent_seleccionado_2").nextSibling.classList.remove("highlight");
+
+            //アコーデオン閉じ
+            $("#MainContent_nombre23").collapse('hide');
         }
-        else {
+        else {//3キャラ選択
             e0.disabled = false;
             e1.disabled = false;
             e2.disabled = false;
             //名前を下から拾う処理
-            var n2 = document.getElementById("MainContent_nombre2").innerText;
-            var n3 = document.getElementById("MainContent_nombre3").innerText;
+            let w = $(window).width();
+            let wSize = 768;
+            var n2;
+            var n3;
+            if (w < wSize) {
+                n2 = escogido.personas[1].nickName;
+                n3 = escogido.personas[2].nickName;
+            }
+            else {
+                n2 = escogido.personas[1].name;
+                n3 = escogido.personas[2].name;
+            }
             //n2,n3に値があれば入れる
-            if (n2.substring(n2.indexOf(" : ") + 3) === "選択無") {
+            if (n2 === "選択無") {
                 n2 = "無";
+                //アイコン、データを無表示
+                let image2a = document.getElementById('2a');
+                image2a.innerHTML = "未選択";
+                iData = [[""], [""], [""], [""]];
+                IndicaData(iData, "grid2a");
             }
-            else
-                n2 = n2.substring(n2.indexOf(" : ") + 3);
-            if (n3.substring(n3.indexOf(" : ") + 3) === "選択無"){
+            else {
+                // n2 = n2.substring(n2.indexOf(" : ") + 1);
+                //アイコン、データ復元
+                let image2a = document.getElementById('2a');
+                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[1].data1 + ' >';
+                iData = [[escogido.personas[1].nickName], [escogido.personas[1].atk], [escogido.personas[1].def], [escogido.personas[1].hp]];
+                IndicaData(iData, "grid2a");
+            }
+            if (n3 === "選択無") {
                 n3 = "無";
+                 //アイコン、データを無表示
+                 let image3a = document.getElementById('3a');
+                 image3a.innerHTML = "未選択";
+                 iData = [[""], [""], [""], [""]];
+                 IndicaData(iData, "grid3a");
             }
-            else
-                n3 = n3.substring(n3.indexOf(" : ") + 3);
+            else {
+                // n3 = n3.substring(n3.indexOf(" : ") + 1);
+                 //アイコン、データ復元
+                let image3a = document.getElementById('3a');
+                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[2].data1 + ' >';
+                iData = [[escogido.personas[2].nickName], [escogido.personas[2].atk], [escogido.personas[2].def], [escogido.personas[2].hp]];
+                IndicaData(iData, "grid3a");
+            }
             document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + n2;
             document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + n3;
-
+            document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + n2;
+            document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + n3;
+            
             //アコーデオン開く
-            $("#collapse2").collapse('show');
-            $("#collapseConnect").collapse('show');
+            $("#MainContent_nombre23").collapse('show');
+           
 
             //ハイライト処理
             document.getElementById("MainContent_seleccionado_0").nextSibling.classList.add("highlight");
@@ -1180,33 +1310,17 @@ $(function () {
 
         }
     })
-    $("#MainContent_tipoPuella1").change(function () {
-        IndicaResultado();
-    })
-    $('input[name="ctl00$MainContent$tipoPuella2"]:radio').change(function () {
-        IndicaResultado();
-    });
+    
+    
     $('input[name="ctl00$MainContent$decimal"]').change(function () {
         IndicaResultado();
     });
 
     //陣形補正、メモリア攻撃力UPの取得
-    $('input[name="ctl00$MainContent$ordendeBatalla"]:radio').change(function () {
-        IndicaResultado();
-    });
     $('input[name="ctl00$MainContent$ordendeBatalla4"]:radio').change(function () {
         IndicaResultado();
     });
-    $('input[name="ctl00$MainContent$AtkUp"]').change(function () {
-        IndicaResultado();
-
-        //表示処理
-        var AtkUp = Number(Zenhan($('#MainContent_AtkUp').val())) || 0;
-        AtkUp = ChequeaPorcentaje(AtkUp);
-        ChequeaLimite(AtkUp, 'MainContent_AtkUp');
-
-        $('#MainContent_AtkUp').val(AtkUp);
-    });
+    
     $('input[name="ctl00$MainContent$DefUp"]').change(function () {
         IndicaResultado();
 
@@ -1217,13 +1331,7 @@ $(function () {
 
         $('#MainContent_DefUp').val(DefUp);
     });
-    //メモリアMP補正
-    $("#MainContent_MpUp").change(function () {
-        IndicaResultado();
-    });
-    $("#MainContent_AMpUp").change(function () {
-        IndicaResultado();
-    });
+    
 
 
 
@@ -2270,20 +2378,52 @@ function draw3() {
                         if (document.getElementById("MainContent_seleccionado_0").checked) {
                             document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : 無";
                             document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : 選択無";
+                            //アイコン画像表示
+                            let image1a = document.getElementById('1a');
+                            image1a.innerHTML = "未選択";
+                            let iData = [[""], [""], [""], [""]];
+                            IndicaData(iData, "grid1a");
+                            //選択配列初期化
+                            escogido.personas[0] = angular.copy(escogidoOri.personas[0]);
                             if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
                                 //ピュエラコンボの場合
                                 document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
                                 document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : 無";
+                                //アイコン画像表示
+                                let image2a = document.getElementById('2a');
+                                image2a.innerHTML = "未選択";
+                                iData = [[""], [""], [""], [""]];
+                                IndicaData(iData, "grid2a");
+                                //アイコン画像表示
+                                let image3a = document.getElementById('3a');
+                                image3a.innerHTML = "未選択";
+                                iData = [[""], [""], [""], [""]];
+                                IndicaData(iData, "grid3a");
                             }
+                             
 
                         }
                         else if (document.getElementById("MainContent_seleccionado_1").checked) {
                             document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
                             document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : 選択無";
+                            //アイコン画像表示
+                            let image2a = document.getElementById('2a');
+                            image2a.innerHTML = "未選択";
+                            iData = [[""], [""], [""], [""]];
+                            IndicaData(iData, "grid2a");
+                            //選択配列初期化
+                            escogido.personas[1] = angular.copy(escogidoOri.personas[0]);
                         }
                         else if (document.getElementById("MainContent_seleccionado_2").checked) {
                             obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : 無";
                             document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : 選択無";
+                            //アイコン画像表示
+                            let image3a = document.getElementById('3a');
+                            image3a.innerHTML = "未選択";
+                            iData = [[""], [""], [""], [""]];
+                            IndicaData(iData, "grid3a");
+                            //選択配列初期化
+                            escogido.personas[2] = angular.copy(escogidoOri.personas[0]);
                         }
 
                         //コネクト部分
@@ -2379,66 +2519,139 @@ function draw3() {
                         }
                         elegida[numero] = number;
                         console.log(elegida[numero] + " 他番の場合色変え");
+                        let w = $(window).width();
+                        let wSize = 768;
                         //キャラ名表示
                         // $("#MainContent_seleccionado1").text("選択キャラ : " + jsonData.personas[elegida].name);
                         if (document.getElementById("MainContent_seleccionado_0").checked) {
-                            document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : " + jsonData.personas[elegida[0]].name;
-                            document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : " + jsonData.personas[elegida[0]].name;
+                            if (w < wSize){
+                                document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : " + jsonData.personas[elegida[0]].nickName;
+                                document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : " + jsonData.personas[elegida[0]].nickName;
+                            }
+                            else {
+                                document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : " + jsonData.personas[elegida[0]].name;
+                                document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : " + jsonData.personas[elegida[0]].name;
+                            }
+                                //アイコン画像,データ表示
+                            let image1a = document.getElementById('1a');
+                            image1a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                            let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
+                            IndicaData(iData, "grid1a");
                             if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
                                 //ピュエラコンボの場合
-                                document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[0]].name;
-                                document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[0]].name;
+                                if (w < wSize) {
+                                    document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[0]].nickName;
+                                    document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[0]].nickName;
+                                 }
+                                else {
+                                    document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[0]].name;
+                                    document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[0]].name;
+                                }
+                                //アイコン画像表示,データ表示
+                                let image2a = document.getElementById('2a');
+                                image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                                let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
+                                IndicaData(iData, "grid2a");
+                                let image3a = document.getElementById('3a');
+                                image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                                iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
+                                IndicaData(iData, "grid3a");
                             }
                             for (let i = 0; i < 6; i++) {
                                 valorAjustado[0][i] = jsonData.personas[elegida[0]].Despierta[i];
                             }
-                            //ATK数値記入
-                            $('#MainContent_TextBox666').val(jsonData.personas[number].ATK);
+                            //名前
+                            escogido.personas[0].name = jsonData.personas[number].name;
+                            escogido.personas[0].nickName = jsonData.personas[number].nickName;
+                            escogido.personas[0].data1 = jsonData.personas[number].data1;
+                            
+                            //ATK等数値記入
+                            escogido.personas[0].atk = jsonData.personas[number].ATK;
+                            escogido.personas[0].def = jsonData.personas[number].DEF;
+                            escogido.personas[0].hp = jsonData.personas[number].HP;
                             //魔法少女タイプ入力
                             if (jsonData.personas[number].TipoMagia === "円環マギア")
-                                $("#MainContent_tipoPuella1").val("マギア");
+                                escogido.personas[0].type = "マギア";
                             else if (jsonData.personas[number].TipoMagia === "円環サポート")
-                                $("#MainContent_tipoPuella1").val("サポート");
+                                escogido.personas[0].type = "サポート";
                             else
-                                $("#MainContent_tipoPuella1").val(jsonData.personas[number].TipoMagia);
+                                escogido.personas[0].type = jsonData.personas[number].TipoMagia;
+                            
                         }
                         //2人目3人目の処理追加(通常の場合)
                         else if (document.getElementById("MainContent_seleccionado_1").checked) {
-                            document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[1]].name;
-                            document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + jsonData.personas[elegida[1]].name;
+                            if (w < wSize) {
+                                document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + jsonData.personas[elegida[1]].nickName;
+                                document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[1]].nickName;
+                            }
+                            else {
+                                document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + jsonData.personas[elegida[1]].name;
+                                document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + jsonData.personas[elegida[1]].name;
+                            }
                             for (let i = 0; i < 6; i++) {
                                 valorAjustado[1][i] = jsonData.personas[elegida[1]].Despierta[i];
                             }
-                            //ATK数値記入
-                            $('#MainContent_TextBox666_2').val(jsonData.personas[number].ATK);
+                             //名前
+                             escogido.personas[1].name = jsonData.personas[number].name;
+                             escogido.personas[1].nickName = jsonData.personas[number].nickName;
+                             escogido.personas[1].data1 = jsonData.personas[number].data1;
+                            //ATK等数値記入
+                            escogido.personas[1].atk = jsonData.personas[number].ATK;
+                            escogido.personas[1].def = jsonData.personas[number].DEF;
+                            escogido.personas[1].hp = jsonData.personas[number].HP;
                             //魔法少女タイプ入力
                             if (jsonData.personas[number].TipoMagia === "円環マギア")
-                                $("#MainContent_tipoPuella2").val("マギア");
+                                escogido.personas[1].type = "マギア";
                             else if (jsonData.personas[number].TipoMagia === "円環サポート")
-                                $("#MainContent_tipoPuella2").val("サポート");
+                                escogido.personas[1].type = "サポート";
                             else
-                                $("#MainContent_tipoPuella2").val(jsonData.personas[number].TipoMagia);
+                                escogido.personas[1].type = jsonData.personas[number].TipoMagia;
+                            //アイコン画像表示
+                            let image2a = document.getElementById('2a');
+                            image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                            let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
+                            IndicaData(iData, "grid2a");
                         }
                         else if (document.getElementById("MainContent_seleccionado_2").checked) {
-                            obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[2]].name;
-                            document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + jsonData.personas[elegida[2]].name;
+                            if (w < wSize) {
+                                document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + jsonData.personas[elegida[2]].nickName;
+                                obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[2]].nickName;
+                            }
+                            else {
+                                document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + jsonData.personas[elegida[2]].name;
+                                obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[2]].name;
+                            }
                             for (let i = 0; i < 6; i++) {
                                 valorAjustado[2][i] = jsonData.personas[elegida[2]].Despierta[i];
                             }
-                            //ATK数値記入
-                            $('#MainContent_TextBox666_3').val(jsonData.personas[number].ATK);
+                             //名前
+                             escogido.personas[2].name = jsonData.personas[number].name;
+                             escogido.personas[2].nickName = jsonData.personas[number].nickName;
+                             escogido.personas[2].data1 = jsonData.personas[number].data1;
+                            //ATK他数値記入
+                            escogido.personas[2].atk = jsonData.personas[number].ATK;
+                            escogido.personas[2].def = jsonData.personas[number].DEF;
+                            escogido.personas[2].hp = jsonData.personas[number].HP;
                             //魔法少女タイプ入力
                             if (jsonData.personas[number].TipoMagia === "円環マギア")
-                                $("#MainContent_tipoPuella3").val("マギア");
+                                escogido.personas[2].type = "マギア";
                             else if (jsonData.personas[number].TipoMagia === "円環サポート")
-                                $("#MainContent_tipoPuella3").val("サポート");
+                                escogido.personas[2].type = "サポート";
                             else
-                                $("#MainContent_tipoPuella3").val(jsonData.personas[number].TipoMagia);
+                                escogido.personas[2].type = jsonData.personas[number].TipoMagia;
+                             //アイコン画像表示
+                             let image3a = document.getElementById('3a');
+                            image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                            let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
+                            IndicaData(iData, "grid3a");
                         }
                             
                         //コネクト処理
                         else if (document.getElementById("radioConnect1").checked) {
-                            document.querySelector('label[for="radioConnect1"]').innerText = "1回目 : " + jsonData.personas[number].name;
+                            if (w < wSize)
+                                document.querySelector('label[for="radioConnect1"]').innerText = "1回目 : " + jsonData.personas[number].nickName;
+                            else
+                                document.querySelector('label[for="radioConnect1"]').innerText = "1回目 : " + jsonData.personas[number].name;
                             //要素クリア
                             connectElegido[0].length = 0;
                             let array = new Array(limite);
@@ -2447,6 +2660,9 @@ function draw3() {
                             break;
                         }
                         else if (document.getElementById("radioConnect2").checked) {
+                            if (w < wSize)
+                            document.querySelector('label[for="radioConnect2"]').innerText = "2回目 : " + jsonData.personas[number].nickName;                                
+                            else
                             document.querySelector('label[for="radioConnect2"]').innerText = "2回目 : " + jsonData.personas[number].name;
                             //要素クリア
                             connectElegido[1].length = 0;
@@ -2456,6 +2672,9 @@ function draw3() {
                             break;
                         }
                         else if (document.getElementById("radioConnect3").checked) {
+                            if (w < wSize)
+                            document.querySelector('label[for="radioConnect3"]').innerText = "3回目 : " + jsonData.personas[number].nickName;
+                        else
                             document.querySelector('label[for="radioConnect3"]').innerText = "3回目 : " + jsonData.personas[number].name;
                             //要素クリア
                             connectElegido[2].length = 0;
@@ -4330,16 +4549,22 @@ function CalcResultado() {
     }
 
     var piedraUnidad = Math.floor(piedraNecesitada / piedra);
+    piedraUnidad = piedraUnidad < 0 ? 0 : piedraUnidad;
     var kakin = (piedraUnidad + prikoneCuenta) * billete;
     //あまり分算出
     var sobraFinal = Math.floor(piedraNecesitada % piedra);
+    if (sobraFinal <= 0) {
+        //プリコネカウントを見直して再計算
+        piedraNecesitada = piedraNecesitadaOri - prikoneCuenta * 7500;
+        sobraFinal = Math.floor(piedraNecesitada % piedra);
+    }
 
 
 
 
     //最終結果表示
     if (juego == "プリコネ") {
-        if ((piedraNecesitada <= 0) && (!((piedraNecesitadaOri >= 5000) && (cuenta7500 == 3)))) {
+        if ((piedraNecesitada < 0) && (!((piedraNecesitadaOri >= 5000) && (cuenta7500 == 3)))) {
             resultado2.innerText = piedraNecesitadaOri + "個の石を買う必要があります";
         }
         //かなり特殊な場合。3回購入済み、必要な石が7500個よりも少ない場合

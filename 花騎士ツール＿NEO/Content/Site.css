@@ -88,3 +88,13 @@ textarea {
 .handsontable .currentCol {
     background-color: rgba(225, 250, 255, 1);
 }
+
+.accele {
+    color: blue;
+}
+.blast {
+    color: red;
+}
+.charge {
+    color: goldenrod;
+}

@@ -3,6 +3,7 @@
     {
       "name": "\u53e4\u753a\u3000\u307f\u304f\u3089",
       "nameHiragana": "\u3053\u307e\u3061\u3000\u307f\u304f\u3089",
+      "nickName": "\u307f\u304f\u3089",
       "HP": 21520,
       "ATK": 9276,
       "DEF": 6792,
@@ -95,6 +96,7 @@
     {
       "name": "\u5449\u3000\u30ad\u30ea\u30ab",
       "nameHiragana": "\u304f\u308c\u3000\u304d\u308a\u304b",
+      "nickName": "\u30ad\u30ea\u30ab",
       "HP": 29248,
       "ATK": 7532,
       "DEF": 9432,
@@ -187,6 +189,7 @@
     {
       "name": "\u4e94\u5341\u9234\u3000\u308c\u3093",
       "nameHiragana": "\u3044\u3059\u305a\u3000\u308c\u3093",
+      "nickName": "\u308c\u3093",
       "HP": 21420,
       "ATK": 9128,
       "DEF": 6844,
@@ -279,6 +282,7 @@
     {
       "name": "\u6681\u7f8e\u3000\u307b\u3080\u3089\u773c\u93e1",
       "nameHiragana": "\u3042\u3051\u307f\u3000\u307b\u3080\u3089\u3081\u304c\u306d",
+      "nickName": "\u3081\u304c\u307b\u3080",
       "HP": 29025,
       "ATK": 7554,
       "DEF": 7529,
@@ -371,6 +375,7 @@
     {
       "name": "\u6681\u7f8e\u3000\u307b\u3080\u3089",
       "nameHiragana": "\u3042\u3051\u307f\u3000\u307b\u3080\u3089",
+      "nickName": "\u304f\u30fc\u307b\u3080",
       "HP": 21411,
       "ATK": 9294,
       "DEF": 8208,
@@ -463,6 +468,7 @@
     {
       "name": "\u5929\u97f3\u3000\u6708\u591c",
       "nameHiragana": "\u3042\u307e\u306d\u3000\u3064\u304f\u3088",
+      "nickName": "\u6708\u591c",
       "HP": 26146,
       "ATK": 8708,
       "DEF": 8728,
@@ -555,6 +561,7 @@
     {
       "name": "\u6df1\u6708\u3000\u30d5\u30a7\u30ea\u30b7\u30a2",
       "nameHiragana": "\u307f\u3064\u304d\u3000\u3075\u3047\u308a\u3057\u3042",
+      "nickName": "\u30d5\u30a7\u30ea\u30b7\u30a2",
       "HP": 21087,
       "ATK": 8700,
       "DEF": 6530,
@@ -647,6 +654,7 @@
     {
       "name": "\u6210\u898b\u3000\u4e9c\u91cc\u7d17",
       "nameHiragana": "\u306a\u308b\u307f\u3000\u3042\u308a\u3055",
+      "nickName": "\u4e9c\u91cc\u6c99",
       "HP": 23699,
       "ATK": 8126,
       "DEF": 7620,
@@ -739,6 +747,7 @@
     {
       "name": "\u7267\u91ce\u3000\u90c1\u7f8e",
       "nameHiragana": "\u307e\u304d\u306e\u3000\u3044\u304f\u307f",
+      "nickName": "\u90c1\u7f8e",
       "HP": 23632,
       "ATK": 8118,
       "DEF": 8015,
@@ -831,6 +840,7 @@
     {
       "name": "\u96ea\u91ce\u3000\u304b\u306a\u3048",
       "nameHiragana": "\u3086\u304d\u306e\u3000\u304b\u306a\u3048",
+      "nickName": "\u304b\u306a\u3048",
       "HP": 27181,
       "ATK": 8358,
       "DEF": 8483,
@@ -923,6 +933,7 @@
     {
       "name": "\u6728\u5d0e\u3000\u8863\u7f8e\u91cc",
       "nameHiragana": "\u304d\u3055\u304d\u3000\u3048\u307f\u308a",
+      "nickName": "\u8863\u7f8e\u91cc",
       "HP": 24841,
       "ATK": 7402,
       "DEF": 6776,
@@ -1015,6 +1026,7 @@
     {
       "name": "\u68a8\u82b1\u30fb\u308c\u3093\u30af\u30ea\u30b9\u30de\u30b9",
       "nameHiragana": "\u308a\u304b\u308c\u3093\u304f\u308a\u3059\u307e\u3059",
+      "nickName": "\u308a\u304b\u308c\u3093",
       "HP": 21142,
       "ATK": 9955,
       "DEF": 6455,
@@ -1107,6 +1119,7 @@
     {
       "name": "\u767e\u6c5f\u3000\u306a\u304e\u3055",
       "nameHiragana": "\u3082\u3082\u3048\u3000\u306a\u304e\u3055",
+      "nickName": "\u306a\u304e\u3055",
       "HP": 22070,
       "ATK": 9534,
       "DEF": 6490,
@@ -1199,6 +1212,7 @@
     {
       "name": "\u6226\u5834\u30f6\u539f\u3000\u3072\u305f\u304e",
       "nameHiragana": "\u305b\u3093\u3058\u3087\u3046\u304c\u306f\u3089\u3000\u3072\u305f\u304e",
+      "nickName": "\u30ac\u30cf\u30e9",
       "HP": 23710,
       "ATK": 8128,
       "DEF": 6835,
@@ -1291,6 +1305,7 @@
     {
       "name": "\u304b\u305a\u307f",
       "nameHiragana": "\u304b\u305a\u307f",
+      "nickName": "\u304b\u305a\u307f",
       "HP": 22958,
       "ATK": 9273,
       "DEF": 7458,
@@ -1383,6 +1398,7 @@
     {
       "name": "\u30ea\u30ba",
       "nameHiragana": "\u308a\u305a",
+      "nickName": "\u30ea\u30ba",
       "HP": 23324,
       "ATK": 9580,
       "DEF": 7524,
@@ -1475,6 +1491,7 @@
     {
       "name": "\u66f4\u79d1\u3000\u5e06\u5948",
       "nameHiragana": "\u3055\u3089\u3055\u3000\u306f\u3093\u306a",
+      "nickName": "\u5e06\u5948",
       "HP": 23072,
       "ATK": 9663,
       "DEF": 7138,
@@ -1567,6 +1584,7 @@
     {
       "name": "\u6893\u3000\u307f\u3075\u3086",
       "nameHiragana": "\u3042\u305a\u3055\u3000\u307f\u3075\u3086",
+      "nickName": "\u307f\u3075\u3086",
       "HP": 27452,
       "ATK": 7933,
       "DEF": 7785,
@@ -1659,6 +1677,7 @@
     {
       "name": "\u74b0\u3000\u3046\u3044",
       "nameHiragana": "\u305f\u307e\u304d\u3000\u3046\u3044",
+      "nickName": "\u3046\u3044",
       "HP": 27303,
       "ATK": 8479,
       "DEF": 8887,
@@ -1751,6 +1770,7 @@
     {
       "name": "\u767e\u6c5f\u3000\u306a\u304e\u3055\u30d0\u30ec\u30f3\u30bf\u30a4\u30f3",
       "nameHiragana": "\u3082\u3082\u3048\u3000\u306a\u304e\u3055\u30d0\u30ec\u30f3\u30bf\u30a4\u30f3",
+      "nickName": "\u30d0\u30ec\u306a\u304e\u3055",
       "HP": 28265,
       "ATK": 8458,
       "DEF": 7769,
@@ -1843,6 +1863,7 @@
     {
       "name": "\u4f50\u5009\u3000\u674f\u5b50",
       "nameHiragana": "\u3055\u304f\u3089\u3000\u304d\u3087\u3046\u3053",
+      "nickName": "\u674f\u5b50",
       "HP": 22580,
       "ATK": 9562,
       "DEF": 7268,
@@ -1935,6 +1956,7 @@
     {
       "name": "\u5341\u548e\u3000\u3082\u3082\u3053",
       "nameHiragana": "\u3068\u304c\u3081\u3000\u3082\u3082\u3053",
+      "nickName": "\u3082\u3082\u3053",
       "HP": 27101,
       "ATK": 8428,
       "DEF": 8834,
@@ -2027,6 +2049,7 @@
     {
       "name": "\u7531\u6bd4\u3000\u9db4\u4e43",
       "nameHiragana": "\u3086\u3044\u3000\u3064\u308b\u306e",
+      "nickName": "\u9db4\u4e43",
       "HP": 18927,
       "ATK": 8552,
       "DEF": 6056,
@@ -2119,6 +2142,7 @@
     {
       "name": "\u771e\u5c3e\u3000\u3072\u307f\u304b",
       "nameHiragana": "\u307e\u304a\u3000\u3072\u307f\u304b",
+      "nickName": "\u3072\u307f\u304b",
       "HP": 30227,
       "ATK": 7685,
       "DEF": 9305,
@@ -2211,6 +2235,7 @@
     {
       "name": "\u4f50\u5009\u3000\u674f\u5b50\u6c34\u7740",
       "nameHiragana": "\u3055\u304f\u3089\u3000\u304d\u3087\u3046\u3053\u307f\u305a\u304e",
+      "nickName": "\u674f\u5b50\u6c34\u7740",
       "HP": 22910,
       "ATK": 9962,
       "DEF": 7058,
@@ -2303,6 +2328,7 @@
     {
       "name": "\u91cc\u898b\u3000\u706f\u82b1",
       "nameHiragana": "\u3055\u3068\u307f\u3000\u3068\u3046\u304b",
+      "nickName": "\u706f\u706b",
       "HP": 21019,
       "ATK": 9803,
       "DEF": 6072,
@@ -2395,6 +2421,7 @@
     {
       "name": "\u5fa1\u5712\u3000\u304b\u308a\u3093",
       "nameHiragana": "\u307f\u305d\u306e\u3000\u304b\u308a\u3093",
+      "nickName": "\u304b\u308a\u3093",
       "HP": 28476,
       "ATK": 7874,
       "DEF": 7543,
@@ -2487,6 +2514,7 @@
     {
       "name": "\u30a6\u30ef\u30b5\u306e\u9db4\u4e43",
       "nameHiragana": "\u3046\u308f\u3055\u306e\u3064\u308b\u306e",
+      "nickName": "\u30a6\u30ef\u30b5\u9db4\u4e43",
       "HP": 21568,
       "ATK": 8606,
       "DEF": 6999,
@@ -2579,6 +2607,7 @@
     {
       "name": "\u7fbd\u5ddd\u3000\u7ffc",
       "nameHiragana": "\u306f\u306d\u304b\u308f\u3000\u3064\u3070\u3055",
+      "nickName": "\u7fbd\u5ddd",
       "HP": 28708,
       "ATK": 8036,
       "DEF": 7952,
@@ -2671,6 +2700,7 @@
     {
       "name": "\u9ad8\u753a\u3000\u306a\u306e\u306f",
       "nameHiragana": "\u305f\u304b\u307e\u3061\u3000\u306a\u306e\u306f",
+      "nickName": "\u306a\u306e\u306f",
       "HP": 26988,
       "ATK": 9005,
       "DEF": 9023,
@@ -2763,6 +2793,7 @@
     {
       "name": "\u30a8\u30ea\u30b6",
       "nameHiragana": "\u3048\u308a\u3056",
+      "nickName": "\u30a8\u30ea\u30b6",
       "HP": 26591,
       "ATK": 9067,
       "DEF": 8504,
@@ -2855,6 +2886,7 @@
     {
       "name": "\u795e\u539f\u3000\u99ff\u6cb3",
       "nameHiragana": "\u304b\u3093\u3070\u3089\u3000\u3059\u308b\u304c",
+      "nickName": "\u795e\u539f",
       "HP": 22951,
       "ATK": 9905,
       "DEF": 7078,
@@ -2947,6 +2979,7 @@
     {
       "name": "\u5357\u6d25\u3000\u6dbc\u5b50",
       "nameHiragana": "\u306a\u3064\u3000\u308a\u3087\u3046\u3053",
+      "nickName": "\u6dbc\u5b50",
       "HP": 27052,
       "ATK": 8648,
       "DEF": 8732,
@@ -3039,6 +3072,7 @@
     {
       "name": "\u5929\u4e43\u3000\u9234\u97f3",
       "nameHiragana": "\u3042\u307e\u306e\u3000\u3059\u305a\u306d",
+      "nickName": "\u9234\u97f3",
       "HP": 21004,
       "ATK": 9513,
       "DEF": 7057,
@@ -3131,6 +3165,7 @@
     {
       "name": "\u4e03\u702c\u3000\u3086\u304d\u304b",
       "nameHiragana": "\u306a\u306a\u305b\u3000\u3086\u304d\u304b",
+      "nickName": "\u3086\u304d\u304b",
       "HP": 27502,
       "ATK": 8801,
       "DEF": 8563,
@@ -3223,6 +3258,7 @@
     {
       "name": "\u7f8e\u56fd\u3000\u7e54\u8389\u5b50",
       "nameHiragana": "\u307f\u304f\u306b\u3000\u304a\u308a\u3053",
+      "nickName": "\u7e54\u8389\u5b50",
       "HP": 20088,
       "ATK": 8480,
       "DEF": 6480,
@@ -3315,6 +3351,7 @@
     {
       "name": "\u9e7f\u76ee\u3000\u307e\u3069\u304b",
       "nameHiragana": "\u304b\u306a\u3081\u3000\u307e\u3069\u304b",
+      "nickName": "\u307e\u3069\u304b",
       "HP": 24336,
       "ATK": 6832,
       "DEF": 9276,
@@ -3407,6 +3444,7 @@
     {
       "name": "\u5929\u97f3\u3000\u6708\u54b2",
       "nameHiragana": "\u3042\u307e\u306d\u3000\u3064\u304b\u3055",
+      "nickName": "\u6708\u54b2",
       "HP": 21161,
       "ATK": 8071,
       "DEF": 6613,
@@ -3499,6 +3537,7 @@
     {
       "name": "\u74b0\u3000\u3044\u308d\u306f",
       "nameHiragana": "\u305f\u307e\u304d\u3000\u3044\u308d\u306f",
+      "nickName": "\u3044\u308d\u306f",
       "HP": 22020,
       "ATK": 6276,
       "DEF": 8332,
@@ -3591,6 +3630,7 @@
     {
       "name": "\u5343\u79cb\u3000\u7406\u5b50",
       "nameHiragana": "\u3061\u3042\u304d\u3000\u308a\u3053",
+      "nickName": "\u7406\u5b50",
       "HP": 27725,
       "ATK": 8175,
       "DEF": 7429,
@@ -3683,6 +3723,7 @@
     {
       "name": "\u3044\u308d\u306f\u30fb\u3084\u3061\u3088\u6c7a\u6226",
       "nameHiragana": "\u3044\u308d\u306f\u3084\u3061\u3088\u3051\u3063\u305b\u3093",
+      "nickName": "\u3044\u308d\u3084\u3061",
       "HP": 26610,
       "ATK": 9651,
       "DEF": 6784,
@@ -3775,6 +3816,7 @@
     {
       "name": "\u30a2\u30eb\u30c6\u30a3\u30e1\u30c3\u30c8\u307e\u3069\u304b",
       "nameHiragana": "\u3042\u308b\u3066\u3043\u3081\u3063\u3068\u307e\u3069\u304b",
+      "nickName": "\u3042\u308b\u307e\u3069",
       "HP": 29143,
       "ATK": 9114,
       "DEF": 7906,
@@ -3867,6 +3909,7 @@
     {
       "name": "\u4e07\u5e74\u685c\u306e\u30a6\u30ef\u30b5",
       "nameHiragana": "\u307e\u3093\u306d\u3093\u3055\u304f\u3089\u306e\u3046\u308f\u3055",
+      "nickName": "\u4e07\u5e74\u685c",
       "HP": 27372,
       "ATK": 9012,
       "DEF": 8812,
@@ -3959,6 +4002,7 @@
     {
       "name": "\u30bf\u30eb\u30c8",
       "nameHiragana": "\u305f\u308b\u3068",
+      "nickName": "\u30bf\u30eb\u30c8",
       "HP": 24260,
       "ATK": 8976,
       "DEF": 8998,
@@ -4051,6 +4095,7 @@
     {
       "name": "\u548c\u6cc9\u3000\u5341\u4e03\u591c",
       "nameHiragana": "\u3044\u305a\u307f\u3000\u304b\u306a\u304e",
+      "nickName": "\u5341\u4e03\u591c",
       "HP": 21406,
       "ATK": 9695,
       "DEF": 7386,
@@ -4143,6 +4188,7 @@
     {
       "name": "\u6681\u7f8e\u3000\u307b\u3080\u3089\u6c34\u7740",
       "nameHiragana": "\u3042\u3051\u307f\u3000\u307b\u3080\u3089\u307f\u305a\u304e",
+      "nickName": "\u6c34\u7740\u307b\u3080\u3089",
       "HP": 22660,
       "ATK": 9008,
       "DEF": 6627,
@@ -4235,6 +4281,7 @@
     {
       "name": "\u6817\u6839\u3000\u3053\u3053\u308d",
       "nameHiragana": "\u304f\u308a\u306d\u3000\u3053\u3053\u308d",
+      "nickName": "\u3053\u3053\u308d",
       "HP": 28327,
       "ATK": 7308,
       "DEF": 10001,
@@ -4327,6 +4374,7 @@
     {
       "name": "\u9e7f\u76ee\u3000\u307e\u3069\u304b\u6674\u7740",
       "nameHiragana": "\u304b\u306a\u3081\u3000\u307e\u3069\u304b\u306f\u308c\u304e",
+      "nickName": "\u6674\u7740\u307e\u3069\u304b",
       "HP": 27788,
       "ATK": 8298,
       "DEF": 7608,
@@ -4419,6 +4467,7 @@
     {
       "name": "\u307e\u3069\u304b\u5148\u8f29",
       "nameHiragana": "\u307e\u3069\u304b\u305b\u3093\u3071\u3044",
+      "nickName": "\u307e\u3069\u30bb\u30f3",
       "HP": 24883,
       "ATK": 7882,
       "DEF": 7884,
@@ -4511,6 +4560,7 @@
     {
       "name": "\u53f2\u4e43\u3000\u6c99\u512a\u5e0c",
       "nameHiragana": "\u3075\u307f\u306e\u3000\u3055\u3086\u304d",
+      "nickName": "\u6c99\u512a\u5e0c",
       "HP": 27907,
       "ATK": 8339,
       "DEF": 7651,
@@ -4603,6 +4653,7 @@
     {
       "name": "\u30d5\u30a7\u30a4\u30c8",
       "nameHiragana": "\u3075\u3047\u3044\u3068",
+      "nickName": "\u30d5\u30a7\u30a4\u30c8",
       "HP": 22596,
       "ATK": 10028,
       "DEF": 7255,
@@ -4695,6 +4746,7 @@
     {
       "name": "\u3044\u308d\u306f\u3061\u3083\u3093",
       "nameHiragana": "\u3044\u308d\u306f\u3061\u3083\u3093",
+      "nickName": "\u3044\u308d\u306f\uff81\uff6c\uff9d",
       "HP": 30088,
       "ATK": 8015,
       "DEF": 7582,
@@ -4787,6 +4839,7 @@
     {
       "name": "\u5fcd\u91ce\u3000\u5fcd",
       "nameHiragana": "\u304a\u3057\u306e\u3000\u3057\u306e\u3076",
+      "nickName": "\u5fcd\u91ce\u3000\u5fcd",
       "HP": 21620,
       "ATK": 9428,
       "DEF": 6744,
@@ -4879,6 +4932,7 @@
     {
       "name": "\u714c\u91cc\u3000\u3072\u304b\u308b",
       "nameHiragana": "\u304d\u3089\u308a\u3000\u3072\u304b\u308b",
+      "nickName": "\u3072\u304b\u308b",
       "HP": 29199,
       "ATK": 8116,
       "DEF": 7785,
@@ -4971,6 +5025,7 @@
     {
       "name": "\u7f8e\u6a39\u3000\u3055\u3084\u304b",
       "nameHiragana": "\u307f\u304d\u3000\u3055\u3084\u304b",
+      "nickName": "\u7f8e\u6a39\u3000\u3055",
       "HP": 29266,
       "ATK": 7595,
       "DEF": 9493,
@@ -5063,6 +5118,7 @@
     {
       "name": "\u6c34\u6ce2\u3000\u30ec\u30ca",
       "nameHiragana": "\u307f\u306a\u307f\u3000\u308c\u306a",
+      "nickName": "\u6c34\u7740\u3048\u308d\u306f",
       "HP": 22144,
       "ATK": 9776,
       "DEF": 7366,
@@ -5155,6 +5211,7 @@
     {
       "name": "\u7f8e\u6a39\u3000\u3055\u3084\u304b\u6674\u7740",
       "nameHiragana": "\u307f\u304d\u3000\u3055\u3084\u304b\u306f\u308c\u304e",
+      "nickName": "\u6674\u7740\u3055\u3084\u304b",
       "HP": 30468,
       "ATK": 8220,
       "DEF": 10095,
@@ -5247,6 +5304,7 @@
     {
       "name": "\u571f\u5c90\u3000\u3059\u306a\u304a",
       "nameHiragana": "\u3068\u304d\u3000\u3059\u306a\u304a",
+      "nickName": "\u3059\u306a\u304a",
       "HP": 23714,
       "ATK": 8499,
       "DEF": 7827,
@@ -5339,6 +5397,7 @@
     {
       "name": "\u4e03\u6d77\u3000\u3084\u3061\u3088",
       "nameHiragana": "\u306a\u306a\u307f\u3000\u3084\u3061\u3088",
+      "nickName": "\u3084\u3061\u3088",
       "HP": 23479,
       "ATK": 7588,
       "DEF": 8316,
@@ -5431,6 +5490,7 @@
     {
       "name": "\u9759\u6d77\u3000\u3053\u306e\u306f",
       "nameHiragana": "\u3057\u305a\u307f\u3000\u3053\u306e\u306f",
+      "nickName": "\u3053\u306e\u306f",
       "HP": 26940,
       "ATK": 8388,
       "DEF": 8793,
@@ -5523,6 +5583,7 @@
     {
       "name": "\u7d14\u3000\u7f8e\u96e8",
       "nameHiragana": "\u3061\u3085\u3093\u3000\u3081\u3044\u3086\u3044",
+      "nickName": "\u7f8e\u96e8",
       "HP": 26662,
       "ATK": 6733,
       "DEF": 9379,
@@ -5615,6 +5676,7 @@
     {
       "name": "\u5e38\u76e4\u3000\u306a\u306a\u304b",
       "nameHiragana": "\u3068\u304d\u308f\u3000\u306a\u306a\u304b",
+      "nickName": "\u306a\u306a\u304b",
       "HP": 24648,
       "ATK": 8136,
       "DEF": 7797,
@@ -5707,6 +5769,7 @@
     {
       "name": "\u5929\u97f3\u59c9\u59b9\u6c34\u7740",
       "nameHiragana": "\u3042\u307e\u306d\u3057\u307e\u3044\u307f\u305a\u304e",
+      "nickName": "\u5929\u97f3\u59c9\u59b9",
       "HP": 24195,
       "ATK": 8065,
       "DEF": 7425,
@@ -5799,6 +5862,7 @@
     {
       "name": "\u7adc\u57ce\u3000\u660e\u65e5\u9999",
       "nameHiragana": "\u305f\u3064\u304d\u3000\u3042\u3059\u304b",
+      "nickName": "\u660e\u65e5\u9999",
       "HP": 24801,
       "ATK": 7836,
       "DEF": 8727,
@@ -5891,6 +5955,7 @@
     {
       "name": "\u6893\u3000\u9ebb\u53cb",
       "nameHiragana": "\u3042\u305a\u3055\u3000\u307e\u3086",
+      "nickName": "\u9ebb\u53cb",
       "HP": 21629,
       "ATK": 8853,
       "DEF": 7023,
@@ -5983,6 +6048,7 @@
     {
       "name": "\u74b0\u3000\u3044\u308d\u306f\u6c34\u7740",
       "nameHiragana": "\u305f\u307e\u304d\u3000\u3044\u308d\u306f\u307f\u305a\u304e",
+      "nickName": "\u6c34\u7740\u3048\u308d\u306f",
       "HP": 28648,
       "ATK": 8016,
       "DEF": 7932,
@@ -6075,6 +6141,7 @@
     {
       "name": "\u516b\u4e5d\u5bfa\u3000\u771f\u5bb5",
       "nameHiragana": "\u306f\u3061\u304f\u3058\u3000\u307e\u3088\u3044",
+      "nickName": "\u516b\u4e5d\u5bfa",
       "HP": 26498,
       "ATK": 7111,
       "DEF": 10947,
@@ -6167,6 +6234,7 @@
     {
       "name": "\u30e1\u30ea\u30c3\u30b5",
       "nameHiragana": "\u3081\u308a\u3063\u3055",
+      "nickName": "\u30e1\u30ea\u30c3\u30b5",
       "HP": 22519,
       "ATK": 8211,
       "DEF": 6698,
@@ -6259,6 +6327,7 @@
     {
       "name": "\u30ea\u30f4\u30a3\u30a2\u30fb\u30e1\u30c7\u30a3\u30ed\u30b9",
       "nameHiragana": "\u308a\u30f4\u3043\u3042\u3000\u3081\u3067\u3043\u308d\u3059",
+      "nickName": "\u30ea\u30f4\u30a3\u30a2",
       "HP": 28088,
       "ATK": 8400,
       "DEF": 7710,
@@ -6351,6 +6420,7 @@
     {
       "name": "\u516b\u96f2\u3000\u307f\u305f\u307e",
       "nameHiragana": "\u3084\u304f\u3082\u3000\u307f\u305f\u307e",
+      "nickName": "\u307f\u305f\u307e",
       "HP": 29120,
       "ATK": 7776,
       "DEF": 8460,
@@ -6443,6 +6513,7 @@
     {
       "name": "\u516b\u96f2\u3000\u307f\u305f\u307e\u6674\u7740",
       "nameHiragana": "\u3084\u304f\u3082\u3000\u307f\u305f\u307e\u306f\u308c\u304e",
+      "nickName": "\u6674\u7740\u307f\u305f\u307e",
       "HP": 28529,
       "ATK": 8785,
       "DEF": 8614,
@@ -6535,6 +6606,7 @@
     {
       "name": "\u5df4\u3000\u30de\u30df",
       "nameHiragana": "\u3068\u3082\u3048\u3000\u307e\u307f",
+      "nickName": "\u30de\u30df",
       "HP": 20941,
       "ATK": 9652,
       "DEF": 6553,
@@ -6627,6 +6699,7 @@
     {
       "name": "\u65e5\u5411\u3000\u8309\u8389",
       "nameHiragana": "\u3072\u306a\u305f\u3000\u307e\u3064\u308a",
+      "nickName": "\u8309\u8389",
       "HP": 26713,
       "ATK": 8565,
       "DEF": 9362,
@@ -6719,6 +6792,7 @@
     {
       "name": "\u30db\u30fc\u30ea\u30fc\u30a2\u30ea\u30ca",
       "nameHiragana": "\u307b\u30fc\u308a\u30fc\u3042\u308a\u306a",
+      "nickName": "\u30db\u30ea\u30ca",
       "HP": 23541,
       "ATK": 9814,
       "DEF": 6942,
@@ -6811,6 +6885,7 @@
     {
       "name": "\u5e83\u6c5f\u3000\u3061\u306f\u308b",
       "nameHiragana": "\u3072\u308d\u3048\u3000\u3061\u306f\u308b",
+      "nickName": "\u3061\u3083\u308b",
       "HP": 30066,
       "ATK": 8057,
       "DEF": 9896,
@@ -6903,6 +6978,7 @@
     {
       "name": "\u79cb\u91ce\u3000\u304b\u3048\u3067",
       "nameHiragana": "\u3042\u304d\u306e\u3000\u304b\u3048\u3067",
+      "nickName": "\u304b\u3048\u3067",
       "HP": 20511,
       "ATK": 8579,
       "DEF": 6352,
@@ -6995,6 +7071,7 @@
     {
       "name": "\u30a2\u30ea\u30ca\u30fb\u30b0\u30ec\u30a4",
       "nameHiragana": "\u3042\u308a\u306a\u3050\u308c\u3044",
+      "nickName": "\u30a2\u30ea\u30ca",
       "HP": 22370,
       "ATK": 9784,
       "DEF": 7106,
@@ -7087,6 +7164,7 @@
     {
       "name": "\u4e8c\u8449\u3000\u3055\u306a",
       "nameHiragana": "\u3075\u305f\u3070\u3000\u3055\u306a",
+      "nickName": "\u3055\u306a",
       "HP": 25825,
       "ATK": 6520,
       "DEF": 9080,
@@ -7179,6 +7257,7 @@
     {
       "name": "\u590f\u76ee\u3000\u304b\u3053",
       "nameHiragana": "\u306a\u3064\u3081\u3000\u304b\u3053",
+      "nickName": "\u304b\u3053",
       "HP": 21291,
       "ATK": 6609,
       "DEF": 7949,
@@ -7271,6 +7350,7 @@
     {
       "name": "\u76f8\u91ce\u3000\u307f\u3068",
       "nameHiragana": "\u3042\u3044\u306e\u3000\u307f\u3068",
+      "nickName": "\u307f\u3068",
       "HP": 27141,
       "ATK": 8644,
       "DEF": 8471,
@@ -7363,6 +7443,7 @@
     {
       "name": "\u30db\u30fc\u30ea\u30fc\u30de\u30df",
       "nameHiragana": "\u307b\u30fc\u308a\u30fc\u307e\u307f",
+      "nickName": "\u30db\u30df",
       "HP": 21708,
       "ATK": 9566,
       "DEF": 7669,
@@ -7455,6 +7536,7 @@
     {
       "name": "\u5bae\u5c3e\u3000\u6642\u96e8",
       "nameHiragana": "\u307f\u3084\u304a\u3000\u3057\u3050\u308c",
+      "nickName": "\u6642\u96e8",
       "HP": 28768,
       "ATK": 8056,
       "DEF": 7972,
@@ -7547,6 +7629,7 @@
     {
       "name": "\u5343\u77f3\u3000\u64ab\u5b50",
       "nameHiragana": "\u305b\u3093\u3054\u304f\u3000\u306a\u3067\u3053",
+      "nickName": "\u64ab\u5b50",
       "HP": 21870,
       "ATK": 9214,
       "DEF": 6906,
@@ -7639,6 +7722,7 @@
     {
       "name": "\u67ca\u3000\u306d\u3080",
       "nameHiragana": "\u3072\u3044\u3089\u304e\u3000\u306d\u3080",
+      "nickName": "\u306d\u3080",
       "HP": 29016,
       "ATK": 8055,
       "DEF": 7725,
@@ -7731,6 +7815,7 @@
     {
       "name": "\u5b89\u7a4d\u3000\u306f\u3050\u3080",
       "nameHiragana": "\u3042\u305a\u307f\u3000\u306f\u3050\u3080",
+      "nickName": "\u306f\u3050\u3080",
       "HP": 22025,
       "ATK": 10016,
       "DEF": 7306,
@@ -7756,7 +7841,7 @@
         "turn": ""
       },
       "connectA3": {
-        "name": "\u5bfe\u9b54\u5973\u30c0\u30e1\u30fc\u30b8UP",
+        "name": "\u5bfe\u9b54\u5973\u30c0\u30e1\u30fc\u30b8\u30a2\u30c3\u30d7",
         "value": "\u2164",
         "turn": ""
       },
