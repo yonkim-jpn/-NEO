@@ -401,6 +401,8 @@
     <Content Include="png\yachiyoon.png" />
     <Content Include="png\yukika.png" />
     <Content Include="png\yukikaon.png" />
+    <Content Include="png\yuzuru.png" />
+    <Content Include="png\yuzuruon.png" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

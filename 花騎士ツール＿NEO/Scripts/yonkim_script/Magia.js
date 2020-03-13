@@ -23,22 +23,22 @@ var xhr1 = new XMLHttpRequest;
     escogido = angular.copy(escogidoOri);
 }));
 window.onload = function(){
-    //初期設定
-    document.getElementById("MainContent_RadioButtonList666_0").nextSibling.classList.add("accele");
-    document.getElementById("MainContent_RadioButtonList666_1").nextSibling.classList.add("blast");
-    document.getElementById("MainContent_RadioButtonList666_2").nextSibling.classList.add("charge");
+    ////初期設定
+    //document.getElementById("MainContent_RadioButtonList666_0").nextSibling.classList.add("accele");
+    //document.getElementById("MainContent_RadioButtonList666_1").nextSibling.classList.add("blast");
+    //document.getElementById("MainContent_RadioButtonList666_2").nextSibling.classList.add("charge");
 
-    document.getElementById("MainContent_RadioButtonList667_0").nextSibling.classList.add("accele");
-    document.getElementById("MainContent_RadioButtonList667_1").nextSibling.classList.add("blast");
-    document.getElementById("MainContent_RadioButtonList667_2").nextSibling.classList.add("charge");
+    //document.getElementById("MainContent_RadioButtonList667_0").nextSibling.classList.add("accele");
+    //document.getElementById("MainContent_RadioButtonList667_1").nextSibling.classList.add("blast");
+    //document.getElementById("MainContent_RadioButtonList667_2").nextSibling.classList.add("charge");
 
-    document.getElementById("MainContent_RadioButtonList668_0").nextSibling.classList.add("accele");
-    document.getElementById("MainContent_RadioButtonList668_1").nextSibling.classList.add("blast");
-    document.getElementById("MainContent_RadioButtonList668_2").nextSibling.classList.add("charge");
+    //document.getElementById("MainContent_RadioButtonList668_0").nextSibling.classList.add("accele");
+    //document.getElementById("MainContent_RadioButtonList668_1").nextSibling.classList.add("blast");
+    //document.getElementById("MainContent_RadioButtonList668_2").nextSibling.classList.add("charge");
 
-    document.getElementById("MainContent_RadioButtonList669_0").nextSibling.classList.add("accele");
-    document.getElementById("MainContent_RadioButtonList669_1").nextSibling.classList.add("blast");
-    document.getElementById("MainContent_RadioButtonList669_2").nextSibling.classList.add("charge");
+    //document.getElementById("MainContent_RadioButtonList669_0").nextSibling.classList.add("accele");
+    //document.getElementById("MainContent_RadioButtonList669_1").nextSibling.classList.add("blast");
+    //document.getElementById("MainContent_RadioButtonList669_2").nextSibling.classList.add("charge");
 };
 
 
@@ -353,7 +353,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     switch (orden) {
         case 1:
             {
-                if (ratioCori > 0)
+                if ((ratioCori > 0)&&(eleccion[0] !== "C"))
                     chargeFlag = 1;
                 break;
             }
@@ -363,7 +363,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
                     calcC = 1;
                     cmp = 1;
                 }
-                else
+                else if(eleccion[1] !== "C")
                     chargeFlag = 1;
                 break;
             }
@@ -373,7 +373,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
                     calcC = 1;
                     cmp = 1;
                 }
-                else
+                else if(eleccion[2] !== "C")
                     chargeFlag = 1;
                 break;
             }
@@ -527,6 +527,8 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     var aumentoMP = connectAjustado[orden - 1][12];
     if (typeof aumentoMP === "undefined")
         aumentoMP = 0;
+    if (charaSelected[orden -1] === "天音　月夜")
+        aumentoMP += (typeof connectAjustado[orden - 1][14] !== "undefined") ? connectAjustado[orden - 1][14] : 0;
     aumentoMP = aumentoMP * calcMpC;
 
     //出力データ作成
@@ -591,7 +593,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     v = eleccion[orden - 1] === "B" ? v : 0;
 
     //出力データ作成
-    salida[orden-1].unshift(GetSalida("Cダメ",t));
+    salida[orden-1].unshift(GetSalida("C後ダメ",t));
     salida[orden-1].unshift(GetSalida("Bダメ", v));
     salida[orden-1].unshift(GetSalida("与ダメ",u));//これで配列の先頭に入る
     
@@ -740,7 +742,7 @@ function GenerateConnect() {
                                     }
                                     else if(i===1) {//二回目 加算処理
                                         for (let j = 0; j < limite; j++) {
-                                            if (typeof connectAjustado[i - 1][j] !== "undefined" && (j !== 12)) {//MP回復のみ別処理
+                                            if (typeof connectAjustado[i - 1][j] !== "undefined" && (j !== 12)&& (j !== 14)) {//MP回復のみ別処理
                                                 if (connectAjustado[i - 1] !== true) {
                                                     if (connectPosition[i] && (typeof connectElegido[i][j] !== "undefined"))
                                                         connectAjustado[i][j] = connectAjustado[i - 1][j] + connectElegido[i][j];
@@ -769,7 +771,7 @@ function GenerateConnect() {
                                     }
                                     else if(i===2) {//三回目を一回目に対して加算処理
                                         for (let j = 0; j < limite; j++) {
-                                            if (typeof connectAjustado[i - 2][j] !== "undefined" && (j !== 12)) {//MP回復のみ別処理
+                                            if (typeof connectAjustado[i - 2][j] !== "undefined" && (j !== 12)&& (j !== 14)) {//MP回復のみ別処理
                                                 if (connectAjustado[i - 2] !== true) {
                                                     if (connectPosition[i] && (typeof connectElegido[i][j] !== "undefined"))
                                                         connectAjustado[i][j] = connectAjustado[i - 2][j] + connectElegido[i][j];
@@ -798,7 +800,7 @@ function GenerateConnect() {
                                     }
                                     else if(i===2){//三回目を二回目に対して加算処理
                                         for (let j = 0; j < limite; j++) {
-                                            if (typeof connectAjustado[i - 1][j] !== "undefined" && (j !== 12)) {//MP回復のみ別処理
+                                            if (typeof connectAjustado[i - 1][j] !== "undefined" && (j !== 12)&& (j !== 14)) {//MP回復のみ別処理
                                                 if (connectAjustado[i - 1] !== true) {
                                                     if (connectPosition[i] && (typeof connectElegido[i][j] !== "undefined"))
                                                         connectAjustado[i][j] = connectAjustado[i - 1][j] + connectElegido[i][j];
@@ -828,7 +830,7 @@ function GenerateConnect() {
                                     }
                                     else if (i !== 0) {//二回目以降は、前のループの値をひたすら足していけばいい
                                         for (let j = 0; j < limite; j++) {
-                                            if (typeof connectAjustado[i - 1][j] !== "undefined" && (j !== 12)) {//MP回復のみ別処理
+                                            if (typeof connectAjustado[i - 1][j] !== "undefined" && (j !== 12)&& (j !== 14)) {//MP回復のみ別処理
                                                 if (connectAjustado[i - 1] !== true) {
                                                     if (connectPosition[i] && (typeof connectElegido[i][j] !== "undefined"))
                                                         connectAjustado[i][j] = connectAjustado[i - 1][j] + connectElegido[i][j];
@@ -862,7 +864,7 @@ function GenerateConnect() {
                     }
                     else if(i !== 0){//二回目以降は、前のループの値をひたすら足していけばいい
                         for (let j = 0; j < limite; j++) {
-                            if (typeof connectAjustado[i - 1][j] !== "undefined"  && (j !== 12)) {//MP回復のみ別処理
+                            if (typeof connectAjustado[i - 1][j] !== "undefined"  && (j !== 12)&& (j !== 14)) {//MP回復のみ別処理
                                 if (connectAjustado[i - 1] !== true) {
                                     if (connectPosition[i] && (typeof connectElegido[i][j] !== "undefined"))
                                         connectAjustado[i][j] = connectAjustado[i - 1][j] + connectElegido[i][j];
@@ -1181,8 +1183,18 @@ $(function () {
         var e0 = document.getElementById("MainContent_seleccionado_0");
         var e1 = document.getElementById("MainContent_seleccionado_1");
         var e2 = document.getElementById("MainContent_seleccionado_2");
+        
         if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {//同一キャラで攻撃
-            $('input:radio[name="ctl00$MainContent$seleccionado"]').val(["1"]);
+            //キャラ選択で、2人目3人目がチェックされている時は1人目選択に変更する
+            if (($('input[name="ctl00$MainContent$seleccionado"]:checked').val() === "2") || ($('input[name="ctl00$MainContent$seleccionado"]:checked').val() === "3")) {
+                $('input:radio[name="ctl00$MainContent$seleccionado"]').val(["1"]);
+                //ハイライト追加
+                document.getElementById("MainContent_seleccionado_0").nextSibling.classList.add("highlight");
+                //ハイライト削除
+                document.getElementById("MainContent_seleccionado_1").nextSibling.classList.remove("highlight");
+                document.getElementById("MainContent_seleccionado_2").nextSibling.classList.remove("highlight");
+    
+            }
             //ピュエラの時は、2人目以降の選択不可
             e0.disabled = false;
             e1.disabled = true;
@@ -1202,25 +1214,25 @@ $(function () {
                 
                 //アイコン、データコピー
                 let image2a = document.getElementById('2a');
-                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' >';
+                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' alt=\"選択無\" >';
                 iData = [[escogido.personas[0].nickName], [escogido.personas[0].atk], [escogido.personas[0].def], [escogido.personas[0].hp]];
                 IndicaData(iData, "grid2a");
                 let image3a = document.getElementById('3a');
-                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' >';
+                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' alt=\"選択無\" >';
                 iData = [[escogido.personas[0].nickName], [escogido.personas[0].atk], [escogido.personas[0].def], [escogido.personas[0].hp]];
                 IndicaData(iData, "grid3a");
             }
             
 
-            //ハイライト解除
-            document.getElementById("MainContent_seleccionado_0").nextSibling.classList.remove("highlight");
-            document.getElementById("MainContent_seleccionado_1").nextSibling.classList.remove("highlight");
-            document.getElementById("MainContent_seleccionado_2").nextSibling.classList.remove("highlight");
-
             //アコーデオン閉じ
-            $("#MainContent_nombre23").collapse('hide');
+            $("#nombre23").collapse('hide');
         }
         else {//3キャラ選択
+
+            //ハイライト処理(初期処理)
+            if ($('input:radio[name="ctl00$MainContent$seleccionado"]:checked').val() === "1")
+                document.getElementById("MainContent_seleccionado_0").nextSibling.classList.add("highlight");
+
             e0.disabled = false;
             e1.disabled = false;
             e2.disabled = false;
@@ -1250,7 +1262,7 @@ $(function () {
                 // n2 = n2.substring(n2.indexOf(" : ") + 1);
                 //アイコン、データ復元
                 let image2a = document.getElementById('2a');
-                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[1].data1 + ' >';
+                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[1].data1 + ' alt=\"選択無\" >';
                 iData = [[escogido.personas[1].nickName], [escogido.personas[1].atk], [escogido.personas[1].def], [escogido.personas[1].hp]];
                 IndicaData(iData, "grid2a");
             }
@@ -1266,7 +1278,7 @@ $(function () {
                 // n3 = n3.substring(n3.indexOf(" : ") + 1);
                  //アイコン、データ復元
                 let image3a = document.getElementById('3a');
-                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[2].data1 + ' >';
+                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[2].data1 + ' alt=\"選択無\" >';
                 iData = [[escogido.personas[2].nickName], [escogido.personas[2].atk], [escogido.personas[2].def], [escogido.personas[2].hp]];
                 IndicaData(iData, "grid3a");
             }
@@ -1275,12 +1287,11 @@ $(function () {
             document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + n2;
             document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + n3;
             
-            //アコーデオン開く
-            $("#MainContent_nombre23").collapse('show');
+            //覚醒のアコーデオン開く
+            $("#nombre23").collapse('show');
            
 
-            //ハイライト処理
-            document.getElementById("MainContent_seleccionado_0").nextSibling.classList.add("highlight");
+            
         }
         IndicaResultado();
     });
@@ -1289,6 +1300,10 @@ $(function () {
         document.getElementById("MainContent_seleccionado_0").nextSibling.classList.remove("highlight");
         document.getElementById("MainContent_seleccionado_1").nextSibling.classList.remove("highlight");
         document.getElementById("MainContent_seleccionado_2").nextSibling.classList.remove("highlight");
+        document.getElementById("radioConnect1").nextElementSibling.classList.remove("highlight");
+        document.getElementById("radioConnect2").nextElementSibling.classList.remove("highlight");
+        document.getElementById("radioConnect3").nextElementSibling.classList.remove("highlight");
+        
         //付加
         let selected = $('input[name="ctl00$MainContent$seleccionado"]:checked').val();
         switch (selected) {
@@ -1307,7 +1322,21 @@ $(function () {
                     document.getElementById("MainContent_seleccionado_2").nextSibling.classList.add("highlight");
                     break;
                 }
-
+            case "connect1":
+                {
+                    document.getElementById("radioConnect1").nextElementSibling.classList.add("highlight");
+                    break;
+                }
+            case "connect2":
+                {
+                    document.getElementById("radioConnect2").nextElementSibling.classList.add("highlight");
+                    break;
+                }
+            case "connect3":
+                {
+                    document.getElementById("radioConnect3").nextElementSibling.classList.add("highlight");
+                    break;
+                }
         }
     })
     
@@ -1975,6 +2004,7 @@ var connectElegido = [array01,array02,array03];
 // 11:MP獲得量UP
 // 12:MP回復
 // 13:クリティカル
+// 14:月夜にコネクトでMPさらに回復:25回復
 
 
 // var canvasAry = [];
@@ -2257,7 +2287,7 @@ function draw3() {
         //両端の移動制限
         //左端
         if ((px > 0) && (charaX[0] >= x0)) {
-            if (clickX > canvas3.width) {
+            if (clickX > canvas3.width) {//ドラッグした先が右端を超えた場合
                 pointerFlag = false;
                 // console.log(pointerFlag + " left");
                 $("#MainContent_debug").text(pointerFlag + " 左端");
@@ -2330,7 +2360,9 @@ function draw3() {
                     case "マギア値":
                     case "コネクト値":
                         {
-                            Draw2ndText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].sortValue, Xoffset, Yoffset, canvasFlag);
+                            let sortValue = jsonData.personas[i].sortValue1;
+                            sortValue = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? sortValue + " " + jsonData.personas[i].sortValue2 : sortValue;
+                            Draw2ndText(ctx3, charaX[i], charaY, charaR, sortValue, Xoffset, Yoffset, canvasFlag);
                             break;
                         }
                 }
@@ -2367,7 +2399,7 @@ function draw3() {
                                 // DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
                                 Draw2ndRow(ctx3, charaX[i], charaY, charaR, imageAry1[i], Xoffset, Yoffset, canvasFlag);
                             }
-                            else {
+                            else {//アイコンがない時の処理。今は使ってない
                                 DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
                                 DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
                             }
@@ -2500,7 +2532,7 @@ function draw3() {
                                     // DrawImage(ctx3, charaX[i], charaY, charaR, imageAry2[i]);
                                     Draw2ndRow(ctx3, charaX[i], charaY, charaR, imageAry2[i], Xoffset, Yoffset, canvasFlag);
                                 }
-                                else {
+                                else {//アイコンがない時の処理。今は使ってない
                                     DrawCircle(ctx3, charaX[i], charaY, charaR, -1);
                                     DrawText(ctx3, charaX[i], charaY, nombre[i], -1);
                                 }
@@ -2511,7 +2543,7 @@ function draw3() {
                                     // DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
                                     Draw2ndRow(ctx3, charaX[i], charaY, charaR, imageAry1[i], Xoffset, Yoffset, canvasFlag);
                                 }
-                                else {
+                                else {//アイコンがない時の処理。今は使ってない
                                     DrawCircle(ctx3, charaX[i], charaY, charaR, 1);
                                     DrawText(ctx3, charaX[i], charaY, nombre[i], 1);
                                 }
@@ -2534,7 +2566,7 @@ function draw3() {
                             }
                                 //アイコン画像,データ表示
                             let image1a = document.getElementById('1a');
-                            image1a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                            image1a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
                             let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                             IndicaData(iData, "grid1a");
                             if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
@@ -2549,11 +2581,11 @@ function draw3() {
                                 }
                                 //アイコン画像表示,データ表示
                                 let image2a = document.getElementById('2a');
-                                image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                                image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
                                 let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                                 IndicaData(iData, "grid2a");
                                 let image3a = document.getElementById('3a');
-                                image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                                image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
                                 iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                                 IndicaData(iData, "grid3a");
                             }
@@ -2608,7 +2640,7 @@ function draw3() {
                                 escogido.personas[1].type = jsonData.personas[number].TipoMagia;
                             //アイコン画像表示
                             let image2a = document.getElementById('2a');
-                            image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                            image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\" >';
                             let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                             IndicaData(iData, "grid2a");
                         }
@@ -2641,7 +2673,7 @@ function draw3() {
                                 escogido.personas[2].type = jsonData.personas[number].TipoMagia;
                              //アイコン画像表示
                              let image3a = document.getElementById('3a');
-                            image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' >';
+                            image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\" >';
                             let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                             IndicaData(iData, "grid3a");
                         }
@@ -2741,7 +2773,9 @@ function draw3() {
                     case "マギア値":
                     case "コネクト値":
                         {
-                            ordenLetra = jsonData.personas[i].sortValue;
+                            let sortValue = jsonData.personas[i].sortValue1;
+                            sortValue = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? sortValue +  " " + jsonData.personas[i].sortValue2 : sortValue;
+                            ordenLetra = sortValue;
                             break;
                         }
                     default:
@@ -2776,6 +2810,10 @@ function draw3() {
         let resultado;
         if (BusquedaConectiva("攻撃力UP", inputJson, 1)) {
             resultado = BusquedaConectiva("攻撃力UP", inputJson, 1);
+            connectElegido[selector][0] = (ChangeRoman(resultado[1]) * 2.5) + 17.5;
+        }
+        if (BusquedaConectiva("防御力UP", inputJson, 1)) {
+            resultado = BusquedaConectiva("防御力UP", inputJson, 1);
             connectElegido[selector][0] = (ChangeRoman(resultado[1]) * 2.5) + 17.5;
         }
         if (BusquedaConectiva("与えるダメージUP", inputJson, 1)) {
@@ -2816,6 +2854,9 @@ function draw3() {
         if (BusquedaConectiva("確率でクリティカル", inputJson, 1)) {
             resultado = BusquedaConectiva("確率でクリティカル", inputJson, 1);
             connectElegido[selector][13] = (ChangeRoman(resultado[1]) * 5) + 25;
+        }
+        if (BusquedaConectiva("月夜にコネクトするとさらにMP回復", inputJson, 1)) {
+            connectElegido[selector][14] = 25;
         }
     }
 
@@ -2869,13 +2910,17 @@ function draw3() {
     $('#MainContent_tipo1').change(function () {
         CheckChanged();
     });
+    // var clickFlag = 0;//changeしたあと、clickに再び入ってしまうので、click部での処理をこのフラグでキャンセル
+    // var mouseFlag = 1; //1:スルー　0:処理
+    //change
     $('#MainContent_tipoMagia').change(function () {
+        // console.log("chagne" + " m" + mouseFlag + "c" + clickFlag );
         CheckChanged();
         var ordenMagia = document.getElementById("MainContent_orden1_4");
         var textMagia = $('#MainContent_tipoMagia').val();
         if (textMagia.indexOf("マギア指定") === -1) {
             ordenMagia.disabled = false;
-            if (jsonData.personas[0].sortValue !== null && $(window).width() > 768) {
+            if (((textMagia !== "属性強化") && (textMagia !== "低HPほど威力UP")) && $(window).width() > 768) {
                 document.getElementById("MainContent_orden1_4").nextSibling.innerText = "マギア値:" + textMagia;
             }
             else if ($(window).width() > 768)
@@ -2891,35 +2936,84 @@ function draw3() {
                 document.getElementById("MainContent_orden1_4").nextSibling.innerText = "マギア値";
         }
 
-        let data = CuentaTodo("magia1",2);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-        ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-        ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
-    });
-    // var virgen = 0;
+        let data = CuentaTodo("magia1", 2);
+        // mouseFlag = 1;
+        // clickFlag = 1;
+        // console.log("chagne2" + " m" + mouseFlag + "c" + clickFlag );
+        ApareceCantidad("MainContent_tipoMagia", data[0]);
+        ApareceCantidad("MainContent_tipoMagia2", data[1]);
+        ApareceCantidad("MainContent_connect1", data[2]);
+        ApareceCantidad("MainContent_connect2", data[3]);
+});
+    
+    //click
     $('#MainContent_tipoMagia').on('click', function () {
-            let data = CuentaTodo("magia1",1);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-            ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-            ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
+        // console.log("click" + " m" + mouseFlag + "c" + clickFlag);
+        // if (clickFlag === 0) {
+            let data = CuentaTodo("magia1", 1);
+            ApareceCantidad("MainContent_tipoMagia", data[0]);
+            ApareceCantidad("MainContent_tipoMagia2", data[1]);
+            ApareceCantidad("MainContent_connect1", data[2]);
+            ApareceCantidad("MainContent_connect2", data[3]);
+            console.log("click処理実行 敵全体 " + data[0][1][1]);
+        //     clickFlag = 1;
+        //     mouseFlag = 0;
+        // } else {
+        //     clickFlag = 0;
+        // }
+        // console.log("click2" + " m" + mouseFlag + "c" + clickFlag);
     });
+    
+    //mouseup
+    // $('#MainContent_tipoMagia').on('mouseup', function () {//ドロップダウンが閉じた時
+    //     console.log("mouseup" + " m" + mouseFlag + "c" + clickFlag);
+    //     if (mouseFlag === 0 && clickFlag === 1){
+    //         let data = CuentaTodo("magia1", 2);
+    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
+    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
+    //         ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
+    //         ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
+    //         console.log("mouse処理実行");
+    //         mouseFlag = 1;
+    //     } 
+    //     console.log("mouseup2" + " m" + mouseFlag + "c" + clickFlag);
+    // });
+
+    //Blur
+    // $('#MainContent_tipoMagia').blur(function () {//ドロップダウンからフォーカス外れた時
+    //     console.log("blur" + " m" + mouseFlag + "c" + clickFlag);
+    //     if (mouseFlag === 0) {
+    //         let data = CuentaTodo("magia1", 2);
+    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
+    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
+    //         ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
+    //         ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
+    //         console.log("Blur処理実行");
+    //     }
+    //     mouseFlag = 1;
+    //     clickFlag = 0;
+    //     console.log("blur2" + " m" + mouseFlag + "c" + clickFlag);
+    // });
+
 
     $('#MainContent_tipoMagia2').change(function () {
         CheckChanged();
-        let data = CuentaTodo("magia2",2);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-        ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-        ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
-    });
+        let data = CuentaTodo("magia2", 2);
+        // clickFlag = 1;
+        ApareceCantidad("MainContent_tipoMagia", data[0]);
+        ApareceCantidad("MainContent_tipoMagia2", data[1]);
+        ApareceCantidad("MainContent_connect1", data[2]);
+        ApareceCantidad("MainContent_connect2", data[3]);
+});
     $('#MainContent_tipoMagia2').on('click', function () {
+        // if(clickFlag !== 1){
             let data = CuentaTodo("magia2",1);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-            ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-            ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
+            ApareceCantidad("MainContent_tipoMagia", data[0]);
+            ApareceCantidad("MainContent_tipoMagia2", data[1]);
+            ApareceCantidad("MainContent_connect1", data[2]);
+            ApareceCantidad("MainContent_connect2", data[3]);
+        // }
+        // clickFlag = 0;
     });
     $('#MainContent_gorila').change(function () {
         CheckChanged();
@@ -2930,7 +3024,7 @@ function draw3() {
         var textConnect = $('#MainContent_connect1').val();
         if (textConnect.indexOf("コネクト指定") === -1) {
             ordenConnect.disabled = false;
-            if (jsonData.personas[0].sortValue !== null && $(window).width() > 768) {
+            if (((textConnect !== "防御無視")&&(textConnect !== "回避無効")) && $(window).width() > 768) {
                 document.getElementById("MainContent_orden1_5").nextSibling.innerText = "コネクト値:" + textConnect;
             }
             else if ($(window).width() > 768)
@@ -2946,46 +3040,59 @@ function draw3() {
                 document.getElementById("MainContent_orden1_5").nextSibling.innerText = "コネクト値";
         }
         
-        let data = CuentaTodo("connect1",2);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-        ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-        ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
-    });
+        let data = CuentaTodo("connect1", 2);
+        // clickFlag = 1;
+        ApareceCantidad("MainContent_tipoMagia", data[0]);
+        ApareceCantidad("MainContent_tipoMagia2", data[1]);
+        ApareceCantidad("MainContent_connect1", data[2]);
+        ApareceCantidad("MainContent_connect2", data[3]);
+});
     $('#MainContent_connect1').on('click', function () {
-            let data = CuentaTodo("connect1",1);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-            ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-            ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
+        // if (clickFlag !== 1) {
+            let data = CuentaTodo("connect1", 1);
+            ApareceCantidad("MainContent_tipoMagia", data[0]);
+            ApareceCantidad("MainContent_tipoMagia2", data[1]);
+            ApareceCantidad("MainContent_connect1", data[2]);
+            ApareceCantidad("MainContent_connect2", data[3]);
+        // }
+        // clickFlag = 0;
             
     });
 
     $('#MainContent_connect2').change(function () {
         CheckChanged();
-        let data = CuentaTodo("connect2",2);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-        ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-        ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-        ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
-    });
+        let data = CuentaTodo("connect2", 2);
+        // clickFlag = 1;
+        ApareceCantidad("MainContent_tipoMagia", data[0]);
+        ApareceCantidad("MainContent_tipoMagia2", data[1]);
+        ApareceCantidad("MainContent_connect1", data[2]);
+        ApareceCantidad("MainContent_connect2", data[3]);
+});
 
     $('#MainContent_connect2').on('click', function () {
-            let data = CuentaTodo("connect2",1);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-            ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-            ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-            ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
+        // if (clickFlag !== 1) {
+            let data = CuentaTodo("connect2", 1);
+            ApareceCantidad("MainContent_tipoMagia", data[0]);
+            ApareceCantidad("MainContent_tipoMagia2", data[1]);
+            ApareceCantidad("MainContent_connect1", data[2]);
+            ApareceCantidad("MainContent_connect2", data[3]);
+        // }
+        // clickFlag = 0;
     });
     
     //項目にフィルタ数追加
     function ApareceCantidad(list,data) {
         //書き換え処理
-        for (let i = 1; i < list.length; i++){
-            let s = list.options[i].value + "(" + data[i][1] + ")";
-            list.options[i].text = s;
+        let obj = document.getElementById(list);
+        let listDummy = [obj.length];
+        for (let i = 1; i < obj.length; i++){
+            let s = obj.options[i].value + "(" + data[i][1] + ")";
+            // obj.options[i].text = s;
+            obj.options[i].innerText = s;
+            // list.options[i].innerText = s;"name": "",
         }
-
+        // list.append(listDummy);
+        // console.log(list.name + " " + data[1][1])
     }
     
     //カウント処理
@@ -3203,29 +3310,30 @@ function draw3() {
         var opciones2 = CuentaMayor(opciones[0], opciones[1], opciones[2], opciones[3], tipoM,tipoC,mc2,jsonData1);
         
         //出力するセットを確定
-        var output = opciones1;
-        switch (operacion) {
-            case "magia1":
-                {
-                    output[0] = opciones2[0];
-                    break;
-                }
-            case "magia2":
-                {
-                    output[1] = opciones2[1];
-                    break;
-                }
-            case "connect1":
-                {
-                    output[2] = opciones2[2];
-                    break;
-                }
-            case "connect2":
-                {
-                    output[3] = opciones2[3];
-                    break;
-                }
-        }
+        var output = opciones2;
+        // var output = opciones1;
+        // switch (operacion) {
+        //     case "magia1":
+        //         {
+        //             output[0] = opciones2[0];
+        //             break;
+        //         }
+        //     case "magia2":
+        //         {
+        //             output[1] = opciones2[1];
+        //             break;
+        //         }
+        //     case "connect1":
+        //         {
+        //             output[2] = opciones2[2];
+        //             break;
+        //         }
+        //     case "connect2":
+        //         {
+        //             output[3] = opciones2[3];
+        //             break;
+        //         }
+        // }
         
         return output;
     }
@@ -3617,7 +3725,7 @@ function draw3() {
                                 if (BusquedaMagia("全体", value, 1)) {
                                     resultado = BusquedaMagia("全体", value, 2);
                                     if(sortFlag===1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return false;
@@ -3628,7 +3736,7 @@ function draw3() {
                                 if (BusquedaMagia("単体", value, 1)) {
                                     resultado = BusquedaMagia("単体", value, 2);
                                     if(sortFlag===1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return false;
@@ -3639,7 +3747,7 @@ function draw3() {
                                 if (BusquedaMagia("縦", value, 1)) {
                                     resultado = BusquedaMagia("縦", value, 2);
                                     if(sortFlag===1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return false;
@@ -3651,9 +3759,9 @@ function draw3() {
                                 if (BusquedaMagia(tipoMagia[i], value, 1)) {
                                     resultado = BusquedaMagia(tipoMagia[i], value, 2);
                                     if(sortFlag===1) {
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                         resultado = BusquedaMagia(tipoMagia[i], value, 1);
-                                        value.sortValue += " " + resultado[1];//回数も表示
+                                        value.sortValue2 = resultado[1];//回数も表示
                                         
                                     }
                                 }
@@ -3666,7 +3774,7 @@ function draw3() {
                         case "低HPほど威力UP":
                             {
                                 if (BusquedaMagia(tipoMagia[i], value, 1)) {
-                                    resultado = BusquedaMagia(tipoMagia[i], value, 2);
+                                    resultado1 = BusquedaMagia(tipoMagia[i], value, 2);
                                 }
                                 else
                                     return false;
@@ -3674,13 +3782,59 @@ function draw3() {
                             }
                         //info1でソート
                         case "HP回復":
-                        case "HP自動回復":
                         case "MP回復":
+                        case "状態強化解除":
                             {
                                 if (BusquedaMagia(tipoMagia[i], value, 1)) {
                                     resultado = BusquedaMagia(tipoMagia[i], value, 1);
                                     if(sortFlag===1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
+                                }
+                                else
+                                    return false;
+                                break;
+                            }
+                        //info1でソートし、info2を加算
+                        case "BlastダメUP":
+                            {
+                                if (BusquedaMagia("BlastダメージUP", value, 1)) {
+                                    resultado = BusquedaMagia("BlastダメージUP", value, 1);
+                                    if(sortFlag===1) {
+                                        value.sortValue1 = resultado[1];
+                                        resultado = BusquedaMagia("BlastダメージUP", value, 2);
+                                        value.sortValue2 = resultado[1];//ターン数も表示
+                                        
+                                    }
+                                }
+                                else
+                                    return false;
+                                break;
+                            }
+                        case "Charge後ダメUP":
+                            {
+                                if (BusquedaMagia("Charge後ダメージUP", value, 1)) {
+                                    resultado = BusquedaMagia("Charge後ダメージUP", value, 1);
+                                    if(sortFlag===1) {
+                                        value.sortValue1 = resultado[1];
+                                        resultado = BusquedaMagia("Charge後ダメージUP", value, 2);
+                                        value.sortValue2 = resultado[1];//ターン数も表示
+                                        
+                                    }
+                                }
+                                else
+                                    return false;
+                                break;
+                            }
+                        case "HP自動回復":
+                            {
+                                if (BusquedaMagia(tipoMagia[i], value, 1)) {
+                                    resultado = BusquedaMagia(tipoMagia[i], value, 1);
+                                    if(sortFlag===1) {
+                                        value.sortValue1 = resultado[1];
+                                        resultado = BusquedaMagia(tipoMagia[i], value, 2);
+                                        value.sortValue2 = resultado[1];//ターン数も表示
+                                        
+                                    }
                                 }
                                 else
                                     return false;
@@ -3746,11 +3900,12 @@ function draw3() {
                     
                     switch (connect[i]) {
                         case "攻撃力UP":
+                        case "防御力UP":
                             {
                                 if (BusquedaConectiva(connect[i], value, 1)) {
                                     resultado = BusquedaConectiva(connect[i], value, 1);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3761,7 +3916,7 @@ function draw3() {
                                 if (BusquedaConectiva("確率でクリティカル", value, 1)) {
                                     resultado = BusquedaConectiva("確率でクリティカル", value, 1);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3772,18 +3927,19 @@ function draw3() {
                                 if (BusquedaConectiva("必ず回避", value, 0)) {
                                     resultado = BusquedaConectiva("必ず回避", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else if (BusquedaConectiva("確率で回避", value, 0)) {
                                     resultado = BusquedaConectiva("確率で回避", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
                                 break;
                             }
                         case "防御無視":
+                        case "回避無効":
                             {
                                 if (BusquedaConectiva(connect[i], value, 0)) {
                                     resultado = BusquedaConectiva(connect[i], value, 1);
@@ -3797,7 +3953,7 @@ function draw3() {
                                 if (BusquedaConectiva("与えるダメージUP", value, 1)) {
                                     resultado = BusquedaConectiva("与えるダメージUP", value, 1);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3808,7 +3964,18 @@ function draw3() {
                                 if (BusquedaConectiva("BlastダメージUP", value, 1)) {
                                     resultado = BusquedaConectiva("BlastダメージUP", value, 1);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
+                                }
+                                else
+                                    return;
+                                break;
+                            }
+                        case "Charge後ダメUP":
+                            {
+                                if (BusquedaConectiva("Charge後ダメージUP", value, 1)) {
+                                    resultado = BusquedaConectiva("Charge後ダメージUP", value, 1);
+                                    if(sortFlag === 1)
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3819,7 +3986,7 @@ function draw3() {
                                 if (BusquedaConectiva("必ず拘束", value, 1)) {
                                     resultado = BusquedaConectiva("必ず拘束", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3830,12 +3997,12 @@ function draw3() {
                                 if (BusquedaConectiva("必ずスタン", value, 1)) {
                                     resultado = BusquedaConectiva("必ずスタン", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else if (BusquedaConectiva("確率でスタン", value, 1)) {
                                     resultado = BusquedaConectiva("確率でスタン", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3846,12 +4013,12 @@ function draw3() {
                                 if (BusquedaConectiva("必ず魅了", value, 1)) {
                                     resultado = BusquedaConectiva("必ず魅了", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else if (BusquedaConectiva("確率で魅了", value, 1)) {
                                     resultado = BusquedaConectiva("確率で魅了", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3862,12 +4029,28 @@ function draw3() {
                                 if (BusquedaConectiva("必ず幻惑", value, 1)) {
                                     resultado = BusquedaConectiva("必ず幻惑", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else if (BusquedaConectiva("確率で幻惑", value, 1)) {
                                     resultado = BusquedaConectiva("確率で幻惑", value, 0);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
+                                }
+                                else
+                                    return;
+                                break;
+                            }
+                            case "挑発":
+                            {
+                                if (BusquedaConectiva("必ず挑発", value, 1)) {
+                                    resultado = BusquedaConectiva("必ず挑発", value, 0);
+                                    if(sortFlag === 1)
+                                        value.sortValue1 = resultado[1];
+                                }
+                                else if (BusquedaConectiva("確率で挑発", value, 1)) {
+                                    resultado = BusquedaConectiva("確率で挑発", value, 0);
+                                    if(sortFlag === 1)
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -3881,7 +4064,7 @@ function draw3() {
                                 if (BusquedaConectiva(connect[i], value, 1)) {
                                     resultado = BusquedaConectiva(connect[i], value, 1);
                                     if(sortFlag === 1)
-                                        value.sortValue = resultado[1];
+                                        value.sortValue1 = resultado[1];
                                 }
                                 else
                                     return;
@@ -4048,7 +4231,9 @@ function draw3() {
                             }
                         case "sortValue":
                         {
-                            text = jsonData.personas[i].sortValue;
+                            let sortValue = (jsonData.personas[i].sortValue1 !== null) && (typeof jsonData.personas[i].sortValue1 !== "undefined") ? jsonData.personas[i].sortValue1 : "";
+                            sortValue = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? sortValue +  " " + jsonData.personas[i].sortValue2 : sortValue;
+                            text = sortValue;
                             break;
                         }
                     }
@@ -4116,11 +4301,11 @@ function draw3() {
                         jsonData.personas.sort(function (a, b) {
                             let an = a.nameHiragana.indexOf("　") !== -1 ? a.nameHiragana.substring(a.nameHiragana.indexOf("　") + 1) : a.nameHiragana;
                             let bn = b.nameHiragana.indexOf("　") !== -1 ? b.nameHiragana.substring(b.nameHiragana.indexOf("　") + 1) : b.nameHiragana;                            
-                            if (an > bn) {
+                            if (an > bn) 
                                 return 1;
-                            } else {
+                            if (an < bn) 
                                 return -1;
-                            }
+                            return 0;
                         });
                         break;
                     }
@@ -4128,37 +4313,58 @@ function draw3() {
                 case "コネクト値":
                     {
                         //ソートしなくてもいいものはソートしない
-                        let sortValue = jsonData.personas[0].sortValue;
-                        if (sortValue !== null) {
-                            if (sortValue.indexOf("必ず") !== -1 || sortValue.indexOf("確率で") !== -1) {
+                        let sortValue1 = jsonData.personas[0].sortValue1;
+                        if ((sortValue1 !== null)&&(typeof sortValue1 !== "undefined")) {
+                            if (sortValue1.indexOf("必ず") !== -1 || sortValue1.indexOf("確率で") !== -1) {
                                 //特別処理　必ずを確率より前に持ってくる
                                 jsonData.personas.sort(function (a, b) {
-                                    if (a.sortValue > b.sortValue) {
+                                    if (a.sortValue1 > b.sortValue1)
                                         return 1;
-                                    } else {
+                                    if (a.sortValue1 < b.sortValue1)
                                         return -1;
-                                    }
+                                    return 0;
                                 });
                             }
-                            else if (sortValue.indexOf("全") !== -1 || sortValue.indexOf("自") !== -1) {
+                            else if (sortValue1.indexOf("全") !== -1 || sortValue1.indexOf("自") !== -1) {
                                 //特別処理　全を自より前に持ってくる
                                 jsonData.personas.sort(function (a, b) {
-                                    if (a.sortValue > b.sortValue) {
+                                    if (a.sortValue1 > b.sortValue1) 
                                         return 1;
-                                    } else {
+                                    if (a.sortValue1 < b.sortValue1) 
                                         return -1;
+                                    if ((a.sortValue2 !== null)&&(typeof a.sortValue2 !== "undefined")) {
+                                        if (a.sortValue2.indexOf("T") !== -1) {//マギアのBlastダメUP,Charge後ダメUPでターン数を第2キーに
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) < b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
+                                                return 1;
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) > b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
+                                                return -1;
+                                        }
                                     }
+                                    return 0;
                                 });
                             }
                             else {//通常ローマ数字ソート
                                 jsonData.personas.sort(function (a, b) {
-                                    let an = a.sortValue.indexOf("回") === -1 ? a.sortValue : a.sortValue.substring(0, a.sortValue.indexOf("回") - 2);
-                                    let bn = b.sortValue.indexOf("回") === -1 ? b.sortValue : b.sortValue.substring(0, b.sortValue.indexOf("回") - 2);
-                                    if (an < bn) {
+                                    if (a.sortValue1 < b.sortValue1) {
                                         return 1;
-                                    } else {
+                                    }
+                                    if (a.sortValue1 > b.sortValue1) {
                                         return -1;
                                     }
+                                    if ((a.sortValue2 !== null)&&(typeof a.sortValue2 !== "undefined")) {
+                                        if (a.sortValue2.indexOf("回") !== -1) {//マギアのランダムで回を第2キーに
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("回") - 1, 1) < b.sortValue2.substr(b.sortValue2.indexOf("回") - 1, 1))
+                                                return 1;
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("回") - 1, 1) > b.sortValue2.substr(b.sortValue2.indexOf("回") - 1, 1))
+                                                return -1;
+                                        } else if (a.sortValue2.indexOf("T") !== -1) {//HP自動回復でターン数を第2キーに
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) < b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
+                                                return 1;
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) > b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
+                                                return -1;
+                                        }
+                                    }
+                                    return 0;
                                 });
                             }
                         }
@@ -4167,11 +4373,11 @@ function draw3() {
                 default:
                     {
                         jsonData.personas.sort(function (a, b) {
-                            if (a.name > b.name) {
+                            if (a.nameHiragana > b.nameHiragana)
                                 return 1;
-                            } else {
+                            if (a.nameHiragana < b.nameHiragana)
                                 return -1;
-                            }
+                            return 0;
                         });
                         break;
                     }
@@ -4230,6 +4436,12 @@ function draw3() {
                             flagP = 1;
                         break;
                     }
+                case "Charge後ダメUP":
+                    {
+                        if ("Charge後ダメージUP" === valor[i].name)
+                            flagP = 1;
+                        break;
+                    }
                 case "回避":
                     {
                         if (("必ず回避" === valor[i].name)||("確率で回避" === valor[i].name))
@@ -4257,6 +4469,12 @@ function draw3() {
                 case "スタン":
                     {
                         if (("必ずスタン" === valor[i].name)||("確率でスタン" === valor[i].name))
+                            flagP = 1;
+                        break;
+                    }
+                case "挑発":
+                    {
+                        if (("必ず挑発" === valor[i].name)||("確率で挑発" === valor[i].name))
                             flagP = 1;
                         break;
                     }
@@ -4319,6 +4537,18 @@ function draw3() {
                             flagM = 1;
                         break;
                     }
+                case "BlastダメUP":
+                    {
+                        if ("BlastダメージUP" === valor[i].name)
+                            flagM = 1;
+                    break;
+                    }
+                case "Charge後ダメUP":
+                {
+                    if ("Charge後ダメージUP" === valor[i].name)
+                        flagM = 1;
+                    break;
+                }
                 case "回避":
                 {
                     if (("必ず回避" === valor[i].name)||("確率で回避" === valor[i].name))
@@ -4392,15 +4622,21 @@ function DrawImage(ctx, x, y, r, data) {
         }, false);
     }
 }
+
 function DrawImageText(ctx, x, y, r, text) {
     ctx.save();
-    ctx.font = "12px sans-serif";
-    ctx.fillStyle = "purple";
-    ctx.font = "bold 12px sans-serif";
-    ctx.strokeStyle = "white";
+    
+    ctx.font = "900 12px sans-serif";
+    ctx.strokeStyle = "yellow";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.strokeText(text,x + r /6, y - r * 5 / 6);
+    ctx.strokeText(text, x + r / 6, y - r * 5 / 6);
+    ctx.restore();
+    ctx.save();
+    ctx.font = "600 12px sans-serif";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
     ctx.fillText(text, x + r / 6, y - r * 5 / 6);
     ctx.restore();
 
@@ -4736,6 +4972,7 @@ function CambioPropiedades() {
 
 
 
+
 $(function () {
     $(document).ready(function () {
         //天上への道の処理
@@ -4789,3 +5026,198 @@ $(function () {
     });
 
 });
+
+//ミラーズpt計算
+//
+
+function CalcMirrors() {
+    let turn = $('input[name="ctl00$MainContent$Mturn"]:checked').val();
+    let connect = $('input[name="ctl00$MainContent$Mconnect"]:checked').val();
+    let magia = $('input[name="ctl00$MainContent$Mmagia"]:checked').val();
+    let doppel = $('input[name="ctl00$MainContent$Mdoppel"]:checked').val();
+    let skill = $('input[name="ctl00$MainContent$Mskill"]:checked').val();
+    let hp1 = $("#Mhp1").val();
+    let hp2 = $("#Mhp2").val();
+    let hp3 = $("#Mhp3").val();
+    let hp4 = $("#Mhp4").val();
+    let hp5 = $("#Mhp5").val();
+    let pt = $('input[name="ctl00$MainContent$Mpt"]:checked').val();
+    let death = $('input[name="ctl00$MainContent$Mdeath"]:checked').val();
+    let bonus = $('input[name="ctl00$MainContent$Mbonus"]:checked').val();
+    let breakpt = $('input[name="ctl00$MainContent$Mbreak"]:checked').val();
+
+    let calcT = 0;
+    //ポイント計算
+    switch(turn){
+        case "1T":
+            {
+                calcT = 1.85;
+                break;
+            }
+        case "2T":
+            {
+                calcT = 1.75;
+                break;
+            }
+        case "3T":
+            {
+                calcT = 1.55;
+                break;
+        }
+        case "4T":
+            {
+                calcT = 1.45;
+                break;
+            }
+        case "5T":
+            {
+                calcT = 1.35;
+                break;
+            }
+    }
+
+    let calcC = 0;
+    if (connect !== "0回")
+        calcC = Number(connect.substr(0, 1)) * 0.2;
+    let calcM = 0;
+    let magiaTable = [0.16, 0.06, 0.05, 0.04, 0.03, 0.02];
+    for (let i = 0; i < Number(magia.substr(0, 1)); i++){
+        calcM += magiaTable[i];
+    }
+
+    let calcDoppel = 0;
+    let doppelTable = [0.3, 0.1, 0.09, 0.05, 0.03, 0.02];
+    for (let i = 0; i < Number(doppel.substr(0, 1)); i++){
+        calcDoppel += doppelTable[i];
+    }
+    let calcS = 0;
+    if (skill !== "0回")
+        calcS = Number(skill.substr(0, 1)) * 0.05;
+    let calcH = 0;
+    calcH = hp2 * (-0.05) + hp3 * (-0.1) + hp4 * (-0.15) + hp5 * (-0.2);
+    let deathPt = 0;
+    switch (pt) {
+        case "2人PT":
+            {
+                deathPt = -0.08;
+                break;
+            }
+        case "3人PT":
+            {
+                deathPt = -0.05;
+                break;
+            }
+        case "4人PT":
+            {
+                deathPt = -0.04;
+                break;
+            }
+        case "5人PT":
+            {
+                deathPt = -0.03;
+                break;
+            }
+    }
+    let calcD = deathPt * death.substr(0,1);
+    let calcB = Number(bonus);
+    let calcBp = Number(breakpt);
+
+    let calcFinal = (calcT + calcC + calcM + calcDoppel + calcS + calcH + calcD) * calcB * calcBp;
+    calcFinal = Math.floor(calcFinal * 100);
+    calcFinal *= 10;
+
+    //表示用
+    calcT = Math.floor(calcT * 1000);
+    calcC = Math.floor(calcC * 1000);
+    calcM = Math.floor(calcM * 1000);
+    calcDoppel = Math.floor(calcDoppel * 1000);
+    calcS = Math.floor(calcS * 1000);
+    calcH = Math.ceil(calcH * 1000);
+    calcD = Math.ceil(calcD * 1000);
+
+    //表示
+    let Mtotal = document.getElementById("MainContent_Mtotal");
+    let Mturn = document.getElementById("MainContent_MturnL");
+    let Mconnect = document.getElementById("MainContent_MconnectL");
+    let Mmagia = document.getElementById("MainContent_MmagiaL");
+    let Mdoppel = document.getElementById("MainContent_MdoppelL");
+    let Mskill = document.getElementById("MainContent_MskillL");
+    let Mhp = document.getElementById("MainContent_MhpL");
+    let Mdeath = document.getElementById("MainContent_Msurvive");
+
+
+
+    Mtotal.innerText = "あなたのポイントは " + calcFinal + "ptです";
+    Mturn.innerText = "戦闘ターン数 " + calcT + "pt";
+    Mconnect.innerText = "コネクト数 " + calcC + "pt";
+    Mmagia.innerText = "マギア発動回数 " + calcM + "pt";
+    Mdoppel.innerText = "ドッペル発動回数 " + calcDoppel + "pt";
+    Mskill.innerText = "スキル回数 " + calcS + "pt";
+    Mhp.innerText = "残HP人数 " + calcH + "pt";
+    Mdeath.innerText = "生存人数 " + calcD + "pt";        
+
+}
+
+window.onload = function () {
+    let str = location.href;//ページ名取得
+    if (str.match("/Magia_damage_calc")) {
+        //初期設定
+        document.getElementById("MainContent_RadioButtonList666_0").nextSibling.classList.add("accele");
+        document.getElementById("MainContent_RadioButtonList666_1").nextSibling.classList.add("blast");
+        document.getElementById("MainContent_RadioButtonList666_2").nextSibling.classList.add("charge");
+
+        document.getElementById("MainContent_RadioButtonList667_0").nextSibling.classList.add("accele");
+        document.getElementById("MainContent_RadioButtonList667_1").nextSibling.classList.add("blast");
+        document.getElementById("MainContent_RadioButtonList667_2").nextSibling.classList.add("charge");
+
+        document.getElementById("MainContent_RadioButtonList668_0").nextSibling.classList.add("accele");
+        document.getElementById("MainContent_RadioButtonList668_1").nextSibling.classList.add("blast");
+        document.getElementById("MainContent_RadioButtonList668_2").nextSibling.classList.add("charge");
+
+        document.getElementById("MainContent_RadioButtonList669_0").nextSibling.classList.add("accele");
+        document.getElementById("MainContent_RadioButtonList669_1").nextSibling.classList.add("blast");
+        document.getElementById("MainContent_RadioButtonList669_2").nextSibling.classList.add("charge");
+        $('input[name="ctl00$MainContent$Mturn"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mconnect"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mskill"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mmagia"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mdoppel"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="Mhp1"]').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="Mhp2"]').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="Mhp3"]').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="Mhp4"]').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="Mhp5"]').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mpt"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mdeath"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mbonus"]:radio').change(function () {
+            CalcMirrors();
+        });
+        $('input[name="ctl00$MainContent$Mbreak"]:radio').change(function () {
+            CalcMirrors();
+        });
+    }
+}

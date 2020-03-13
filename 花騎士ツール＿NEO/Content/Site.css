@@ -56,8 +56,24 @@ textarea {
     padding: 0;
 }
 
-#canvas1{
+#canvas1 {
     /*border: 1px solid gray;*/
+    touch-action: none; /* surfaceでタッチする為に超大事 */
+}
+
+#canvas12 {
+    /*border: 1px solid gray;*/
+    touch-action: none; /* surfaceでタッチする為に超大事 */
+}
+
+#canvas13 {
+    /*border: 1px solid gray;*/
+    touch-action: none; /* surfaceでタッチする為に超大事 */
+}
+
+#canvas2 {
+    /*border: 1px solid gray;*/
+    touch-action: none; /* surfaceでタッチする為に超大事 */
 }
 
 #canvas3 {

@@ -29,7 +29,7 @@
 	        <li class="active"><a href="#persona" data-toggle="tab">キャラ選択</a></li>
 	        <li><a href="#despierto" data-toggle="tab">覚醒補正</a></li>
 	        <li><a href="#enemigo" data-toggle="tab">相手側設定</a></li>
-	        
+	        <li><a href="#mirrors" data-toggle="tab">ミラランpt</a></li>
         </ul>
         <div class="panel panel-info">
           <div class="panel-body">
@@ -86,10 +86,13 @@
                                             <asp:ListItem>敵縦一列</asp:ListItem>
                                             <asp:ListItem>ランダム</asp:ListItem>
                                             <asp:ListItem>属性強化</asp:ListItem>
+                                            <asp:ListItem>BlastダメUP</asp:ListItem>
+                                            <asp:ListItem>Charge後ダメUP</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
                                             <asp:ListItem>HP自動回復</asp:ListItem>
                                             <asp:ListItem>MP回復</asp:ListItem>
                                             <asp:ListItem>低HPほど威力UP</asp:ListItem>
+                                            <asp:ListItem>状態強化解除</asp:ListItem>
                                         </asp:DropDownList>
                                         <asp:DropDownList ID="tipoMagia2" runat="server">
                                             <asp:ListItem Selected="True">マギア指定2</asp:ListItem>
@@ -98,10 +101,13 @@
                                             <asp:ListItem>敵縦一列</asp:ListItem>
                                             <asp:ListItem>ランダム</asp:ListItem>
                                             <asp:ListItem>属性強化</asp:ListItem>
+                                            <asp:ListItem>BlastダメUP</asp:ListItem>
+                                            <asp:ListItem>Charge後ダメUP</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
                                             <asp:ListItem>HP自動回復</asp:ListItem>
                                             <asp:ListItem>MP回復</asp:ListItem>
                                             <asp:ListItem>低HPほど威力UP</asp:ListItem>
+                                            <asp:ListItem>状態強化解除</asp:ListItem>
                                         </asp:DropDownList>
                                         </div>
                                     </div>
@@ -110,15 +116,19 @@
                                         <asp:DropDownList ID="connect1" runat="server">
                                             <asp:ListItem Selected="True">コネクト指定1</asp:ListItem>
                                             <asp:ListItem>攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>防御力UP</asp:ListItem>
                                             <asp:ListItem>クリティカル</asp:ListItem>
                                             <asp:ListItem>ダメージUP</asp:ListItem>
                                             <asp:ListItem>BlastダメUP</asp:ListItem>
+                                            <asp:ListItem>Charge後ダメUP</asp:ListItem>
                                             <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>回避無効</asp:ListItem>
                                             <asp:ListItem>防御無視</asp:ListItem>
                                             <asp:ListItem>拘束</asp:ListItem>
                                             <asp:ListItem>魅了</asp:ListItem>
                                             <asp:ListItem>幻惑</asp:ListItem>
                                             <asp:ListItem>スタン</asp:ListItem>
+                                            <asp:ListItem>挑発</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
                                             <asp:ListItem>MP回復</asp:ListItem>
                                             <asp:ListItem>MP獲得量UP</asp:ListItem>
@@ -127,15 +137,19 @@
                                         <asp:DropDownList ID="connect2" runat="server">
                                             <asp:ListItem Selected="True">コネクト指定2</asp:ListItem>
                                             <asp:ListItem>攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>防御力UP</asp:ListItem>
                                             <asp:ListItem>クリティカル</asp:ListItem>
                                             <asp:ListItem>ダメージUP</asp:ListItem>
                                             <asp:ListItem>BlastダメUP</asp:ListItem>
+                                            <asp:ListItem>Charge後ダメUP</asp:ListItem>
                                             <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>回避無効</asp:ListItem>
                                             <asp:ListItem>防御無視</asp:ListItem>
                                             <asp:ListItem>拘束</asp:ListItem>
                                             <asp:ListItem>魅了</asp:ListItem>
                                             <asp:ListItem>幻惑</asp:ListItem>
                                             <asp:ListItem>スタン</asp:ListItem>
+                                            <asp:ListItem>挑発</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
                                             <asp:ListItem>MP回復</asp:ListItem>
                                             <asp:ListItem>MP獲得量UP</asp:ListItem>
@@ -180,7 +194,15 @@
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-xs-12">
+                                <h4 style="font-weight: bold">戦闘スタイル</h4>
+                                <asp:RadioButtonList ID="estadoAtk" runat="server" RepeatDirection="Horizontal">
+                                    <asp:ListItem Value="0">3キャラ選択</asp:ListItem>
+                                    <asp:ListItem Selected="True" Value="1">同一キャラで攻撃</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
                             <div class ="col-xs-12">
+                                <h4 style="font-weight: bold">キャラ選択</h4>
                                 <asp:Label ID="seleccionado1" runat="server"></asp:Label>
                                 <asp:RadioButtonList ID="seleccionado" name="eleccion" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem Value="1" Selected="True">1人目選択 : 無</asp:ListItem>
@@ -188,12 +210,7 @@
                                     <asp:ListItem Value="3" Enabled="False">3人目選択 : 無</asp:ListItem>
                                 </asp:RadioButtonList>
                             </div>
-                            <div class="col-xs-12">
-                                <asp:RadioButtonList ID="estadoAtk" runat="server" RepeatDirection="Horizontal">
-                                    <asp:ListItem Value="0">3キャラ選択</asp:ListItem>
-                                    <asp:ListItem Selected="True" Value="1">同一キャラで攻撃</asp:ListItem>
-                                </asp:RadioButtonList>
-                            </div>
+                            
                             <%--<div class="collapse in" id="multiCollapseExample3">
                             <div id="collapseConnect" class="panel-collapse collapse">--%>
                                 <div class="col-xs-12">
@@ -301,13 +318,115 @@
                         </div>
                     
                 </div>
+                <div class="tab-pane" id="mirrors">
+                    <asp:Label ID="Mtotal" runat="server" Text="あなたのポイントは 0ptです" Font-Bold="True" Font-Size="Large" Font-Italic="True" ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:Label ID="MturnL" runat="server" Text="戦闘ターン数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mturn" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem>1T</asp:ListItem>
+                        <asp:ListItem Selected="True">2T</asp:ListItem>
+                        <asp:ListItem>3T</asp:ListItem>
+                        <asp:ListItem>4T</asp:ListItem>
+                        <asp:ListItem>5T</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:Label ID="MconnectL" runat="server" Text="コネクト数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mconnect" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True">0回</asp:ListItem>
+                         <asp:ListItem>1回</asp:ListItem>
+                        <asp:ListItem>2回</asp:ListItem>
+                        <asp:ListItem>3回</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:Label ID="MmagiaL" runat="server" Text="マギア発動回数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mmagia" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True">0回</asp:ListItem>
+                        <asp:ListItem>1回</asp:ListItem>
+                        <asp:ListItem>2回</asp:ListItem>
+                        <asp:ListItem>3回</asp:ListItem>
+                        <asp:ListItem>4回</asp:ListItem>
+                        <asp:ListItem>5回</asp:ListItem>
+                        <asp:ListItem>6回</asp:ListItem>
+                    </asp:RadioButtonList>
+                     <asp:Label ID="MdoppelL" runat="server" Text="ドッペル発動回数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mdoppel" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True">0回</asp:ListItem>
+                        <asp:ListItem>1回</asp:ListItem>
+                        <asp:ListItem>2回</asp:ListItem>
+                        <asp:ListItem>3回</asp:ListItem>
+                        <asp:ListItem>4回</asp:ListItem>
+                        <asp:ListItem>5回</asp:ListItem>
+                        <asp:ListItem>6回</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:Label ID="MskillL" runat="server" Text="スキル回数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mskill" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True">0回</asp:ListItem>
+                         <asp:ListItem>1回</asp:ListItem>
+                        <asp:ListItem>2回</asp:ListItem>
+                        <asp:ListItem>3回</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:Label ID="MhpL" runat="server" Text="残HP人数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <div class="row">
+                        <div class="col-lg-1 col-xs-2">
+                            <p>100-80%</p>
+                            <p><input type="number" id= "Mhp1" name="Mhp1" min="0" max="5" value = "0"></p>
+                        </div>
+                        <div class="col-lg-1 col-xs-2">
+                            <p>79-70%</p>
+                            <p><input type="number" id= "Mhp2" name="Mhp2" min="0" max="5" value = "0"></p>
+                        </div>
+                        <div class="col-lg-1 col-xs-2">
+                            <p>69-60%</p>
+                            <p><input type="number" id= "Mhp3" name="Mhp3" min="0" max="5" value = "0"></p>
+                        </div>
+                        <div class="col-lg-1 col-xs-2">
+                            <p>59-50%</p>
+                            <p><input type="number" id= "Mhp4" name="Mhp4" min="0" max="5" value = "0"></p>
+                        </div>
+                        <div class="col-lg-1 col-xs-2">
+                            <p>49-0%</p>
+                            <p><input type="number" id= "Mhp5" name="Mhp5" min="0" max="5" value = "0"></p>
+                        </div>
+                    </div>
+                    <asp:Label ID="Msurvive" runat="server" Text="生存人数" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <div class="filterMagia">
+                    <p>編成人数</p>
+                        <asp:RadioButtonList ID="Mpt" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True">5人PT</asp:ListItem>
+                            <asp:ListItem>4人PT</asp:ListItem>
+                            <asp:ListItem>3人PT</asp:ListItem>
+                            <asp:ListItem>2人PT</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                    <div class="filterMagia">
+                        <p>死亡者数</p>
+                        <asp:RadioButtonList ID="Mdeath" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True">0人</asp:ListItem>
+                            <asp:ListItem>1人</asp:ListItem>
+                            <asp:ListItem>2人</asp:ListItem>
+                            <asp:ListItem>3人</asp:ListItem>
+                            <asp:ListItem>4人</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                    <asp:Label ID="MbonusL" runat="server" Text="戦力ボーナス" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mbonus" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True"  Value="1">1倍</asp:ListItem>
+                         <asp:ListItem Value="1.1">1.1倍</asp:ListItem>
+                        <asp:ListItem Value="1.15">1.15倍</asp:ListItem>
+                        <asp:ListItem Value="1.2">1.2倍</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:Label ID="MbreakL" runat="server" Text="ブレークポイント" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mbreak" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="1">1倍</asp:ListItem>
+                         <asp:ListItem Value="1.5">1.5倍</asp:ListItem>
+                        <asp:ListItem Value="2">2倍</asp:ListItem>
+                    </asp:RadioButtonList>
+                </div>
                 
         </div>
               </div>
         </div>
         <div class ="row">
             <div class="col-sm-4 col-xs-12 bg-info">
-                <h4 style="font-weight: bold">1回目</h4>
+                <h4 style="font-weight: bold">1回目の攻撃</h4>
                 <div class="col-xs-5">
                     <p id="1a">未選択</p>
                 </div>
@@ -325,7 +444,7 @@
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12 bg-info">
-                <h4 style="font-weight: bold">2回目</h4>
+                <h4 style="font-weight: bold">2回目の攻撃</h4>
                 <div class="col-xs-5">
                     <p id="2a">未選択</p>
                 </div>
@@ -343,7 +462,7 @@
                 </div>
             </div>
             <div class="col-sm-4 col-xs-12 bg-info">
-                <h4 style="font-weight: bold">3回目</h4>
+                <h4 style="font-weight: bold">3回目の攻撃</h4>
                 <div class="col-xs-5">
                     <p id="3a">未選択</p>
                 </div>
