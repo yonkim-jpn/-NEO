@@ -1395,11 +1395,12 @@ function CambiaEstado(event) {
 //////////////////////////////////////////////////////
 
 window.addEventListener("load", function () {
-    draw(0);
+    draw(0);//攻撃側の覚醒
     draw(1);
     draw(2);
-    draw2();//防衛側の精神強化
+    draw2();//防衛側の覚醒
     draw3();
+    draw5();
 });
 var color = [[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 0]];
 var color2 = [0, 0, 0, 0, 0, 0];
@@ -4686,6 +4687,243 @@ function Draw2ndText(ctx, x, y, r, text, Xoffset, Yoffset, flag) {
         }
     }
 }
+
+//////////////////////////////////////////////////////
+//メモリア
+//////////////////////////////////////////////////////
+
+
+
+function Draw5() {
+    
+    var canvas = document.getElementById("canvas3");
+    if(!canvas || !canvas.getContext){
+    return;
+    }
+
+    //設定
+    var ctx = canvas.getContext("2d");
+
+    var memorias = 30;    
+    var scaleF = 1;
+    var len = 60;
+    var y0 = len;
+    var offset = len +20;
+    
+    var letra = [memorias];
+
+    var Xoffset = canvas.width;
+    var Yoffset = canvas.height;
+
+    
+    //列数
+    var horizontal = Math.floor((Xoffset - 20) / (len + 20));
+    var marginX = ((Xoffset - 20) % (len + 20) + 20)/2;
+
+
+    var x = [horizontal];
+    for (let i = 0; i < horizontal; i++)
+        x[i] = i === 0 ? marginX + offset/2 : x[i - 1] + offset;
+    
+    //行数
+    var vertical = Math.ceil(memorias / x.length);
+    var y = [memorias];
+
+    for(let i = 0; i < memorias ; i++){
+    y[i] = i === 0 ? y0 : y[i-1] + offset;
+    letra[i] = i + 1;
+    }
+
+
+    //初期描画
+    for (let i = 0; i < vertical; i++){
+        for (let j = 0; j < x.length; j++){
+            if ((i * horizontal + j) >= memorias) {
+                break;
+            }
+            DrawRect(ctx,x[j],y[i],len,1);
+            DrawText(ctx,x[j],y[i],letra[i*x.length+j],1);
+        }
+    }
+    
+    var timer = null;
+    var pointerFlag = false;
+    // console.log(pointerFlag + "0");
+
+    
+
+    var number;
+    var clickX;
+    var clickY;
+
+    var isStatic = 0;
+
+    canvas.addEventListener("pointerdown",function(e){
+        isStatic = 1;
+        //エリア内ならフラグon
+        //ポインタがcanvas内にあるか判定
+        //ポインタがcanvas内にあるか判定
+        clickX = e.pageX - canvas.offsetLeft;
+        clickY = e.pageY - canvas.offsetTop;
+        if((clickX< canvas.width)&&(clickY<canvas.height)){
+        pointerFlag = true;
+        // console.log(pointerFlag + " down");
+        }
+        
+        //クリックした物体の判定処理
+        // if(number === -1)
+        //     return;
+        numberCol = -1;//j
+        numberRow = -1;//i
+        //ポインタがメモリア内にあるか判定
+        for (let i = 0; i < vertical; i++){
+            for (let j = 0; j < x.length; j++) {
+                if ((clickX < x[j] + len / 2) && (x[j] - len / 2 < clickX) && (clickY < y[i] + len / 2) && (y[i] - len / 2 < clickY)) {
+                    numberRow = i;
+                    numberCol = j;
+                    j = x.length - 1;
+                    i = vertical - 1;
+                    break;
+                }
+            }
+        }
+    });
+        
+    //ポインタ乗ったらドラッグ処理
+    canvas.addEventListener('pointermove',function(e){
+        if(!pointerFlag){
+            // console.log(pointerFlag + " move");
+            return;
+        }
+        //オフセット位置取得
+        const rect = canvas3.getBoundingClientRect();
+        var px = e.clientX - rect.left - clickX;
+        var py = e.clientY - rect.top - clickY;
+        clickX = e.clientX - rect.left;
+        clickY = e.clientY - rect.top;
+
+        //canvas外は受け付けない
+        if((clickX > canvas.width)||(clickX < 0)||(clickY > canvas.height)||(clickY < 0)){
+            pointerFlag = false;
+            // console.log(pointerFlag + " limit");
+            return;
+        }
+
+        //端の移動制限
+        //上端
+        if ((py > 0) && (y[0] >= y0)) {//下にドラッグした時
+            if (clickY > canvas.height) {//ドラッグした先が下端を超えた場合
+                pointerFlag = false;
+            }
+            return;
+        }
+        //下端
+        if ((py < 0) && (y[vertical-1] <= canvas.height - y0)) {//上にドラッグした時
+            if (clickY < 0) {//ドラッグした先が上端を超えた場合
+                pointerFlag = false;
+                // console.log(pointerFlag + " right");
+                $("#MainContent_debug").text(pointerFlag + " 右端");
+            }
+            return;
+        }
+        
+        // console.log("px " + px);
+        //pxが少ない場合は色変え
+        if(Math.abs(py) > 8)
+            isStatic = 0;
+
+        //描画メイン処理
+        if(pointerFlag){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for(let i = 0; i<vertical;i++){
+                y[i] += py;
+                for (let j = 0; j < x.length; j++) {
+                    if (elegidaRow === i && elegidaCol === j) {//色変え
+                        DrawRect(ctx, x[j], y[i], len, -1);
+                        DrawText(ctx, x[j], y[i], letra[i * x.length + j], -1);
+                    }
+                    else {//通常色
+                        DrawRect(ctx, x[j], y[i], len, 1);
+                        DrawText(ctx, x[j], y[i], letra[i * x.length + j], 1);
+                    }
+                }
+            }
+            // direction = px;
+        }
+    });
+
+    //ポインタ離れたらドラッグ終了
+    canvas.addEventListener("pointerup",function(e){
+        pointerFlag = false;
+        // console.log(pointerFlag + " UP");
+
+        if(isStatic === 1 && numberRow !== -1 ){
+            // console.log("elegida " + elegida + " number" + number);
+           if(elegidaRow === numberRow && elegidaCol === numberCol){
+                //同色の場合は色を初期に戻す
+                //同じ番号の場合
+                //色を戻す処理
+                        elegidaRow = -1;
+                        elegidaCol = -1;
+                        for (let i = 0; i < vertical; i++) {
+                            for (let j = 0; j < x.length; j++) {
+                                    DrawRect(ctx, x[j], y[i], len, 1);
+                                    DrawText(ctx, x[j], y[i], letra[i * x.length + j], 1);
+                                }
+                        }
+            }
+            else//他番号の場合
+                {
+                    for (let i = 0; i < vertical; i++){
+                        for (let j = 0; j < x.length; j++){
+                            if (numberRow === i && numberCol === j) {
+                                //色変え
+                                DrawRect(ctx, x[j], y[i], len, -1);
+                                DrawText(ctx, x[j], y[i], letra[i*x.length+j], -1);
+                            }
+                            else {
+                                //通常色
+                                DrawRect(ctx, x[j], y[i], len, 1);
+                                DrawText(ctx, x[j], y[i], letra[i*x.length+j], 1);
+                            }
+                        }
+                    }
+                    elegidaRow = numberRow;
+                    elegidaCol = numberCol;
+                }
+        }
+    });
+
+    canvas.addEventListener('pointercancel',function(e){
+        pointerFlag = false;
+        // console.log(pointerFlag + " cancel");
+    });
+}//draw5終わり
+
+    //color 
+    //1 black それ以外 white
+    
+function DrawText(ctx,x,y,letra,color){
+    ctx.save();
+    ctx.font = "16px sans-serif";
+    ctx.fillStyle = color === 1 ? "white" : "black";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(letra,x,y);
+    ctx.restore();
+}
+
+function DrawRect(ctx,x,y,len,color){
+    ctx.beginPath();
+    ctx.save();
+    ctx.fillStyle = color ===1 ? "black" : "white";
+    ctx.strokeStyle = "black";
+    ctx.fillRect(x - len /2,y - len/2,len, len);
+    ctx.stroke();
+    ctx.restore();
+}
+
+
 
 ///////////////////////////////////////////////////////////
 //ガチャ石計算

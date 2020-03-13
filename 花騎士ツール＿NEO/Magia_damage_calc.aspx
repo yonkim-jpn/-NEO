@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="container">
         <h3>マギレコ簡易ダメ計算<small>（超ベ〇ータ3版）</small></h3>
         <h5>算出されたダメージ値に乱数はかかっていません</h5>
@@ -28,6 +29,7 @@
         <ul class="nav nav-tabs">
 	        <li class="active"><a href="#persona" data-toggle="tab">キャラ選択</a></li>
 	        <li><a href="#despierto" data-toggle="tab">覚醒補正</a></li>
+	        <li><a href="#memoria" data-toggle="tab">メモリア</a></li>
 	        <li><a href="#enemigo" data-toggle="tab">相手側設定</a></li>
 	        <li><a href="#mirrors" data-toggle="tab">ミラランpt</a></li>
         </ul>
@@ -263,6 +265,10 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="tab-pane" id="memoria">
+                    <canvas id="canvas5" width="280" height ="700">Canvasに対応したブラウザを使用してください。</canvas>
+                    <canvas id="canvas51" width="900" height ="700">Canvasに対応したブラウザを使用してください。</canvas>
                 </div>
                 <div class="tab-pane" id="enemigo">
                     
