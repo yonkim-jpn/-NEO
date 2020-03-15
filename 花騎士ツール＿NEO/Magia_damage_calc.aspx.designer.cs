@@ -177,6 +177,33 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.Label nombre3;
 
         /// <summary>
+        /// tipoMemoria コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList tipoMemoria;
+
+        /// <summary>
+        /// rarityM コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rarityM;
+
+        /// <summary>
+        /// memoriaSort コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList memoriaSort;
+
+        /// <summary>
         /// TextBox668 コントロール。
         /// </summary>
         /// <remarks>

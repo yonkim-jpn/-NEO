@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="マギレコダメ計算" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Magia_damage_calc.aspx.cs" Inherits="花騎士ツール＿NEO.Magia_damage_calc" MaintainScrollPositionOnPostback="true" %>
 
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="container">
         <h3>マギレコ簡易ダメ計算<small>（超ベ〇ータ3版）</small></h3>
@@ -267,8 +267,38 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="memoria">
-                    <canvas id="canvas5" width="280" height ="700">Canvasに対応したブラウザを使用してください。</canvas>
-                    <canvas id="canvas51" width="900" height ="700">Canvasに対応したブラウザを使用してください。</canvas>
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <h4 style="font-weight: bold">フィルタ設定</h4>
+                            <div class="filterMagia">
+                                <asp:RadioButtonList ID="tipoMemoria" runat="server" RepeatDirection="Horizontal">
+                                     <asp:ListItem Selected="True">全て</asp:ListItem>
+                                    <asp:ListItem>スキル</asp:ListItem>
+                                    <asp:ListItem>アビリティ</asp:ListItem>
+                                </asp:RadioButtonList>
+                                <asp:RadioButtonList ID="rarityM" runat="server" RepeatDirection="Horizontal">
+                                    <asp:ListItem Selected="True">4</asp:ListItem>
+                                    <asp:ListItem>3</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <h4 style="font-weight: bold">ソート設定</h4>
+                            <asp:RadioButtonList ID="memoriaSort" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem Selected="True">50音</asp:ListItem>
+                                <asp:ListItem>HP</asp:ListItem>
+                                <asp:ListItem>ATK</asp:ListItem>
+                                <asp:ListItem>DEF</asp:ListItem>
+                                <asp:ListItem>選択値</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
+                    </div>
+                    <div class ="col-xs-12 visible-xs">
+                        <canvas id="canvas5" width="280" height ="500">Canvasに対応したブラウザを使用してください。</canvas>
+                    </div>
+                    <div class ="col-xs-12 hidden-xs">
+                        <canvas id="canvas51" width="900" height ="500">Canvasに対応したブラウザを使用してください。</canvas>
+                    </div>
                 </div>
                 <div class="tab-pane" id="enemigo">
                     

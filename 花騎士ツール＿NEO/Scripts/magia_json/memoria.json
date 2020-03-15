@@ -6030,6 +6030,80 @@
             "exclusive": "\u74b0\u3000\u3044\u308d\u306f,\u4e03\u6d77\u3000\u3084\u3061\u3088",
             "ascend": "max",
             "data": "0455.png"
+        },
+        {
+            "No": 459,
+            "name": "\u3084\u3055\u3057\u3044\u306f\u4f5c\u308c\u308b",
+            "nameHiragana": "\u3084\u3055\u3057\u3044\u306f\u3064\u304f\u308c\u308b",
+            "rarity": 4,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 2132,
+            "ATK": 1932,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30a2\u30c3\u30d7\u72b6\u614b",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": null,
+            "turn": null,
+            "limited": "\u6052\u5e38",
+            "exclusive": null,
+            "ascend": null,
+            "data": "0459.png"
+        },
+        {
+            "No": 461,
+            "name": "\u307e\u3082\u306a\u304f\u958b\u50ac\uff01\u3054\u6ce8\u76ee\u3042\u308c\uff01",
+            "nameHiragana": "\u307e\u3082\u306a\u304f\u304b\u3044\u3055\u3044\uff01\u3054\u3061\u3085\u3046\u3082\u304f\u3042\u308c\uff01",
+            "rarity": 4,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 2125,
+            "ATK": 1925,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u518d\u5ea6Disc\u3092\u5f15\u304f",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": null,
+            "turn": null,
+            "limited": "\u30b7\u30e7\u30c3\u30d7",
+            "exclusive": null,
+            "ascend": null,
+            "data": "0461.png"
         }
-    ] 
+    ]
 }

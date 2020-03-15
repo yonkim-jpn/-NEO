@@ -2540,7 +2540,8 @@ function draw3() {
                             }
                             else {
                                 //全て通常色
-                                if (jsonData.personas[i].data1 !== "") {
+                                if (jsonData.personas[i].data1 !== ""){
+                                    console.log(i);
                                     // DrawImage(ctx3, charaX[i], charaY, charaR, imageAry1[i]);
                                     Draw2ndRow(ctx3, charaX[i], charaY, charaR, imageAry1[i], Xoffset, Yoffset, canvasFlag);
                                 }
@@ -4692,28 +4693,65 @@ function Draw2ndText(ctx, x, y, r, text, Xoffset, Yoffset, flag) {
 //メモリア
 //////////////////////////////////////////////////////
 
+var mData;
+var mDataOri;
+var elegidaRow = -1;
+var elegidaCol = -1;
 
 
-function Draw5() {
+function draw5() {
+    var canvas5;
+    var w = $(window).width();
+    var wSize = 768;
     
-    var canvas = document.getElementById("canvas3");
-    if(!canvas || !canvas.getContext){
-    return;
+
+    if (w < wSize) {
+        //画面サイズが768px未満のときの処理
+        canvas5 = document.getElementById("canvas5");
+        canvasFlag = 1;
     }
+    else {
+        canvas5 = document.getElementById("canvas51");
+        canvasFlag = 1;
+    }
+    if (!canvas5 || !canvas5.getContext) {
+        return;
+    }
+    
 
     //設定
-    var ctx = canvas.getContext("2d");
+    var ctx5 = canvas5.getContext("2d");
 
-    var memorias = 30;    
+    //Json読み込み
+    var xhr = new XMLHttpRequest;
+    var memorias;  
+    (function (handleload) {
+        // var xhr = new XMLHttpRequest;
+
+        xhr.addEventListener('load', handleload, false);
+        xhr.open('GET', 'Scripts/magia_json/memoria.json', false);//同期処理。
+        xhr.send(null);
+        //xhr.send();
+    }(function handleLoad(event) {
+        var xhr = event.target,
+            obj = JSON.parse(xhr.responseText);
+        
+        memorias = obj.tarjetas.length;
+        console.log(obj);
+        mDataOri = obj;
+        mData = angular.copy(mDataOri);
+    }));
+
+      
     var scaleF = 1;
     var len = 60;
     var y0 = len;
-    var offset = len +20;
+    var offsetM = len +20;
     
-    var letra = [memorias];
+    var letraM = [memorias];
 
-    var Xoffset = canvas.width;
-    var Yoffset = canvas.height;
+    var Xoffset = canvas5.width;
+    var Yoffset = canvas5.height;
 
     
     //列数
@@ -4723,17 +4761,25 @@ function Draw5() {
 
     var x = [horizontal];
     for (let i = 0; i < horizontal; i++)
-        x[i] = i === 0 ? marginX + offset/2 : x[i - 1] + offset;
+        x[i] = i === 0 ? marginX + offsetM/2 : x[i - 1] + offsetM;
     
     //行数
     var vertical = Math.ceil(memorias / x.length);
-    var y = [memorias];
+    var yOri = [vertical];
 
-    for(let i = 0; i < memorias ; i++){
-    y[i] = i === 0 ? y0 : y[i-1] + offset;
-    letra[i] = i + 1;
+    for(let i = 0; i < vertical; i++){
+    yOri[i] = i === 0 ? y0 : yOri[i-1] + offsetM;
+    letraM[i] = i + 1;
     }
 
+    var y = angular.copy(yOri);
+
+    //imageのみ準備
+    var imageAryM = [memorias];
+    for (let i = 0; i < memorias; i++) {
+        imageAryM[i] = new Image();
+        imageAryM[i].src = "png/m/" + mData.tarjetas[i].data;
+    }
 
     //初期描画
     for (let i = 0; i < vertical; i++){
@@ -4741,40 +4787,44 @@ function Draw5() {
             if ((i * horizontal + j) >= memorias) {
                 break;
             }
-            DrawRect(ctx,x[j],y[i],len,1);
-            DrawText(ctx,x[j],y[i],letra[i*x.length+j],1);
+            DrawMemoria(ctx5,x[j],y[i],len,imageAryM[i*horizontal+j],1);
+            // DrawText(ctx5,x[j],y[i],letra[i*x.length+j],1);
         }
     }
     
+    
+
+
     var timer = null;
-    var pointerFlag = false;
+    var pointerFlagM = false;
     // console.log(pointerFlag + "0");
 
     
-
-    var number;
     var clickX;
     var clickY;
 
-    var isStatic = 0;
+    var numberRow;
+    var numberCol;
+    var isStaticM = 0;
 
-    canvas.addEventListener("pointerdown",function(e){
-        isStatic = 1;
+    canvas5.addEventListener("pointerdown",function(e){
+        isStaticM = 1;
         //エリア内ならフラグon
         //ポインタがcanvas内にあるか判定
         //ポインタがcanvas内にあるか判定
-        clickX = e.pageX - canvas.offsetLeft;
-        clickY = e.pageY - canvas.offsetTop;
-        if((clickX< canvas.width)&&(clickY<canvas.height)){
-        pointerFlag = true;
-        // console.log(pointerFlag + " down");
+        const rectM = canvas5.getBoundingClientRect();
+        clickX = e.clientX - rectM.left;
+        clickY = e.clientY - rectM.top;
+        if((clickX< canvas5.width)&&(clickY<canvas5.height)){
+        pointerFlagM = true;
+        console.log(pointerFlagM + " down");
         }
         
         //クリックした物体の判定処理
         // if(number === -1)
         //     return;
         numberCol = -1;//j
-        numberRow = -1;//i
+       numberRow = -1;//i
         //ポインタがメモリア内にあるか判定
         for (let i = 0; i < vertical; i++){
             for (let j = 0; j < x.length; j++) {
@@ -4790,74 +4840,88 @@ function Draw5() {
     });
         
     //ポインタ乗ったらドラッグ処理
-    canvas.addEventListener('pointermove',function(e){
-        if(!pointerFlag){
-            // console.log(pointerFlag + " move");
+    canvas5.addEventListener('pointermove',function(e){
+        if(!pointerFlagM){
+            console.log(pointerFlagM + " move");
             return;
         }
         //オフセット位置取得
-        const rect = canvas3.getBoundingClientRect();
-        var px = e.clientX - rect.left - clickX;
-        var py = e.clientY - rect.top - clickY;
-        clickX = e.clientX - rect.left;
-        clickY = e.clientY - rect.top;
+        const rectM = canvas5.getBoundingClientRect();
+        var px = e.clientX - rectM.left - clickX;
+        var py = e.clientY - rectM.top - clickY;
+        clickX = e.clientX - rectM.left;
+        clickY = e.clientY - rectM.top;
 
         //canvas外は受け付けない
-        if((clickX > canvas.width)||(clickX < 0)||(clickY > canvas.height)||(clickY < 0)){
-            pointerFlag = false;
-            // console.log(pointerFlag + " limit");
+        if((clickX > canvas5.width)||(clickX < 0)||(clickY > canvas5.height)||(clickY < 0)){
+            pointerFlagM = false;
+            console.log(pointerFlagM + " limit");
             return;
         }
 
         //端の移動制限
         //上端
         if ((py > 0) && (y[0] >= y0)) {//下にドラッグした時
-            if (clickY > canvas.height) {//ドラッグした先が下端を超えた場合
-                pointerFlag = false;
+            if (clickY > canvas5.height) {//ドラッグした先が下端を超えた場合
+                pointerFlagM = false;
             }
+            console.log(pointerFlagM + " 上端");
             return;
         }
         //下端
-        if ((py < 0) && (y[vertical-1] <= canvas.height - y0)) {//上にドラッグした時
+        if ((py < 0) && (y[vertical-1] <= canvas5.height - y0)) {//上にドラッグした時
             if (clickY < 0) {//ドラッグした先が上端を超えた場合
-                pointerFlag = false;
-                // console.log(pointerFlag + " right");
-                $("#MainContent_debug").text(pointerFlag + " 右端");
+                pointerFlagM = false;
             }
+            console.log(pointerFlagM + " 下端");
             return;
         }
         
         // console.log("px " + px);
         //pxが少ない場合は色変え
         if(Math.abs(py) > 8)
-            isStatic = 0;
+            isStaticM = 0;
 
+        console.log(pointerFlagM + "移動前");
         //描画メイン処理
-        if(pointerFlag){
-            ctx.clearRect(0,0,canvas.width,canvas.height);
+        if(pointerFlagM){
+            ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
+            //描画座標判定
+            // let iMin = 0;
+            // let iMax = vertical;
+            // for (let i = 0; i < vertical; i++){
+            //     if (y[i] < 0 - len)
+            //         iMin = i;//最後のiを代入
+            //     if (y[i] > canvas5.height + len) {
+            //         iMax = i;
+            //         break;
+            //     }
+            // }
+            // console.log(iMin + "<" + iMax);
             for(let i = 0; i<vertical;i++){
                 y[i] += py;
                 for (let j = 0; j < x.length; j++) {
                     if (elegidaRow === i && elegidaCol === j) {//色変え
-                        DrawRect(ctx, x[j], y[i], len, -1);
-                        DrawText(ctx, x[j], y[i], letra[i * x.length + j], -1);
+                        DrawMemoria(ctx5,x[j],y[i],len,imageAryM[i*horizontal+j],1);
+                        // DrawText(ctx5, x[j], y[i], letra[i * x.length + j], -1);
                     }
                     else {//通常色
-                        DrawRect(ctx, x[j], y[i], len, 1);
-                        DrawText(ctx, x[j], y[i], letra[i * x.length + j], 1);
+                        DrawMemoria(ctx5,x[j],y[i],len,imageAryM[i*horizontal+j],1);
+                        // DrawText(ctx5, x[j], y[i], letra[i * x.length + j], 1);
                     }
                 }
             }
             // direction = px;
         }
+        console.log("移動量" + py);
     });
 
     //ポインタ離れたらドラッグ終了
-    canvas.addEventListener("pointerup",function(e){
-        pointerFlag = false;
+    canvas5.addEventListener("pointerup",function(e){
+        pointerFlagM = false;
         // console.log(pointerFlag + " UP");
 
-        if(isStatic === 1 && numberRow !== -1 ){
+        if(isStaticM === 1 && numberRow !== -1 ){
             // console.log("elegida " + elegida + " number" + number);
            if(elegidaRow === numberRow && elegidaCol === numberCol){
                 //同色の場合は色を初期に戻す
@@ -4867,8 +4931,8 @@ function Draw5() {
                         elegidaCol = -1;
                         for (let i = 0; i < vertical; i++) {
                             for (let j = 0; j < x.length; j++) {
-                                    DrawRect(ctx, x[j], y[i], len, 1);
-                                    DrawText(ctx, x[j], y[i], letra[i * x.length + j], 1);
+                                DrawMemoria(ctx5,x[j],y[i],len,imageAryM[i*horizontal+j],1);
+                                    // DrawText(ctx5, x[j], y[i], letra[i * x.length + j], 1);
                                 }
                         }
             }
@@ -4878,13 +4942,13 @@ function Draw5() {
                         for (let j = 0; j < x.length; j++){
                             if (numberRow === i && numberCol === j) {
                                 //色変え
-                                DrawRect(ctx, x[j], y[i], len, -1);
-                                DrawText(ctx, x[j], y[i], letra[i*x.length+j], -1);
+                                DrawMemoria(ctx5,x[j],y[i],len,imageAryM[i*horizontal+j],1);
+                                // DrawText(ctx5, x[j], y[i], letra[i*x.length+j], -1);
                             }
                             else {
                                 //通常色
-                                DrawRect(ctx, x[j], y[i], len, 1);
-                                DrawText(ctx, x[j], y[i], letra[i*x.length+j], 1);
+                                DrawMemoria(ctx5,x[j],y[i],len,imageAryM[i*horizontal+j],1);
+                                // DrawText(ctx5, x[j], y[i], letra[i*x.length+j], 1);
                             }
                         }
                     }
@@ -4894,15 +4958,91 @@ function Draw5() {
         }
     });
 
-    canvas.addEventListener('pointercancel',function(e){
-        pointerFlag = false;
+    canvas5.addEventListener('pointercancel',function(e){
+        pointerFlagM = false;
         // console.log(pointerFlag + " cancel");
     });
-}//draw5終わり
 
+
+    function FilterMemoria() {
+        //選択項目チェック
+        var tipo = $("input[name='ctl00$MainContent$tipoMemoria']:checked").val();
+        var rarity = Number($("input[name='ctl00$MainContent$rarityM']:checked").val());
+
+        mData = angular.copy(mDataOri);
+        mData.tarjetas = mData.tarjetas.filter(function (value, index, array) {
+            if (tipo !== "全て") {
+                if (value.type !== tipo)
+                    return false;
+            }
+            if (rarity !== value.rarity)
+                return false;
+
+            return true;
+        });
+
+        y = angular.copy(yOri);
+        RedrawM();
+    }
+
+
+    function RedrawM() {
+        imageAryM.length = 0;
+        for (let i = 0; i < mData.tarjetas.length; i++){
+            imageAryM[i] = new Image();
+            imageAryM[i].src = "png/m/" + mData.tarjetas[i].data;
+        }
+
+        //vertical再計算
+        vertical = Math.ceil(mData.tarjetas.length / x.length);
+        
+        //描画
+        ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
+        for(let i = 0; i<vertical;i++){
+            for (let j = 0; j < x.length; j++) {
+                //カウント確認
+                if ((i * horizontal + j) >= mData.tarjetas.length)
+                    break;
+                if (mData.tarjetas[i * horizontal + j].data !== "") {
+                    DrawMemoria(ctx5, x[j], y[i], len, imageAryM[i * horizontal + j], 1);
+                        // DrawText(ctx5, x[j], y[i], letra[i * x.length + j], 1);
+                }
+            }
+        }
+
+    }
+
+    $('input[name="ctl00$MainContent$tipoMemoria"]:radio').change(function () {
+        FilterMemoria();
+    });
+    $('input[name="ctl00$MainContent$rarityM"]:radio').change(function () {
+        FilterMemoria();
+    });
+
+        
+}//draw5終わり
     //color 
     //1 black それ以外 white
-    
+function DrawMemoria(ctx, x, y, l, data, color) {
+    DrawImageM(ctx, x, y, l, data);
+}
+
+function DrawImageM(ctx, x, y, l, data) {
+    var image = new Image();
+    image = data;
+    if (image.complete) {
+        ctx.drawImage(image, x - l/2, y - l/2, l, l);
+    }
+    else {
+        image.addEventListener('load', function () {
+            ctx.save();
+            ctx.globalCompositeOperation = "destination-over";
+            ctx.drawImage(image, x - l/2, y - l/2, l, l);
+            ctx.restore();
+        }, false);
+    }
+}
+
 function DrawText(ctx,x,y,letra,color){
     ctx.save();
     ctx.font = "16px sans-serif";
