@@ -9,6 +9,7 @@
     <meta name="description" content="DMMゲーム　フラワーナイトガール（花騎士）のパーティー編成シミュレーターです。スキル発動率、デバフ効果、付与される属性等計算します。アビリティによる検索や、能力値ランキングもあります。昇華石必要数計算機
         もオヌヌメ。"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Expires" content="Thu, 16 Mar 2023 07:22:09 GMT">
     <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
