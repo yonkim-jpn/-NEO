@@ -325,6 +325,8 @@
     <Content Include="png\meiyuion.png" />
     <Content Include="png\merissa.png" />
     <Content Include="png\merissaon.png" />
+    <Content Include="png\meru.png" />
+    <Content Include="png\meruon.png" />
     <Content Include="png\mifuyu.png" />
     <Content Include="png\mifuyuon.png" />
     <Content Include="png\mitama.png" />
@@ -773,12 +775,14 @@
     <Content Include="png\m\0436.png" />
     <Content Include="png\m\0437.png" />
     <Content Include="png\m\0438.png" />
+    <Content Include="png\m\0439.png" />
     <Content Include="png\m\0440.png" />
     <Content Include="png\m\0441.png" />
     <Content Include="png\m\0442.png" />
     <Content Include="png\m\0443.png" />
     <Content Include="png\m\0444.png" />
     <Content Include="png\m\0445.png" />
+    <Content Include="png\m\0446.png" />
     <Content Include="png\m\0447.png" />
     <Content Include="png\m\0449.png" />
     <Content Include="png\m\0452.png" />

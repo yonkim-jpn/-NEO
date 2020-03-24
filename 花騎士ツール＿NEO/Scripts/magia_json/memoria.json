@@ -283,6 +283,1369 @@
             "data": "0067.png"
         },
         {
+            "No": 68,
+            "name": "\u3073\u3063\u3057\u308a\u66f8\u304b\u308c\u305f\u6599\u7406\u30ec\u30b7\u30d4",
+            "nameHiragana": "\u3073\u3063\u3057\u308a\u304b\u304b\u308c\u305f\u308a\u3087\u3046\u308a\u308c\u3057\u3074",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1250,
+            "ATK": null,
+            "DEF": 1050,
+            "efecto1": {
+                "name": "HP\u56de\u5fa9",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u74b0\u3000\u3044\u308d\u306f",
+            "ascend": null,
+            "data": "0068.png"
+        },
+        {
+            "No": 69,
+            "name": "\u795e\u6d5c\u306b\u5e83\u304c\u308b\u3010\u3046\u308f\u3055\u3011",
+            "nameHiragana": "\u304b\u307f\u306f\u307e\u306b\u3072\u308d\u304c\u308b\u3046\u308f\u3055",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1200,
+            "ATK": null,
+            "DEF": 1100,
+            "efecto1": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e03\u6d77\u3000\u3084\u3061\u3088",
+            "ascend": null,
+            "data": "0069.png"
+        },
+        {
+            "No": 70,
+            "name": "\u5473\u306f\u3044\u304b\u307b\u3069\uff1f",
+            "nameHiragana": "\u3042\u3058\u306f\u3044\u304b\u307b\u3069",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1150,
+            "ATK": null,
+            "DEF": 1150,
+            "efecto1": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7531\u6bd4\u3000\u9db4\u4e43",
+            "ascend": null,
+            "data": "0070.png"
+        },
+        {
+            "No": 71,
+            "name": "\u5bfe\u6975\u7684\u306a\u5b58\u5728",
+            "nameHiragana": "\u305f\u3044\u304d\u3087\u304f\u3066\u304d\u306a\u305d\u3093\u3056\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1100,
+            "ATK": null,
+            "DEF": 1200,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6c34\u6ce2 \u30ec\u30ca",
+            "ascend": null,
+            "data": "0071.png"
+        },
+        {
+            "No": 72,
+            "name": "\u30a2\u30bf\u30b7\u3060\u3063\u3066\u5973\u306e\u5b50",
+            "nameHiragana": "\u3042\u305f\u3057\u3060\u3063\u3066\u304a\u3093\u306a\u306e\u3053",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1050,
+            "ATK": null,
+            "DEF": 1250,
+            "efecto1": {
+                "name": "Charge\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5341\u548e \u3082\u3082\u3053",
+            "ascend": null,
+            "data": "0072.png"
+        },
+        {
+            "No": 73,
+            "name": "\u30a2\u30cb\u30de\u30eb\u30d1\u30e9\u30c0\u30a4\u30b9",
+            "nameHiragana": "\u3042\u306b\u307e\u308b\u3071\u3089\u3060\u3044\u3059",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1252,
+            "ATK": null,
+            "DEF": 1052,
+            "efecto1": {
+                "name": "\u540c\u3058\u5c5e\u6027\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u79cb\u91ce \u304b\u3048\u3067",
+            "ascend": null,
+            "data": "0073.png"
+        },
+        {
+            "No": 74,
+            "name": "\u53d7\u3051\u7d99\u3050\u610f\u5fd7",
+            "nameHiragana": "\u3046\u3051\u3064\u3050\u3044\u3057",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1202,
+            "ATK": null,
+            "DEF": 1102,
+            "efecto1": {
+                "name": "\u8010\u3048\u308b",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7adc\u57ce \u660e\u65e5\u9999",
+            "ascend": null,
+            "data": "0074.png"
+        },
+        {
+            "No": 75,
+            "name": "\u307e\u3069\u304b\u306e\u30ce\u30fc\u30c8",
+            "nameHiragana": "\u307e\u3069\u304b\u306e\u306e\u30fc\u3068",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1152,
+            "ATK": null,
+            "DEF": 1152,
+            "efecto1": {
+                "name": "Accele\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u9e7f\u76ee \u307e\u3069\u304b",
+            "ascend": null,
+            "data": "0075.png"
+        },
+        {
+            "No": 76,
+            "name": "\u5f7c\u5973\u3092\u5b88\u308b\u79c1\u306b\u306a\u308a\u305f\u3044",
+            "nameHiragana": "\u304b\u306e\u3058\u3087\u3092\u307e\u3082\u308b\u308f\u305f\u3057\u306b\u306a\u308a\u305f\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1102,
+            "ATK": null,
+            "DEF": 1202,
+            "efecto1": {
+                "name": "\u30b9\u30ad\u30eb\u30af\u30a4\u30c3\u30af",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6681\u7f8e\u3000\u307b\u3080\u3089\u773c\u93e1",
+            "ascend": null,
+            "data": "0076.png"
+        },
+        {
+            "No": 77,
+            "name": "\u3064\u304b\u306e\u9593\u306e\u4f11\u606f",
+            "nameHiragana": "\u3064\u304b\u306e\u307e\u306e\u304d\u3085\u3046\u305d\u304f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1052,
+            "ATK": null,
+            "DEF": 1252,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5df4\u3000\u30de\u30df",
+            "ascend": null,
+            "data": "0077.png"
+        },
+        {
+            "No": 78,
+            "name": "\u52c7\u5f80\u9081\u9032",
+            "nameHiragana": "\u3086\u3046\u304a\u3046\u307e\u3044\u3057\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1255,
+            "ATK": null,
+            "DEF": 1055,
+            "efecto1": {
+                "name": "\u9b45\u4e86",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u77e2\u5bb5\u3000\u304b\u306e\u3053",
+            "ascend": null,
+            "data": "0078.png"
+        },
+        {
+            "No": 79,
+            "name": "\u5fc3\u306f\uff11\u3064\uff01",
+            "nameHiragana": "\u3053\u3053\u308d\u306f\u3072\u3068\u3064",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1205,
+            "ATK": null,
+            "DEF": 1105,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7a7a\u7a42\u3000\u590f\u5e0c",
+            "ascend": null,
+            "data": "0079.png"
+        },
+        {
+            "No": 80,
+            "name": "LOVE\u5316\u5b66",
+            "nameHiragana": "\u3089\u3076\u304b\u304c\u304f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1155,
+            "ATK": null,
+            "DEF": 1155,
+            "efecto1": {
+                "name": "\u6bd2",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u90fd\u3000\u3072\u306a\u306e",
+            "ascend": null,
+            "data": "0080.png"
+        },
+        {
+            "No": 81,
+            "name": "\u7236\u306e\u80cc\u4e2d\u3092\u8ffd\u3063\u3066",
+            "nameHiragana": "\u3061\u3061\u306e\u305b\u306a\u304b\u3092\u304a\u3063\u3066",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1105,
+            "ATK": null,
+            "DEF": 1205,
+            "efecto1": {
+                "name": "\u8010\u3048\u308b",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7f8e\u51ea\u3000\u3055\u3055\u3089",
+            "ascend": null,
+            "data": "0081.png"
+        },
+        {
+            "No": 82,
+            "name": "\u540d\u5bb6\u306e\u8005\u3068\u3057\u3066",
+            "nameHiragana": "\u3081\u3044\u3051\u306e\u3082\u306e\u3068\u3057\u3066",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1055,
+            "ATK": null,
+            "DEF": 1255,
+            "efecto1": {
+                "name": "Blast\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5e38\u76e4\u3000\u306a\u306a\u304b",
+            "ascend": null,
+            "data": "0082.png"
+        },
+        {
+            "No": 83,
+            "name": "\u60a9\u307f\u306a\u3093\u3066\u5373\u89e3\u6c7a\uff01",
+            "nameHiragana": "\u306a\u3084\u307f\u306a\u3093\u3066\u305d\u304f\u304b\u3044\u3051\u3064",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1257,
+            "ATK": null,
+            "DEF": 1057,
+            "efecto1": {
+                "name": "\u3084\u3051\u3069",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6728\u5d0e\u3000\u8863\u7f8e\u91cc",
+            "ascend": null,
+            "data": "0083.png"
+        },
+        {
+            "No": 84,
+            "name": "\u660e\u308b\u3055\u306e\u88cf\u5074",
+            "nameHiragana": "\u3042\u304b\u308b\u3055\u306e\u3046\u3089\u304c\u308f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1207,
+            "ATK": null,
+            "DEF": 1107,
+            "efecto1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4fdd\u6f84\u3000\u96eb",
+            "ascend": null,
+            "data": "0084.png"
+        },
+        {
+            "No": 85,
+            "name": "\u512a\u3057\u304d\u5f37\u8005",
+            "nameHiragana": "\u3084\u3055\u3057\u304d\u304d\u3087\u3046\u3057\u3083",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1157,
+            "ATK": null,
+            "DEF": 1157,
+            "efecto1": {
+                "name": "Charge\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5fd7\u4f38\u3000\u3042\u304d\u3089",
+            "ascend": null,
+            "data": "0085.png"
+        },
+        {
+            "No": 86,
+            "name": "\u6570\u91cf\u9650\u5b9a\uff01\u307e\u306a\u304b\u7279\u88fd\u5f01\u5f53",
+            "nameHiragana": "\u3059\u3046\u308a\u3087\u3046\u3052\u3093\u3066\u3044\uff01\u307e\u306a\u304b\u3068\u304f\u305b\u3044\u3079\u3093\u3068\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1107,
+            "ATK": null,
+            "DEF": 1207,
+            "efecto1": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u80e1\u6843\u3000\u307e\u306a\u304b",
+            "ascend": null,
+            "data": "0086.png"
+        },
+        {
+            "No": 87,
+            "name": "\u672c\u306e\u4f4f\u4eba",
+            "nameHiragana": "\u307b\u3093\u306e\u3058\u3085\u3046\u306b\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1260,
+            "ATK": null,
+            "DEF": 1060,
+            "efecto1": {
+                "name": "Accele\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u590f\u76ee\u3000\u304b\u3053",
+            "ascend": null,
+            "data": "0087.png"
+        },
+        {
+            "No": 88,
+            "name": "\u4f7f\u3044\u53e4\u3055\u308c\u305f\u6728\u4eba",
+            "nameHiragana": "\u3064\u304b\u3044\u3075\u308b\u3055\u308c\u305f\u307c\u304f\u3058\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1210,
+            "ATK": null,
+            "DEF": 1110,
+            "efecto1": {
+                "name": "Charge\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7d14\u3000\u7f8e\u96e8",
+            "ascend": null,
+            "data": "0088.png"
+        },
+        {
+            "No": 89,
+            "name": "\u81ea\u5206\u3092\u7b11\u9854\u306b\u3001\u307f\u3093\u306a\u3082\u7b11\u9854\u306b",
+            "nameHiragana": "\u3058\u3076\u3093\u3092\u3048\u304c\u304a\u306b\u3001\u307f\u3093\u306a\u3082\u3048\u304c\u304a\u306b",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1110,
+            "ATK": null,
+            "DEF": 1210,
+            "efecto1": {
+                "name": "Blast\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6bec\u5b50\u3000\u3042\u3084\u304b",
+            "ascend": null,
+            "data": "0089.png"
+        },
+        {
+            "No": 90,
+            "name": "\u7121\u5473\u4e7e\u71e5",
+            "nameHiragana": "\u3080\u307f\u304b\u3093\u305d\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1060,
+            "ATK": null,
+            "DEF": 1260,
+            "efecto1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u52a0\u8cc0\u898b\u3000\u307e\u3055\u3089",
+            "ascend": null,
+            "data": "0090.png"
+        },
+        {
+            "No": 91,
+            "name": "\u82b1\u8a00\u8449\u3063\u3066\u77e5\u3063\u3066\u308b\uff1f",
+            "nameHiragana": "\u306f\u306a\u3053\u3068\u3070\u3063\u3066\u3057\u3063\u3066\u308b",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1265,
+            "ATK": null,
+            "DEF": 1065,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6625\u540d\u3000\u3053\u306e\u307f",
+            "ascend": null,
+            "data": "0091.png"
+        },
+        {
+            "No": 92,
+            "name": "\u304a\u3057\u3083\u308c\u5168\u958b\uff01",
+            "nameHiragana": "\u304a\u3057\u3083\u308c\u305c\u3093\u304b\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1215,
+            "ATK": null,
+            "DEF": 1115,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7dbe\u91ce\u3000\u68a8\u82b1",
+            "ascend": null,
+            "data": "0092.png"
+        },
+        {
+            "No": 93,
+            "name": "\u7f6a\u3068\u7f70",
+            "nameHiragana": "\u3064\u307f\u3068\u3070\u3064",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1165,
+            "ATK": null,
+            "DEF": 1165,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7f8e\u56fd\u3000\u7e54\u8389\u5b50",
+            "ascend": null,
+            "data": "0093.png"
+        },
+        {
+            "No": 94,
+            "name": "\u611b\u306e\u304b\u305f\u307e\u308a",
+            "nameHiragana": "\u3042\u3044\u306e\u304b\u305f\u307e\u308a",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1115,
+            "ATK": null,
+            "DEF": 1215,
+            "efecto1": {
+                "name": "\u30ab\u30a6\u30f3\u30bf\u30fc",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5449\u3000\u30ad\u30ea\u30ab",
+            "ascend": null,
+            "data": "0094.png"
+        },
+        {
+            "No": 95,
+            "name": "\u30d2\u30fc\u30ed\u30fc\u3068\u306e\u51fa\u4f1a\u3044",
+            "nameHiragana": "\u3072\u30fc\u308d\u30fc\u3068\u306e\u3067\u3042\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1065,
+            "ATK": null,
+            "DEF": 1265,
+            "efecto1": {
+                "name": "Blast\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5343\u6b73\u3000\u3086\u307e",
+            "ascend": null,
+            "data": "0095.png"
+        },
+        {
+            "No": 97,
+            "name": "\u7267\u5834\u306e\u601d\u3044\u51fa",
+            "nameHiragana": "\u307c\u304f\u3058\u3087\u3046\u306e\u304a\u3082\u3044\u3067",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1267,
+            "ATK": null,
+            "DEF": 1067,
+            "efecto1": {
+                "name": "\u30ab\u30a6\u30f3\u30bf\u30fc\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2167",
+                "valueMax": "\u2168",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6df1\u6708\u3000\u30d5\u30a7\u30ea\u30b7\u30a2",
+            "ascend": null,
+            "data": "0097.png"
+        },
+        {
             "No": 98,
             "name": "\u900f\u304d\u901a\u308b\u590f\u306e\u8272",
             "nameHiragana": "\u3059\u304d\u3068\u304a\u308b\u306a\u3064\u306e\u3044\u308d",
@@ -377,6 +1740,100 @@
             "data": "0100.png"
         },
         {
+            "No": 101,
+            "name": "\u5149\u3092\u77e5\u3063\u305f\u65e5",
+            "nameHiragana": "\u3072\u304b\u308a\u3092\u3057\u3063\u305f\u3072",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1117,
+            "ATK": null,
+            "DEF": 1217,
+            "efecto1": {
+                "name": "\u8ffd\u6483",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u7121",
+                "valueMax": "\u2168",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "5",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e94\u5341\u9234\u3000\u308c\u3093",
+            "ascend": null,
+            "data": "0101.png"
+        },
+        {
+            "No": 102,
+            "name": "\u6700\u521d\u3067\u6700\u5f8c\u306e\uff11\u30da\u30fc\u30b8",
+            "nameHiragana": "\u3055\u3044\u3057\u3087\u3067\u3055\u3044\u3054\u306e1\u307a\u30fc\u3058",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1067,
+            "ATK": 1267,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u304b\u3070\u3046",
+                "value": "\u2160",
+                "valueMax": "\u2161",
+                "target": "\u7dbe\u91ce\u68a8\u82b1\u306f100%\u304b\u3070\u3046",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u9650\u5b9a",
+            "sortValue": null,
+            "exclusive": "\u4e94\u5341\u9234\u308c\u3093",
+            "ascend": null,
+            "data": "0102.png"
+        },
+        {
             "No": 103,
             "name": "\u5922\u306e\u7d9a\u304d\u306f\u76ee\u899a\u3081\u305f\u5f8c\u3067",
             "nameHiragana": "\u3086\u3081\u306e\u3064\u3065\u304d\u306f\u3081\u3056\u3081\u305f\u3042\u3068\u3067",
@@ -424,6 +1881,53 @@
             "data": "0103.png"
         },
         {
+            "No": 104,
+            "name": "\u3042\u308a\u3075\u308c\u305f\u3082\u306e",
+            "nameHiragana": "\u3042\u308a\u3075\u308c\u305f\u3082\u306e",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1167,
+            "ATK": null,
+            "DEF": 1167,
+            "efecto1": {
+                "name": "\u8010\u3048\u308b",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4f50\u5009\u3000\u674f\u5b50",
+            "ascend": null,
+            "data": "0104.png"
+        },
+        {
             "No": 106,
             "name": "\u66f2\u3052\u306a\u3044\u4fe1\u5ff5",
             "nameHiragana": "\u307e\u3052\u306a\u3044\u3057\u3093\u306d\u3093",
@@ -469,6 +1973,147 @@
             "exclusive": null,
             "ascend": null,
             "data": "0106.png"
+        },
+        {
+            "No": 107,
+            "name": "\u82b1\u54b2\u304f\u5bb6\u3067\u80b2\u3063\u3066",
+            "nameHiragana": "\u306f\u306a\u3055\u304f\u3044\u3048\u3067\u305d\u3060\u3063\u3066",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1052,
+            "ATK": null,
+            "DEF": 1252,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u9759\u6d77\u3000\u3053\u306e\u306f",
+            "ascend": null,
+            "data": "0107.png"
+        },
+        {
+            "No": 109,
+            "name": "\u8449\u6708\u306f\u3044\u3064\u3067\u3082\u5fd9\u3057\u3044",
+            "nameHiragana": "\u306f\u3065\u304d\u306f\u3044\u3064\u3067\u3082\u3044\u305d\u304c\u3057\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1202,
+            "ATK": null,
+            "DEF": 1102,
+            "efecto1": {
+                "name": "\u30b9\u30ad\u30eb\u30af\u30a4\u30c3\u30af",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u904a\u4f50\u3000\u8449\u6708",
+            "ascend": null,
+            "data": "0109.png"
+        },
+        {
+            "No": 111,
+            "name": "\u3042\u3084\u3081\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\uff01",
+            "nameHiragana": "\u3042\u3084\u3081\u3053\u308c\u304f\u3057\u3087\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1102,
+            "ATK": null,
+            "DEF": 1202,
+            "efecto1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e09\u6817\u3000\u3042\u3084\u3081",
+            "ascend": null,
+            "data": "0111.png"
         },
         {
             "No": 113,
@@ -612,6 +2257,100 @@
             "data": "0115.png"
         },
         {
+            "No": 116,
+            "name": "50\u901a\u76ee\u306e\u30e9\u30d6\u30ec\u30bf\u30fc (\u672a\u5b8c)",
+            "nameHiragana": "\u3054\u3058\u3085\u3046\u3064\u3046\u3081\u306e\u3089\u3076\u308c\u305f\u30fc",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1270,
+            "ATK": null,
+            "DEF": 1070,
+            "efecto1": {
+                "name": "\u9632\u5fa1\u529b\u7121\u8996",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6c5f\u5229\u3000\u3042\u3044\u307f",
+            "ascend": null,
+            "data": "0116.png"
+        },
+        {
+            "No": 118,
+            "name": "\u8def\u5730\u88cf\u306e\u53cb\u3060\u3061",
+            "nameHiragana": "\u308d\u3058\u3046\u3089\u306e\u3068\u3082\u3060\u3061",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1220,
+            "ATK": null,
+            "DEF": 1120,
+            "efecto1": {
+                "name": "\u304b\u3070\u3046",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e8c\u8449\u3000\u3055\u306a",
+            "ascend": null,
+            "data": "0118.png"
+        },
+        {
             "No": 121,
             "name": "\u518d\u8d77\u3068\u6c7a\u610f",
             "nameHiragana": "\u3055\u3044\u304d\u3068\u3051\u3064\u3044",
@@ -621,7 +2360,7 @@
             "ATK": null,
             "DEF": 2102,
             "efecto1": {
-                "name": "\u5473\u65b9\u3092\u5fc5\u305a\u304b\u3070\u3046",
+                "name": "\u304b\u3070\u3046",
                 "value": "\u5fc5\u305a",
                 "valueMax": "\u5fc5\u305a",
                 "target": "\u81ea",
@@ -657,6 +2396,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0121.png"
+        },
+        {
+            "No": 122,
+            "name": "\u602a\u76d7\u304b\u308a\u3093\u8a08\u753b",
+            "nameHiragana": "\u304b\u3044\u3068\u3046\u304b\u308a\u3093\u3051\u3044\u304b\u304f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1170,
+            "ATK": null,
+            "DEF": 1170,
+            "efecto1": {
+                "name": "\u56de\u907f\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "5",
+                "valueMax": "4"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5fa1\u5712\u3000\u304b\u308a\u3093",
+            "ascend": null,
+            "data": "0122.png"
         },
         {
             "No": 123,
@@ -753,6 +2539,53 @@
             "data": "0127.png"
         },
         {
+            "No": 128,
+            "name": "\u77bc\u306e\u88cf\u306b\u6d6e\u304b\u3076\u666f\u8272",
+            "nameHiragana": "\u307e\u3076\u305f\u306e\u3046\u3089\u306b\u3046\u304b\u3076\u3051\u3057\u304d",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 952,
+            "ATK": null,
+            "DEF": 1052,
+            "efecto1": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2166",
+                "valueMax": "\u2167",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7c9f\u6839\u3000\u3053\u3053\u308d",
+            "ascend": null,
+            "data": "0128.png"
+        },
+        {
             "No": 131,
             "name": "\u5fc3\u5730\u3088\u3044\u30a2\u30f3\u30d0\u30e9\u30f3\u30b9",
             "nameHiragana": "\u3053\u3053\u3061\u3088\u3044\u3042\u3093\u3070\u3089\u3093\u3059",
@@ -798,6 +2631,147 @@
             "exclusive": null,
             "ascend": null,
             "data": "0131.png"
+        },
+        {
+            "No": 132,
+            "name": "\u30b0\u30e9\u30f3\u30de\u306e\u30a4\u30c1\u30b4\u30ea\u30be\u30c3\u30c8",
+            "nameHiragana": "\u3050\u3089\u3093\u307e\u306e\u3044\u3061\u3054\u308a\u305e\u3063\u3068",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1155,
+            "ATK": null,
+            "DEF": 1155,
+            "efecto1": {
+                "name": "\u4e0e\u3048\u308b\u30c0\u30e1\u30fc\u30b8DOWN",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u304b\u305a\u307f",
+            "ascend": null,
+            "data": "0132.png"
+        },
+        {
+            "No": 134,
+            "name": "\u4e03\u3064\u306e\u307b\u3057\u305e\u3089",
+            "nameHiragana": "\u306a\u306a\u3064\u306e\u307b\u3057\u305e\u3089",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1255,
+            "ATK": null,
+            "DEF": 1055,
+            "efecto1": {
+                "name": "\u9632\u5fa1\u529bDOWN",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u72b6\u614b\u7570\u5e38\u8010\u6027DOWN",
+                "value": "\u2166",
+                "valueMax": "\u2168",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5fa1\u5d0e\u3000\u6d77\u9999",
+            "ascend": null,
+            "data": "0134.png"
+        },
+        {
+            "No": 136,
+            "name": "\u30ab\u30e9\u30c0\u306e\u50b7\u3068\u30b3\u30b3\u30ed\u306e\u50b7",
+            "nameHiragana": "\u304b\u3089\u3060\u306e\u304d\u305a\u3068\u3053\u3053\u308d\u306e\u304d\u305a",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1055,
+            "ATK": null,
+            "DEF": 1255,
+            "efecto1": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2165",
+                "valueMax": "\u2166",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7267\u3000\u30ab\u30aa\u30eb",
+            "ascend": null,
+            "data": "0136.png"
         },
         {
             "No": 137,
@@ -894,6 +2868,100 @@
             "data": "0139.png"
         },
         {
+            "No": 142,
+            "name": "\u6708\u591c\u306e\u5b9d\u7269",
+            "nameHiragana": "\u3064\u304f\u3088\u306e\u305f\u304b\u3089\u3082\u306e",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1157,
+            "ATK": null,
+            "DEF": 1157,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "5",
+                "valueMax": "4"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5929\u97f3\u3000\u6708\u591c",
+            "ascend": null,
+            "data": "0142.png"
+        },
+        {
+            "No": 143,
+            "name": "\u6708\u54b2\u306e\u5b9d\u7269",
+            "nameHiragana": "\u3064\u304b\u3055\u306e\u305f\u304b\u3089\u3082\u306e",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1107,
+            "ATK": null,
+            "DEF": 1207,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2168",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5929\u97f3\u3000\u6708\u54b2",
+            "ascend": null,
+            "data": "0143.png"
+        },
+        {
             "No": 144,
             "name": "\u7d42\u308f\u3089\u306a\u3044\u7a3d\u53e4",
             "nameHiragana": "\u304a\u308f\u3089\u306a\u3044\u3051\u3044\u3053",
@@ -951,8 +3019,8 @@
             "DEF": null,
             "efecto1": {
                 "name": "\u81ea\u5206\u306eMP\u304c10%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
-                "value": "",
-                "valueMax": "",
+                "value": "10%",
+                "valueMax": "10%",
                 "target": "",
                 "turn": ""
             },
@@ -986,6 +3054,53 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0145.png"
+        },
+        {
+            "No": 146,
+            "name": "\u9b54\u6cd5\u5c11\u5973VS\u30b7\u30ea\u30fc\u30ba\uff1f",
+            "nameHiragana": "\u307e\u307b\u3046\u3057\u3087\u3046\u3058\u3087\u3070\u30fc\u3055\u3059\u3057\u308a\u30fc\u305a",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1120,
+            "ATK": null,
+            "DEF": 1220,
+            "efecto1": {
+                "name": "\u3084\u3051\u3069",
+                "value": "\u2167",
+                "valueMax": "\u2169",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30db\u30fc\u30ea\u30fc\u30de\u30df",
+            "ascend": null,
+            "data": "0146.png"
         },
         {
             "No": 149,
@@ -1082,6 +3197,53 @@
             "data": "0150.png"
         },
         {
+            "No": 151,
+            "name": "\u7fbd\u6839\u3064\u304d\u904a\u3073",
+            "nameHiragana": "\u306f\u306d\u3064\u304d\u3042\u305d\u3073",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1070,
+            "ATK": null,
+            "DEF": 1270,
+            "efecto1": {
+                "name": "\u8010\u3048\u308b",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value": "\u2160",
+                "valueMax": "\u2161",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u9e7f\u76ee\u3000\u307e\u3069\u304b\u6674\u7740",
+            "ascend": null,
+            "data": "0151.png"
+        },
+        {
             "No": 152,
             "name": "\u3053\u306e\u826f\u304d\u65e5\u306e\u305f\u3081\u306b",
             "nameHiragana": "\u3053\u306e\u3088\u304d\u3072\u306e\u305f\u3081\u306b",
@@ -1176,6 +3338,53 @@
             "data": "0153.png"
         },
         {
+            "No": 157,
+            "name": "\u611f\u50b7\u7684\u306a\u65cb\u5f8b",
+            "nameHiragana": "\u304b\u3093\u3057\u3087\u3046\u3066\u304d\u306a\u305b\u3093\u308a\u3064",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1272,
+            "ATK": null,
+            "DEF": 1072,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7f8e\u6a39\u3000\u3055\u3084\u304b",
+            "ascend": null,
+            "data": "0157.png"
+        },
+        {
             "No": 159,
             "name": "\u5927\u5207\u306a\u4eba\u306e\u305f\u3081\u306b",
             "nameHiragana": "\u305f\u3044\u305b\u3064\u306a\u3072\u3068\u306e\u305f\u3081\u306b",
@@ -1268,6 +3477,100 @@
             "exclusive": null,
             "ascend": null,
             "data": "0160.png"
+        },
+        {
+            "No": 162,
+            "name": "\u30a8\u30da\u30fb\u30c9\u30fb\u30af\u30ed\u30f4\u30a3\u30b9",
+            "nameHiragana": "\u3048\u307a\u30fb\u3069\u30fb\u304f\u308d\u30f4\u3043\u3059",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1158,
+            "ATK": null,
+            "DEF": 1158,
+            "efecto1": {
+                "name": "\u304b\u3070\u3046",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30bf\u30eb\u30c8",
+            "ascend": null,
+            "data": "0162.png"
+        },
+        {
+            "No": 164,
+            "name": "\u3075\u305f\u3064\u306e\u8a93\u3044",
+            "nameHiragana": "\u3075\u305f\u3064\u306e\u3061\u304b\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1207,
+            "ATK": null,
+            "DEF": 1107,
+            "efecto1": {
+                "name": "\u56de\u907f\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "AcceleMPUP",
+                "value": "\u2167",
+                "valueMax": "\u2168",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30ea\u30ba",
+            "ascend": null,
+            "data": "0164.png"
         },
         {
             "No": 167,
@@ -1411,6 +3714,53 @@
             "data": "0169.png"
         },
         {
+            "No": 170,
+            "name": "\u6700\u5f8c\u306e\u4f5c\u54c1\uff1a\u30a2\u30ea\u30ca\u306e\u4e5d\u76f8\u56f3",
+            "nameHiragana": "\u3055\u3044\u3054\u306e\u3055\u304f\u3072\u3093\uff1a\u3042\u308a\u306a\u306e\u304d\u3085\u3046\u305d\u3046\u305a",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1053,
+            "ATK": null,
+            "DEF": 1258,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30a2\u30ea\u30ca\u30fb\u30b0\u30ec\u30a4",
+            "ascend": null,
+            "data": "0170.png"
+        },
+        {
             "No": 172,
             "name": "\u82b8\u8853\u3078\u306e\u59ff\u52e2",
             "nameHiragana": "\u3052\u3044\u3058\u3085\u3064\u3078\u306e\u3057\u305b\u3044",
@@ -1552,6 +3902,147 @@
             "data": "0174.png"
         },
         {
+            "No": 175,
+            "name": "\u308c\u3044\u3089\u306e\u30ab\u30ae",
+            "nameHiragana": "\u308c\u3044\u3089\u306e\u304b\u304e",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1223,
+            "ATK": null,
+            "DEF": 1123,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2169",
+                "valueMax": "\u81ea",
+                "target": "1T",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4f0a\u5439\u3000\u308c\u3044\u3089",
+            "ascend": null,
+            "data": "0175.png"
+        },
+        {
+            "No": 176,
+            "name": "\u79d8\u5bc6\u306e\u71b1\u8840\u30b3\u30ec\u30af\u30b7\u30e7\u30f3",
+            "nameHiragana": "\u3072\u307f\u3064\u306e\u306d\u3063\u3051\u3064\u3053\u308c\u304f\u3057\u3087\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1173,
+            "ATK": null,
+            "DEF": 1173,
+            "efecto1": {
+                "name": "\u540c\u3058\u5c5e\u6027\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6851\u6c34\u3000\u305b\u3044\u304b",
+            "ascend": null,
+            "data": "0176.png"
+        },
+        {
+            "No": 177,
+            "name": "\u7a7a\u60f3\u4e16\u754c\u306e\u30b9\u30b1\u30c3\u30c1",
+            "nameHiragana": "\u304f\u3046\u305d\u3046\u305b\u304b\u3044\u306e\u3059\u3051\u3063\u3061",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1123,
+            "ATK": null,
+            "DEF": 1223,
+            "efecto1": {
+                "name": "\u8ffd\u6483",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u7121",
+                "valueMax": "\u2168",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u76f8\u91ce\u3000\u307f\u3068",
+            "ascend": null,
+            "data": "0177.png"
+        },
+        {
             "No": 180,
             "name": "\u96e8\u4e0a\u304c\u308a\u306e\u5e30\u308a\u9053\uff1c\u307f\u3068\uff1e",
             "nameHiragana": "\u3042\u3081\u3042\u304c\u308a\u306e\u304b\u3048\u308a\u307f\u3061\uff1c\u307f\u3068\uff1e",
@@ -1608,7 +4099,7 @@
             "ATK": 1905,
             "DEF": null,
             "efecto1": {
-                "name": "\u78ba\u7387\u3067\u304b\u3070\u3046",
+                "name": "\u304b\u3070\u3046",
                 "value": "\u2161",
                 "valueMax": "\u2162",
                 "target": "",
@@ -1644,6 +4135,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0182.png"
+        },
+        {
+            "No": 183,
+            "name": "\u5922\u306f\u7f8e\u8853\u54c1\u306e\u4fee\u5fa9\u5e2b",
+            "nameHiragana": "\u3086\u3081\u306f\u3073\u3058\u3085\u3064\u3072\u3093\u306e\u3057\u3085\u3046\u3075\u304f\u3057",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1072,
+            "ATK": null,
+            "DEF": 1272,
+            "efecto1": {
+                "name": "\u9b45\u4e86",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u68a2\u3000\u9ebb\u53cb",
+            "ascend": null,
+            "data": "0183.png"
         },
         {
             "No": 184,
@@ -1693,6 +4231,53 @@
             "data": "0184.png"
         },
         {
+            "No": 186,
+            "name": "\u5e78\u305b\u306a\u97f3",
+            "nameHiragana": "\u3057\u3042\u308f\u305b\u306a\u304a\u3068",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1217,
+            "ATK": 1117,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u30ab\u30fc\u30b9\u30c1\u30c3\u30d7(CC)\u306e\u7372\u5f97\u91cfUP",
+                "value": "\u2160",
+                "valueMax": "\u2161",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u771e\u5c3e\u3000\u3072\u307f\u304b",
+            "ascend": null,
+            "data": "0186.png"
+        },
+        {
             "No": 188,
             "name": "\u30b9\u30bf\u30fc\u30e9\u30a4\u30c8\u30d1\u30ef\u30fc\uff01",
             "nameHiragana": "\u3059\u305f\u30fc\u3089\u3044\u3068\u3071\u308f\u30fc\uff01",
@@ -1738,6 +4323,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0188.png"
+        },
+        {
+            "No": 190,
+            "name": "\u6697\u95c7\u306e\u8a3c\u660e",
+            "nameHiragana": "\u304f\u3089\u3084\u307f\u306e\u3057\u3087\u3046\u3081\u3044",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1015,
+            "ATK": 1015,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "value": "15%",
+                "valueMax": "15%",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u516b\u96f2\u3000\u307f\u305f\u307e",
+            "ascend": null,
+            "data": "0190.png"
         },
         {
             "No": 192,
@@ -1787,6 +4419,53 @@
             "data": "0192.png"
         },
         {
+            "No": 193,
+            "name": "\u7815\u3051\u3066\u306a\u304a\u7f8e\u3057\u304f",
+            "nameHiragana": "\u304f\u3060\u3051\u3066\u306a\u304a\u3046\u3064\u304f\u3057\u304f",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1250,
+            "ATK": 1050,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u9b45\u4e86\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u5e7b\u60d1\u7121\u52b9",
+                "value": "\u2167",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u963f\u898b\u3000\u8389\u611b",
+            "ascend": null,
+            "data": "0193.png"
+        },
+        {
             "No": 195,
             "name": "\u7adc\u771f\u6d41\u5e2b\u7bc4\u4ee3",
             "nameHiragana": "\u308a\u3085\u3046\u3057\u3093\u308a\u3085\u3046\u3057\u306f\u3093\u3060\u3044",
@@ -1832,6 +4511,147 @@
             "exclusive": null,
             "ascend": null,
             "data": "0195.png"
+        },
+        {
+            "No": 196,
+            "name": "\u304a\u307e\u3058\u306a\u3044",
+            "nameHiragana": "\u304a\u307e\u3058\u306a\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1068,
+            "ATK": null,
+            "DEF": 1268,
+            "efecto1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5929\u4e43\u3000\u9234\u97f3",
+            "ascend": null,
+            "data": "0196.png"
+        },
+        {
+            "No": 197,
+            "name": "\u8ca0\u3051\u306a\u3044\u529b\u3092\u6c42\u3081\u3066",
+            "nameHiragana": "\u307e\u3051\u306a\u3044\u3061\u304b\u3089\u3092\u3082\u3068\u3081\u3066",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1205,
+            "ATK": null,
+            "DEF": 1102,
+            "efecto1": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "\u9632\u5fa1\u529bUP",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6210\u898b\u3000\u4e9c\u91cc\u7d17",
+            "ascend": null,
+            "data": "0197.png"
+        },
+        {
+            "No": 198,
+            "name": "\u9b54\u5973\u3068\u72fc\u3068\u6751\u4eba",
+            "nameHiragana": "\u307e\u3058\u3087\u3068\u304a\u304a\u304b\u307f\u3068\u3080\u3089\u3073\u3068",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1100,
+            "ATK": 1200,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u653b\u6483\u6642\u306b\u78ba\u7387\u3067\u30b9\u30ad\u30eb\u4e0d\u53ef(1T)\u3092\u4ed8\u4e0e",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u8a69\u97f3\u3000\u5343\u91cc",
+            "ascend": null,
+            "data": "0198.png"
         },
         {
             "No": 199,
@@ -1928,6 +4748,100 @@
             "data": "0201.png"
         },
         {
+            "No": 203,
+            "name": "\u5360\u3044\u7981\u6b62\u4ee4",
+            "nameHiragana": "\u3046\u3089\u306a\u3044\u304d\u3093\u3057\u308c\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1075,
+            "ATK": null,
+            "DEF": 1275,
+            "efecto1": {
+                "name": "\u72b6\u614b\u7570\u5e38\u8010\u6027DOWN",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5b89\u540d\u3000\u30e1\u30eb",
+            "ascend": null,
+            "data": "0203.png"
+        },
+        {
+            "No": 204,
+            "name": "\u4ee3\u308f\u308a\u306b\u8a71\u3057\u3066\u304f\u308c\u308b\u3082\u306e",
+            "nameHiragana": "\u304b\u308f\u308a\u306b\u306f\u306a\u3057\u3066\u304f\u308c\u308b\u3082\u306e",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1275,
+            "ATK": null,
+            "DEF": 1075,
+            "efecto1": {
+                "name": "\u30c7\u30d0\u30d5\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u72b6\u614b\u7570\u5e38\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "4",
+                "valueMax": "2"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u96ea\u91ce\u3000\u304b\u306a\u3048",
+            "ascend": null,
+            "data": "0204.png"
+        },
+        {
             "No": 205,
             "name": "\u671d\u306f\u904b\u547d\u306e\u77ac\u9593",
             "nameHiragana": "\u3042\u3055\u306f\u3046\u3093\u3081\u3044\u306e\u3057\u3085\u3093\u304b\u3093",
@@ -2022,6 +4936,53 @@
             "data": "0206.png"
         },
         {
+            "No": 208,
+            "name": "\u30ce\u30f3\u30d3\u30ea\u306e\u8c61\u5fb4",
+            "nameHiragana": "\u306e\u3093\u3073\u308a\u306e\u3057\u3087\u3046\u3061\u3087\u3046",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1252,
+            "ATK": 1052,
+            "DEF": null,
+            "efecto1": {
+                "name": "AcceleMPUP",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u5e7b\u60d1\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30a6\u30ef\u30b5\u306e\u9db4\u4e43",
+            "ascend": null,
+            "data": "0208.png"
+        },
+        {
             "No": 209,
             "name": "\u30d5\u30e5\u30fc\u30fc\u30fc\u30b8\u30e7\u30f3!!",
             "nameHiragana": "\u30d5\u30e5\u30fc\u30fc\u30fc\u30b8\u30e7\u30f3\uff01\uff01",
@@ -2038,7 +4999,7 @@
                 "turn": "1T"
             },
             "efecto2": {
-                "name": "AcceleMPUP",
+                "name": "AccelcMPUP",
                 "value": "\u2164",
                 "valueMax": "\u2165",
                 "target": "\u81ea",
@@ -2067,6 +5028,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0209.png"
+        },
+        {
+            "No": 211,
+            "name": "\u4ea4\u3055\u308c\u308b\u907a\u5fd7",
+            "nameHiragana": "\u304b\u308f\u3055\u308c\u308b\u3044\u3057",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1050,
+            "ATK": null,
+            "DEF": 1252,
+            "efecto1": {
+                "name": "\u518d\u5ea6Disc\u3092\u5f15\u304f",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6893\u3000\u307f\u3075\u3086",
+            "ascend": null,
+            "data": "0211.png"
         },
         {
             "No": 212,
@@ -2257,6 +5265,53 @@
             "data": "0217.png"
         },
         {
+            "No": 219,
+            "name": "\u91cd\u3044\u5236\u670d",
+            "nameHiragana": "\u304a\u3082\u3044\u305b\u3044\u3075\u304f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1217,
+            "ATK": null,
+            "DEF": 1117,
+            "efecto1": {
+                "name": "\u56de\u907f\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u30ab\u30a6\u30f3\u30bf\u30fc\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u548c\u6cc9\u3000\u5341\u4e03\u591c",
+            "ascend": null,
+            "data": "0219.png"
+        },
+        {
             "No": 220,
             "name": "\u8d8a\u3048\u3089\u308c\u306a\u3044\u6e9d",
             "nameHiragana": "\u3053\u3048\u3089\u308c\u306a\u3044\u307f\u305e",
@@ -2351,6 +5406,53 @@
             "data": "0223.png"
         },
         {
+            "No": 224,
+            "name": "\u96e8\u5f8c",
+            "nameHiragana": "\u3046\u3054",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1207,
+            "ATK": null,
+            "DEF": 1102,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6681\u7f8e\u3000\u307b\u3080\u3089\u6c34\u7740",
+            "ascend": null,
+            "data": "0224.png"
+        },
+        {
             "No": 225,
             "name": "\u4e0a\u304b\u3089\u4e0b\u307e\u3067",
             "nameHiragana": "\u3046\u3048\u304b\u3089\u3057\u305f\u307e\u3067",
@@ -2396,6 +5498,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0225.png"
+        },
+        {
+            "No": 229,
+            "name": "\u5fc3\u5730\u306e\u3044\u3044\u6642\u9593",
+            "nameHiragana": "\u3053\u3053\u3061\u306e\u3044\u3044\u3058\u304b\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1260,
+            "ATK": null,
+            "DEF": 1057,
+            "efecto1": {
+                "name": "HP\u56de\u5fa9",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "MP\u56de\u5fa9",
+                "value": "\u2160",
+                "valueMax": "\u2160",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "9",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u74b0\u3000\u3044\u308d\u306f\u6c34\u7740",
+            "ascend": null,
+            "data": "0229.png"
         },
         {
             "No": 230,
@@ -2537,6 +5686,53 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0234.png"
+        },
+        {
+            "No": 235,
+            "name": "\u307b\u3093\u306e\u5c11\u3057\u306e\u672c\u5f53\u306e\u5e0c\u671b",
+            "nameHiragana": "\u307b\u3093\u306e\u3059\u3053\u3057\u306e\u307b\u3093\u3068\u3046\u306e\u304d\u307c\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1125,
+            "ATK": null,
+            "DEF": 1225,
+            "efecto1": {
+                "name": "\u30c7\u30d0\u30d5\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30a2\u30eb\u30c6\u30a3\u30e1\u30c3\u30c8\u307e\u3069\u304b",
+            "ascend": null,
+            "data": "0235.png"
         },
         {
             "No": 236,
@@ -2915,6 +6111,100 @@
             "data": "0245.png"
         },
         {
+            "No": 246,
+            "name": "\u6587\u623f\u5177\u3068\u3044\u3046\u540d\u306e\u51f6\u5668",
+            "nameHiragana": "\u3076\u3093\u307c\u3046\u3050\u3068\u3044\u3046\u306a\u306e\u304d\u3087\u3046\u304d",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1080,
+            "ATK": null,
+            "DEF": 1280,
+            "efecto1": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30a2\u30c3\u30d7\u72b6\u614b",
+                "value": "\u2166",
+                "valueMax": "\u2167",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u30a4\u30d9\u30f3\u30c8",
+            "sortValue": null,
+            "exclusive": "\u6226\u5834\u30f6\u539f\u3000\u3072\u305f\u304e",
+            "ascend": null,
+            "data": "0246.png"
+        },
+        {
+            "No": 247,
+            "name": "\u8da3\u5473\u3001\u5e3d\u5b50\u96c6\u3081",
+            "nameHiragana": "\u3057\u3085\u307f\u3001\u307c\u3046\u3057\u3042\u3064\u3081",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1268,
+            "ATK": 1068,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u9727\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u6697\u95c7\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "\u9b45\u4e86\u7121\u52b9",
+                "value": "\u2169\u2161",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38",
+            "sortValue": null,
+            "exclusive": "\u5343\u77f3\u3000\u64ab\u5b50",
+            "ascend": null,
+            "data": "0247.png"
+        },
+        {
             "No": 248,
             "name": "\u6226\u4e89\u3092\u3001\u3057\u307e\u3057\u3087\u3046",
             "nameHiragana": "\u305b\u3093\u305d\u3046\u3092\u3001\u3057\u307e\u3057\u3087\u3046",
@@ -3056,6 +6346,53 @@
             "data": "0250.png"
         },
         {
+            "No": 252,
+            "name": "\u7406\u60f3\u3078\u306e\u624b\u304c\u304b\u308a",
+            "nameHiragana": "\u308a\u305d\u3046\u3078\u306e\u3066\u304c\u304b\u308a",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1095,
+            "ATK": null,
+            "DEF": 1202,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "5",
+                "valueMax": "4"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5343\u79cb\u3000\u7406\u5b50",
+            "ascend": null,
+            "data": "0252.png"
+        },
+        {
             "No": 253,
             "name": "\u307f\u3093\u306a\u53ef\u611b\u304f\u5f69\u3063\u3066",
             "nameHiragana": "\u307f\u3093\u306a\u304b\u308f\u3044\u304f\u3044\u308d\u3069\u3063\u3066",
@@ -3150,6 +6487,53 @@
             "data": "0256.png"
         },
         {
+            "No": 258,
+            "name": "\u95c7\u306b\u5305\u307e\u308c\u305f\u75c5\u5ba4",
+            "nameHiragana": "\u3084\u307f\u306b\u3064\u3064\u307e\u308c\u305f\u3073\u3087\u3046\u3057\u3064",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1270,
+            "ATK": 1070,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u62d8\u675f\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u8010\u3048\u308b",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "\u3084\u3051\u3069\u7121\u52b9",
+                "value": "\u2167",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u767e\u6c5f\u3000\u306a\u304e\u3055",
+            "ascend": null,
+            "data": "0258.png"
+        },
+        {
             "No": 259,
             "name": "\u306a\u304e\u3055\u304c\u89e3\u6c7a\u3059\u308b\u306e\u3067\u3059\uff01",
             "nameHiragana": "\u306a\u304e\u3055\u304c\u304b\u3044\u3051\u3064\u3059\u308b\u306e\u3067\u3059\uff01",
@@ -3242,6 +6626,100 @@
             "exclusive": null,
             "ascend": null,
             "data": "0263.png"
+        },
+        {
+            "No": 264,
+            "name": "\u3075\u305f\u308a\u3067\u3075\u305f\u3064\u306e\u5922\u3092",
+            "nameHiragana": "\u3075\u305f\u308a\u3067\u3075\u305f\u3064\u306e\u3086\u3081\u3092",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1287,
+            "ATK": null,
+            "DEF": 1057,
+            "efecto1": {
+                "name": "\u72b6\u614b\u7570\u5e38\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7267\u91ce\u3000\u90c1\u7f8e",
+            "ascend": null,
+            "data": "0264.png"
+        },
+        {
+            "No": 265,
+            "name": "\u5357\u51ea\u81ea\u7531\u5b66\u5712\u540d\u7269\u30fb\u89b3\u9ce5\u5831",
+            "nameHiragana": "\u307f\u306a\u307f\u306a\u304e\u3058\u3086\u3046\u304c\u304f\u3048\u3093\u3081\u3044\u3076\u3064",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1325,
+            "ATK": 1050,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2160",
+                "valueMax": "\u2161",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u89b3\u9ce5\u3000\u4ee4",
+            "ascend": null,
+            "data": "0265.png"
         },
         {
             "No": 266,
@@ -3385,6 +6863,100 @@
             "data": "0269.png"
         },
         {
+            "No": 270,
+            "name": "\u307e\u3044\u307e\u3044\u30a2\u30c3\u30c8\u30db\u30fc\u30e0",
+            "nameHiragana": "\u307e\u3044\u307e\u3044\u3042\u3063\u3068\u307b\u30fc\u3080",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1175,
+            "ATK": null,
+            "DEF": 1175,
+            "efecto1": {
+                "name": "\u56de\u907f",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "8"
+            },
+            "limited": "\u30a4\u30d9\u30f3\u30c8",
+            "sortValue": null,
+            "exclusive": "\u516b\u4e5d\u5bfa\u3000\u771f\u5bb5",
+            "ascend": null,
+            "data": "0270.png"
+        },
+        {
+            "No": 271,
+            "name": "\u795e\u306b\u9078\u3070\u308c\u305f\u59d4\u54e1\u9577",
+            "nameHiragana": "\u304b\u307f\u306b\u3048\u3089\u3070\u308c\u305f\u3044\u3044\u3093\u3061\u3087\u3046",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1275,
+            "ATK": 1075,
+            "DEF": null,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u5f31\u70b9\u5c5e\u6027\u3067\u653b\u6483\u3055\u308c\u305f\u3068\u304dMPUP",
+                "value": "\u2160",
+                "valueMax": "\u2160",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38",
+            "sortValue": null,
+            "exclusive": "\u7fbd\u5ddd\u3000\u7ffc",
+            "ascend": null,
+            "data": "0271.png"
+        },
+        {
             "No": 272,
             "name": "\u3044\u306a\u304f\u306a\u3063\u305f\u308a\u306f\u3057\u307e\u305b\u3093\u3088",
             "nameHiragana": "\u3044\u306a\u304f\u306a\u3063\u305f\u308a\u306f\u3057\u307e\u305b\u3093\u3088",
@@ -3403,7 +6975,7 @@
             "efecto2": {
                 "name": "\u9b45\u4e86\u7121\u52b9",
                 "value": "\u2166",
-                "valueMax": "\u5b8c\u5168",
+                "valueMax": "\u5fc5\u305a",
                 "target": "",
                 "turn": ""
             },
@@ -3450,7 +7022,7 @@
             "efecto2": {
                 "name": "\u30b9\u30ad\u30eb\u30af\u30a4\u30c3\u30af",
                 "value": "\u2164",
-                "valueMax": "\u5b8c\u5168",
+                "valueMax": "\u5fc5\u305a",
                 "target": "\u81ea",
                 "turn": "1T"
             },
@@ -3573,6 +7145,53 @@
             "data": "0275.png"
         },
         {
+            "No": 276,
+            "name": "\u9b54\u6cd5\u5c11\u5973VS\u30b7\u30ea\u30fc\u30ba\uff1f\u7b2c\uff12\u5f3e",
+            "nameHiragana": "\u307e\u307b\u3046\u3057\u3087\u3046\u3058\u3087\u3070\u30fc\u3055\u3059\u3057\u308a\u30fc\u305a\u3060\u3044\u306b\u3060\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1277,
+            "ATK": null,
+            "DEF": 1075,
+            "efecto1": {
+                "name": "\u72b6\u614b\u7570\u5e38\u8010\u6027DOWN",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u6575\u5168",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30db\u30fc\u30ea\u30fc\u30a2\u30ea\u30ca",
+            "ascend": null,
+            "data": "0276.png"
+        },
+        {
             "No": 277,
             "name": "\u30af\u30ea\u30b9\u30de\u30b9\u30fb\u30ca\u30a4\u30c8\u30fb\u30de\u30b8\u30c3\u30af",
             "nameHiragana": "\u304f\u308a\u3059\u307e\u3059\u30fb\u306a\u3044\u3068\u30fb\u307e\u3058\u3063\u304f",
@@ -3667,6 +7286,53 @@
             "data": "0279.png"
         },
         {
+            "No": 281,
+            "name": "\u307f\u305f\u307e\u306e\u30c9\u30ea\u30fc\u30e0\u304a\u305b\u3061",
+            "nameHiragana": "\u307f\u305f\u307e\u306e\u3069\u308a\u30fc\u3080\u304a\u305b\u3061",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1272,
+            "ATK": null,
+            "DEF": 1077,
+            "efecto1": {
+                "name": "Accele\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u516b\u96f2\u3000\u307f\u305f\u307e\u6674\u7740",
+            "ascend": null,
+            "data": "0281.png"
+        },
+        {
             "No": 282,
             "name": "\u5c4b\u53f0\u30d1\u30e9\u30c0\u30a4\u30b9",
             "nameHiragana": "\u3084\u305f\u3044\u3071\u3089\u3060\u3044\u3059",
@@ -3691,8 +7357,8 @@
             },
             "efecto3": {
                 "name": "\u62d8\u675f\u7121\u52b9",
-                "value": "",
-                "valueMax": "",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
                 "target": "",
                 "turn": ""
             },
@@ -3712,6 +7378,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0282.png"
+        },
+        {
+            "No": 287,
+            "name": "\u58ca\u308c\u305f\u4e16\u754c\u3067",
+            "nameHiragana": "\u3053\u308f\u308c\u305f\u305b\u304b\u3044\u3067",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1287,
+            "ATK": null,
+            "DEF": 1070,
+            "efecto1": {
+                "name": "\u56de\u907f",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u8ffd\u6483",
+                "value": "\u2166",
+                "valueMax": "\u2169",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "12",
+                "valueMax": "10"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u6681\u7f8e\u3000\u307b\u3080\u3089",
+            "ascend": null,
+            "data": "0287.png"
         },
         {
             "No": 288,
@@ -3855,6 +7568,53 @@
             "data": "0294.png"
         },
         {
+            "No": 296,
+            "name": "\u6b66\u5668\u306f\u52a0\u901f\u88c5\u7f6e",
+            "nameHiragana": "\u3076\u304d\u306f\u304b\u305d\u304f\u305d\u3046\u3061",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1210,
+            "ATK": null,
+            "DEF": 1115,
+            "efecto1": {
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "AcceleMPUP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u30a4\u30d9\u30f3\u30c8",
+            "sortValue": null,
+            "exclusive": "\u795e\u539f\u3000\u99ff\u6cb3",
+            "ascend": null,
+            "data": "0296.png"
+        },
+        {
             "No": 297,
             "name": "\u5f31\u70b9\u306f\u81ea\u8ee2\u8eca",
             "nameHiragana": "\u3058\u3083\u304f\u3066\u3093\u306f\u3058\u3066\u3093\u3057\u3083",
@@ -3996,6 +7756,53 @@
             "data": "0299.png"
         },
         {
+            "No": 300,
+            "name": "\u304a\u83d3\u5b50\u306e\u5b9d\u77f3\u7bb1",
+            "nameHiragana": "\u304a\u304b\u3057\u306e\u307b\u3046\u305b\u304d\u3070\u3053",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1267,
+            "ATK": null,
+            "DEF": 1070,
+            "efecto1": {
+                "name": "\u653b\u6483\u529bDOWN",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u9632\u5fa1\u529bDOWN",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u30a4\u30d9\u30f3\u30c8",
+            "sortValue": null,
+            "exclusive": "\u5fcd\u91ce\u5fcd",
+            "ascend": null,
+            "data": "0300.png"
+        },
+        {
             "No": 301,
             "name": "\u4e0d\u7a4f\u306a\u91d1\u9aea\u5e7c\u5973",
             "nameHiragana": "\u3075\u304a\u3093\u306a\u304d\u3093\u3071\u3064\u3088\u3046\u3058\u3087",
@@ -4043,6 +7850,100 @@
             "data": "0301.png"
         },
         {
+            "No": 302,
+            "name": "\u3042\u306e\u65e5\u306e\u6094\u3044",
+            "nameHiragana": "\u3042\u306e\u3072\u306e\u304f\u3044",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1050,
+            "ATK": 1250,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u6226\u95d8\u4e0d\u80fd\u6642\u306b\u653b\u6483\u529bUP",
+                "value": "",
+                "valueMax": "\u2163",
+                "target": "\u5473\u5168",
+                "turn": "2T"
+            },
+            "efecto2": {
+                "name": "\u6226\u95d8\u4e0d\u80fd\u6642\u306b\u9632\u5fa1\u529bUP",
+                "value": "",
+                "valueMax": "\u2163",
+                "target": "\u5473\u5168",
+                "turn": "2T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u9650\u5b9a",
+            "sortValue": null,
+            "exclusive": "\u9ed2",
+            "ascend": "max",
+            "data": "0302.png"
+        },
+        {
+            "No": 303,
+            "name": "\u308f\u305f\u304f\u3057\u3060\u3051\u306e\u81ea\u7531",
+            "nameHiragana": "\u308f\u305f\u304f\u3057\u3060\u3051\u306e\u3058\u3086\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1250,
+            "ATK": null,
+            "DEF": 1080,
+            "efecto1": {
+                "name": "MP\u56de\u5fa9",
+                "value": "\u2160",
+                "valueMax": "\u2160",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "MP\u30c0\u30e1\u30fc\u30b8",
+                "value": "\u2160",
+                "valueMax": "\u2160",
+                "target": "\u6575\u5358",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u91cc\u898b\u3000\u706f\u82b1",
+            "ascend": null,
+            "data": "0303.png"
+        },
+        {
             "No": 305,
             "name": "\u4f11\u61a9\u6642\u9593\u306f\u4f55\u5473\uff1f\uff1c\u706f\u82b1\uff1e",
             "nameHiragana": "\u304d\u3085\u3046\u3051\u3044\u3058\u304b\u3093\u306f\u306a\u306b\u3042\u3058\uff1f\uff1c\u3068\u3046\u304b\uff1e",
@@ -4088,6 +7989,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0305.png"
+        },
+        {
+            "No": 307,
+            "name": "\u5c4a\u304b\u306a\u3044\u3082\u306e",
+            "nameHiragana": "\u3068\u3069\u304b\u306a\u3044\u3082\u306e",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1050,
+            "ATK": null,
+            "DEF": 1280,
+            "efecto1": {
+                "name": "\u30d0\u30d5\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u6575\u5358",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u67ca\u3000\u306d\u3080",
+            "ascend": null,
+            "data": "0307.png"
         },
         {
             "No": 308,
@@ -4278,6 +8226,53 @@
             "data": "0312.png"
         },
         {
+            "No": 313,
+            "name": "\u3055\u308f\u3063\u3061\u3083\u30c0\u30e1",
+            "nameHiragana": "\u3055\u308f\u3063\u3061\u3083\u3060\u3081",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1160,
+            "ATK": null,
+            "DEF": 1160,
+            "efecto1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e07\u5e74\u685c\u306e\u30a6\u30ef\u30b5",
+            "ascend": null,
+            "data": "0313.png"
+        },
+        {
             "No": 314,
             "name": "\u30a4\u30e1\u30c8\u30ecin\u30b5\u30fc\u30d0\u30fc",
             "nameHiragana": "\u3044\u3081\u3068\u308c\u3044\u3093\u3055\u30fc\u3070\u30fc",
@@ -4334,7 +8329,7 @@
             "ATK": 1795,
             "DEF": null,
             "efecto1": {
-                "name": "\u78ba\u7387\u3067\u304b\u3070\u3046",
+                "name": "\u304b\u3070\u3046",
                 "value": "\u2161",
                 "valueMax": "\u2162",
                 "target": "",
@@ -4701,6 +8696,53 @@
             "data": "0325.png"
         },
         {
+            "No": 326,
+            "name": "\u9032\u8def\u5e0c\u671b\u8abf\u67fb\u8868",
+            "nameHiragana": "\u3057\u3093\u308d\u304d\u307c\u3046\u3061\u3087\u3046\u3055\u3072\u3087\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1253,
+            "ATK": null,
+            "DEF": 1080,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfDOWN",
+                "value": "\u2167",
+                "valueMax": "\u2168",
+                "target": "\u6575\u5168",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u74b0\u3000\u3046\u3044",
+            "ascend": null,
+            "data": "0326.png"
+        },
+        {
             "No": 327,
             "name": "\u9858\u3044\u3067\u6e80\u3061\u305f\u4e16\u754c\u3060\u304b\u3089",
             "nameHiragana": "\u306d\u304c\u3044\u3067\u307f\u3061\u305f\u305b\u304b\u3044\u3060\u304b\u3089",
@@ -4887,6 +8929,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0331.png"
+        },
+        {
+            "No": 332,
+            "name": "\u6f06\u9ed2\u306e\u30a4\u30f3\u30af",
+            "nameHiragana": "\u3057\u3063\u3053\u304f\u306e\u3044\u3093\u304f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1072,
+            "ATK": null,
+            "DEF": 1275,
+            "efecto1": {
+                "name": "\u62d8\u675f",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u9632\u5fa1\u529bDOWN",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "9",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u66f4\u7d17\u3000\u5e06\u5948",
+            "ascend": null,
+            "data": "0332.png"
         },
         {
             "No": 333,
@@ -5077,6 +9166,53 @@
             "data": "0338.png"
         },
         {
+            "No": 340,
+            "name": "\u5927\u5207\u306a\u304a\u53cb\u9054\u304b\u3089\u306e\u30e1\u30c3\u30bb\u30fc\u30b8",
+            "nameHiragana": "\u305f\u3044\u305b\u3064\u306a\u304a\u3068\u3082\u3060\u3061\u304b\u3089\u306e\u3081\u3063\u305b\u30fc\u3058",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1275,
+            "ATK": null,
+            "DEF": 1060,
+            "efecto1": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "\u30c7\u30d0\u30d5\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "9"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u53f2\u4e43\u3000\u6c99\u512a\u5e0c",
+            "ascend": null,
+            "data": "0340.png"
+        },
+        {
             "No": 341,
             "name": "\u30a2\u30a4\u30c9\u30eb\u3067\u9b54\u6cd5\u5c11\u5973\u3060\u304b\u3089",
             "nameHiragana": "\u3042\u3044\u3069\u308b\u3067\u307e\u307b\u3046\u3057\u3087\u3046\u3058\u3087\u3060\u304b\u3089",
@@ -5169,6 +9305,147 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0343.png"
+        },
+        {
+            "No": 344,
+            "name": "\u30b9\u30bf\u30f3\u30d0\u30a4\u30fb\u30ec\u30c7\u30a3",
+            "nameHiragana": "\u3059\u305f\u3093\u3070\u3044\u308c\u3067\u3043",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1180,
+            "ATK": null,
+            "DEF": 1180,
+            "efecto1": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2166",
+                "valueMax": "\u2167",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u7121\u8996",
+                "value": "\u2165",
+                "valueMax": "\u2166",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u30a4\u30d9\u30f3\u30c8",
+            "sortValue": null,
+            "exclusive": "\u9ad8\u753a\u3000\u306a\u306e\u306f",
+            "ascend": null,
+            "data": "0344.png"
+        },
+        {
+            "No": 345,
+            "name": "\u3075\u305f\u3064\u306e\u9b54\u529b\u5149",
+            "nameHiragana": "\u3075\u305f\u3064\u306e\u307e\u308a\u3087\u304f\u3053\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1175,
+            "ATK": null,
+            "DEF": 1185,
+            "efecto1": {
+                "name": "\u56de\u907f",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "8"
+            },
+            "limited": "\u30a4\u30d9\u30f3\u30c8",
+            "sortValue": null,
+            "exclusive": "\u30d5\u30a7\u30a4\u30c8",
+            "ascend": null,
+            "data": "0345.png"
+        },
+        {
+            "No": 346,
+            "name": "\u305f\u3063\u305f\u3072\u3068\u3064\u306e\u5b9d\u7269",
+            "nameHiragana": "\u305f\u3063\u305f\u3072\u3068\u3064\u306e\u305f\u304b\u3089\u3082\u306e",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1152,
+            "ATK": 1152,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38",
+            "sortValue": null,
+            "exclusive": "\u516b\u795e\u306f\u3084\u3066",
+            "ascend": null,
+            "data": "0346.png"
         },
         {
             "No": 347,
@@ -5312,6 +9589,53 @@
             "data": "0352.png"
         },
         {
+            "No": 354,
+            "name": "\u5c0f\u3055\u306a\u5f26\u6708",
+            "nameHiragana": "\u3061\u3044\u3055\u306a\u3064\u308b\u3065\u304d",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1250,
+            "ATK": 1057,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u5e7b\u60d1\u7121\u52b9",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u6697\u95c7\u7121\u52b9",
+                "value": "\u2167",
+                "valueMax": "\u5fc5\u305a",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5929\u97f3\u59c9\u59b9\u6c34\u7740",
+            "ascend": null,
+            "data": "0354.png"
+        },
+        {
             "No": 355,
             "name": "\u590f\u3078\u30c0\u30a4\u30d6\uff1c\u6708\u591c\u30fb\u6708\u54b2\uff1e",
             "nameHiragana": "\u590f\u3078\u30c0\u30a4\u30d6\uff1c\u6708\u591c\u30fb\u6708\u54b2",
@@ -5404,6 +9728,100 @@
             "exclusive": null,
             "ascend": null,
             "data": "0358.png"
+        },
+        {
+            "No": 360,
+            "name": "\u6c17\u9ad8\u304d\u9b42\u3092\u5bbf\u3059\u77f3",
+            "nameHiragana": "\u3051\u3060\u304b\u304d\u305f\u307e\u3057\u3044\u3092\u3084\u3069\u3059\u3044\u3057",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1057,
+            "ATK": null,
+            "DEF": 1277,
+            "efecto1": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u9632\u5fa1\u529bUP",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "\u6311\u767a",
+                "value": "\u2166",
+                "valueMax": "\u2167",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "9"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30a8\u30ea\u30b6",
+            "ascend": null,
+            "data": "0360.png"
+        },
+        {
+            "No": 361,
+            "name": "\u5f62\u3042\u308b\u95c7",
+            "nameHiragana": "\u304b\u305f\u3061\u3042\u308b\u3084\u307f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1280,
+            "ATK": null,
+            "DEF": 1050,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfDOWN",
+                "value": "\u2166",
+                "valueMax": "\u2167",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30b3\u30eb\u30dc\u30fc",
+            "ascend": null,
+            "data": "0361.png"
         },
         {
             "No": 362,
@@ -5594,6 +10012,53 @@
             "data": "0367.png"
         },
         {
+            "No": 368,
+            "name": "\u7121\u4eba\u5cf6\u306e\u3054\u99b3\u8d70",
+            "nameHiragana": "\u3080\u3058\u3093\u3068\u3046\u306e\u3054\u3061\u305d\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1172,
+            "ATK": null,
+            "DEF": 1180,
+            "efecto1": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2163",
+                "valueMax": "\u2164",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4f50\u5009\u3000\u674f\u5b50\u6c34\u7740",
+            "ascend": null,
+            "data": "0368.png"
+        },
+        {
             "No": 369,
             "name": "\u3044\u3056\u3001\u5b9d\u63a2\u3057\uff01",
             "nameHiragana": "\u3044\u3056\u3001\u305f\u304b\u3089\u3055\u304c\u3057",
@@ -5618,8 +10083,8 @@
             },
             "efecto3": {
                 "name": "\u9b45\u4e86\u7121\u52b9",
-                "value": "",
-                "valueMax": "",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
                 "target": "",
                 "turn": ""
             },
@@ -5686,6 +10151,53 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0371.png"
+        },
+        {
+            "No": 373,
+            "name": "\u771f\u76f8\u306f\u3059\u3050\u508d\u306b\u3042\u308a\u307e\u3059",
+            "nameHiragana": "\u3057\u3093\u305d\u3046\u306f\u3059\u3050\u305d\u3070\u306b\u3042\u308a\u307e\u3059",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1160,
+            "ATK": null,
+            "DEF": 1160,
+            "efecto1": {
+                "name": "\u9632\u5fa1\u529bDOWN",
+                "value": "\u2165",
+                "valueMax": "\u2167",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u72b6\u614b\u7570\u5e38\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "9"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5e83\u6c5f\u3000\u3061\u306f\u308b",
+            "ascend": null,
+            "data": "0373.png"
         },
         {
             "No": 374,
@@ -5780,6 +10292,53 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0375.png"
+        },
+        {
+            "No": 377,
+            "name": "\u51b7\u3084\u305b\u3070\u843d\u3061\u3064\u304f\u304b\u306a\uff1f",
+            "nameHiragana": "\u3072\u3084\u305b\u3070\u304a\u3061\u3064\u304f\u304b\u306a\uff1f",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1052,
+            "ATK": 1252,
+            "DEF": null,
+            "efecto1": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u5f31\u70b9\u5c5e\u6027\u3067\u653b\u6483\u3055\u308c\u305f\u3068\u304dMPUP",
+                "value": "\u2160",
+                "valueMax": "\u2160",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u3044\u308d\u306f\u30fb\u3084\u3061\u3088(\u6c7a\u6226ver.)",
+            "ascend": null,
+            "data": "0377.png"
         },
         {
             "No": 378,
@@ -6041,8 +10600,8 @@
             },
             "efecto3": {
                 "name": "\u30b9\u30bf\u30f3\u7121\u52b9",
-                "value": "",
-                "valueMax": "",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
                 "target": "",
                 "turn": ""
             },
@@ -6252,6 +10811,53 @@
             "data": "0389.png"
         },
         {
+            "No": 390,
+            "name": "\u30af\u30ed\u30fc\u30bc\u30c3\u30c8\u306e\u30ab\u30b8\u30ce\u30bb\u30c3\u30c8",
+            "nameHiragana": "\u304f\u308d\u30fc\u305c\u3063\u3068\u306e\u304b\u3058\u306e\u305b\u3063\u3068",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1275,
+            "ATK": null,
+            "DEF": 1050,
+            "efecto1": {
+                "name": "\u518d\u5ea6Disc\u3092\u5f15\u304f",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e03\u702c\u3000\u3086\u304d\u304b",
+            "ascend": null,
+            "data": "0390.png"
+        },
+        {
             "No": 391,
             "name": "\u30d4\u30f3\u30c1\u306f\u30c1\u30e3\u30f3\u30b9",
             "nameHiragana": "\u3074\u3093\u3061\u306f\u3061\u3083\u3093\u3059",
@@ -6393,6 +10999,53 @@
             "data": "0395.png"
         },
         {
+            "No": 396,
+            "name": "\u81ea\u5815\u843d\u306a\u3072\u3068\u3068\u304d",
+            "nameHiragana": "\u3058\u3060\u3089\u304f\u306a\u3072\u3068\u3068\u304d",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1200,
+            "ATK": null,
+            "DEF": 1105,
+            "efecto1": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8DOWN",
+                "value": "\u2166",
+                "valueMax": "\u2167",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u653b\u6483\u529bDOWN",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u714c\u91cc\u3000\u3072\u304b\u308b",
+            "ascend": null,
+            "data": "0396.png"
+        },
+        {
             "No": 397,
             "name": "\u552f\u4e00\u7121\u4e8c\u306e\u77db\u76fe",
             "nameHiragana": "\u3086\u3044\u3044\u3064\u3080\u306b\u306e\u3080\u3058\u3085\u3093",
@@ -6529,7 +11182,7 @@
             },
             "limited": "\u9650\u5b9a",
             "sortValue": null,
-            "exclusive": "\u74b0\u3044\u308d\u306f\u3001\u74b0\u3046\u3044",
+            "exclusive": "\u74b0\u3000\u3044\u308d\u306f\u3001\u74b0\u3000\u3046\u3044",
             "ascend": "max",
             "data": "0400.png"
         },
@@ -6579,6 +11232,100 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0401.png"
+        },
+        {
+            "No": 402,
+            "name": "\u8ee2\u304c\u308a\u59cb\u3081\u3066\u3044\u305f\u904b\u547d",
+            "nameHiragana": "\u3053\u308d\u304c\u308a\u306f\u3058\u3081\u3066\u3044\u305f\u3046\u3093\u3081\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1165,
+            "ATK": null,
+            "DEF": 1165,
+            "efecto1": {
+                "name": "\u6697\u95c7",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u65e5\u5411\u3000\u8309\u8389",
+            "ascend": null,
+            "data": "0402.png"
+        },
+        {
+            "No": 403,
+            "name": "\u898b\u305b\u3089\u308c\u306a\u304b\u3063\u305f\u7d75",
+            "nameHiragana": "\u307f\u305b\u3089\u308c\u306a\u304b\u3063\u305f\u3048",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1165,
+            "ATK": 1165,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u7015\u6b7b\u6642\u9632\u5fa1\u529bUP",
+                "value": "\u2160",
+                "valueMax": "\u2161",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "\u9632\u5fa1\u529bUP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2161",
+                "valueMax": "\u2161",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u594f\u9065\u9999",
+            "ascend": null,
+            "data": "0403.png"
         },
         {
             "No": 404,
@@ -6722,6 +11469,53 @@
             "data": "0407.png"
         },
         {
+            "No": 409,
+            "name": "\u516c\u6c11\u9928\u3067\u304a\u624b\u4f1d\u3044",
+            "nameHiragana": "\u3053\u3046\u307f\u3093\u304b\u3093\u3067\u304a\u3066\u3064\u3060\u3044",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1115,
+            "ATK": null,
+            "DEF": 1215,
+            "efecto1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "9",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u571f\u5c90\u3000\u3059\u306a\u304a",
+            "ascend": null,
+            "data": "0409.png"
+        },
+        {
             "No": 410,
             "name": "\u6642\u5973\u306e\u5e95\u529b",
             "nameHiragana": "\u3068\u304d\u3081\u306e\u305d\u3053\u3062\u304b\u3089",
@@ -6767,6 +11561,147 @@
             "exclusive": null,
             "ascend": null,
             "data": "0410.png"
+        },
+        {
+            "No": 412,
+            "name": "\u304d\u3063\u304b\u3051\u306f\u5bc4\u308a\u9053\u304b\u3089",
+            "nameHiragana": "\u304d\u3063\u304b\u3051\u306f\u3088\u308a\u307f\u3061\u304b\u3089",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1067,
+            "ATK": null,
+            "DEF": 1267,
+            "efecto1": {
+                "name": "\u81ea\u5206\u306eDisc\u30c9\u30ed\u30fc",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u53e4\u753a\u3000\u307f\u304f\u3089",
+            "ascend": null,
+            "data": "0412.png"
+        },
+        {
+            "No": 413,
+            "name": "\u5922\u3078\u306e\u7b2c\uff11\u5e55",
+            "nameHiragana": "\u3086\u3081\u3078\u306e\u3060\u3044\u3044\u3061\u307e\u304f",
+            "rarity": 3,
+            "type": "\u30a2\u30d3\u30ea\u30c6\u30a3",
+            "HP": 1160,
+            "ATK": 1160,
+            "DEF": null,
+            "efecto1": {
+                "name": "\u30ab\u30fc\u30b9\u30c1\u30c3\u30d7(CC)\u306e\u7372\u5f97\u91cfUP",
+                "value": "\u2160",
+                "valueMax": "\u2161",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "",
+                "valueMax": ""
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u4e09\u7a42\u91ce\u305b\u3044\u3089",
+            "ascend": null,
+            "data": "0413.png"
+        },
+        {
+            "No": 414,
+            "name": "\u3044\u3064\u3082\u306e\u304d\u307e\u3050\u308c",
+            "nameHiragana": "\u3044\u3064\u3082\u306e\u304d\u307e\u3050\u308c",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1165,
+            "ATK": null,
+            "DEF": 1165,
+            "efecto1": {
+                "name": "\u30d0\u30d5\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u6575\u5358",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "15",
+                "valueMax": "13"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5409\u826f\u3000\u3066\u307e\u308a",
+            "ascend": null,
+            "data": "0414.png"
         },
         {
             "No": 415,
@@ -6910,6 +11845,53 @@
             "data": "0418.png"
         },
         {
+            "No": 420,
+            "name": "\u30c7\u30b8\u30bf\u30eb\u9003\u907f\u884c",
+            "nameHiragana": "\u3067\u3058\u305f\u308b\u3068\u3046\u3072\u3053\u3046",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1265,
+            "ATK": null,
+            "DEF": 1065,
+            "efecto1": {
+                "name": "\u56de\u907f",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "10",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5bae\u5c3e\u3000\u6642\u96e8",
+            "ascend": null,
+            "data": "0420.png"
+        },
+        {
             "No": 421,
             "name": "\u30d5\u30fc\u30c9\u306e\u4e2d\u306e\u7e4b\u304c\u308a",
             "nameHiragana": "\u3075\u30fc\u3069\u306e\u306a\u304b\u306e\u3064\u306a\u304c\u308a",
@@ -6928,7 +11910,7 @@
             "efecto2": {
                 "name": "\u9727",
                 "value": "\u2169\u2164",
-                "valueMax": "\u5b8c\u5168",
+                "valueMax": "\u5fc5\u305a",
                 "target": "\u6575\u5358",
                 "turn": "3T"
             },
@@ -6955,6 +11937,53 @@
             "exclusive": null,
             "ascend": null,
             "data": "0421.png"
+        },
+        {
+            "No": 423,
+            "name": "\u80f8\u306b\u706f\u308a\u3092",
+            "nameHiragana": "\u3080\u306d\u306b\u3042\u304b\u308a\u3092",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1125,
+            "ATK": null,
+            "DEF": 1225,
+            "efecto1": {
+                "name": "\u30c7\u30d0\u30d5\u89e3\u9664",
+                "value": "",
+                "valueMax": "",
+                "target": "\u81ea",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u68a8\u82b1\u30fb\u308c\u3093\u30af\u30ea\u30b9\u30de\u30b9",
+            "ascend": null,
+            "data": "0423.png"
         },
         {
             "No": 424,
@@ -7098,6 +12127,53 @@
             "data": "0428.png"
         },
         {
+            "No": 429,
+            "name": "\u7279\u5225\u306e\u540d\u6b8b\u308a",
+            "nameHiragana": "\u3068\u304f\u3079\u3064\u306e\u306a\u3054\u308a",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1130,
+            "ATK": null,
+            "DEF": 1230,
+            "efecto1": {
+                "name": "\u304b\u3070\u3046",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u7f8e\u6a39\u3000\u3055\u3084\u304b\u6674\u7740",
+            "ascend": null,
+            "data": "0429.png"
+        },
+        {
             "No": 430,
             "name": "\u8272\u3068\u308a\u3069\u308a\u306e\u8cde\u8cdb",
             "nameHiragana": "\u3044\u308d\u3068\u308a\u3069\u308a\u306e\u3057\u3087\u3046\u3055\u3093",
@@ -7192,6 +12268,100 @@
             "data": "0432.png"
         },
         {
+            "No": 434,
+            "name": "\u795d\u798f\u3092\u3042\u306a\u305f\u306b",
+            "nameHiragana": "\u3057\u3085\u304f\u3075\u304f\u3092\u3042\u306a\u305f\u306b",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1075,
+            "ATK": null,
+            "DEF": 1275,
+            "efecto1": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u30ea\u30f4\u30a3\u30a2\u30fb\u30e1\u30c7\u30a3\u30ed\u30b9",
+            "ascend": null,
+            "data": "0434.png"
+        },
+        {
+            "No": 435,
+            "name": "\u96fb\u8133\u5b89\u606f\u7a7a\u9593",
+            "nameHiragana": "\u3067\u3093\u306e\u3046\u3042\u3093\u305d\u304f\u304f\u3046\u304b\u3093",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1125,
+            "ATK": null,
+            "DEF": 1225,
+            "efecto1": {
+                "name": "\u56de\u907f",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "9",
+                "valueMax": "8"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u667a\u73e0\u3000\u3089\u3093\u304b",
+            "ascend": null,
+            "data": "0435.png"
+        },
+        {
             "No": 436,
             "name": "\u65c5\u3059\u308b\u8abf\u6574\u5c4b",
             "nameHiragana": "\u305f\u3073\u3059\u308b\u3061\u3087\u3046\u305b\u3044\u3084",
@@ -7216,8 +12386,8 @@
             },
             "efecto3": {
                 "name": "\u9b45\u4e86\u7121\u52b9",
-                "value": "",
-                "valueMax": "",
+                "value": "\u5fc5\u305a",
+                "valueMax": "\u5fc5\u305a",
                 "target": "",
                 "turn": ""
             },
@@ -7237,6 +12407,100 @@
             "exclusive": null,
             "ascend": null,
             "data": "0436.png"
+        },
+        {
+            "No": 439,
+            "name": "\u8cab\u304f\u306a\u3089\u81ea\u5206\u304b\u3089",
+            "nameHiragana": "\u3064\u3089\u306c\u304f\u306a\u3089\u3058\u3076\u3093\u304b\u3089",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1275,
+            "ATK": null,
+            "DEF": 1077,
+            "efecto1": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2162",
+                "valueMax": "\u2163",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto2": {
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "\u81ea",
+                "turn": "3T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "7",
+                "valueMax": "6"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u5357\u6d25\u3000\u6dbc\u5b50",
+            "ascend": null,
+            "data": "0439.png"
+        },
+        {
+            "No": 438,
+            "name": "\u30b4\u30fc\u30eb\u306f\u307e\u3060\u9060\u304f",
+            "nameHiragana": "\u3054\u30fc\u308b\u306f\u307e\u3060\u3068\u304a\u304f",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1125,
+            "ATK": null,
+            "DEF": 1220,
+            "efecto1": {
+                "name": "\u518d\u5ea6Disc\u3092\u5f15\u304f",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto2": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "8",
+                "valueMax": "7"
+            },
+            "limited": "\u6052\u5e38\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u9234\u9e7f\u3000\u3055\u304f\u3084",
+            "ascend": null,
+            "data": "0438.png"
         },
         {
             "No": 440,
@@ -7295,7 +12559,7 @@
             "ATK": 1800,
             "DEF": null,
             "efecto1": {
-                "name": "\u78ba\u7387\u3067\u304b\u3070\u3046",
+                "name": "\u304b\u3070\u3046",
                 "value": "",
                 "valueMax": "\u2162",
                 "target": "",
@@ -7472,6 +12736,53 @@
             "exclusive": null,
             "ascend": "max",
             "data": "0445.png"
+        },
+        {
+            "No": 446,
+            "name": "\u5b87\u5b99\u4e00\u306e\u30c1\u30e7\u30b3\u30ec\u30fc\u30c8\u30b1\u30fc\u30ad",
+            "nameHiragana": "\u3046\u3061\u3085\u3046\u3044\u3061\u306e\u3061\u3087\u3053\u308c\u30fc\u3068\u3051\u30fc\u304d",
+            "rarity": 3,
+            "type": "\u30b9\u30ad\u30eb",
+            "HP": 1280,
+            "ATK": null,
+            "DEF": 1080,
+            "efecto1": {
+                "name": "\u4e0e\u3048\u308b\u30c0\u30e1\u30fc\u30b8DOWN",
+                "value": "\u2161",
+                "valueMax": "\u2162",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "efecto2": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2164",
+                "valueMax": "\u2165",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "efecto3": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "efecto4": {
+                "name": "",
+                "value": "",
+                "valueMax": "",
+                "target": "",
+                "turn": ""
+            },
+            "turn": {
+                "value": "6",
+                "valueMax": "5"
+            },
+            "limited": "\u9650\u5b9a\u30ac\u30c1\u30e3",
+            "sortValue": null,
+            "exclusive": "\u767e\u6c5f\u3000\u306a\u304e\u3055\u30d0\u30ec\u30f3\u30bf\u30a4\u30f3",
+            "ascend": null,
+            "data": "0446.png"
         },
         {
             "No": 447,

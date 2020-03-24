@@ -186,13 +186,13 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.RadioButtonList tipoMemoria;
 
         /// <summary>
-        /// rarityM コントロール。
+        /// rarityCheckM コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rarityM;
+        protected global::System.Web.UI.WebControls.CheckBoxList rarityCheckM;
 
         /// <summary>
         /// memoria1 コントロール。
@@ -213,13 +213,13 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList memoria2;
 
         /// <summary>
-        /// totuM コントロール。
+        /// diskM コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList totuM;
+        protected global::System.Web.UI.WebControls.DropDownList diskM;
 
         /// <summary>
         /// ordenMemoria コントロール。
@@ -229,6 +229,24 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList ordenMemoria;
+
+        /// <summary>
+        /// totuM コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList totuM;
+
+        /// <summary>
+        /// indicaMemoria コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label indicaMemoria;
 
         /// <summary>
         /// TextBox668 コントロール。

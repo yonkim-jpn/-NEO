@@ -37,6 +37,7 @@
           <div class="panel-body">
         <div class="tab-content">
 	        <div class="tab-pane active" id="persona">
+                <div class="noselect">
                 <%--キャラ設定スタート--%>
 
                         <div class="row">
@@ -226,6 +227,7 @@
                             <%--</div>
                             </div>--%>
                         </div>
+                    </div>
                 </div>
             
                         <%--<div class="row">
@@ -267,6 +269,7 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="memoria">
+                    <div class="noselect">
                     <div class="row">
                         <h4 style="font-weight: bold">フィルタ設定</h4>
                         <div class="col-sm-4 col-xs-12">
@@ -277,10 +280,11 @@
                                     <asp:ListItem>スキル</asp:ListItem>
                                     <asp:ListItem>アビリティ</asp:ListItem>
                                 </asp:RadioButtonList>
-                                <asp:RadioButtonList ID="rarityM" runat="server" RepeatDirection="Horizontal">
+                                
+                                <asp:CheckBoxList ID="rarityCheckM" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem value="4" Selected="True">☆4</asp:ListItem>
-                                    <asp:ListItem value="3" Enabled="False">☆3</asp:ListItem>
-                                </asp:RadioButtonList>
+                                    <asp:ListItem value="3"  Selected="True">☆3専用</asp:ListItem>
+                                </asp:CheckBoxList>
                             </div>
                         </div>
                         <div class="col-sm-4 col-xs-12">
@@ -294,10 +298,25 @@
                                     <asp:ListItem>クリティカル</asp:ListItem>
                                     <asp:ListItem>ダメUP状態</asp:ListItem>
                                     <asp:ListItem>ダメCUT状態</asp:ListItem>
+                                    <asp:ListItem>かばう</asp:ListItem>
+                                    <asp:ListItem>攻撃力DOWN</asp:ListItem>
+                                    <asp:ListItem>ダメージDOWN</asp:ListItem>
+                                    <asp:ListItem>状態異常耐性DOWN</asp:ListItem>
                                     <asp:ListItem>回避</asp:ListItem>
                                     <asp:ListItem>回避無効</asp:ListItem>
                                     <asp:ListItem>MP獲得量UP</asp:ListItem>
                                     <asp:ListItem>AcceleMPUP</asp:ListItem>
+                                    <asp:ListItem>MP溜まった状態</asp:ListItem>
+                                    <asp:ListItem>状態異常耐性UP</asp:ListItem>
+                                    <asp:ListItem>呪い無効</asp:ListItem>
+                                    <asp:ListItem>拘束無効</asp:ListItem>
+                                    <asp:ListItem>魅了無効</asp:ListItem>
+                                    <asp:ListItem>幻惑無効</asp:ListItem>
+                                    <asp:ListItem>スタン無効</asp:ListItem>
+                                    <asp:ListItem>霧無効</asp:ListItem>
+                                    <asp:ListItem>挑発</asp:ListItem>
+                                    <asp:ListItem>HP自動回復</asp:ListItem>
+                                    <asp:ListItem>HP回復</asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:DropDownList ID="memoria2" runat="server">
                                     <asp:ListItem Selected="True">効果2</asp:ListItem>
@@ -309,17 +328,37 @@
                                     <asp:ListItem>クリティカル</asp:ListItem>
                                     <asp:ListItem>ダメUP状態</asp:ListItem>
                                     <asp:ListItem>ダメCUT状態</asp:ListItem>
+                                    <asp:ListItem>かばう</asp:ListItem>
+                                    <asp:ListItem>攻撃力DOWN</asp:ListItem>
+                                    <asp:ListItem>ダメージDOWN</asp:ListItem>
+                                    <asp:ListItem>状態異常耐性DOWN</asp:ListItem>
                                     <asp:ListItem>回避</asp:ListItem>
                                     <asp:ListItem>回避無効</asp:ListItem>
                                     <asp:ListItem>MP獲得量UP</asp:ListItem>
+                                    <asp:ListItem>MP溜まった状態</asp:ListItem>
                                     <asp:ListItem>AcceleMPUP</asp:ListItem>
+                                    <asp:ListItem>状態異常耐性UP</asp:ListItem>
+                                    <asp:ListItem>呪い無効</asp:ListItem>
+                                    <asp:ListItem>拘束無効</asp:ListItem>
+                                    <asp:ListItem>魅了無効</asp:ListItem>
+                                    <asp:ListItem>幻惑無効</asp:ListItem>
+                                    <asp:ListItem>スタン無効</asp:ListItem>
+                                    <asp:ListItem>霧無効</asp:ListItem>
+                                    <asp:ListItem>挑発</asp:ListItem>
+                                    <asp:ListItem>HP自動回復</asp:ListItem>
+                                    <asp:ListItem>HP回復</asp:ListItem>
                                 </asp:DropDownList>
                         </div>
                         <div class="col-sm-4 col-xs-12">
-                            <asp:RadioButtonList ID="totuM" runat="server" RepeatDirection="Horizontal">
-                                    <asp:ListItem Value="1" Selected="True">LV上限50(完凸)</asp:ListItem>
-                                    <asp:ListItem Value="0">LV上限45以下</asp:ListItem>
-                            </asp:RadioButtonList>
+                            <asp:DropDownList ID="diskM" runat="server">
+                                <asp:ListItem Selected="True">ディスク系</asp:ListItem>
+                                    <asp:ListItem>Aドロー</asp:ListItem>
+                                    <asp:ListItem>Bドロー</asp:ListItem>
+                                    <asp:ListItem>Cドロー</asp:ListItem>
+                                    <asp:ListItem>自分のDisc</asp:ListItem>
+                                    <asp:ListItem>再度引く</asp:ListItem>
+                                    <asp:ListItem>同じ属性</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <div class="col-xs-12">
                             <h4 style="font-weight: bold">ソート設定</h4>
@@ -332,12 +371,23 @@
                                 <asp:ListItem Enabled="False">効果値</asp:ListItem>
                             </asp:RadioButtonList>
                         </div>
+                        <div class="col-xs-12">
+                            <h4 style="font-weight: bold">凸設定<small>（効果値ソート用）</small></h4>
+                            <asp:RadioButtonList ID="totuM" runat="server" RepeatDirection="Horizontal">
+                                    <asp:ListItem Value="1" Selected="True">LV上限50(完凸)</asp:ListItem>
+                                    <asp:ListItem Value="0">LV上限45以下</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
+                        <div class="col-xs-12">
+                            <asp:Label ID="indicaMemoria" runat="server" Text="" Font-Bold="True" Font-Size="Small"></asp:Label>
+                        </div>
                     </div>
                     <div class ="col-xs-12 visible-xs">
                         <canvas id="canvas5" width="280" height ="500">Canvasに対応したブラウザを使用してください。</canvas>
                     </div>
                     <div class ="col-xs-12 hidden-xs">
                         <canvas id="canvas51" width="900" height ="500">Canvasに対応したブラウザを使用してください。</canvas>
+                    </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="enemigo">

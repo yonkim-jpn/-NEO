@@ -582,8 +582,8 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
         v = 0;
     v = v > 100 ? 100 : v;
     var w = 0;//ダメージアップ状態
-    var x = 0;//敵状態異常時ダメージアップ
-    var y = 0;//ダメージカット
+    let x = 0;//敵状態異常時ダメージアップ
+    let y = 0;//ダメージカット
     var zProbabilidad = connectAjustado[orden - 1][13];//クリティカル確率
     if (typeof zProbabilidad === "undefined")
         zProbabilidad = 0;
@@ -2233,7 +2233,7 @@ function draw3() {
     var clickY;
 
     var isStatic = 0;
-
+    var region = { x: 0, y: 0, w: canvas3.width, h: canvas3.height };
     
 
     canvas3.addEventListener("pointerdown", function (e) {
@@ -2807,6 +2807,10 @@ function draw3() {
         pointerFlag = false;
         // console.log(pointerFlag + " cancel");
     });
+    canvas3.addEventListener('pointerout', function (e) {
+        pointerFlag = false;
+        // console.log(pointerFlag + " cancel");
+    });
 
     //コネクト情報取得
     function GetConnect(inputJson, selector) {
@@ -2953,37 +2957,6 @@ function draw3() {
         // console.log("click2" + " m" + mouseFlag + "c" + clickFlag);
     });
     
-    //mouseup
-    // $('#MainContent_tipoMagia').on('mouseup', function () {//ドロップダウンが閉じた時
-    //     console.log("mouseup" + " m" + mouseFlag + "c" + clickFlag);
-    //     if (mouseFlag === 0 && clickFlag === 1){
-    //         let data = CuentaTodo("magia1", 2);
-    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-    //         ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-    //         ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
-    //         console.log("mouse処理実行");
-    //         mouseFlag = 1;
-    //     } 
-    //     console.log("mouseup2" + " m" + mouseFlag + "c" + clickFlag);
-    // });
-
-    //Blur
-    // $('#MainContent_tipoMagia').blur(function () {//ドロップダウンからフォーカス外れた時
-    //     console.log("blur" + " m" + mouseFlag + "c" + clickFlag);
-    //     if (mouseFlag === 0) {
-    //         let data = CuentaTodo("magia1", 2);
-    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia"), data[0]);
-    //         ApareceCantidad(document.getElementById("MainContent_tipoMagia2"), data[1]);
-    //         ApareceCantidad(document.getElementById("MainContent_connect1"), data[2]);
-    //         ApareceCantidad(document.getElementById("MainContent_connect2"), data[3]);
-    //         console.log("Blur処理実行");
-    //     }
-    //     mouseFlag = 1;
-    //     clickFlag = 0;
-    //     console.log("blur2" + " m" + mouseFlag + "c" + clickFlag);
-    // });
-
 
     $('#MainContent_tipoMagia2').change(function () {
         CheckChanged();
@@ -4238,6 +4211,7 @@ function draw3() {
         }
         //キャラ数表示
         document.getElementById("MainContent_indicaPersonas").innerText = "登録 " + jsonDataOri.personas.length + "キャラ中 " + jsonData.personas.length + "キャラ表示";
+        var t2 = new ToolTipC(canvas3, region, 180);
     }
 
     //ソート処理
@@ -4570,6 +4544,172 @@ function draw3() {
         return false;
     }
 
+    // The Tool-Tip instance:
+function ToolTipC(canvas, region, width) {
+
+    var me = this,                                // self-reference for event handlers
+        div = document.createElement("div"),      // the tool-tip div
+        parent = canvas.parentNode,               // parent node for canvas
+        visible = false;                          // current status
+    
+    // set some initial styles, can be replaced by class-name etc.
+    div.style.cssText = "position:fixed;padding:7px;background:gold;pointer-events:none;width:" + width + "px";
+    
+    var number;
+    let widthC;
+
+    // show the tool-tip
+    this.show = function(pos) {
+      if (!visible) {                             // ignore if already shown (or reset time)
+        visible = true;                           // lock so it's only shown once
+        setDivPos(pos);                           // set position
+        parent.appendChild(div);                  // add to parent of canvas
+        // setTimeout(hide, timeout);                // timeout for hide
+      }
+    }
+    
+    // hide the tool-tip
+    function hide() {
+      visible = false;                            // hide it after timeout
+      parent.removeChild(div);                    // remove from DOM
+    }
+  
+    // check mouse position, add limits as wanted... just for example:
+    function check(e) {
+      var pos = getPos(e),
+          posAbs = {x: e.clientX, y: e.clientY};  // div is fixed, so use clientX/Y
+        
+            
+        //ポインタがキャラアイコン内にあるか判定
+        let clickX = pos.x;
+        let clickY = pos.y;
+        number = -1;
+        loop: for (let i = 0; i < personas; i++) {
+            if ((clickX - charaX[i]) ** 2 + (clickY - charaY) ** 2 < charaR ** 2) {
+                number = i;
+                break;
+            }
+            if (number === -1) {
+                if ((clickX - charaX[i] + Xoffset) ** 2 + (clickY - charaY - Yoffset) ** 2 < charaR ** 2) {
+                    number = i;
+                    break;
+                }
+            }
+        }
+        if (!visible &&
+            pos.x >= region.x && pos.x < region.x + region.w &&
+            pos.y >= region.y && pos.y < region.y + region.h) {
+            
+            if (number !== -1) {
+                
+                let obj = jsonData.personas[number];
+                var tipoOrden = $("input[name='ctl00$MainContent$orden1']:checked").val();
+                let text = obj.name;
+                switch (tipoOrden) {
+                    case "ATK":
+                    case "DEF":
+                    case "HP":
+                        {
+                            text += "<br/>" + "HP:" + obj.HP;
+                            text += "<br/>" + "ATK:" + obj.ATK;
+                            text += "<br/>" + "DEF:" + obj.DEF;
+                            widthC = obj.name.length * 17<80? 80:obj.name.length * 17;
+                            break;
+                        }
+                    case "コネクト値":
+                        {
+                            let C = [obj.connectA1, obj.connectA2, obj.connectA3, obj.connectA4, obj.connectA5, obj.connectD1, obj.connectD2, obj.connectD3];
+                            for (let i = 0; i < C.length; i++){
+                                if (C[i].name !== "") {
+                                    text += "<br/>" + C[i].name;
+                                    if (C[i].value !== "")
+                                        text += "[" + C[i].value + "]";
+                                    if (C[i].turn !== "")
+                                        text += " " + C[i].turn;
+                                }
+                            }
+                            widthC = obj.name.length * 17<180? 180:obj.name.length * 17;
+                            break;
+                        }
+                    case "マギア値":
+                        {
+                            let M = [obj.Magia1, obj.Magia2, obj.Magia3, obj.Magia4, obj.Magia5];
+                            for (let i = 0; i < M.length; i++){
+                                if (M[i].name !== "") {
+                                    text += "<br/>" + M[i].name;
+                                    if ((M[i].info1 !== "")&&(typeof M[i].info1 !== "undefined"))
+                                        text += "/" + M[i].info1;
+                                    if ((M[i].info2 !== "")&&(typeof M[i].info2 !== "undefined"))
+                                        text += "/" + M[i].info2;
+                                }
+                            }
+                            widthC = obj.name.length * 17<180? 180:obj.name.length * 17;
+                            break;
+                        }
+                    default:
+                        {
+                            text = "";
+                        }
+                }
+                if (text !== "") {
+                    div.innerHTML = text;
+                    
+                    div.style.cssText = "position:fixed;padding:7px;background:gold;pointer-events:none;z-index:1;width:" + widthC + "px";
+                    me.show(posAbs);                          // show tool-tip at this pos
+                }
+            }
+        }
+        else if (number === -1)
+            hide();
+        else if ((clickX > canvas.width) || (clickX < 0) || (clickY < 0) || (clickY > canvas.heigth))
+            hide();
+        else {
+            setDivPos(posAbs);                     // otherwise, update position
+        }
+    }
+    
+    // get mouse position relative to canvas
+    function getPos(e) {
+      var r = canvas.getBoundingClientRect();
+      return {x: e.clientX - r.left, y: e.clientY - r.top}
+    }
+    
+    // update and adjust div position if needed (anchor to a different corner etc.)
+    function setDivPos(pos) {
+      if (visible){
+        if (pos.x < 0) pos.x = 0;
+        if (pos.y < 0) pos.y = 0;
+        // other bound checks here
+        let right = pos.x - widthC;
+        if (charaX[number] < Xoffset) {
+            //一段目の一番右の場合で、更にタマの左半分が上端にある場合は、下段も描写したい
+            if (charaX[number] + charaR / 2 > Xoffset - charaR) {
+                div.style.left = right + "px";
+            }
+            else
+            div.style.left = pos.x + "px";
+        }
+        else if (charaX[number] < Xoffset * 2) {
+            //二段目の一番右の場合
+            if (charaX[number] + charaR / 2 > Xoffset *2 - charaR) {
+                div.style.left = right + "px";
+            }
+            else
+            div.style.left = pos.x + "px";
+        }
+        else
+            div.style.left = pos.x + "px";
+        div.style.top = pos.y + "px";
+      }
+    }
+    
+    // we need to use shared event handlers:
+    canvas.addEventListener("mousemove", check);
+    // canvas.addEventListener("click", check);
+    canvas.addEventListener("mouseout", hide);
+    
+  }
+
 }//draw3ここまで
 
 function ChangeRoman(roman) {
@@ -4590,6 +4730,8 @@ function ChangeRoman(roman) {
         case "XⅣ": return 14;
         case "ⅩⅤ": return 15;
         case "必ず": return 100;
+        case "10%": return 10;
+        case "15%": return 15;
         default: return 0;
     }
 }
@@ -4637,8 +4779,12 @@ function DrawImage(ctx, x, y, r, data) {
 
 function DrawImageText(ctx, x, y, r, text) {
     ctx.save();
-    
     ctx.font = "900 12px sans-serif";
+
+    var textW = Math.ceil(ctx.measureText(text).width) + 5;
+    var textH = 15;
+    ProcessImage(ctx, x + r/6, y - r*5/6,textW,textH);
+
     ctx.strokeStyle = "yellow";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -4710,6 +4856,7 @@ var mDataOri;
 var elegidaRow = -1;
 var elegidaCol = -1;
 var canvasFlagM;
+var y;
 
 function draw5() {
     var canvas5;
@@ -4784,7 +4931,7 @@ function draw5() {
     letraM[i] = i + 1;
     }
 
-    var y = angular.copy(yOri);
+    y = angular.copy(yOri);
 
     //imageのみ準備
     var imageAryM = [memorias];
@@ -4803,11 +4950,10 @@ function draw5() {
             // DrawText(ctx5,x[j],y[i],letra[i*x.length+j],1);
         }
     }
-    // CreateTooltip();
+
+    //メモリア数表示
+    document.getElementById("MainContent_indicaMemoria").innerText = "登録 " + mDataOri.tarjetas.length + "メモリア表示";
     var region = { x: 0, y: 0, w: canvas5.width, h: canvas5.height };
-    var text = "";
-    // var totu = $("input[name='ctl00$MainContent$totuM']:checked").val();
-    // let t1 = new ToolTip(canvas5, region, text, 200, 1500,x,y,totu);
     
     
     //スクロール処理
@@ -4887,8 +5033,8 @@ function draw5() {
         no_scroll();
         //オフセット位置取得
         const rectM = canvas5.getBoundingClientRect();
-        var px = e.clientX - rectM.left - clickX;
-        var py = e.clientY - rectM.top - clickY;
+        var pxM = e.clientX - rectM.left - clickX;
+        var pyM = e.clientY - rectM.top - clickY;
         clickX = e.clientX - rectM.left;
         clickY = e.clientY - rectM.top;
 
@@ -4903,7 +5049,7 @@ function draw5() {
 
         //端の移動制限
         //上端
-        if ((py > 0) && (y[0] >= y0)) {//下にドラッグした時
+        if ((pyM > 0) && (y[0] >= y0)) {//下にドラッグした時
             if (clickY > canvas5.height) {//ドラッグした先が下端を超えた場合
                 pointerFlagM = false;
             }
@@ -4911,7 +5057,7 @@ function draw5() {
             return;
         }
         //下端
-        if ((py < 0) && (y[vertical-1] <= canvas5.height - y0)) {//上にドラッグした時
+        if ((pyM < 0) && (y[vertical-1] <= canvas5.height - y0)) {//上にドラッグした時
             if (clickY < 0) {//ドラッグした先が上端を超えた場合
                 pointerFlagM = false;
             }
@@ -4926,13 +5072,14 @@ function draw5() {
         
         // console.log("px " + px);
         //pxが少ない場合は色変え
-        if (Math.abs(py) > 8)
+        if (Math.abs(pyM) > 8)
             isStaticM = 0;
         
 
         console.log(pointerFlagM + "移動前");
         //描画メイン処理
-        if(pointerFlagM){
+        if (pointerFlagM) {
+            console.log("描画中 " + pointerFlagM);
             ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
             //描画座標判定
             // let iMin = 0;
@@ -4947,7 +5094,7 @@ function draw5() {
             // }
             // console.log(iMin + "<" + iMax);
             for(let i = 0; i<vertical;i++){
-                y[i] += py;
+                y[i] += pyM;
                 for (let j = 0; j < x.length; j++) {
                     //数確認
                     if ((i * horizontal + j) >= mData.tarjetas.length) {
@@ -4979,7 +5126,7 @@ function draw5() {
             }
             RedrawM(order,1);
         }
-        console.log("移動量" + py);
+        console.log("移動量" + pyM);
     });
 
     //ポインタ離れたらドラッグ終了
@@ -5053,7 +5200,7 @@ function draw5() {
         // console.log(pointerFlag + " cancel");
     });
 
-    canvas5.addEventListener("blur", function() {
+    canvas5.addEventListener("pointerout", function() {
         pointerFlagM = false;
     });
 
@@ -5064,11 +5211,18 @@ function draw5() {
     function FilterMemoria() {
         //選択項目チェック
         var tipo = $("input[name='ctl00$MainContent$tipoMemoria']:checked").val();
-        var rarity = Number($("input[name='ctl00$MainContent$rarityM']:checked").val());
+        var rarity = [2];
+        var index = 0;
+        $('input[name*="ctl00$MainContent$rarityCheckM"]:checked').each(function () {
+            //値を取得
+            rarity[index] = Number($(this).val());
+            index++;
+        });
         var orden = $("input[name='ctl00$MainContent$ordenMemoria']:checked").val();
         var memoria = [2];
         memoria[0] = $("#MainContent_memoria1").val();
         memoria[1] = $("#MainContent_memoria2").val();
+        var disk = $("#MainContent_diskM").val();
         var totu = $("input[name='ctl00$MainContent$totuM']:checked").val();
 
         mData = angular.copy(mDataOri);
@@ -5077,7 +5231,12 @@ function draw5() {
                 if (value.type !== tipo)
                     return false;
             }
-            if (rarity !== value.rarity)
+            let flagR = 0;
+            if (rarity[0] === value.rarity)
+                flagR++;
+            if (rarity[1] === value.rarity)
+                flagR++;
+            if(flagR===0)
                 return false;
             if (orden === "ミラーズ発動T") {
                 if (value.type !== "スキル")
@@ -5109,7 +5268,41 @@ function draw5() {
                     }
                 }
             }
-            
+            //ディスク
+            if (disk !== "ディスク系") {
+                switch (disk) {
+                    case "Aドロー": {
+                        if (!BusquedaMemoria("Acceleドロー",value, 0))
+                            return false;
+                        break;
+                    }
+                    case "Bドロー": {
+                        if (!BusquedaMemoria("Blastドロー",value, 0))
+                            return false;
+                        break;
+                    }
+                    case "Cドロー": {
+                        if (!BusquedaMemoria("Chargeドロー",value, 0))
+                            return false;
+                        break;
+                    }
+                    case "自分のDisc": {
+                        if (!BusquedaMemoria("自分のDiscドロー",value, 0))
+                            return false;
+                        break;
+                    }
+                    case "再度引く": {
+                        if (!BusquedaMemoria("再度Discを引く",value, 0))
+                            return false;
+                        break;
+                    }
+                    case "同じ属性": {
+                        if (!BusquedaMemoria("同じ属性ドロー",value, 0))
+                            return false;
+                        break;
+                    }
+                }
+            }
             
             return true;
         });
@@ -5162,11 +5355,11 @@ function draw5() {
                 {
                     mData.tarjetas.sort(function (a, b) {
                         var an, bn;
-                        if ((totu === "1") || ((totu === "0") && (a.ascend = "max")))
+                        if ((totu === "1") || ((totu === "0") && (a.ascend === "max")))
                             an = a.turn.valueMax;
                         else
                             an = a.turn.value;
-                        if ((totu === "1") || ((totu === "0") && (b.ascend = "max")))
+                        if ((totu === "1") || ((totu === "0") && (b.ascend === "max")))
                             bn = b.turn.valueMax;
                         else   
                             bn = b.turn.value;
@@ -5176,6 +5369,10 @@ function draw5() {
                         if (an > bn) 
                             return 1;
                         if (an < bn) 
+                            return -1;
+                        if (a.nameHiragana > b.nameHiragana)
+                            return 1;
+                        if (a.nameHiragana < b.nameHiragana) 
                             return -1;
                         return 0;
                     });
@@ -5276,7 +5473,7 @@ function draw5() {
                                 }
                             case "turn":
                                 {
-                                     if(totu==="1")
+                                     if((totu==="1")||(totu === "0") && (mData.tarjetas[i * horizontal + j].ascend === "max"))
                                         text = mData.tarjetas[i * horizontal + j].turn.valueMax !==null ? MirrorsTurn(mData.tarjetas[i * horizontal + j].turn.valueMax):null;
                                     else
                                         text = mData.tarjetas[i * horizontal + j].turn.value !==null ? MirrorsTurn(mData.tarjetas[i * horizontal + j].turn.value):null;
@@ -5295,8 +5492,11 @@ function draw5() {
                 }
             }
         }
-        let t1 = new ToolTip(canvas5, region, text, 220, 1500,x,y,totu);
-        // CreateTooltip(totu);
+        //メモリア数表示
+        document.getElementById("MainContent_indicaMemoria").innerText = "登録 " + mDataOri.tarjetas.length + "メモリア中" + mData.tarjetas.length + "枚表示";
+
+        if(canvasFlagM===0)//モバイル版は今んとこツールチップ出せない。挙動が安定しない
+            var t1 = new ToolTip(canvas5, region, 220,x,totu);
 
     }
 
@@ -5344,6 +5544,29 @@ function draw5() {
                         if ("ダメージカット状態" === valor[i].name)
                             flagM = 1;
                         break;
+                    }
+                case "ダメージDOWN":
+                    {
+                        if ("与えるダメージDOWN" === valor[i].name)
+                            flagM = 1;
+                        break;
+                    }
+                case "MP溜まった状態":
+                    {
+                        if ("自分のMPが10%溜まった状態でバトル開始" === valor[i].name)
+                            flagM = 1;
+                        else if ("自分のMPが15%溜まった状態でバトル開始" === valor[i].name)
+                            flagM = 1;
+                        break;
+                    }
+                case "かばう":
+                    {
+                        if ("かばう" === valor[i].name)
+                            flagM = 1;
+                        else if("瀕死の味方を必ずかばう" === valor[i].name)
+                            flagM = 1;
+                        break;
+                        
                     }
             }
             if ((parabra === valor[i].name)||flagM===1) {
@@ -5423,32 +5646,14 @@ function draw5() {
         }
         return turn;
     }
-    // function CreateTooltip(totu) {
-    //     for (let i = 0; i < vertical; i++) {
-    //         for (let j = 0; j < horizontal; j++) {
-    //             var region = { x: x[j], y: y[i], w: len, h: len };
-    //             //text作成
-    //             let obj = mData.tarjetas[i * horizontal + j];
-    //             let efecto = [obj.efecto1, obj.efecto2, obj.efecto3, obj.efecto4];
-    //             let text = "「"+obj.name+"」";
-    //             for (let k = 0; k < 4; k++) {
-    //                 if (efecto[k].name !== "") {
-    //                     if((totu==="1")||(totu==="0" && efecto[k].ascend==="max"))
-    //                         text += "<br/>" + efecto[k].name + " " + efecto[k].valueMax;
-    //                     else
-    //                         text += "<br/>" + efecto[k].name + " " + efecto[k].value;
-    //                 }
-    //             }
-
-    //             let t1 = new ToolTip(canvas5, region, text, 200, 1500);
-    //         }
-    //     }
-    // }
 
     $('input[name="ctl00$MainContent$tipoMemoria"]:radio').change(function () {
         FilterMemoria();
     });
-    $('input[name="ctl00$MainContent$rarityM"]:radio').change(function () {
+    $('input[name="ctl00$MainContent$rarityCheckM$0"]').change(function () {
+        FilterMemoria();
+    });
+    $('input[name="ctl00$MainContent$rarityCheckM$1"]').change(function () {
         FilterMemoria();
     });
     $('input[name="ctl00$MainContent$ordenMemoria"]:radio').change(function () {
@@ -5520,6 +5725,9 @@ function draw5() {
     $('#MainContent_memoria2').change(function () {
         FilterMemoria();
     });
+    $('#MainContent_diskM').change(function () {
+        FilterMemoria();
+    });
     $('input[name="ctl00$MainContent$totuM"]:radio').change(function () {
         FilterMemoria();
     });
@@ -5551,7 +5759,7 @@ function DrawImageM(ctx, x, y, l, data) {
 }
 
 function DrawImageTextM(ctx, x, y, l, text) {
-    
+//     ProcessImage(ctx, 10, 10 + 5,5,5);
     ctx.save();
     ctx.font = "900 12px sans-serif";
 
@@ -5577,16 +5785,21 @@ function DrawImageTextM(ctx, x, y, l, text) {
 function ProcessImage(ctx, x, y,w,h) {
     var src = ctx.getImageData(x - w / 2, y - h / 2, w, h);
     var img = ctx.createImageData(w, h);
-    var percent = 180;
+    var percent = 250;
+    var offset = 100;
     for (let i = 0; i < w * h * 4; i += 4){
         //輝度調整
-        var r = Math.floor(src.data[i]*percent/100);//R
-        var g = Math.floor(src.data[i+1]*percent/100);//G
-        var b = Math.floor(src.data[i+2]*percent/100);//B
+        var r = Math.floor(src.data[i] + offset);//R
+        var g = Math.floor(src.data[i+1] + offset);//G
+        var b = Math.floor(src.data[i+2] + offset);//B
 
-        img.data[i] = Math.min(255,r);
-        img.data[i+1] = Math.min(255,g);
-        img.data[i+2] = Math.min(255,b);
+        r = r === offset ? 245 : r;
+        g = g === offset ? 245 : g;
+        b = b === offset ? 245 : b;
+
+        img.data[i] = Math.min(245,r);
+        img.data[i+1] = Math.min(245,g);
+        img.data[i+2] = Math.min(245,b);
         img.data[i+3] = 0xff;
     }
     ctx.putImageData(img, x - w / 2, y - h / 2);
@@ -5614,7 +5827,7 @@ function DrawRect(ctx,x,y,len,color){
 }
 
 // The Tool-Tip instance:
-function ToolTip(canvas, region, text, width, timeout,x,y,totu) {
+function ToolTip(canvas, region, width,x,totu) {
 
     var me = this,                                // self-reference for event handlers
         div = document.createElement("div"),      // the tool-tip div
@@ -5624,14 +5837,16 @@ function ToolTip(canvas, region, text, width, timeout,x,y,totu) {
     // set some initial styles, can be replaced by class-name etc.
     div.style.cssText = "position:fixed;padding:7px;background:gold;pointer-events:none;width:" + width + "px";
     
-    
+    var numberRow;
+    var numberCol;
+
     // show the tool-tip
     this.show = function(pos) {
       if (!visible) {                             // ignore if already shown (or reset time)
         visible = true;                           // lock so it's only shown once
         setDivPos(pos);                           // set position
         parent.appendChild(div);                  // add to parent of canvas
-        setTimeout(hide, timeout);                // timeout for hide
+        // setTimeout(hide, timeout);                // timeout for hide
       }
     }
     
@@ -5645,51 +5860,68 @@ function ToolTip(canvas, region, text, width, timeout,x,y,totu) {
     function check(e) {
       var pos = getPos(e),
           posAbs = {x: e.clientX, y: e.clientY};  // div is fixed, so use clientX/Y
+        
+            
+        //ポインタがメモリア内にあるか判定
+        numberRow = -1;
+        numberCol = -1;
+        let len = 60;
+        let clickX = pos.x;
+        let clickY = pos.y;
+        loop: for (let i = 0; i < y.length; i++){
+            for (let j = 0; j < x.length; j++) {
+                if ((clickX < x[j] + len / 2) && (x[j] - len / 2 < clickX) && (clickY < y[i] + len / 2) && (y[i] - len / 2 < clickY)) {
+                    numberRow = i;
+                    numberCol = j;
+                    break loop;
+                }
+            }
+        }
         if (!visible &&
             pos.x >= region.x && pos.x < region.x + region.w &&
             pos.y >= region.y && pos.y < region.y + region.h) {
             
-            //ポインタがメモリア内にあるか判定
-            let numberRow = -1;
-            let numberCol = -1;
-            let len = 60;
-            let clickX = pos.x;
-            let clickY = pos.y;
-            for (let i = 0; i < y.length; i++){
-                for (let j = 0; j < x.length; j++) {
-                    if ((clickX < x[j] + len / 2) && (x[j] - len / 2 < clickX) && (clickY < y[i] + len / 2) && (y[i] - len / 2 < clickY)) {
-                        numberRow = i;
-                        numberCol = j;
-                        j = x.length - 1;
-                        i = y.length - 1;
-                        break;
+            if ((numberRow !== -1) && (numberCol !== -1)) {
+                let obj = mData.tarjetas[numberRow * x.length + numberCol];
+                let efecto = [obj.efecto1, obj.efecto2, obj.efecto3, obj.efecto4];
+                let text = "「" + obj.name + "」";
+                if ((obj.exclusive !== "")&&(obj.exclusive !== null))
+                    text += "<br/>" + obj.exclusive + "専用";
+                for (let k = 0; k < 4; k++) {
+                    if (efecto[k].name !== "") {
+                        if ((totu === "1") || (totu === "0" && obj.ascend === "max")) {
+                            if ((efecto[k].valueMax.indexOf("必ず") !== -1) && (efecto[k].name.indexOf("必ず") !== -1))
+                                text += "<br/>" + efecto[k].name;
+                            else
+                                text += "<br/>" + efecto[k].name + " " + efecto[k].valueMax;
+                        }
+                        else {
+                            if ((efecto[k].value.indexOf("必ず") !== -1) && (efecto[k].name.indexOf("必ず") !== -1))
+                                text += "<br/>" + efecto[k].name;
+                            else if (efecto[k].value === "無")
+                                continue;
+                            else
+                                text += "<br/>" + efecto[k].name + " " + efecto[k].value;
+                        }
+                        //おまけ
+                        if (efecto[k].name === "自分のDiscドロー") {
+                            for (let m = 0; m < jsonDataOri.personas.length; m++){
+                                if (jsonDataOri.personas[m].name === obj.exclusive)
+                                    text += "(" + jsonDataOri.personas[m].Disk + ")";
+                            }
+                        }
                     }
+                    
+                        
                 }
+                div.innerHTML = text;
+                me.show(posAbs);                          // show tool-tip at this pos
             }
-            let obj = mData.tarjetas[numberRow * x.length + numberCol];
-            let efecto = [obj.efecto1, obj.efecto2, obj.efecto3, obj.efecto4];
-            text = "「"+obj.name+"」";
-            for (let k = 0; k < 4; k++) {
-                if (efecto[k].name !== "") {
-                    if ((totu === "1") || (totu === "0" && obj.ascend === "max")) {
-                        if ((efecto[k].valueMax.indexOf("必ず")!==-1) && (efecto[k].name.indexOf("必ず")!==-1))
-                            text += "<br/>" + efecto[k].name;
-                        else
-                            text += "<br/>" + efecto[k].name + " " + efecto[k].valueMax;
-                    }
-                    else {
-                        if ((efecto[k].value.indexOf("必ず")!==-1) && (efecto[k].name.indexOf("必ず")!==-1))
-                            text += "<br/>" + efecto[k].name;
-                        else if(efecto[k].value === "無")
-                            continue;
-                        else
-                            text += "<br/>" + efecto[k].name + " " + efecto[k].value;
-                    }
-                }
-            }
-            div.innerHTML = text;
-            me.show(posAbs);                          // show tool-tip at this pos
         }
+        else if ((numberRow === -1) && (numberCol === -1))
+            hide();
+        else if ((clickX > canvas.width) || (clickX < 0) || (clickY < 0) || (clickY > canvas.heigth))
+            hide();
         else {
             setDivPos(posAbs);                     // otherwise, update position
         }
@@ -5707,14 +5939,18 @@ function ToolTip(canvas, region, text, width, timeout,x,y,totu) {
         if (pos.x < 0) pos.x = 0;
         if (pos.y < 0) pos.y = 0;
         // other bound checks here
-        div.style.left = pos.x + "px";
+        if (numberCol === x.length - 1)
+            div.style.left = x[x.length-1] + "px";
+        else
+            div.style.left = pos.x + "px";
         div.style.top = pos.y + "px";
       }
     }
     
     // we need to use shared event handlers:
-    canvas.addEventListener("mousemove", check);
+    canvas.addEventListener("pointermove", check);
     canvas.addEventListener("click", check);
+    canvas.addEventListener("pointerout", hide);
     
   }
 

@@ -866,7 +866,7 @@
       "Attribute": "\u95c7",
       "connectA1": {
         "name": "\u653b\u6483\u529bUP",
-        "value": "\u2167",
+        "value": "\u2168",
         "turn": ""
       },
       "connectA2": {
@@ -895,9 +895,9 @@
         "turn": ""
       },
       "connectD2": {
-        "name": "",
-        "value": "",
-        "turn": ""
+        "name": "\u72b6\u614b\u7570\u5e38\u8010\u6027UP",
+        "value": "\u2168",
+        "turn": "3T"
       },
       "connectD3": {
         "name": "",
@@ -908,7 +908,7 @@
       "sortValue2": null,
       "Magia1": {
         "name": "\u5358\u4f53",
-        "info1": "",
+        "info1": "\u5c5e\u6027\u5f37\u5316",
         "info2": "\u2166"
       },
       "Magia2": {
@@ -8083,6 +8083,100 @@
       "Disk": "ABBBC",
       "data1": "yuzuru.png",
       "data2": "yuzuruon.png"
+    },
+    {
+      "name": "\u5b89\u540d\u3000\u30e1\u30eb",
+      "nameHiragana": "\u3042\u3093\u306a\u3000\u3081\u308b",
+      "nickName": "\u30e1\u30eb",
+      "HP": 27645,
+      "ATK": 7096,
+      "DEF": 7068,
+      "Despierta": [
+        "6",
+        "6",
+        "9",
+        "7",
+        "5",
+        "7"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30b5\u30dd\u30fc\u30c8",
+      "Attribute": "\u6728",
+      "connectA1": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "\u56de\u907f\u7121\u52b9",
+        "value": "",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "\u30ab\u30a6\u30f3\u30bf\u30fc\u7121\u52b9",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u5168\u4f53",
+        "info1": "",
+        "info2": "\u2165"
+      },
+      "Magia2": {
+        "name": "\u5fc5\u305a\u6bd2",
+        "info1": "\u6575\u5168",
+        "info2": "3T"
+      },
+      "Magia3": {
+        "name": "\u78ba\u7387\u3067\u6697\u95c7",
+        "info1": "\u6575\u5168",
+        "info2": "1T"
+      },
+      "Magia4": {
+        "name": "\u78ba\u7387\u3067\u62d8\u675f",
+        "info1": "\u6575\u5168",
+        "info2": "1T"
+      },
+      "Magia5": {
+        "name": "\u78ba\u7387\u3067\u30b9\u30ad\u30eb\u4e0d\u53ef",
+        "info1": "\u6575\u5168",
+        "info2": "1T"
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "AABBC",
+      "data1": "meru.png",
+      "data2": "meruon.png"
     }
   ]
 }
