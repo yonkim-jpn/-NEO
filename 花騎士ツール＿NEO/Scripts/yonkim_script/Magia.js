@@ -1,4 +1,17 @@
-﻿//データ出力用配列
+﻿//デバイス判定
+var deviceType = 0 ;//1:タッチ 2:マウス
+
+function detectDeviceType( event ) {
+	deviceType = event.changedTouches ? 1 : 2 ;
+
+	document.removeEventListener ( "touchstart", detectDeviceType ) ;
+	document.removeEventListener ( "mousemove", detectDeviceType ) ;
+}
+
+document.addEventListener ( "touchstart", detectDeviceType ) ;
+document.addEventListener ( "mousemove", detectDeviceType ) ;
+
+//データ出力用配列
 var salida1 = new Array();
 var salida2 = new Array();
 var salida3 = new Array();
@@ -668,7 +681,7 @@ function ChequeaLimite(str, id) {
 }
 
 //コネクト補正効果作成関数
-var limite = 30;
+var limite = 31;
 var connectAjustado = new Array(3);
 function GenerateConnect() {
     //コネクト補正初期化
@@ -1200,10 +1213,49 @@ $(function () {
             e1.disabled = true;
             e2.disabled = true;
             let iData;
+
+            //canvasコピー
+            var canvas61 = document.getElementById("canvas61");
+            if (!canvas61 || !canvas61.getContext) {
+                return;
+            }
+            var canvas62 = document.getElementById("canvas62");
+            if (!canvas62 || !canvas62.getContext) {
+                return;
+            }
+            var ctx62 = canvas62.getContext("2d");
+            ctx62.drawImage(canvas61, 0, 0, 60, 60, 0, 0, 60, 60);
+
+            var canvas63 = document.getElementById("canvas63");
+            if (!canvas63 || !canvas63.getContext) {
+                return;
+            }
+            var ctx63 = canvas63.getContext("2d");
+            ctx63.drawImage(canvas61, 0, 0, 60, 60, 0, 0, 60, 60);
+            
+
             //名前コピー
             var nombre = document.getElementById("MainContent_seleccionado_0").nextSibling.innerText;
-            if (nombre === "1人目選択 : 無")
+            if (nombre === "1人目選択 : 無") {
                 nombre = "";//何もしない
+                //コネクト入ってれば。。。
+                var charaR = 30;
+                if (typeof connectElegido[0][30] !== "undefined") {
+                    var image1 = new Image();
+                    image1.src = connectElegido[0][30];
+                    DrawImage(ctx61, 30, 30, charaR, image1);
+                }
+                if (typeof connectElegido[1][30] !== "undefined") {
+                    var image2 = new Image();
+                    image2.src = connectElegido[1][30];
+                    DrawImage(ctx62, 30, 30, charaR, image2);
+                }
+                if (typeof connectElegido[2][30] !== "undefined") {
+                    var image3 = new Image();
+                    image3.src = connectElegido[2][30];
+                    DrawImage(ctx63, 30, 30, charaR, image3);
+                }
+            }
             else {
                 nombre = nombre.substring(nombre.indexOf(" : ") + 3);
                 document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : " + nombre;
@@ -1211,18 +1263,46 @@ $(function () {
                 document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : " + nombre;
                 document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : " + nombre;
                 
-                
+                //コネクト入ってれば。。。
+                if (typeof connectElegido[0][30] !== "undefined") {
+                    var canvas61 = document.getElementById("canvas61");
+                    if (!canvas61 || !canvas61.getContext) {
+                        return;
+                    }
+                    var ctx61 = canvas61.getContext("2d");
+                    ctx61.drawImage(canvas61, 0, 0, 60, 60, 90, 30, 30, 30);
+                }
+                if (typeof connectElegido[1][30] !== "undefined") {
+                    var canvas62 = document.getElementById("canvas62");
+                    if (!canvas62 || !canvas62.getContext) {
+                        return;
+                    }
+                    var ctx62 = canvas62.getContext("2d");
+                    ctx62.drawImage(canvas62, 0, 0, 60, 60, 90, 30, 30, 30);
+                }
+                if (typeof connectElegido[2][30] !== "undefined") {
+                    var canvas63 = document.getElementById("canvas63");
+                    if (!canvas63 || !canvas63.getContext) {
+                        return;
+                    }
+                    var ctx63 = canvas63.getContext("2d");
+                    ctx63.drawImage(canvas63, 0, 0, 60, 60, 90, 30, 30, 30);
+                }
                 //アイコン、データコピー
-                let image2a = document.getElementById('2a');
-                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' alt=\"選択無\" >';
+                // let image2a = document.getElementById('2a');
+                // image2a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' alt=\"選択無\" >';
                 iData = [[escogido.personas[0].nickName], [escogido.personas[0].atk], [escogido.personas[0].def], [escogido.personas[0].hp]];
                 IndicaData(iData, "grid2a");
-                let image3a = document.getElementById('3a');
-                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' alt=\"選択無\" >';
+                // let image3a = document.getElementById('3a');
+                // image3a.innerHTML = '<img src=' + "png/" + escogido.personas[0].data1 + ' alt=\"選択無\" >';
                 iData = [[escogido.personas[0].nickName], [escogido.personas[0].atk], [escogido.personas[0].def], [escogido.personas[0].hp]];
                 IndicaData(iData, "grid3a");
+                
+                
             }
             
+            
+
 
             //アコーデオン閉じ
             $("#nombre23").collapse('hide');
@@ -1241,6 +1321,7 @@ $(function () {
             let wSize = 768;
             var n2;
             var n3;
+            var charaR = 30;
             if (w < wSize) {
                 n2 = escogido.personas[1].nickName;
                 n3 = escogido.personas[2].nickName;
@@ -1250,35 +1331,82 @@ $(function () {
                 n3 = escogido.personas[2].name;
             }
             //n2,n3に値があれば入れる
-            if (n2 === "選択無") {
+            if (n2 === "") {
                 n2 = "無";
                 //アイコン、データを無表示
-                let image2a = document.getElementById('2a');
-                image2a.innerHTML = "未選択";
+                // let image2a = document.getElementById('2a');
+                // image2a.innerHTML = "未選択";
+                canvas62 = document.getElementById("canvas62");
+                if (!canvas62 || !canvas62.getContext) {
+                    return;
+                }
+                var ctx62 = canvas62.getContext("2d");
+                ctx62.clearRect(0, 0, 120, 60);
+                if (typeof connectElegido[1][30] !== "undefined") {
+                    var image2 = new Image();
+                    image2.src = connectElegido[1][30];
+                    DrawImage(ctx62, 90, 30, charaR, image2);
+                }
+
                 iData = [[""], [""], [""], [""]];
                 IndicaData(iData, "grid2a");
             }
             else {
                 // n2 = n2.substring(n2.indexOf(" : ") + 1);
                 //アイコン、データ復元
-                let image2a = document.getElementById('2a');
-                image2a.innerHTML = '<img src=' + "png/" + escogido.personas[1].data1 + ' alt=\"選択無\" >';
+                // let image2a = document.getElementById('2a');
+                // image2a.innerHTML = '<img src=' + "png/" + escogido.personas[1].data1 + ' alt=\"選択無\" >';
+                canvas62 = document.getElementById("canvas62");
+                if (!canvas62 || !canvas62.getContext) {
+                    return;
+                }
+                var ctx62 = canvas62.getContext("2d");
+                var image2 = new Image();
+                image2.src = "png/" + escogido.personas[1].data1;
+                DrawImage(ctx62, 30, 30, 30, image2);
+                //コネクト入ってれば。。。
+                if (typeof connectElegido[1][30] !== "undefined") {
+                    ctx62.drawImage(canvas62, 0, 0, 60, 60, 90, 30, 30, 30);
+                }
                 iData = [[escogido.personas[1].nickName], [escogido.personas[1].atk], [escogido.personas[1].def], [escogido.personas[1].hp]];
                 IndicaData(iData, "grid2a");
             }
-            if (n3 === "選択無") {
+            if (n3 === "") {
                 n3 = "無";
                  //アイコン、データを無表示
-                 let image3a = document.getElementById('3a');
-                 image3a.innerHTML = "未選択";
+                //  let image3a = document.getElementById('3a');
+                //  image3a.innerHTML = "未選択";
+                 canvas63 = document.getElementById("canvas63");
+                 if (!canvas63 || !canvas63.getContext) {
+                     return;
+                 }
+                 var ctx63 = canvas63.getContext("2d");
+                ctx63.clearRect(0, 0, 120, 60);
+                if (typeof connectElegido[2][30] !== "undefined") {
+                    var image3 = new Image();
+                    image3.src = connectElegido[2][30];
+                    DrawImage(ctx63, 90, 30, charaR, image3);
+                }
                  iData = [[""], [""], [""], [""]];
                  IndicaData(iData, "grid3a");
             }
             else {
                 // n3 = n3.substring(n3.indexOf(" : ") + 1);
                  //アイコン、データ復元
-                let image3a = document.getElementById('3a');
-                image3a.innerHTML = '<img src=' + "png/" + escogido.personas[2].data1 + ' alt=\"選択無\" >';
+                // let image3a = document.getElementById('3a');
+                // image3a.innerHTML = '<img src=' + "png/" + escogido.personas[2].data1 + ' alt=\"選択無\" >';
+                canvas63 = document.getElementById("canvas63");
+                if (!canvas63 || !canvas63.getContext) {
+                    return;
+                }
+                var ctx63 = canvas63.getContext("2d");
+                var image3 = new Image();
+                image3.src = "png/" + escogido.personas[2].data1;
+                DrawImage(ctx63, 30, 30, 30, image3);
+                //コネクト入ってれば。。。
+                if (typeof connectElegido[2][30] !== "undefined") {
+                    ctx63.drawImage(canvas63, 0, 0, 60, 60, 90, 30, 30, 30);
+                }
                 iData = [[escogido.personas[2].nickName], [escogido.personas[2].atk], [escogido.personas[2].def], [escogido.personas[2].hp]];
                 IndicaData(iData, "grid3a");
             }
@@ -2414,8 +2542,21 @@ function draw3() {
                             document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : 無";
                             document.getElementById("MainContent_nombre1").innerText = "攻撃側1人目 : 選択無";
                             //アイコン画像表示
-                            let image1a = document.getElementById('1a');
-                            image1a.innerHTML = "未選択";
+                            // let image1a = document.getElementById('1a');
+                            // image1a.innerHTML = "未選択";
+                            canvas61 = document.getElementById("canvas61");
+                            if (!canvas61 || !canvas61.getContext) {
+                                return;
+                            }
+                            var ctx61 = canvas61.getContext("2d");
+                            ctx61.clearRect(0, 0, 60, 60);
+                            //コネクト入ってれば。。
+                            if (typeof connectElegido[0][30] !== "undefined") {
+                                var image1 = new Image();
+                                image1.src = connectElegido[0][30];
+                                ctx61.clearRect(0, 0, 120, 60);
+                                DrawImage(ctx61, 90, 30, charaR, image1);
+                            }
                             let iData = [[""], [""], [""], [""]];
                             IndicaData(iData, "grid1a");
                             //選択配列初期化
@@ -2425,15 +2566,41 @@ function draw3() {
                                 document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
                                 document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : 無";
                                 //アイコン画像表示
-                                let image2a = document.getElementById('2a');
-                                image2a.innerHTML = "未選択";
+                                // let image2a = document.getElementById('2a');
+                                // image2a.innerHTML = "未選択";
+                                canvas62 = document.getElementById("canvas62");
+                                if (!canvas62 || !canvas62.getContext) {
+                                    return;
+                                }
+                                var ctx62 = canvas62.getContext("2d");
+                                ctx62.clearRect(0, 0, 60, 60);
+                                
                                 iData = [[""], [""], [""], [""]];
                                 IndicaData(iData, "grid2a");
                                 //アイコン画像表示
-                                let image3a = document.getElementById('3a');
-                                image3a.innerHTML = "未選択";
+                                // let image3a = document.getElementById('3a');
+                                // image3a.innerHTML = "未選択";
+                                canvas63 = document.getElementById("canvas63");
+                                if (!canvas63 || !canvas63.getContext) {
+                                    return;
+                                }
+                                var ctx63 = canvas63.getContext("2d");
+                                ctx63.clearRect(0, 0, 60, 60);
                                 iData = [[""], [""], [""], [""]];
                                 IndicaData(iData, "grid3a");
+                                //コネクト入ってれば。。。
+                                if (typeof connectElegido[1][30] !== "undefined") {
+                                    var image2 = new Image();
+                                    image2.src = connectElegido[1][30];
+                                    ctx62.clearRect(0, 0, 120, 60);
+                                    DrawImage(ctx62, 90, 30, charaR, image2);
+                                }
+                                if (typeof connectElegido[2][30] !== "undefined") {
+                                    var image3 = new Image();
+                                    image3.src = connectElegido[2][30];
+                                    ctx63.clearRect(0, 0, 120, 60);
+                                    DrawImage(ctx63, 90, 30, charaR, image3);
+                                }
                             }
                              
 
@@ -2442,8 +2609,21 @@ function draw3() {
                             document.getElementById("MainContent_seleccionado_1").nextSibling.innerText = "2人目選択 : 無";
                             document.getElementById("MainContent_nombre2").innerText = "攻撃側2人目 : 選択無";
                             //アイコン画像表示
-                            let image2a = document.getElementById('2a');
-                            image2a.innerHTML = "未選択";
+                            // let image2a = document.getElementById('2a');
+                            // image2a.innerHTML = "未選択";
+                            canvas62 = document.getElementById("canvas62");
+                            if (!canvas62 || !canvas62.getContext) {
+                                return;
+                            }
+                            var ctx62 = canvas62.getContext("2d");
+                            ctx62.clearRect(0, 0, 60, 60);
+                            //コネクト入ってれば。。。
+                            if (typeof connectElegido[1][30] !== "undefined") {
+                                var image2 = new Image();
+                                image2.src = connectElegido[1][30];
+                                ctx62.clearRect(0, 0, 120, 60);
+                                DrawImage(ctx62, 90, 30, charaR, image2);
+                            }
                             iData = [[""], [""], [""], [""]];
                             IndicaData(iData, "grid2a");
                             //選択配列初期化
@@ -2453,8 +2633,21 @@ function draw3() {
                             obj = document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : 無";
                             document.getElementById("MainContent_nombre3").innerText = "攻撃側3人目 : 選択無";
                             //アイコン画像表示
-                            let image3a = document.getElementById('3a');
-                            image3a.innerHTML = "未選択";
+                            // let image3a = document.getElementById('3a');
+                            // image3a.innerHTML = "未選択";
+                            canvas63 = document.getElementById("canvas63");
+                            if (!canvas63 || !canvas63.getContext) {
+                                return;
+                            }
+                            var ctx63 = canvas63.getContext("2d");
+                            ctx63.clearRect(0, 0, 60, 60);
+                            //コネクト入ってれば。。。
+                            if (typeof connectElegido[2][30] !== "undefined") {
+                                var image3 = new Image();
+                                image3.src = connectElegido[2][30];
+                                ctx63.clearRect(0, 0, 120, 60);
+                                DrawImage(ctx63, 90, 30, charaR, image3);
+                            }
                             iData = [[""], [""], [""], [""]];
                             IndicaData(iData, "grid3a");
                             //選択配列初期化
@@ -2468,6 +2661,13 @@ function draw3() {
                             connectElegido[0].length = 0;
                             let array = new Array(limite);
                             connectElegido[0] = array;
+                            //画像クリア
+                            canvas61 = document.getElementById("canvas61");
+                            if (!canvas61 || !canvas61.getContext) {
+                                return;
+                            }
+                            var ctx61 = canvas61.getContext("2d");
+                            ctx61.clearRect(60, 0, 60, 60);
                             break;
                         }
                         else if (document.getElementById("radioConnect2").checked) {
@@ -2476,6 +2676,13 @@ function draw3() {
                             connectElegido[1].length = 0;
                             let array = new Array(limite);
                             connectElegido[1] = array;
+                            //画像クリア
+                            canvas62 = document.getElementById("canvas62");
+                            if (!canvas62 || !canvas62.getContext) {
+                                return;
+                            }
+                            var ctx62 = canvas62.getContext("2d");
+                            ctx62.clearRect(60, 0, 60, 60);
                             break;
                         }
                         else if (document.getElementById("radioConnect3").checked) {
@@ -2484,6 +2691,13 @@ function draw3() {
                             connectElegido[2].length = 0;
                             let array = new Array(limite);
                             connectElegido[2] = array;
+                            //画像クリア
+                            canvas63 = document.getElementById("canvas63");
+                            if (!canvas63 || !canvas63.getContext) {
+                                return;
+                            }
+                            var ctx63 = canvas63.getContext("2d");
+                            ctx63.clearRect(60, 0, 60, 60);
                             break;
                         }
                         //覚醒補正部分の表示
@@ -2557,6 +2771,7 @@ function draw3() {
                         console.log(elegida[numero] + " 他番の場合色変え");
                         let w = $(window).width();
                         let wSize = 768;
+                        var numeroC;//コネクトキャラcanvas表示用
                         //キャラ名表示
                         // $("#MainContent_seleccionado1").text("選択キャラ : " + jsonData.personas[elegida].name);
                         if (document.getElementById("MainContent_seleccionado_0").checked) {
@@ -2569,8 +2784,8 @@ function draw3() {
                                 document.getElementById("MainContent_seleccionado_0").nextSibling.innerText = "1人目選択 : " + jsonData.personas[elegida[0]].name;
                             }
                                 //アイコン画像,データ表示
-                            let image1a = document.getElementById('1a');
-                            image1a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
+                            // let image1a = document.getElementById('1a');
+                            // image1a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
                             let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                             IndicaData(iData, "grid1a");
                             if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
@@ -2584,12 +2799,12 @@ function draw3() {
                                     document.getElementById("MainContent_seleccionado_2").nextSibling.innerText = "3人目選択 : " + jsonData.personas[elegida[0]].name;
                                 }
                                 //アイコン画像表示,データ表示
-                                let image2a = document.getElementById('2a');
-                                image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
+                                // let image2a = document.getElementById('2a');
+                                // image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
                                 let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                                 IndicaData(iData, "grid2a");
-                                let image3a = document.getElementById('3a');
-                                image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
+                                // let image3a = document.getElementById('3a');
+                                // image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\">';
                                 iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                                 IndicaData(iData, "grid3a");
                             }
@@ -2643,8 +2858,8 @@ function draw3() {
                             else
                                 escogido.personas[1].type = jsonData.personas[number].TipoMagia;
                             //アイコン画像表示
-                            let image2a = document.getElementById('2a');
-                            image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\" >';
+                            // let image2a = document.getElementById('2a');
+                            // image2a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\" >';
                             let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                             IndicaData(iData, "grid2a");
                         }
@@ -2676,12 +2891,12 @@ function draw3() {
                             else
                                 escogido.personas[2].type = jsonData.personas[number].TipoMagia;
                              //アイコン画像表示
-                             let image3a = document.getElementById('3a');
-                            image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\" >';
+                            //  let image3a = document.getElementById('3a');
+                            // image3a.innerHTML = '<img src=' + "png/" + jsonData.personas[number].data1 + ' alt=\"選択無\" >';
                             let iData = [[jsonData.personas[number].nickName], [jsonData.personas[number].ATK], [jsonData.personas[number].DEF], [jsonData.personas[number].HP]];
                             IndicaData(iData, "grid3a");
                         }
-                            
+                        
                         //コネクト処理
                         else if (document.getElementById("radioConnect1").checked) {
                             if (w < wSize)
@@ -2693,7 +2908,8 @@ function draw3() {
                             let array = new Array(limite);
                             connectElegido[0] = array;
                             GetConnect(jsonData.personas[number], 0);
-                            break;
+                            // break;
+                            numeroC = 0;
                         }
                         else if (document.getElementById("radioConnect2").checked) {
                             if (w < wSize)
@@ -2705,7 +2921,8 @@ function draw3() {
                             let array = new Array(limite);
                             connectElegido[1] = array;
                             GetConnect(jsonData.personas[number], 1);
-                            break;
+                            // break;
+                            numeroC = 1;
                         }
                         else if (document.getElementById("radioConnect3").checked) {
                             if (w < wSize)
@@ -2717,40 +2934,125 @@ function draw3() {
                             let array = new Array(limite);
                             connectElegido[2] = array;
                             GetConnect(jsonData.personas[number], 2);
-                            break;
+                            // break;
+                            numeroC = 2;
                         }
     
                         var canvas1;
+                        var canvas6;
                         switch (numero) {
                             case 0:
                                 {
                                     canvas1 = document.getElementById("canvas1");
+                                    canvas6 = document.getElementById("canvas61");
                                     break;
                                 }
                             case 1:
                                 {
                                     canvas1 = document.getElementById("canvas12");
+                                    canvas6 = document.getElementById("canvas62");
                                     break;
                                 }
                             case 2:
                                 {
                                     canvas1 = document.getElementById("canvas13");
+                                    canvas6 = document.getElementById("canvas63");
                                     break;
                                 }
                         }
-                        if (!canvas1 || !canvas1.getContext) {
+                        switch (numeroC) {
+                            case 0:
+                                {
+                                    canvas6 = document.getElementById("canvas61");
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    canvas6 = document.getElementById("canvas62");
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    canvas6 = document.getElementById("canvas63");
+                                    break;
+                                }
+                        }
+                        //canvas6
+                        if (!canvas6 || !canvas6.getContext) {
                             return;
                         }
-                        var ctx1 = canvas1.getContext("2d");
-                        ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
-                        for (let i = 0; i < 6; i++) {
-                            //colorの仕様により、色変更処理
-                            color[numero][i] = color[numero][i] === 0 ? 1 : 0;
-                            CheckHit(color[numero][i], circle[i], letra[i], valorAjustado[numero][i], r, ctx1, false);
-                            color[numero][i] = color[numero][i] === 0 ? 1 : 0;
+                        var ctx6 = canvas6.getContext("2d");
+
+                        if (!Number.isNaN(numero)) {//コネクト以外の場合
+                            //canvas1
+                            if (!canvas1 || !canvas1.getContext) {
+                                return;
+                            }
+                            var ctx1 = canvas1.getContext("2d");
+                            ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+                            for (let i = 0; i < 6; i++) {
+                                //colorの仕様により、色変更処理
+                                color[numero][i] = color[numero][i] === 0 ? 1 : 0;
+                                CheckHit(color[numero][i], circle[i], letra[i], valorAjustado[numero][i], r, ctx1, false);
+                                color[numero][i] = color[numero][i] === 0 ? 1 : 0;
+                            }
+                            DrawObject(ctx1, color[numero], circle, r, letra, checkOnoff[numero] + 2, valorAjustado[numero]);
+                            // break;
+                            //選択キャラの顔グラ表示
+                            DrawImage(ctx6, 30, 30, charaR, imageAry1[number]);
+                            if ($('input[name="ctl00$MainContent$estadoAtk"]:checked').val() === "1") {
+                                //1人で攻撃
+                                canvas62 = document.getElementById("canvas62");
+                                if (!canvas62 || !canvas62.getContext) {
+                                    return;
+                                }
+                                var ctx62 = canvas62.getContext("2d");
+                                DrawImage(ctx62, 30, 30, charaR, imageAry1[number]);
+
+                                canvas63 = document.getElementById("canvas63");
+                                if (!canvas63 || !canvas63.getContext) {
+                                    return;
+                                }
+                                var ctx63 = canvas63.getContext("2d");
+                                DrawImage(ctx63, 30, 30, charaR, imageAry1[number]);
+                                //コネクト入ってれば。。。
+                                if (typeof connectElegido[0][30] !== "undefined") {
+                                    ctx6.drawImage(canvas6, 0, 0, 60, 60, 90, 30, 30, 30);
+                                }
+                                if (typeof connectElegido[1][30] !== "undefined") {
+                                    ctx62.drawImage(canvas62, 0, 0, 60, 60, 90, 30, 30, 30);
+                                }
+                                if (typeof connectElegido[2][30] !== "undefined") {
+                                    ctx63.drawImage(canvas63, 0, 0, 60, 60, 90, 30, 30, 30);
+                                }
+                            }
+                            else if ($('input[name="ctl00$MainContent$seleccionado"]:checked').val() === "1"){
+                                //コネクト入ってれば。。。
+                                if (typeof connectElegido[0][30] !== "undefined") {
+                                    ctx6.drawImage(canvas6, 0, 0, 60, 60, 90, 30, 30, 30);
+                                }
+                            }
+                            else if ($('input[name="ctl00$MainContent$seleccionado"]:checked').val() === "2"){
+                                //コネクト入ってれば。。。
+                                if (typeof connectElegido[1][30] !== "undefined") {
+                                    ctx6.drawImage(canvas6, 0, 0, 60, 60, 90, 30, 30, 30);
+                                }
+                            }
+                            else {
+                                //コネクト入ってれば。。。
+                                if (typeof connectElegido[2][30] !== "undefined") {
+                                    ctx6.drawImage(canvas6, 0, 0, 60, 60, 90, 30, 30, 30);
+                                }
+                            }
+                        
                         }
-                        DrawObject(ctx1, color[numero], circle, r, letra, checkOnoff[numero] + 2, valorAjustado[numero]);
+                        else {//コネクトの場合
+                            DrawImage(ctx6, 90, 30, charaR, imageAry1[number]);
+                            ctx6.drawImage(canvas6, 0, 0, 60, 60, 90, 30, 30, 30);
+                            
+                        }
                         break;
+
                     }
             }
             //sort時値表示
@@ -2866,6 +3168,7 @@ function draw3() {
         if (BusquedaConectiva("月夜にコネクトするとさらにMP回復", inputJson, 1)) {
             connectElegido[selector][14] = 25;
         }
+        connectElegido[selector][30] = "png/" + inputJson.data1;
     }
 
     
@@ -4211,7 +4514,8 @@ function draw3() {
         }
         //キャラ数表示
         document.getElementById("MainContent_indicaPersonas").innerText = "登録 " + jsonDataOri.personas.length + "キャラ中 " + jsonData.personas.length + "キャラ表示";
-        var t2 = new ToolTipC(canvas3, region, 180);
+        if(deviceType === 2)
+            var t2 = new ToolTipC(canvas3, region, 180);
     }
 
     //ソート処理
@@ -4592,7 +4896,7 @@ function ToolTipC(canvas, region, width) {
             if (number === -1) {
                 if ((clickX - charaX[i] + Xoffset) ** 2 + (clickY - charaY - Yoffset) ** 2 < charaR ** 2) {
                     number = i;
-                    break;
+                    break loop;
                 }
             }
         }
@@ -5010,19 +5314,50 @@ function draw5() {
         numberCol = -1;//j
        numberRow = -1;//i
         //ポインタがメモリア内にあるか判定
-        for (let i = 0; i < vertical; i++){
+        loop:for (let i = 0; i < vertical; i++){
             for (let j = 0; j < x.length; j++) {
                 if ((clickX < x[j] + len / 2) && (x[j] - len / 2 < clickX) && (clickY < y[i] + len / 2) && (y[i] - len / 2 < clickY)) {
                     numberRow = i;
                     numberCol = j;
                     j = x.length - 1;
                     i = vertical - 1;
-                    break;
+                    break loop;
                 }
             }
         }
+        // if (numberRow !== -1 && numberCol !== -1) {
+        //     //3秒後
+        //     $("#selectModal").modal(
+        //         {
+        //             keyboard: false
+                    
+        //         }
+        //     );
+        // }
     });
+    
+    // モーダルが開いた時の処理
+    $('#selectModal').on('shown.bs.modal', function (e) {
+        // var modal = e;
+        // centeringModalSyncer();
+        var canvasM;
+        canvasM = document.getElementById("canvasM");
+        if (!canvasM || !canvasM.getContext) {
+            return;
+        }
+        //設定
+        var ctxM = canvasM.getContext("2d");
         
+        //他のcanvas表示をコピー
+        var canvas61;
+        canvas61 = document.getElementById("canvas61");
+        if (!canvas61 || !canvas61.getContext) {
+            return;
+        }
+        var ctx61 = canvas61.getContext("2d");
+        ctxM.drawImage(canvas61, 0, 0,160,120,0,0,80,60);
+    });
+
     //ポインタ乗ったらドラッグ処理
     canvas5.addEventListener('pointermove',function(e){
         if (!pointerFlagM) {
@@ -5495,7 +5830,8 @@ function draw5() {
         //メモリア数表示
         document.getElementById("MainContent_indicaMemoria").innerText = "登録 " + mDataOri.tarjetas.length + "メモリア中" + mData.tarjetas.length + "枚表示";
 
-        if(canvasFlagM===0)//モバイル版は今んとこツールチップ出せない。挙動が安定しない
+        // if(canvasFlagM===0)//モバイル版は今んとこツールチップ出せない。挙動が安定しない
+        if(deviceType === 2)
             var t1 = new ToolTip(canvas5, region, 220,x,totu);
 
     }
@@ -5732,7 +6068,35 @@ function draw5() {
         FilterMemoria();
     });
 
+    //センタリングをする関数
+    function centeringModalSyncer(){
 
+        //画面(ウィンドウ)の幅を取得し、変数[w]に格納
+        var w = $(window).width();
+
+        //画面(ウィンドウ)の高さを取得し、変数[h]に格納
+        var h = $(window).height();
+
+        //コンテンツ(#modal-content)の幅を取得し、変数[cw]に格納
+        var cw = $("#selectModal").outerWidth({margin:true});
+
+        //コンテンツ(#modal-content)の高さを取得し、変数[ch]に格納
+        var ch = $("#selectModal").outerHeight({margin:true});
+
+        //コンテンツ(#modal-content)を真ん中に配置するのに、左端から何ピクセル離せばいいか？を計算して、変数[pxleft]に格納
+        // var pxleft = ((w - cw)/2);
+        var pxleft = 0;
+
+        //コンテンツ(#modal-content)を真ん中に配置するのに、上部から何ピクセル離せばいいか？を計算して、変数[pxtop]に格納
+        var pxtop = ((h - ch)/2);
+
+        //[#modal-content]のCSSに[left]の値(pxleft)を設定
+        $("#selectModal").css({"left": pxleft + "px"});
+
+        //[#modal-content]のCSSに[top]の値(pxtop)を設定
+        $("#selectModal").css({"top": pxtop + "px"});
+
+    }
         
 }//draw5終わり
     //color 
@@ -5892,6 +6256,14 @@ function ToolTip(canvas, region, width,x,totu) {
                         if ((totu === "1") || (totu === "0" && obj.ascend === "max")) {
                             if ((efecto[k].valueMax.indexOf("必ず") !== -1) && (efecto[k].name.indexOf("必ず") !== -1))
                                 text += "<br/>" + efecto[k].name;
+                            else if (efecto[k].valueMax !== "必ず") {
+                                if(efecto[k].valueMax !== "")
+                                    text += "<br/>" + efecto[k].name + "[" + efecto[k].valueMax + "]";
+                                else
+                                    text += "<br/>" + efecto[k].name;
+                            }
+                            else if(efecto[k].valueMax === "")
+                                text += "<br/>" + efecto[k].name;
                             else
                                 text += "<br/>" + efecto[k].name + " " + efecto[k].valueMax;
                         }
@@ -5900,8 +6272,19 @@ function ToolTip(canvas, region, width,x,totu) {
                                 text += "<br/>" + efecto[k].name;
                             else if (efecto[k].value === "無")
                                 continue;
-                            else
+                            else if (efecto[k].value !== "必ず") {
+                                if (efecto[k].value !== "")
+                                    text += "<br/>" + efecto[k].name + "[" + efecto[k].value + "]";
+                                else
+                                    text += "<br/>" + efecto[k].name;
+                            }
+                            else if (efecto[k].value === "")
+                                text += "<br/>" + efecto[k].name;
+                            else                                
                                 text += "<br/>" + efecto[k].name + " " + efecto[k].value;
+                        }
+                        if (obj.type === "スキル") {
+                            text += " " + efecto[k].target + " " + efecto[k].turn;
                         }
                         //おまけ
                         if (efecto[k].name === "自分のDiscドロー") {
@@ -5948,10 +6331,55 @@ function ToolTip(canvas, region, width,x,totu) {
     }
     
     // we need to use shared event handlers:
-    canvas.addEventListener("pointermove", check);
-    canvas.addEventListener("click", check);
-    canvas.addEventListener("pointerout", hide);
+    canvas.addEventListener("mousemove", check);
+    // canvas.addEventListener("click", check);
+    canvas.addEventListener("mouseout", hide);
     
+  }
+
+function draw6(selector) {
+    var canvas6;
+    var w = $(window).width();
+    var wSize = 768;
+    
+    switch (selector)
+    {
+        case 1:
+            {
+                canvas6 = document.getElementById("canvas61");
+                break;
+            }
+        case 2:
+            {
+                canvas6 = document.getElementById("canvas62");
+                break;
+            }
+        case 3:
+            {
+                canvas6 = document.getElementById("canvas63");
+                break;
+            }
+    }
+
+    // if (w < wSize) {
+    //     //画面サイズが768px未満のときの処理
+    //     canvas5 = document.getElementById("canvas5");
+    //     canvasFlagM = 1;
+    // }
+    // else {
+    //     canvas5 = document.getElementById("canvas51");
+    //     canvasFlagM = 0;
+    // }
+    if (!canvas6 || !canvas6.getContext) {
+        return;
+    }
+
+    //設定
+    var ctx6 = canvas6.getContext("2d");
+
+    //この中に選択されたデータを表示していく
+    //初期状態としては、キャラ選択無し、メモリア選択無しを表現したい
+
   }
 
 ///////////////////////////////////////////////////////////

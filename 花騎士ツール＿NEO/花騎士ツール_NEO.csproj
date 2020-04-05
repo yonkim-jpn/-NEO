@@ -790,6 +790,11 @@
     <Content Include="png\m\0455.png" />
     <Content Include="png\m\0459.png" />
     <Content Include="png\m\0461.png" />
+    <Content Include="png\m\0462.png" />
+    <Content Include="png\m\0463.png" />
+    <Content Include="png\m\0464.png" />
+    <Content Include="png\m\0465.png" />
+    <Content Include="png\m\0467.png" />
     <Content Include="png\m\Dummy.png" />
     <Content Include="png\nadeko.png" />
     <Content Include="png\nadekoon.png" />
@@ -807,6 +812,8 @@
     <Content Include="png\orikoon.png" />
     <Content Include="png\ren.png" />
     <Content Include="png\rena.png" />
+    <Content Include="png\renachan.png" />
+    <Content Include="png\renachanon.png" />
     <Content Include="png\renaon.png" />
     <Content Include="png\renon.png" />
     <Content Include="png\rikaren.png" />

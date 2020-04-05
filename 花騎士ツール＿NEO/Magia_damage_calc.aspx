@@ -388,6 +388,24 @@
                     <div class ="col-xs-12 hidden-xs">
                         <canvas id="canvas51" width="900" height ="500">Canvasに対応したブラウザを使用してください。</canvas>
                     </div>
+                        <!-- モーダル・ダイアログ -->
+                            <div class="modal" id="selectModal" tabindex="-1">
+	                            <div class="modal-dialog">
+		                            <div class="modal-content">
+			                            <div class="modal-header">
+				                            <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+			                            </div>
+			                            <div class="modal-body">
+				                            本文
+                                            <canvas id ="canvasM" width ="150" height ="100">Canvasに対応したブラウザを使用してください。</canvas >
+			                            </div>
+			                            <div class="modal-footer">
+				                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				                            <button type="button" class="btn btn-primary">ボタン</button>
+			                            </div>
+		                            </div>
+	                            </div>
+                            </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="enemigo">
@@ -552,10 +570,10 @@
         </div>
         <div class ="row">
             <div class="col-sm-4 col-xs-12 bg-info">
-                <h4 style="font-weight: bold">1回目の攻撃</h4>
-                <div class="col-xs-5">
-                    <p id="1a">未選択</p>
+                <div class="noselect">
+                    <h4 style="font-weight: bold">1回目の攻撃</h4>
                 </div>
+                <canvas id="canvas61" width="160" height ="120">Canvasに対応したブラウザを使用してください。</canvas>
                 <div class="col-xs-7">
                     <div id="grid1a"></div>
                 </div>
@@ -571,9 +589,7 @@
             </div>
             <div class="col-sm-4 col-xs-12 bg-info">
                 <h4 style="font-weight: bold">2回目の攻撃</h4>
-                <div class="col-xs-5">
-                    <p id="2a">未選択</p>
-                </div>
+                <canvas id="canvas62" width="160" height ="120">Canvasに対応したブラウザを使用してください。</canvas>
                 <div class="col-xs-7">
                     <div id="grid2a"></div>
                 </div>
@@ -589,9 +605,7 @@
             </div>
             <div class="col-sm-4 col-xs-12 bg-info">
                 <h4 style="font-weight: bold">3回目の攻撃</h4>
-                <div class="col-xs-5">
-                    <p id="3a">未選択</p>
-                </div>
+                <canvas id="canvas63" width="160" height ="120">Canvasに対応したブラウザを使用してください。</canvas>
                 <div class="col-xs-7">
                     <div id="grid3a"></div>
                 </div>
