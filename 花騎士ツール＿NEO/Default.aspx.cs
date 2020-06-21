@@ -72,7 +72,7 @@ namespace 花騎士ツール＿NEO
             ExitLoop: ;
 
             //花騎士の登録人数を書き出し
-            Label1001.Text = "データ最終更新日　" + diaRenova.ToString("yyyy/MM/dd");
+            Label1001.Text = "花騎士データ最終更新日　" + diaRenova.ToString("yyyy/MM/dd");
             Label1002.Text = "更新した花騎士名　" + nombreFkg;
             Label1003.Text = "現在のDB登録花騎士数　" + dt_out.Rows.Count.ToString() + "人";
         }

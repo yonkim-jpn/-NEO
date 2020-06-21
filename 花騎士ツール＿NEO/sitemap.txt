@@ -7,3 +7,11 @@ https://yonkim.azurewebsites.net/Fkg_omake_darkness.aspx
 https://yonkim.azurewebsites.net/FKG_register.aspx
 https://yonkim.azurewebsites.net/La_via_al_paraiso.aspx
 https://yonkim.azurewebsites.net/Magia_damage_calc.aspx
+https://yonkim.azurewebsites.net/Fkg_select_neo
+https://yonkim.azurewebsites.net/Fkg_ability_serch_neo
+https://yonkim.azurewebsites.net/Fkg_ranking_neo
+https://yonkim.azurewebsites.net/Fkg_omake_neo
+https://yonkim.azurewebsites.net/Fkg_omake_darkness
+https://yonkim.azurewebsites.net/FKG_register
+https://yonkim.azurewebsites.net/La_via_al_paraiso
+https://yonkim.azurewebsites.net/Magia_damage_calc

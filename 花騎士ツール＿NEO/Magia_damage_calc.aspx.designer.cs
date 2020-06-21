@@ -96,6 +96,15 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList connect2;
 
         /// <summary>
+        /// menteS1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList menteS1;
+
+        /// <summary>
         /// orden1 コントロール。
         /// </summary>
         /// <remarks>
@@ -247,6 +256,15 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label indicaMemoria;
+
+        /// <summary>
+        /// quitaM コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox quitaM;
 
         /// <summary>
         /// TextBox668 コントロール。

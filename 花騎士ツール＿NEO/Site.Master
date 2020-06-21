@@ -6,8 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="application/json; charset=utf-8"/>
     <meta charset="utf-8" />
-    <meta name="description" content="DMMゲーム　フラワーナイトガール（花騎士）のパーティー編成シミュレーターです。スキル発動率、デバフ効果、付与される属性等計算します。アビリティによる検索や、能力値ランキングもあります。昇華石必要数計算機
-        もオヌヌメ。"/>
+    <meta name="description" content="趣味でWEBアプリを作ってます。現在マギレコ関係のWEBアプリ作成中です。以前はDMM　フラワーナイトガール（花騎士）のパーティー編成シミュレーターも作成していましたが現在更新停止中です。"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Expires" content="Thu, 16 Mar 2023 07:22:09 GMT">
     <title><%: Page.Title %></title>
@@ -20,6 +19,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="Content/handsontable/handsontable.full.min.css" />
     <link rel="stylesheet" href="Content/add.css" />
+    <link rel="stylesheet" href="Content/jquery.mCustomScrollbar.min.css" />
     <script type="text/javascript">
         var appInsights = window.appInsights || function (a) {
             function b(a) { c[a] = function () { var b = arguments; c.queue.push(function () { c[a].apply(c, b) }) } } var c = { config: a }, d = document, e = window; setTimeout(function () { var b = d.createElement("script"); b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0].parentNode.appendChild(b) }); try { c.cookie = d.cookie } catch (a) { } c.queue = []; for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;)b("track" + f.pop()); if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b("stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) { f = "onerror", b("_" + f); var g = e[f]; e[f] = function (a, b, d, e, h) { var i = g && g(a, b, d, e, h); return !0 !== i && c["_" + f](a, b, d, e, h), i } } return c
@@ -29,7 +29,8 @@
 
         window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();
      </script>
-    
+    <%--Font awesome--%>
+    <script src="https://kit.fontawesome.com/b64696662e.js" crossorigin="anonymous"></script>
     
 </head>
 <body style="padding-top:70px;">
@@ -61,6 +62,8 @@
         <script src="Scripts/handsontable/handsontable.full.min.js"></script>
         <script src="Scripts/angular.min.js"></script>
         <script src="Scripts/jquery.highlight-5.js"></script>
+        <script src="Scripts/jquery.mCustomScrollbar.min.js"></script>
+        <script src="Scripts/yonkim_script/handler.js"></script>
         <script src="Scripts/yonkim_script/FkgSelect.js"></script>
         <script src="Scripts/yonkim_script/Magia.js"></script>
 
@@ -72,28 +75,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">花騎士編成支援ツール</a>
+                    <a class="navbar-brand" runat="server" href="~/">管理人の趣味ツール</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Fkg_select_neo">編成シミュ</a></li>
-                        <li><a runat="server" href="~/Fkg_ability_serch_neo">アビリティ検索</a></li>
-                        <li><a runat="server" href="~/Fkg_ranking_neo">ランキング</a></li>
+                        <li class="dropdown active">
+                         <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">花騎士編成支援ツール(更新停止)<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a runat="server" href="~/Fkg_select_neo">編成シミュ</a></li>
+                            <li><a runat="server" href="~/Fkg_ability_serch_neo">アビリティ検索</a></li>
+                            <li><a runat="server" href="~/Fkg_ranking_neo">ランキング</a></li>
+                        </ul>
                         <li class="dropdown active">
 	                    <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">おまけ<span class="caret"></span></a>
 	                        <ul class="dropdown-menu" role="menu">
+                                <li><a runat="server" href="~/La_via_al_paraiso">天上への道</a></li>
                                 <li><a runat="server" href="~/Fkg_omake_neo">おまけ</a></li>
                                 <li><a runat="server" href="~/Fkg_omake_darkness">闇のおまけ</a></li>
                                 <li><a runat="server" href="~/Fkg_register">花騎士登録</a></li>
 	                        </ul>
                         </li>
-                        <li class="dropdown active">
-                        <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">管理人の趣味<span class="caret"></span></a>
-	                        <ul class="dropdown-menu" role="menu">
-                                <li><a runat="server" href="~/La_via_al_paraiso">天上への道</a></li>
-                                <li><a runat="server" href="~/Magia_damage_calc">マギレコダメージ計算（作成中）</a></li>
-	                        </ul>
-                        </li>
+                        <li><a runat="server" href="~/Magia_damage_calc">マギレコダメージ計算</a></li>
                     </ul>
                 </div>
             </div>
@@ -105,7 +107,9 @@
             <footer>
                 <%--<p>&copy; <%: DateTime.Now.Year %> - マイ ASP.NET アプリケーション</p>--%>
                 <p>ご意見ご要望については下記製作者のツイッターアカウントにお願いします。</p>
-                <a href="javascript:void(0);" target="_blank" onclick="window.open('https://twitter.com/chiyokanemaru','_blank')">千代金丸@chiyokanemaru</a>
+                <div class="twitter">
+                    <a href="javascript:void(0);" target="_blank" onclick="window.open('https://twitter.com/chiyokanemaru','_blank')"><span class="fa fa-twitter"></span>@chiyokanemaru</a>
+                </div>
             </footer>
         </div>
 

@@ -8271,6 +8271,570 @@
       "Disk": "AABCC",
       "data1": "renachan.png",
       "data2": "renachanon.png"
+    },
+    {
+      "name": "\u7b20\u97f3\u3000\u30a2\u30aa",
+      "nameHiragana": "\u304b\u3055\u306d\u3000\u3042\u304a",
+      "nickName": "\u30a2\u30aa",
+      "HP": 28294,
+      "ATK": 8213,
+      "DEF": 8068,
+      "Despierta": [
+        "6",
+        "6",
+        "9",
+        "9",
+        "5",
+        "5"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30b5\u30dd\u30fc\u30c8",
+      "Attribute": "\u6c34",
+      "connectA1": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "MP\u56de\u5fa9",
+        "value": "\u2165",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "\u30c7\u30d0\u30d5\u89e3\u9664",
+        "value": "",
+        "turn": ""
+      },
+      "connectD2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u5358\u4f53",
+        "info1": "",
+        "info2": "\u2167"
+      },
+      "Magia2": {
+        "name": "\u30d0\u30d5\u89e3\u9664",
+        "info1": "\u6575\u5358",
+        "info2": ""
+      },
+      "Magia3": {
+        "name": "\u72b6\u614b\u5f37\u5316\u89e3\u9664",
+        "info1": "\u6575\u5358",
+        "info2": ""
+      },
+      "Magia4": {
+        "name": "\u30c0\u30e1\u30fc\u30b8UP",
+        "info1": "\u5168",
+        "info2": "3T"
+      },
+      "Magia5": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "AAABC",
+      "data1": "ao.png",
+      "data2": "aoon.png"
+    },
+    {
+      "name": "\u30d5\u30a7\u30ea\u30b7\u30a2\u3061\u3083\u3093",
+      "nameHiragana": "\u3075\u3047\u308a\u3057\u3042\u3061\u3083\u3093",
+      "nickName": "\u30d5\u30a7\u30ea\u3061\u3083\u3093",
+      "HP": 22009,
+      "ATK": 9345,
+      "DEF": 6657,
+      "Despierta": [
+        "5",
+        "9",
+        "6",
+        "5",
+        "7",
+        "7"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30a2\u30bf\u30c3\u30af",
+      "Attribute": "\u95c7",
+      "connectA1": {
+        "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+        "value": "\u2169",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "\u81ea\u8eab\u306b\u30b9\u30ad\u30eb\u4e0d\u53ef",
+        "value": "",
+        "turn": "2T"
+      },
+      "connectD2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u5358\u4f53",
+        "info1": "",
+        "info2": "\u2166"
+      },
+      "Magia2": {
+        "name": "MP\u56de\u5fa9\u91cfDOWN",
+        "info1": "\u6575\u5358",
+        "info2": "3T"
+      },
+      "Magia3": {
+        "name": "\u9632\u5fa1\u529bDOWN",
+        "info1": "\u6575\u5358",
+        "info2": "3T"
+      },
+      "Magia4": {
+        "name": "HP\u56de\u5fa9",
+        "info1": "\u81ea",
+        "info2": ""
+      },
+      "Magia5": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "ABBCC",
+      "data1": "feliciachan.png",
+      "data2": "feliciachanon.png"
+    },
+    {
+      "name": "\u516b\u795e\u3000\u306f\u3084\u3066",
+      "nameHiragana": "\u3084\u304c\u307f\u3000\u306f\u3084\u3066",
+      "nickName": "\u306f\u3084\u3066",
+      "HP": 18783,
+      "ATK": 8010,
+      "DEF": 6669,
+      "Despierta": [
+        "6",
+        "8",
+        "7",
+        "7",
+        "7",
+        "5"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30de\u30ae\u30a2",
+      "Attribute": "\u6728",
+      "connectA1": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "\u78ba\u7387\u3067\u62d8\u675f",
+        "value": "",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u5168\u4f53",
+        "info1": "",
+        "info2": "\u2167"
+      },
+      "Magia2": {
+        "name": "\u9632\u5fa1\u529bDOWN",
+        "info1": "\u6575\u5168",
+        "info2": "3T"
+      },
+      "Magia3": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia4": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia5": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "AABCC",
+      "data1": "hayate.png",
+      "data2": "hayateon.png"
+    },
+    {
+      "name": "\u6c34\u6a39\u3000\u5841",
+      "nameHiragana": "\u307f\u305a\u304d\u3000\u308b\u3044",
+      "nickName": "\u308b\u3044",
+      "HP": 22600,
+      "ATK": 10008,
+      "DEF": 7279,
+      "Despierta": [
+        "5",
+        "9",
+        "6",
+        "7",
+        "5",
+        "7"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30a2\u30bf\u30c3\u30af",
+      "Attribute": "\u95c7",
+      "connectA1": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+        "value": "\u2166",
+        "turn": ""
+      },
+      "connectD2": {
+        "name": "\u9632\u5fa1\u529bUP",
+        "value": "\u2165",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u5168\u4f53",
+        "info1": "\u5c5e\u6027\u5f37\u5316",
+        "info2": "\u2166"
+      },
+      "Magia2": {
+        "name": "\u78ba\u7387\u3067\u30b9\u30bf\u30f3",
+        "info1": "\u6575\u5168",
+        "info2": "1T"
+      },
+      "Magia3": {
+        "name": "\u653b\u6483\u529bUP",
+        "info1": "\u81ea",
+        "info2": "3T"
+      },
+      "Magia4": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia5": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "AABBC",
+      "data1": "rui.png",
+      "data2": "ruion.png"
+    },
+    {
+      "name": "\u80e1\u6843\u3000\u307e\u306a\u304b",
+      "nameHiragana": "\u304f\u308b\u307f\u3000\u307e\u306a\u304b",
+      "nickName": "\u307e\u306a\u304b",
+      "HP": 21860,
+      "ATK": 6316,
+      "DEF": 8212,
+      "Despierta": [
+        "8",
+        "6",
+        "7",
+        "7",
+        "7",
+        "5"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30d2\u30fc\u30eb",
+      "Attribute": "\u706b",
+      "connectA1": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "HP\u56de\u5fa9",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectD2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u7e26",
+        "info1": "",
+        "info2": "\u2165"
+      },
+      "Magia2": {
+        "name": "HP\u56de\u5fa9",
+        "info1": "\u5168",
+        "info2": ""
+      },
+      "Magia3": {
+        "name": "\u653b\u6483\u529bUP",
+        "info1": "\u5168",
+        "info2": "3T"
+      },
+      "Magia4": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia5": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "AABCC",
+      "data1": "manaka.png",
+      "data2": "manakaon.png"
+    },
+    {
+      "name": "\u82e5\u83dc\u3000\u3064\u3080\u304e",
+      "nameHiragana": "\u308f\u304b\u306a\u3000\u3064\u3080\u304e",
+      "nickName": "\u3064\u3080\u304e",
+      "HP": 30283,
+      "ATK": 7811,
+      "DEF": 10304,
+      "Despierta": [
+        "9",
+        "5",
+        "7",
+        "7",
+        "5",
+        "7"
+      ],
+      "Rarerity": 5,
+      "TipoMagia": "\u30c7\u30a3\u30d5\u30a7\u30f3\u30b9",
+      "Attribute": "\u6728",
+      "connectA1": {
+        "name": "\u653b\u6483\u529bUP",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectA2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA4": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectA5": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD1": {
+        "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+        "value": "\u2168",
+        "turn": ""
+      },
+      "connectD2": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "connectD3": {
+        "name": "",
+        "value": "",
+        "turn": ""
+      },
+      "sortValue1": null,
+      "sortValue2": null,
+      "Magia1": {
+        "name": "\u5168\u4f53",
+        "info1": "",
+        "info2": "\u2166"
+      },
+      "Magia2": {
+        "name": "\u6c34\u5c5e\u6027\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8",
+        "info1": "\u5168",
+        "info2": "3T"
+      },
+      "Magia3": {
+        "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8",
+        "info1": "\u5168",
+        "info2": "3T"
+      },
+      "Magia4": {
+        "name": "HP\u81ea\u52d5\u56de\u5fa9",
+        "info1": "\u81ea",
+        "info2": "3T"
+      },
+      "Magia5": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Magia6": {
+        "name": "",
+        "info1": "",
+        "info2": ""
+      },
+      "Disk": "AABBC",
+      "data1": "tumugi.png",
+      "data2": "tumugion.png"
     }
   ]
 }

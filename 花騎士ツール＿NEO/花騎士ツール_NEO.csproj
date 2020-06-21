@@ -189,6 +189,7 @@
     <Content Include="Content\handsontable\handsontable.min.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\jquery.mCustomScrollbar.min.css" />
     <Content Include="customError.html" />
     <Content Include="404.html" />
     <Content Include="About.aspx" />
@@ -199,7 +200,9 @@
     <Content Include="Content\bootstrap.min.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Site.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DB_register.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -233,6 +236,8 @@
     <Content Include="La_via_al_paraiso.aspx" />
     <Content Include="png\amane_mizugi.png" />
     <Content Include="png\amane_mizugion.png" />
+    <Content Include="png\ao.png" />
+    <Content Include="png\aoon.png" />
     <Content Include="png\arina.png" />
     <Content Include="png\arinaon.png" />
     <Content Include="png\arisa.png" />
@@ -250,6 +255,8 @@
     <Content Include="png\feit.png" />
     <Content Include="png\feiton.png" />
     <Content Include="png\felicia.png" />
+    <Content Include="png\feliciachan.png" />
+    <Content Include="png\feliciachanon.png" />
     <Content Include="png\feliciaon.png" />
     <Content Include="png\hagumu.png" />
     <Content Include="png\hagumuon.png" />
@@ -257,6 +264,8 @@
     <Content Include="png\hanekawaon.png" />
     <Content Include="png\hanna.png" />
     <Content Include="png\hannaon.png" />
+    <Content Include="png\hayate.png" />
+    <Content Include="png\hayateon.png" />
     <Content Include="png\hikaru.png" />
     <Content Include="png\hikaruon.png" />
     <Content Include="png\himika.png" />
@@ -313,6 +322,8 @@
     <Content Include="png\madokasenpaion.png" />
     <Content Include="png\madoka_haregi.png" />
     <Content Include="png\madoka_haregion.png" />
+    <Content Include="png\manaka.png" />
+    <Content Include="png\manakaon.png" />
     <Content Include="png\mannensakura.png" />
     <Content Include="png\mannensakuraon.png" />
     <Content Include="png\matsuri.png" />
@@ -785,16 +796,24 @@
     <Content Include="png\m\0446.png" />
     <Content Include="png\m\0447.png" />
     <Content Include="png\m\0449.png" />
+    <Content Include="png\m\0450.png" />
+    <Content Include="png\m\0451.png" />
     <Content Include="png\m\0452.png" />
     <Content Include="png\m\0454.png" />
     <Content Include="png\m\0455.png" />
+    <Content Include="png\m\0457.png" />
     <Content Include="png\m\0459.png" />
     <Content Include="png\m\0461.png" />
     <Content Include="png\m\0462.png" />
     <Content Include="png\m\0463.png" />
     <Content Include="png\m\0464.png" />
     <Content Include="png\m\0465.png" />
-    <Content Include="png\m\0467.png" />
+    <Content Include="png\m\0468.png" />
+    <Content Include="png\m\0472.png" />
+    <Content Include="png\m\0473.png" />
+    <Content Include="png\m\0476.png" />
+    <Content Include="png\m\0477.png" />
+    <Content Include="png\m\0471.png" />
     <Content Include="png\m\Dummy.png" />
     <Content Include="png\nadeko.png" />
     <Content Include="png\nadekoon.png" />
@@ -824,6 +843,8 @@
     <Content Include="png\riviaon.png" />
     <Content Include="png\rizu.png" />
     <Content Include="png\rizuon.png" />
+    <Content Include="png\rui.png" />
+    <Content Include="png\ruion.png" />
     <Content Include="png\ryokoon.png" />
     <Content Include="png\ryoko.png" />
     <Content Include="png\sana.png" />
@@ -856,6 +877,8 @@
     <Content Include="png\tsukuyoon.png" />
     <Content Include="png\tsuruno.png" />
     <Content Include="png\tsurunoon.png" />
+    <Content Include="png\tumugi.png" />
+    <Content Include="png\tumugion.png" />
     <Content Include="png\ui.png" />
     <Content Include="png\uion.png" />
     <Content Include="png\uwasanotsuruno.png" />
@@ -875,8 +898,12 @@
     <Content Include="Scripts\handsontable\handsontable.min.js" />
     <Content Include="Scripts\jquery.highlight-5.js" />
     <Content Include="Scripts\jquery.inview.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.min.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.min.js" />
+    <Content Include="Scripts\yonkim_script\handler.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\yonkim_script\Magia_original_20200101.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -892,6 +919,8 @@
     <Content Include="Connected Services\Application Insights\ConnectedService.json" />
     <Content Include="Scripts\magia_json\magia.json" />
     <Content Include="Scripts\magia_json\escogido.json" />
+    <Content Include="Scripts\magia_json\memoria.json" />
+    <Content Include="Scripts\magia_json\sub_mente.json" />
     <None Include="参考コード\花騎士登録フォーム_neo_old.aspx" />
     <None Include="参考コード\花騎士登録フォーム.aspx" />
     <None Include="参考コード\ability_search.aspx" />
