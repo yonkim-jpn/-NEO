@@ -7,9 +7,11 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace 花騎士ツール＿NEO {
-    
-    
-    public partial class ViewSwitcher {
+namespace 花騎士ツール_NEO
+{
+
+
+    public partial class ViewSwitcher
+    {
     }
 }

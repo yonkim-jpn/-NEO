@@ -105,6 +105,33 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList menteS1;
 
         /// <summary>
+        /// menteA1 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList menteA1;
+
+        /// <summary>
+        /// menteA2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList menteA2;
+
+        /// <summary>
+        /// apareceAbiDetalle コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox apareceAbiDetalle;
+
+        /// <summary>
         /// orden1 コントロール。
         /// </summary>
         /// <remarks>
@@ -418,6 +445,15 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MhpL;
+
+        /// <summary>
+        /// Mhp コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList Mhp;
 
         /// <summary>
         /// Msurvive コントロール。

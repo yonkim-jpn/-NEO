@@ -233,6 +233,49 @@ textarea {
     -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=-0.26794919243112214, M21=0, M22=1, SizingMethod='auto expand')";
 }
 
+
+
 .selector {
     margin-bottom:5px;
+}
+
+.gratitud a:hover {
+    color: red;
+    font-family: "游ゴシック", "游ゴシック体";
+    font-weight: 500;
+    font-style: italic;
+    text-decoration: underline solid red;
+}
+
+.fkg-value{
+    color:red;
+}
+
+.fkg-value2{
+    color:blue;
+}
+
+.fkg-value3{
+    color:yellowgreen;
+}
+
+.fkg-value4 {
+    color: purple;
+}
+
+.DB-block{
+    margin: 10px 30px;
+}
+
+.DB-block .h2{
+
+}
+
+/* Default画面 */
+.text1,.text2,.text3{
+    display:none;
+}
+
+.dropdown-menu li{
+    opacity:0.5;
 }

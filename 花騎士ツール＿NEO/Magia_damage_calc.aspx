@@ -1,10 +1,8 @@
 ﻿<%@ Page Title="マギレコダメージ計算" Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Magia_damage_calc.aspx.cs" Inherits="花騎士ツール＿NEO.Magia_damage_calc" MaintainScrollPositionOnPostback="true" %>
 
-
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <section class="container">
-        <h3>マギレコダメージ計算<small>（超ベ〇ータ3版）</small></h3>
+        <h3>マギレコダメージ計算<small>（試用版）</small></h3>
         <div class="explain">
             <h5>マギアレコードに関するWEBアプリです</h5>
             <h5>算出されたダメージ値に乱数はかかっていません</h5>
@@ -36,7 +34,7 @@
 	        <li><a href="#despierto" data-toggle="tab">覚醒補正</a></li>
 	        <li><a href="#memoria" data-toggle="tab">メモリア</a></li>
 	        <li><a href="#enemigo" data-toggle="tab">相手側設定</a></li>
-	        <%--<li><a href="#mirrors" data-toggle="tab">ミラランpt</a></li>--%>
+	        <%--<li><a href="#mirrors" data-toggle="tab" style="left: 0px; top: 0px">ミラランpt</a></li>--%>
         </ul>
         <div class="panel panel-info">
           <div class="panel-body">
@@ -70,6 +68,7 @@
                                             <asp:ListItem>バランス</asp:ListItem>
                                             <asp:ListItem>ディフェンス</asp:ListItem>
                                             <asp:ListItem>アルティメット</asp:ListItem>
+                                            <asp:ListItem>エクシード</asp:ListItem>
                                         </asp:DropDownList>
                                         </div>
                                     </div>
@@ -94,6 +93,9 @@
                                             <asp:ListItem>敵縦一列</asp:ListItem>
                                             <asp:ListItem>ランダム</asp:ListItem>
                                             <asp:ListItem>属性強化</asp:ListItem>
+                                            <asp:ListItem>攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>ダメージUP</asp:ListItem>
+                                            <asp:ListItem>防御力DOWN</asp:ListItem>
                                             <asp:ListItem>BlastダメUP</asp:ListItem>
                                             <asp:ListItem>Charge後ダメUP</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
@@ -110,6 +112,9 @@
                                             <asp:ListItem>敵縦一列</asp:ListItem>
                                             <asp:ListItem>ランダム</asp:ListItem>
                                             <asp:ListItem>属性強化</asp:ListItem>
+                                            <asp:ListItem>攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>ダメージUP</asp:ListItem>
+                                            <asp:ListItem>防御力DOWN</asp:ListItem>
                                             <asp:ListItem>BlastダメUP</asp:ListItem>
                                             <asp:ListItem>Charge後ダメUP</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
@@ -166,6 +171,8 @@
                                             <asp:ListItem>AcceleMPUP</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4 col-sm-6 col-xs-12 selector">
                                         <asp:DropDownList ID="menteS1" runat="server">
                                             <asp:ListItem Selected="True">精神強化スキル</asp:ListItem>
@@ -191,14 +198,119 @@
                                             <asp:ListItem>暗闇</asp:ListItem>
                                             <asp:ListItem>攻撃力DOWN</asp:ListItem>
                                             <asp:ListItem>防御力DOWN</asp:ListItem>
-                                            <asp:ListItem>回避</asp:ListItem>
-                                            <asp:ListItem>回避無効</asp:ListItem>
                                             <asp:ListItem>AcceleMPUP</asp:ListItem>
                                             <asp:ListItem>状態異常耐性UP</asp:ListItem>
                                             <asp:ListItem>HP自動回復</asp:ListItem>
                                             <asp:ListItem>HP回復</asp:ListItem>
                                         </asp:DropDownList>
-                                   </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 col-xs-12 selector">
+                                        <asp:DropDownList ID="menteA1" runat="server">
+                                            <asp:ListItem Selected="True">精神強化アビ1</asp:ListItem>
+                                            <asp:ListItem>攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>瀕死時攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>HP最大時攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>防御力UP</asp:ListItem>
+                                            <asp:ListItem>瀕死時防御力UP</asp:ListItem>
+                                            <asp:ListItem>HP最大時防御力UP</asp:ListItem>
+                                            <asp:ListItem>クリティカル</asp:ListItem>
+                                            <asp:ListItem>ダメージUP</asp:ListItem>
+                                            <asp:ListItem>BlastダメUP</asp:ListItem>
+                                            <asp:ListItem>Charge後ダメUP</asp:ListItem>
+                                            <asp:ListItem>マギアダメージUP</asp:ListItem>
+                                            <asp:ListItem>ドッペルダメージUP</asp:ListItem>
+                                            <asp:ListItem>対魔女ダメージアップ</asp:ListItem>
+                                            <asp:ListItem>ダメUP状態</asp:ListItem>
+                                            <asp:ListItem>ダメCUT状態</asp:ListItem>
+                                            <asp:ListItem>属性ダメCUT状態</asp:ListItem>
+                                            <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>回避無効</asp:ListItem>
+                                            <asp:ListItem>カウンター無効</asp:ListItem>
+                                            <asp:ListItem>防御無視</asp:ListItem>
+                                            <asp:ListItem>ダメージカット無視</asp:ListItem>
+                                            <asp:ListItem>挑発無視</asp:ListItem>
+                                            <asp:ListItem>呪い付与</asp:ListItem>
+                                            <asp:ListItem>拘束付与</asp:ListItem>
+                                            <asp:ListItem>魅了付与</asp:ListItem>
+                                            <asp:ListItem>幻惑付与</asp:ListItem>
+                                            <asp:ListItem>スタン付与</asp:ListItem>
+                                            <asp:ListItem>毒付与</asp:ListItem>
+                                            <asp:ListItem>やけど付与</asp:ListItem>
+                                            <asp:ListItem>霧付与</asp:ListItem>
+                                            <asp:ListItem>暗闇付与</asp:ListItem>
+                                            <asp:ListItem>スキル不可付与</asp:ListItem>
+                                            <asp:ListItem>スキルクイック</asp:ListItem>
+                                            <asp:ListItem>HP自動回復</asp:ListItem>
+                                            <asp:ListItem>MP自動回復</asp:ListItem>
+                                            <asp:ListItem>MP獲得量UP</asp:ListItem>
+                                            <asp:ListItem>MP100以上時MP獲得量UP</asp:ListItem>
+                                            <asp:ListItem>状態異常耐性UP</asp:ListItem>
+                                            <asp:ListItem>呪い無効</asp:ListItem>
+                                            <asp:ListItem>拘束無効</asp:ListItem>
+                                            <asp:ListItem>魅了無効</asp:ListItem>
+                                            <asp:ListItem>幻惑無効</asp:ListItem>
+                                            <asp:ListItem>スタン無効</asp:ListItem>
+                                            <asp:ListItem>毒無効</asp:ListItem>
+                                            <asp:ListItem>スキル不可無効</asp:ListItem>
+                                            <asp:ListItem>マギア不可無効</asp:ListItem>
+                                            <asp:ListItem>マギアダメカット</asp:ListItem>
+                                            <asp:ListItem>Charge数+1</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:DropDownList ID="menteA2" runat="server">
+                                            <asp:ListItem Selected="True">精神強化アビ2</asp:ListItem>
+                                            <asp:ListItem>攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>瀕死時攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>HP最大時攻撃力UP</asp:ListItem>
+                                            <asp:ListItem>防御力UP</asp:ListItem>
+                                            <asp:ListItem>瀕死時防御力UP</asp:ListItem>
+                                            <asp:ListItem>HP最大時防御力UP</asp:ListItem>
+                                            <asp:ListItem>クリティカル</asp:ListItem>
+                                            <asp:ListItem>ダメージUP</asp:ListItem>
+                                            <asp:ListItem>BlastダメUP</asp:ListItem>
+                                            <asp:ListItem>Charge後ダメUP</asp:ListItem>
+                                            <asp:ListItem>マギアダメージUP</asp:ListItem>
+                                            <asp:ListItem>ドッペルダメージUP</asp:ListItem>
+                                            <asp:ListItem>対魔女ダメージアップ</asp:ListItem>
+                                            <asp:ListItem>ダメUP状態</asp:ListItem>
+                                            <asp:ListItem>ダメCUT状態</asp:ListItem>
+                                            <asp:ListItem>属性ダメCUT状態</asp:ListItem>
+                                            <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>回避無効</asp:ListItem>
+                                            <asp:ListItem>カウンター無効</asp:ListItem>
+                                            <asp:ListItem>防御無視</asp:ListItem>
+                                            <asp:ListItem>ダメージカット無視</asp:ListItem>
+                                            <asp:ListItem>挑発無視</asp:ListItem>
+                                            <asp:ListItem>呪い付与</asp:ListItem>
+                                            <asp:ListItem>拘束付与</asp:ListItem>
+                                            <asp:ListItem>魅了付与</asp:ListItem>
+                                            <asp:ListItem>幻惑付与</asp:ListItem>
+                                            <asp:ListItem>スタン付与</asp:ListItem>
+                                            <asp:ListItem>毒付与</asp:ListItem>
+                                            <asp:ListItem>やけど付与</asp:ListItem>
+                                            <asp:ListItem>霧付与</asp:ListItem>
+                                            <asp:ListItem>暗闇付与</asp:ListItem>
+                                            <asp:ListItem>スキル不可付与</asp:ListItem>
+                                            <asp:ListItem>スキルクイック</asp:ListItem>
+                                            <asp:ListItem>HP自動回復</asp:ListItem>
+                                            <asp:ListItem>MP自動回復</asp:ListItem>
+                                            <asp:ListItem>MP獲得量UP</asp:ListItem>
+                                            <asp:ListItem>MP100以上時MP獲得量UP</asp:ListItem>
+                                            <asp:ListItem>状態異常耐性UP</asp:ListItem>
+                                            <asp:ListItem>呪い無効</asp:ListItem>
+                                            <asp:ListItem>拘束無効</asp:ListItem>
+                                            <asp:ListItem>魅了無効</asp:ListItem>
+                                            <asp:ListItem>幻惑無効</asp:ListItem>
+                                            <asp:ListItem>スタン無効</asp:ListItem>
+                                            <asp:ListItem>毒無効</asp:ListItem>
+                                            <asp:ListItem>スキル不可無効</asp:ListItem>
+                                            <asp:ListItem>マギア不可無効</asp:ListItem>
+                                            <asp:ListItem>マギアダメカット</asp:ListItem>
+                                            <asp:ListItem>Charge数+1</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="col-lg-2 visible-lg selector">
+                                        <asp:CheckBox ID="apareceAbiDetalle" runat="server" Text="アビ内訳" Enabled="False" />
+                                    </div>
                                 </div>
                                 <div class ="row">
                                     <div class="col-xs-12">
@@ -359,6 +471,7 @@
                                     <asp:ListItem>暗闇無効</asp:ListItem>
                                     <asp:ListItem>スタン無効</asp:ListItem>
                                     <asp:ListItem>霧無効</asp:ListItem>
+                                    <asp:ListItem>デバフ無効</asp:ListItem>
                                     <asp:ListItem>挑発</asp:ListItem>
                                     <asp:ListItem>HP自動回復</asp:ListItem>
                                     <asp:ListItem>HP回復</asp:ListItem>
@@ -393,6 +506,7 @@
                                     <asp:ListItem>暗闇無効</asp:ListItem>
                                     <asp:ListItem>スタン無効</asp:ListItem>
                                     <asp:ListItem>霧無効</asp:ListItem>
+                                    <asp:ListItem>デバフ無効</asp:ListItem>
                                     <asp:ListItem>挑発</asp:ListItem>
                                     <asp:ListItem>HP自動回復</asp:ListItem>
                                     <asp:ListItem>HP回復</asp:ListItem>
@@ -554,9 +668,6 @@
                         <asp:ListItem>1回</asp:ListItem>
                         <asp:ListItem>2回</asp:ListItem>
                         <asp:ListItem>3回</asp:ListItem>
-                        <asp:ListItem>4回</asp:ListItem>
-                        <asp:ListItem>5回</asp:ListItem>
-                        <asp:ListItem>6回</asp:ListItem>
                     </asp:RadioButtonList>
                      <asp:Label ID="MdoppelL" runat="server" Text="ドッペル発動回数" Font-Bold="True" Font-Size="Medium"></asp:Label>
                     <asp:RadioButtonList ID="Mdoppel" runat="server" RepeatDirection="Horizontal">
@@ -564,9 +675,6 @@
                         <asp:ListItem>1回</asp:ListItem>
                         <asp:ListItem>2回</asp:ListItem>
                         <asp:ListItem>3回</asp:ListItem>
-                        <asp:ListItem>4回</asp:ListItem>
-                        <asp:ListItem>5回</asp:ListItem>
-                        <asp:ListItem>6回</asp:ListItem>
                     </asp:RadioButtonList>
                     <asp:Label ID="MskillL" runat="server" Text="スキル回数" Font-Bold="True" Font-Size="Medium"></asp:Label>
                     <asp:RadioButtonList ID="Mskill" runat="server" RepeatDirection="Horizontal">
@@ -575,8 +683,15 @@
                         <asp:ListItem>2回</asp:ListItem>
                         <asp:ListItem>3回</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:Label ID="MhpL" runat="server" Text="残HP人数" Font-Bold="True" Font-Size="Medium"></asp:Label>
-                    <div class="row">
+                    <asp:Label ID="MhpL" runat="server" Text="残HPボーナス" Font-Bold="True" Font-Size="Medium"></asp:Label>
+                    <asp:RadioButtonList ID="Mhp" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="1">100-80%</asp:ListItem>
+                        <asp:ListItem Value="2">70-70%</asp:ListItem>
+                        <asp:ListItem Value="3">69-60%</asp:ListItem>
+                        <asp:ListItem Value="4">59-50%</asp:ListItem>
+                        <asp:ListItem Value="5">49%-</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <%--<div class="row">
                         <div class="col-lg-1 col-xs-2">
                             <p>100-80%</p>
                             <p><input type="number" id= "Mhp1" name="Mhp1" min="0" max="5" value = "0"></p>
@@ -597,7 +712,7 @@
                             <p>49-0%</p>
                             <p><input type="number" id= "Mhp5" name="Mhp5" min="0" max="5" value = "0"></p>
                         </div>
-                    </div>
+                    </div>--%>
                     <asp:Label ID="Msurvive" runat="server" Text="生存人数" Font-Bold="True" Font-Size="Medium"></asp:Label>
                     <div class="filterMagia">
                     <p>編成人数</p>

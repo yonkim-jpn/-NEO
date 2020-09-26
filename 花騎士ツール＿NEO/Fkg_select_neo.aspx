@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-    <section class="container">
+    <section class="container hidden">
             <div class="row">
                 <div class="col-xs-12">
                     <h2>編成シミュ</h2>
@@ -958,11 +958,10 @@
 
                 </div>
             </div>
-        </section>
         <br />
             <%-- 計算 --%>
 
-            <div class="row">
+            <div class="row hidden">
                 <div class="col-xs-6">
                     <div class="col-xs-12 visible-xs visible-sm visible-md">
                         <div>
@@ -1310,7 +1309,7 @@
                 </div>
 
             </div>
-
+        </section>
 
   <%--  </form>--%>
 </asp:Content>

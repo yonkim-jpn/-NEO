@@ -2069,7 +2069,8 @@ namespace 花騎士ツール＿NEO
 
         protected void Button10_Click(object sender, EventArgs e)
         {
-            CalcPT();
+            //編成シミュ無効化
+            //CalcPT();
         }
 
 

@@ -49,6 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.14.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.14.0\lib\net461\AngleSharp.dll</HintPath>
+    </Reference>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.1.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
@@ -103,6 +106,12 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
@@ -322,9 +331,13 @@
     <Content Include="png\madokasenpaion.png" />
     <Content Include="png\madoka_haregi.png" />
     <Content Include="png\madoka_haregion.png" />
+    <Content Include="png\mami_mizugi.png" />
+    <Content Include="png\mami_mizugion.png" />
     <Content Include="png\manaka.png" />
     <Content Include="png\manakaon.png" />
     <Content Include="png\mannensakura.png" />
+    <Content Include="png\mannensakuramizugi.png" />
+    <Content Include="png\mannensakuramizugion.png" />
     <Content Include="png\mannensakuraon.png" />
     <Content Include="png\matsuri.png" />
     <Content Include="png\matsurion.png" />
@@ -346,6 +359,8 @@
     <Content Include="png\mitama_haregion.png" />
     <Content Include="png\mito.png" />
     <Content Include="png\mitoon.png" />
+    <Content Include="png\mokyu.png" />
+    <Content Include="png\mokyuon.png" />
     <Content Include="png\momoko.png" />
     <Content Include="png\momokoon.png" />
     <Content Include="png\m\0001.png" />
@@ -814,6 +829,41 @@
     <Content Include="png\m\0476.png" />
     <Content Include="png\m\0477.png" />
     <Content Include="png\m\0471.png" />
+    <Content Include="png\m\0479.png" />
+    <Content Include="png\m\0480.png" />
+    <Content Include="png\m\0481.png" />
+    <Content Include="png\m\0483.png" />
+    <Content Include="png\m\0485.png" />
+    <Content Include="png\m\0486.png" />
+    <Content Include="png\m\0487.png" />
+    <Content Include="png\m\0488.png" />
+    <Content Include="png\m\0491.png" />
+    <Content Include="png\m\0494.png" />
+    <Content Include="png\m\0495.png" />
+    <Content Include="png\m\0496.png" />
+    <Content Include="png\m\0497.png" />
+    <Content Include="png\m\0498.png" />
+    <Content Include="png\m\0506.png" />
+    <Content Include="png\m\0507.png" />
+    <Content Include="png\m\0500.png" />
+    <Content Include="png\m\0502.png" />
+    <Content Include="png\m\0503.png" />
+    <Content Include="png\m\0505.png" />
+    <Content Include="png\m\0508.png" />
+    <Content Include="png\m\0509.png" />
+    <Content Include="png\m\0511.png" />
+    <Content Include="png\m\0512.png" />
+    <Content Include="png\m\0513.png" />
+    <Content Include="png\m\0514.png" />
+    <Content Include="png\m\0515.png" />
+    <Content Include="png\m\0516.png" />
+    <Content Include="png\m\0518.png" />
+    <Content Include="png\m\0520.png" />
+    <Content Include="png\m\0521.png" />
+    <Content Include="png\m\0522.png" />
+    <Content Include="png\m\0523.png" />
+    <Content Include="png\m\0524.png" />
+    <Content Include="png\m\0525.png" />
     <Content Include="png\m\Dummy.png" />
     <Content Include="png\nadeko.png" />
     <Content Include="png\nadekoon.png" />
@@ -833,6 +883,8 @@
     <Content Include="png\rena.png" />
     <Content Include="png\renachan.png" />
     <Content Include="png\renachanon.png" />
+    <Content Include="png\renakae.png" />
+    <Content Include="png\renakaeon.png" />
     <Content Include="png\renaon.png" />
     <Content Include="png\renon.png" />
     <Content Include="png\rikaren.png" />
@@ -863,11 +915,15 @@
     <Content Include="png\sigureon.png" />
     <Content Include="png\sinobu.png" />
     <Content Include="png\sinobuon.png" />
+    <Content Include="png\sudachi.png" />
+    <Content Include="png\sudachion.png" />
     <Content Include="png\sunao.png" />
     <Content Include="png\sunaoon.png" />
     <Content Include="png\suzune.png" />
     <Content Include="png\suzuneon.png" />
     <Content Include="png\taruto.png" />
+    <Content Include="png\tarutofinal.png" />
+    <Content Include="png\tarutofinalon.png" />
     <Content Include="png\tarutoon.png" />
     <Content Include="png\touka.png" />
     <Content Include="png\toukaon.png" />
@@ -887,6 +943,8 @@
     <Content Include="png\yachiyoon.png" />
     <Content Include="png\yukika.png" />
     <Content Include="png\yukikaon.png" />
+    <Content Include="png\yuuna.png" />
+    <Content Include="png\yuunaon.png" />
     <Content Include="png\yuzuru.png" />
     <Content Include="png\yuzuruon.png" />
     <Content Include="Scripts\angular.min.js" />
@@ -962,7 +1020,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="ViewSwitcher.ascx" />
+    <None Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config">
       <SubType>Designer</SubType>

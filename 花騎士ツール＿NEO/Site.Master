@@ -80,9 +80,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown active">
-                         <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">花騎士編成支援ツール(更新停止)<span class="caret"></span></a>
+                         <a runat="server" href="" class="dropdown-toggle" data-toggle="dropdown" role="button">花騎士編成支援ツール<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a runat="server" href="~/Fkg_select_neo">編成シミュ</a></li>
                             <li><a runat="server" href="~/Fkg_ability_serch_neo">アビリティ検索</a></li>
                             <li><a runat="server" href="~/Fkg_ranking_neo">ランキング</a></li>
                         </ul>
@@ -106,10 +105,14 @@
             <hr />
             <footer>
                 <%--<p>&copy; <%: DateTime.Now.Year %> - マイ ASP.NET アプリケーション</p>--%>
+                <div class="gratitud">
+                    <p>マギレコの精神強化アビリティのデータは<a href="javascript:void(0);" target="_blank" onclick="window.open('https://magireco-friends.com/s/menu','_blank')">マギレコフレンズ</a>様よりデータ提供していただきました。</p>
+                </div>
                 <p>ご意見ご要望については下記製作者のツイッターアカウントにお願いします。</p>
                 <div class="twitter">
                     <a href="javascript:void(0);" target="_blank" onclick="window.open('https://twitter.com/chiyokanemaru','_blank')"><span class="fa fa-twitter"></span>@chiyokanemaru</a>
                 </div>
+                        
             </footer>
         </div>
 

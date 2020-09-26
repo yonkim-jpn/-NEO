@@ -268,7 +268,7 @@
             "mAbi4": {
                 "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2163",
-                "value2": ""
+                "value2": "\u2161"
             },
             "mAbi5": {
                 "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
@@ -423,7 +423,7 @@
                 "value2": ""
             },
             "mAbi12": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -540,8 +540,8 @@
                 "value2": ""
             },
             "mAbi12": {
-                "name": "\u30ab\u30a6\u30f3\u30bf\u30fc\u7121\u52b9",
-                "value1": "6",
+                "name": "\u78ba\u7387\u3067\u30ab\u30a6\u30f3\u30bf\u30fc\u7121\u52b9",
+                "value1": "\u2165",
                 "value2": ""
             },
             "mAbi13": {
@@ -652,7 +652,7 @@
                 "value2": ""
             },
             "mAbi11": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -965,12 +965,12 @@
             "mAbi3": {
                 "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
-                "value2": ""
+                "value2": "\u2160"
             },
             "mAbi4": {
                 "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
-                "value2": ""
+                "value2": "\u2160"
             },
             "mAbi5": {
                 "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
@@ -1204,7 +1204,7 @@
             "mAbi4": {
                 "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
-                "value2": "\u2160 "
+                "value2": "\u2160"
             },
             "mAbi5": {
                 "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
@@ -1431,12 +1431,12 @@
                 "value2": ""
             },
             "mAbi3": {
-                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30c0\u30e1\u30fc\u30b8UP",
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
                 "value2": "\u2160"
             },
             "mAbi4": {
-                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30c0\u30e1\u30fc\u30b8UP",
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
                 "value2": "\u2160"
             },
@@ -1573,12 +1573,12 @@
                 "value2": ""
             },
             "mAbi8": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
             "mAbi9": {
-                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u9b45\u4e86\u3092\u4ed8\u4e0e",
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u9b45\u4e86\u4ed8\u4e0e",
                 "value1": "\u2161",
                 "value2": "1T"
             },
@@ -2163,7 +2163,7 @@
                 "value2": ""
             },
             "mAbi9": {
-                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8",
                 "value1": "\u2161",
                 "value2": ""
             },
@@ -2265,7 +2265,7 @@
                 "value2": ""
             },
             "mAbi6": {
-                "name": "\u7015\u6b7b\u6642\u653b\u6483\u529bUP\uff06\u9632\u5fa1\u529bUP",
+                "name": "\u7015\u6b7b\u6642\u653b\u6483\u529b\uff06\u9632\u5fa1\u529bUP",
                 "value1": "\u2161",
                 "value2": "\u2161"
             },
@@ -3104,7 +3104,7 @@
                 "value2": ""
             },
             "mAbi10": {
-                "name": "\u30a2\u30af\u30bb\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "name": "\u30a2\u30af\u30bb\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8",
                 "value1": "\u2161",
                 "value2": "\u2163"
             },
@@ -3343,7 +3343,7 @@
                 "value2": ""
             },
             "mAbi11": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -3460,7 +3460,7 @@
                 "value2": ""
             },
             "mAbi11": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -3592,7 +3592,7 @@
                 "value2": ""
             },
             "mAbi14": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -3878,68 +3878,68 @@
                 "turn": "1T"
             },
             "mAbi1": {
-                "name": "",
-                "value1": "",
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi2": {
-                "name": "",
-                "value1": "",
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi3": {
-                "name": "",
-                "value1": "",
-                "value2": ""
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2163",
+                "value2": "\u2161"
             },
             "mAbi4": {
-                "name": "",
-                "value1": "",
-                "value2": ""
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2162",
+                "value2": "\u2160"
             },
             "mAbi5": {
-                "name": "",
-                "value1": "",
+                "name": "Charge\u30c7\u30a3\u30b9\u30af\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi6": {
-                "name": "",
-                "value1": "",
+                "name": "Charge\u30c7\u30a3\u30b9\u30af\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi7": {
-                "name": "",
-                "value1": "",
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi8": {
-                "name": "",
-                "value1": "",
-                "value2": ""
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u30b9\u30bf\u30f3\u4ed8\u4e0e",
+                "value1": "\u2161",
+                "value2": "1T"
             },
             "mAbi9": {
-                "name": "",
-                "value1": "",
+                "name": "\u78ba\u7387\u3067\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi10": {
-                "name": "",
-                "value1": "",
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2162",
                 "value2": ""
             },
             "mAbi11": {
-                "name": "",
-                "value1": "",
+                "name": "\u78ba\u7387\u3067\u56de\u907f",
+                "value1": "\u2161",
                 "value2": ""
             },
             "mAbi12": {
-                "name": "",
-                "value1": "",
+                "name": "\u78ba\u7387\u3067\u56de\u907f\u7121\u52b9",
+                "value1": "\u2162",
                 "value2": ""
             },
             "mAbi13": {
-                "name": "",
-                "value1": "",
+                "name": "\u78ba\u7387\u3067\u30ab\u30a6\u30f3\u30bf\u30fc\u7121\u52b9",
+                "value1": "\u2167",
                 "value2": ""
             },
             "mAbi14": {
@@ -4157,7 +4157,7 @@
                 "value2": ""
             },
             "mAbi10": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -4239,12 +4239,12 @@
                 "value2": ""
             },
             "mAbi3": {
-                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30b9\u30bf\u30f3\u30c0\u30e1\u30fc\u30b8UP",
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
                 "value2": "\u2160"
             },
             "mAbi4": {
-                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30b9\u30bf\u30f3\u30c0\u30e1\u30fc\u30b8UP",
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
                 "value1": "\u2160",
                 "value2": "\u2160"
             },
@@ -4620,7 +4620,7 @@
                 "value2": ""
             },
             "mAbi9": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -4991,7 +4991,7 @@
                 "value2": ""
             },
             "mAbi13": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -5800,7 +5800,7 @@
                 "value2": ""
             },
             "mAbi11": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -5927,7 +5927,7 @@
                 "value2": ""
             },
             "mAbi13": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -6955,7 +6955,7 @@
                 "value2": ""
             },
             "mAbi8": {
-                "name": "\u30a2\u30af\u30bb\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "name": "\u30a2\u30af\u30bb\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8",
                 "value1": "\u2161",
                 "value2": "\u2163"
             },
@@ -7560,7 +7560,7 @@
                 "value2": ""
             },
             "mAbi12": {
-                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u9b45\u4e86\u3092\u4ed8\u4e0e",
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u9b45\u4e86\u4ed8\u4e0e",
                 "value1": "\u2161",
                 "value2": "1T"
             },
@@ -8227,7 +8227,7 @@
                 "value2": "\u2160"
             },
             "mAbi5": {
-                "name": "\u81ea\u5206\u306eMP\u304c15%\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
                 "value1": "15\uff05",
                 "value2": ""
             },
@@ -8376,6 +8376,1176 @@
             "mAbi11": {
                 "name": "AcceleMPUP",
                 "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u30bf\u30eb\u30c8Final",
+            "mSkill1": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2161",
+                "target": "\u5473\u5168",
+                "turn": "1T"
+            },
+            "mSkill2": {
+                "name": "",
+                "value": "",
+                "target": "",
+                "turn": ""
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "Blast\u653b\u6483\u6642MP\u7372\u5f97",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "AcceleMPUP",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f\u7121\u52b9",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "Blast\u653b\u6483\u6642MP\u7372\u5f97",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u4f50\u548c\u3000\u6708\u51fa\u91cc",
+            "mSkill1": {
+                "name": "\u6311\u767a",
+                "value": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mSkill2": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2167",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2160",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u88ab\u30c0\u30e1\u30fc\u30b8\u6642MPUP",
+                "value1": "\u2163",
+                "value2": ""
+            },
+            "mAbi5": {
+                "name": "\u88ab\u30c0\u30e1\u30fc\u30b8\u6642MPUP",
+                "value1": "\u2163",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "value1": "25\uff05",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u30ec\u30ca\u30fb\u304b\u3048\u3067\u6c34\u7740",
+            "mSkill1": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2163",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mSkill2": {
+                "name": "\u4e0e\u3048\u308b\u30c0\u30e1\u30fc\u30b8UP",
+                "value": "\u2161",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u4e0e\u3048\u308b\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "\u30de\u30ae\u30a2\u4e0d\u53ef\u7121\u52b9",
+                "value1": "\u5fc5\u305a",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "AccelMPUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "Charge\u30c7\u30a3\u30b9\u30af\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u5df4\u3000\u30de\u30df\u6c34\u7740",
+            "mSkill1": {
+                "name": "\u3084\u3051\u3069",
+                "value": "\u5fc5\u305a",
+                "target": "\u6575\u5358",
+                "turn": "1T"
+            },
+            "mSkill2": {
+                "name": "\u653b\u6483\u529bUP",
+                "value": "\u2163",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2160",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "MP\u81ea\u52d5\u56de\u5fa9",
+                "value1": "\u2164",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u62d8\u675f\u4ed8\u4e0e",
+                "value1": "\u2161",
+                "value2": "1T"
+            },
+            "mAbi8": {
+                "name": "\u78ba\u7387\u3067\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f\u7121\u52b9",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u767e\u6c5f\u3000\u306a\u304e\u3055",
+            "mSkill1": {
+                "name": "\u56de\u907f",
+                "value": "\u5fc5\u305a",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mSkill2": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u7121\u8996",
+                "value": "\u2166",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2160",
+                "value2": ""
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi6": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi7": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "\u30de\u30ae\u30a2\u4e0d\u53ef\u7121\u52b9",
+                "value1": "\u2166",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u5e7b\u60d1\u4ed8\u4e0e",
+                "value1": "\u2161",
+                "value2": "1T"
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u7267\u91ce\u3000\u90c1\u7f8e",
+            "mSkill1": {
+                "name": "HP\u56de\u5fa9",
+                "value": "\u2166",
+                "target": "\u5473\u5168",
+                "turn": ""
+            },
+            "mSkill2": {
+                "name": "",
+                "value": "",
+                "target": "",
+                "turn": ""
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2163",
+                "value2": "\u2161"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2162",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8",
+                "value1": "\u2164",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "\u72b6\u614b\u7570\u5e38\u8010\u6027UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u30b9\u30ad\u30eb\u4e0d\u53ef\u7121\u52b9",
+                "value1": "\u5fc5\u305a",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u30b9\u30bf\u30f3\u4ed8\u4e0e",
+                "value1": "\u2163",
+                "value2": "1T"
+            },
+            "mAbi11": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u89b3\u9ce5\u3000\u4ee4",
+            "mSkill1": {
+                "name": "\u6697\u95c7",
+                "value": "\u2165",
+                "target": "\u6575\u5168",
+                "turn": "1T"
+            },
+            "mSkill2": {
+                "name": "",
+                "value": "",
+                "target": "",
+                "turn": ""
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2163",
+                "value2": "\u2161"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2162",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2164",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "\u78ba\u7387\u3067\u56de\u907f\u7121\u52b9",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u78ba\u7387\u3067\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "\u81ea\u5206\u306eMP\u304c\u6e9c\u307e\u3063\u305f\u72b6\u614b\u3067\u30d0\u30c8\u30eb\u958b\u59cb",
+                "value1": "15\uff05",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "Charge\u30c7\u30a3\u30b9\u30af\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "Charge\u30c7\u30a3\u30b9\u30af\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u4e07\u5e74\u685c\u306e\u30a6\u30ef\u30b5\u6c34\u7740",
+            "mSkill1": {
+                "name": "\u9632\u5fa1\u529bDOWN",
+                "value": "\u2162",
+                "target": "\u6575\u5358",
+                "turn": "3T"
+            },
+            "mSkill2": {
+                "name": "\u5149\u5c5e\u6027\u8010\u6027DOWN",
+                "value": "\u2162",
+                "target": "\u6575\u5358",
+                "turn": "3T"
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u30b9\u30ad\u30eb\u4e0d\u53ef\u7121\u52b9",
+                "value1": "\u5fc5\u305a",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "\u30de\u30ae\u30a2\u4e0d\u53ef\u7121\u52b9",
+                "value1": "\u5fc5\u305a",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u653b\u6483\u6642\u78ba\u7387\u3067\u9727\u4ed8\u4e0e",
+                "value1": "\u2161",
+                "value2": "3T"
+            },
+            "mAbi10": {
+                "name": "AcceleMPUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "Charge\u30c7\u30a3\u30b9\u30af\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u30a2\u30eb\u30c6\u30a3\u30e1\u30c3\u30c8\u307e\u3069\u304b",
+            "mSkill1": {
+                "name": "\u5168\u30c7\u30a3\u30b9\u30af\u52b9\u679cUP",
+                "value": "\u2166",
+                "target": "\u5168",
+                "turn": "3T"
+            },
+            "mSkill2": {
+                "name": "",
+                "value": "",
+                "target": "",
+                "turn": ""
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "\u706b\u6c34\u6728\u5c5e\u6027\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "HP\u81ea\u52d5\u56de\u5fa9&MP\u81ea\u52d5\u56de\u5fa9",
+                "value1": "\u2162",
+                "value2": "\u2162"
+            },
+            "mAbi8": {
+                "name": "\u5bfe\u9b54\u5973\u30c0\u30e1\u30fc\u30b8\u30a2\u30c3\u30d7",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u78ba\u7387\u3067\u30af\u30ea\u30c6\u30a3\u30ab\u30eb",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "AcceleMPUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi11": {
+                "name": "Charge\u5f8c\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi12": {
+                "name": "Blast\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi13": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi14": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi15": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi16": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi17": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi18": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi19": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            },
+            "mAbi20": {
+                "name": "",
+                "value1": "",
+                "value2": ""
+            }
+        },
+        {
+            "mSelect": "\u3007",
+            "subValue": null,
+            "name2": "\u3044\u308d\u306f\u30fb\u3084\u3061\u3088\u6c7a\u6226",
+            "mSkill1": {
+                "name": "\u30af\u30ea\u30c6\u30a3\u30ab\u30eb\u7121\u52b9",
+                "value": "1\u56de",
+                "target": "\u5168",
+                "turn": "\u221e"
+            },
+            "mSkill2": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value": "\u2166",
+                "target": "\u81ea",
+                "turn": "1T"
+            },
+            "mAbi1": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi2": {
+                "name": "MP100\u4ee5\u4e0a\u6642MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi3": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi4": {
+                "name": "\u30c9\u30c3\u30da\u30eb\uff06\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2160",
+                "value2": "\u2160"
+            },
+            "mAbi5": {
+                "name": "\u30de\u30ae\u30a2\u30c0\u30e1\u30fc\u30b8UP",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi6": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30a2\u30c3\u30d7\u72b6\u614b",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi7": {
+                "name": "\u5bfe\u9b54\u5973\u30c0\u30e1\u30fc\u30b8\u30a2\u30c3\u30d7",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi8": {
+                "name": "\u4ef2\u9593\u6226\u95d8\u4e0d\u80fd\u6642\u653b\u6483\u529b\uff06\u9632\u5fa1\u529bUP",
+                "value1": "\u2162",
+                "value2": ""
+            },
+            "mAbi9": {
+                "name": "\u30c0\u30e1\u30fc\u30b8\u30ab\u30c3\u30c8\u72b6\u614b",
+                "value1": "\u2161",
+                "value2": ""
+            },
+            "mAbi10": {
+                "name": "\u62d8\u675f\u7121\u52b9\uff06\u30b9\u30bf\u30f3\u7121\u52b9",
+                "value1": "\u5fc5\u305a",
+                "value2": "\u5fc5\u305a"
+            },
+            "mAbi11": {
+                "name": "MP\u7372\u5f97\u91cfUP",
+                "value1": "\u2162",
                 "value2": ""
             },
             "mAbi12": {

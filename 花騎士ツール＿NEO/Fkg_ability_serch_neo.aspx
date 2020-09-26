@@ -99,6 +99,7 @@
                                     <asp:ListItem>ダメージ増加</asp:ListItem>
                                     <asp:ListItem>ターン毎ダメージ増加</asp:ListItem>
                                     <asp:ListItem>回避</asp:ListItem>
+                                    <asp:ListItem>迎撃</asp:ListItem>
                                     <asp:ListItem>反撃</asp:ListItem>
                                     <asp:ListItem>反撃（超反撃有）</asp:ListItem>
                                     <asp:ListItem>再行動</asp:ListItem>
@@ -166,6 +167,7 @@
                                             <asp:ListItem>ダメージ増加</asp:ListItem>
                                             <asp:ListItem>ターン毎ダメージ増加</asp:ListItem>
                                             <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>迎撃</asp:ListItem>
                                             <asp:ListItem>反撃</asp:ListItem>
                                             <asp:ListItem>反撃（超反撃有）</asp:ListItem>
                                             <asp:ListItem>再行動</asp:ListItem>
@@ -225,6 +227,7 @@
                                             <asp:ListItem>ダメージ増加</asp:ListItem>
                                             <asp:ListItem>ターン毎ダメージ増加</asp:ListItem>
                                             <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>迎撃</asp:ListItem>
                                             <asp:ListItem>反撃</asp:ListItem>
                                             <asp:ListItem>反撃（超反撃有）</asp:ListItem>
                                             <asp:ListItem>再行動</asp:ListItem>

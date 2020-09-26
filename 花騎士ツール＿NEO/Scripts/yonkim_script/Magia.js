@@ -6,7 +6,13 @@ function detectDeviceType( event ) {
 	deviceType = event.changedTouches ? 1 : 2 ;
 
 	document.removeEventListener ( "touchstart", detectDeviceType ) ;
-	document.removeEventListener ( "mousemove", detectDeviceType ) ;
+    document.removeEventListener("mousemove", detectDeviceType);
+
+    var str = location.href;//ページ名取得
+    if (str.match("/")) {
+        if (deviceType !== 2)
+            $(".contents").find(".text").css("display", "block");
+    }
 }
 
 document.addEventListener ( "touchstart", detectDeviceType ) ;
@@ -492,6 +498,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
                 break;
             }
         case "バランス":
+        case "エクシード"://仮
             {
                 calcMpB = 0.9;
                 break;
@@ -500,7 +507,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
             {
                 calcMpB = 0.8;
                 break;
-            }
+            }        
     }
 
     //魔法少女タイプによる補正
@@ -2655,10 +2662,25 @@ function draw3() {
                         }
                     case "マギア値":
                     case "コネクト値":
+                    case "精神スキル":
                         {
                             let sortValue = jsonData.personas[i].sortValue1;
                             sortValue = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? sortValue + " " + jsonData.personas[i].sortValue2 : sortValue;
                             Draw2ndText(ctx3, charaX[i], charaY, charaR, sortValue, Xoffset, Yoffset, canvasFlag);
+                            break;
+                        }
+                    case "精神アビ":
+                        {
+                            let text = "";
+                            if (ChangeToRoman(jsonData.personas[i].sortValue1)) {
+                                if ($("#MainContent_apareceAbiDetalle").prop("checked"))
+                                    text = jsonData.personas[i].subValue;
+                                else
+                                    text = ChangeToRoman(jsonData.personas[i].sortValue1);
+                            }
+                            else
+                                text = jsonData.personas[i].subValue;
+                            Draw2ndText(ctx3, charaX[i], charaY, charaR, text, Xoffset, Yoffset, canvasFlag);
                             break;
                         }
                 }
@@ -3637,6 +3659,41 @@ function draw3() {
                 document.getElementById("MainContent_orden1_6").nextSibling.innerText = "精神スキル";
         }
     });
+
+    $('#MainContent_menteA1').change(function () {
+        CheckChanged();
+        var ordenMenteA1 = document.getElementById("MainContent_orden1_7");
+        var textMenteA1 = $('#MainContent_menteA1').val();
+        if (textMenteA1.indexOf("精神強化アビ") === -1) {
+            ordenMenteA1.disabled = false;
+            if($("#MainContent_orden1_7").prop("checked") === true)
+                document.getElementById("MainContent_apareceAbiDetalle").disabled = false;
+            if($(window).width() > 768)
+                document.getElementById("MainContent_orden1_7").nextSibling.innerText = "精神アビ:" + textMenteA1;
+        }
+        else {
+            if ($("#MainContent_orden1_7").prop("checked") === true) {
+                document.getElementById("MainContent_orden1_7").nextSibling.classList.remove("highlight");
+                $("#MainContent_orden1_7").prop("checked", false);
+            }
+            ordenMenteA1.disabled = true;
+            document.getElementById("MainContent_apareceAbiDetalle").disabled = true;
+            if ($(window).width() > 768)
+                document.getElementById("MainContent_orden1_7").nextSibling.innerText = "精神アビ";
+        }
+    });
+
+    $('#MainContent_menteA2').change(function () {
+        CheckChanged();
+    });
+
+    $('input[name="ctl00$MainContent$apareceAbiDetalle"]').change(function () {
+        // CheckChanged();
+        if(($("#MainContent_orden1_7").prop("checked") === true)&&($('#MainContent_menteA1').val().indexOf("精神強化アビ") === -1))
+            ReDraw("sortValueS");
+    });
+
+
     //項目にフィルタ数追加
     function ApareceCantidad(list,data) {
         //書き換え処理
@@ -4242,8 +4299,10 @@ function draw3() {
             connect[0] = $("#MainContent_connect1").val();
             connect[1] = $("#MainContent_connect2").val();
         }
-        //精神強化スキル
+        //精神強化
         var mskill1 = $("#MainContent_menteS1").val();
+        var mabi1 = $("#MainContent_menteA1").val();
+        var mabi2 = $("#MainContent_menteA2").val();
         //属性の全チェックを消すか確認
         if (atributo[0] === "全" && atributo.length > 1) {
             //消す
@@ -4367,6 +4426,51 @@ function draw3() {
                                     if(sortFlag===1) {
                                         value.sortValue1 = resultado[1];
                                         resultado = BusquedaMagia("BlastダメージUP", value, 2);
+                                        value.sortValue2 = resultado[1];//ターン数も表示
+                                        
+                                    }
+                                }
+                                else
+                                    return false;
+                                break;
+                            }
+                            case "攻撃力UP":
+                            {
+                                if (BusquedaMagia("攻撃力UP", value, 1)) {
+                                    resultado = BusquedaMagia("攻撃力UP", value, 1);
+                                    if(sortFlag===1) {
+                                        value.sortValue1 = resultado[1];
+                                        resultado = BusquedaMagia("攻撃力UP", value, 2);
+                                        value.sortValue2 = resultado[1];//ターン数も表示
+                                        
+                                    }
+                                }
+                                else
+                                    return false;
+                                break;
+                            }
+                            case "ダメージUP":
+                            {
+                                if (BusquedaMagia("ダメージUP", value, 1)) {
+                                    resultado = BusquedaMagia("ダメージUP", value, 1);
+                                    if(sortFlag===1) {
+                                        value.sortValue1 = resultado[1];
+                                        resultado = BusquedaMagia("ダメージUP", value, 2);
+                                        value.sortValue2 = resultado[1];//ターン数も表示
+                                        
+                                    }
+                                }
+                                else
+                                    return false;
+                                break;
+                            }
+                        case "防御力DOWN":
+                            {
+                                if (BusquedaMagia("防御力DOWN", value, 1)) {
+                                    resultado = BusquedaMagia("防御力DOWN", value, 1);
+                                    if(sortFlag===1) {
+                                        value.sortValue1 = resultado[1];
+                                        resultado = BusquedaMagia("防御力DOWN", value, 2);
                                         value.sortValue2 = resultado[1];//ターン数も表示
                                         
                                     }
@@ -4553,6 +4657,11 @@ function draw3() {
                                     if(sortFlag === 1)
                                         value.sortValue1 = resultado[1];
                                 }
+                                else if (BusquedaConectiva("確率で拘束", value, 1)) {
+                                    resultado = BusquedaConectiva("確率で拘束", value, 0);
+                                    if(sortFlag === 1)
+                                        value.sortValue1 = resultado[1];
+                                }
                                 else
                                     return;
                                 break;
@@ -4649,7 +4758,7 @@ function draw3() {
                     if (typeof value.mSelect === "undefined") {
                         return false;
                     }
-                    else {
+                    else{
                         var sortFlag = ($("input[name='ctl00$MainContent$orden1']:checked").val() === "精神スキル") ? 1 : 0;
                         switch (mskill1) {
                             //target
@@ -4702,6 +4811,71 @@ function draw3() {
                                         return;
                                     break;
                                 }
+                        }
+                    }
+                }
+            }
+
+            //精神強化アビ
+            {
+                var mabi = [mabi1, mabi2];
+                if (!((mabi[0] === "精神強化アビ1") && (mabi[0] === "精神強化アビ2"))) {
+                    for (let i = 0; i < mabi.length; i++) {
+                        if (mabi[i].indexOf("精神強化アビ") === -1) {
+                            //精神強化値が入力されていない場合スルー
+                            if (typeof value.mSelect === "undefined") {
+                                return false;
+                            }
+                            else{
+                                for (let i = 0; i < mabi.length; i++) {
+                                    var sortFlag = ($("input[name='ctl00$MainContent$orden1']:checked").val() === "精神アビ") && i === 0 ? 1 : 0;
+                                    if (mabi[i].indexOf("精神強化アビ") !== -1)
+                                        continue;
+                                    else {
+                                        switch (mabi[i]) {
+                                            case "呪い付与"://sortValue2の設定のみ
+                                            case "拘束付与":
+                                            case "魅了付与":
+                                            case "幻惑付与":
+                                            case "スタン付与":
+                                            case "毒付与":
+                                            case "やけど付与":
+                                            case "霧付与":
+                                            case "暗闇付与":
+                                            case "スキル不可付与":
+                                            case "マギア不可付与":
+                                            case "属性ダメCUT状態":
+                                                {
+                                                    let resultado = BusquedaMabi(mabi[i], value);
+                                                    if (resultado[0]) {
+                                                        if (sortFlag === 1) {
+                                                            value.sortValue1 = resultado[2];//数字
+                                                            value.subValue = resultado[1];//テキスト
+                                                            value.sortValue2 = resultado[1];//テキスト
+                                                        }
+                                                    }
+                                                    else
+                                                        return;
+                                                    break;
+                                                }
+                                            default:
+                                                {
+                                                    let resultado = BusquedaMabi(mabi[i], value);
+                                                    if (resultado[0]) {
+                                                        if (sortFlag === 1) {
+                                                            value.sortValue1 = resultado[2];//数字
+                                                            value.subValue = resultado[1];//テキスト
+                                                        }
+                                                    }
+                                                    else
+                                                        return;
+                                                    break;
+                                                }
+                                        }
+                                    }
+                    
+                                }
+                            }
                         }
                     }
                 }
@@ -4777,6 +4951,10 @@ function draw3() {
         document.getElementById("MainContent_orden1_4").nextSibling.classList.remove("highlight");
         document.getElementById("MainContent_orden1_5").nextSibling.classList.remove("highlight");
         document.getElementById("MainContent_orden1_6").nextSibling.classList.remove("highlight");
+        document.getElementById("MainContent_orden1_7").nextSibling.classList.remove("highlight");
+
+        document.getElementById("MainContent_apareceAbiDetalle").disabled = true;//アビ詳細無効化
+
 
         var elegido = $('input[name="ctl00$MainContent$orden1"]:checked').val();
         switch (elegido) {
@@ -4815,6 +4993,15 @@ function draw3() {
                     document.getElementById("MainContent_orden1_6").nextSibling.classList.add("highlight");
                     break;
                 }
+            case "精神アビ":
+                {
+                    document.getElementById("MainContent_orden1_7").nextSibling.classList.add("highlight");
+                    if ($('#MainContent_menteA1').val().indexOf("精神強化アビ") === -1)
+                        document.getElementById("MainContent_apareceAbiDetalle").disabled = false;//アビ詳細有効化
+
+                    break;
+                }
+    
         }
         
 
@@ -4851,30 +5038,45 @@ function draw3() {
                 if (ordena !== ""){
                     switch (ordena) {
                         case "ATK":
-                        {
-                            text = jsonData.personas[i].ATK;
-                            break;
-                        }
+                            {
+                                text = jsonData.personas[i].ATK;
+                                break;
+                            }
                         case "DEF":
-                        {
-                            text = jsonData.personas[i].DEF;
-                            break;
-                        }
+                            {
+                                text = jsonData.personas[i].DEF;
+                                break;
+                            }
                         case "HP":
-                        {
-                            text = jsonData.personas[i].HP;
-                            break;
+                            {
+                                text = jsonData.personas[i].HP;
+                                break;
                             }
                         case "sortValue":
-                        {
-                            let sortValue = (jsonData.personas[i].sortValue1 !== null) && (typeof jsonData.personas[i].sortValue1 !== "undefined") ? jsonData.personas[i].sortValue1 : "";
-                            sortValue = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? sortValue +  " " + jsonData.personas[i].sortValue2 : sortValue;
-                            text = sortValue;
-                            break;
-                        }
+                            {
+                                let sortValue = (jsonData.personas[i].sortValue1 !== null) && (typeof jsonData.personas[i].sortValue1 !== "undefined") ? jsonData.personas[i].sortValue1 : "";
+                                sortValue = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? sortValue +  " " + jsonData.personas[i].sortValue2 : sortValue;
+                                text = sortValue;
+                                break;
+                            }
+                        case "sortValueS":
+                            {
+                                let sortValue = (jsonData.personas[i].sortValue1 !== null) && (typeof jsonData.personas[i].sortValue1 !== "undefined") ? jsonData.personas[i].sortValue1 : "";
+                                if (ChangeToRoman(sortValue)) {
+                                    if ($("#MainContent_apareceAbiDetalle").prop("checked"))
+                                        text = jsonData.personas[i].subValue;
+                                    else
+                                        // text = ChangeToRoman(sortValue);
+                                        //sortValue2があればsortValue2を使う
+                                        text = (jsonData.personas[i].sortValue2 !== null)&&(typeof jsonData.personas[i].sortValue2 !=="undefined") ? jsonData.personas[i].sortValue2 : ChangeToRoman(sortValue);
+                                }
+                                else
+                                    text = (jsonData.personas[i].subValue !== null)&&(typeof jsonData.personas[i].subValue !=="undefined") ? jsonData.personas[i].subValue : "";
+                                break;
+                            }
                     }
-                    // DrawImageText(ctx3, charaX[i], charaY, charaR, text);
-                    Draw2ndText(ctx3, charaX[i], charaY, charaR, text, Xoffset, Yoffset, canvasFlag);
+                    if(text!=="")
+                        Draw2ndText(ctx3, charaX[i], charaY, charaR, text, Xoffset, Yoffset, canvasFlag);
                     }
             }
             else 
@@ -4966,12 +5168,30 @@ function draw3() {
                             else if (sortValue1.indexOf("全") !== -1 || sortValue1.indexOf("自") !== -1) {
                                 //特別処理　全を自より前に持ってくる
                                 jsonData.personas.sort(function (a, b) {
+                                    if (a.sortValue1 > b.sortValue1)
+                                        return 1;
+                                    if (a.sortValue1 < b.sortValue1)
+                                        return -1;
+                                    if ((a.sortValue2 !== null) && (typeof a.sortValue2 !== "undefined")) {
+                                        if (a.sortValue2.indexOf("T") !== -1) {//マギアのBlastダメUP,Charge後ダメUPでターン数を第2キーに
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) < b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
+                                                return 1;
+                                            if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) > b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
+                                                return -1;
+                                        }
+                                    }
+                                    return 0;
+                                });
+                            }
+                            else if (sortValue1.indexOf("敵全") !== -1 || sortValue1.indexOf("敵単") !== -1) {
+                                //特別処理　敵全を敵自より前に持ってくる
+                                jsonData.personas.sort(function (a, b) {
                                     if (a.sortValue1 > b.sortValue1) 
                                         return 1;
                                     if (a.sortValue1 < b.sortValue1) 
                                         return -1;
                                     if ((a.sortValue2 !== null)&&(typeof a.sortValue2 !== "undefined")) {
-                                        if (a.sortValue2.indexOf("T") !== -1) {//マギアのBlastダメUP,Charge後ダメUPでターン数を第2キーに
+                                        if (a.sortValue2.indexOf("T") !== -1) {//ターン数を第2キーに
                                             if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) < b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
                                                 return 1;
                                             if (a.sortValue2.substr(a.sortValue2.indexOf("T") - 1, 1) > b.sortValue2.substr(b.sortValue2.indexOf("T") - 1, 1))
@@ -5033,6 +5253,20 @@ function draw3() {
                         });
                         break;
                     }
+                case "精神アビ":
+                    {
+                        //特殊ソート
+                        jsonData.personas.sort(function (a, b) {
+                            if (a.sortValue1 < b.sortValue1) {
+                                return 1;
+                            }
+                            if (a.sortValue1 > b.sortValue1) {
+                                return -1;
+                            }
+                            return 0;
+                        });
+                        break;
+                    }
                 default:
                     {
                         jsonData.personas.sort(function (a, b) {
@@ -5067,6 +5301,12 @@ function draw3() {
                 {
                 returnValue = "sortValue"
                 break;
+                }
+            
+            case "精神アビ":
+                {
+                    returnValue = "sortValueS"
+                    break;
                 }
         }
         return returnValue;
@@ -5140,6 +5380,12 @@ function draw3() {
                 case "挑発":
                     {
                         if (("必ず挑発" === valor[i].name)||("確率で挑発" === valor[i].name))
+                            flagP = 1;
+                        break;
+                    }
+                case "回避無効":
+                    {
+                        if (("回避無効" === valor[i].name)||("確率で回避無効" === valor[i].name))
                             flagP = 1;
                         break;
                     }
@@ -5383,6 +5629,743 @@ function draw3() {
         return false;
     }
 
+    //精神強化アビフィルタ用（これだけ特殊仕様)
+    //戻り値は、0:検索結果 1:normalValue 文字合計 2:specialValue 数字合計
+    //特殊sum処理がある
+    //また他と違い、データ内のvalue1,value2を項目により自動判定して結果を出力する
+    function BusquedaMabi(parabra, value) {
+        var vuelta = [2];
+        var normalValue = "";
+        var specialValue = 0;
+        var valor = [value.mAbi1, value.mAbi2, value.mAbi3, value.mAbi4, value.mAbi5, value.mAbi6, value.mAbi7, value.mAbi8, value.mAbi9, value.mAbi10,
+            value.mAbi11,value.mAbi12,value.mAbi13,value.mAbi14,value.mAbi15,value.mAbi16,value.mAbi17,value.mAbi18,value.mAbi19,value.mAbi20];
+        var flagMabi = 0;
+
+        for (let i = 0; i < valor.length; i++){
+            switch (parabra) {
+                //通常value1系
+                case "クリティカル":
+                    {
+                        if ("確率でクリティカル" === valor[i].name) {
+                            normalValue = valor[i].value1;
+                            flagMabi = 1;
+                        }
+                        break;
+                    }
+                case "ダメージUP":
+                    {
+                        if ("与えるダメージUP" === valor[i].name) {
+                            normalValue = valor[i].value1;
+                            flagMabi = 1;
+                        }
+                        break;
+                    }
+                
+                
+                //通常value2系
+
+                //special系
+                case "攻撃力UP":
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃力UP":
+                            case "攻撃力UP＆瀕死時攻撃力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "瀕死時攻撃力UP":
+                    {
+                        switch(valor[i].name){
+                            case "瀕死時攻撃力UP":
+                            case "瀕死時攻撃力＆防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "攻撃力UP＆瀕死時攻撃力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value2);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "HP最大時攻撃力UP":
+                    {
+                        switch (valor[i].name) {
+                            case "HP最大時攻撃力UP":
+                            case "HP最大時攻撃力＆防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "防御力UP":
+                    {
+                        switch (valor[i].name) {
+                            case "防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "瀕死時防御力UP＆防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value2);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "瀕死時防御力UP":
+                    {
+                        switch(valor[i].name){
+                            case "瀕死時防御力UP":
+                            case "瀕死時防御力UP＆防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "瀕死時攻撃力＆防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value2);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "HP最大時防御力UP":
+                    {
+                        switch (valor[i].name) {
+                            case "HP最大時防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "HP最大時攻撃力＆防御力UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value2);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "BlastダメUP":
+                    {
+                        switch (valor[i].name) {
+                            case "BlastダメージUP":
+                            case "BlastダメージUP＆AcceleMPUP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "Charge後ダメUP":
+                    {
+                        switch (valor[i].name) {
+                            case "Charge後ダメージUP":
+                            case "Charge後ダメージUP＆ChargeディスクダメージUP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "マギアダメージUP":
+                    {
+                        switch (valor[i].name) {
+                            case "マギアダメージUP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "ドッペル＆マギアダメージUP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value2);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "ドッペルダメージUP":
+                    {
+                        switch (valor[i].name) {
+                            case "ドッペルダメージUP":
+                            case "ドッペル＆マギアダメージUP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "ダメUP状態":
+                    {
+                        switch(valor[i].name){
+                            case "ダメージアップ状態":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "ダメCUT状態":
+                        {
+                            switch(valor[i].name){
+                                case "ダメージカット状態":
+                                    {
+                                        let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                        normalValue += s;
+                                        specialValue += ChangeRoman(valor[i].value1);
+                                        flagMabi = 1;
+                                        break;
+                                    }
+                            }
+                            break;
+                        }
+        
+                case "属性ダメCUT状態"://足せないタイプ もし足せるタイプになれば後で修正
+                    {
+                        switch(valor[i].name){
+                            case "闇属性ダメージカット状態":
+                                {
+                                    normalValue = "闇:" + valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "火水木属性ダメージカット状態":
+                            {
+                                normalValue = "火水木:" + valor[i].value1;//文字
+                                specialValue = ChangeRoman(valor[i].value1);//数字
+                                flagMabi = 1;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                case "回避"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "確率で回避":
+                            case "確率で回避＆カウンター無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "回避無効"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "確率で回避無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "カウンター無効"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "確率でカウンター無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "確率で回避＆カウンター無効":
+                                {
+                                    normalValue = valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value2);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "防御無視"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "確率で防御無視":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "ダメージカット無視"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "確率でダメージカット無視":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "挑発無視"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "確率で挑発無視":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "呪い付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で呪い付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "拘束付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で拘束付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "魅了付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で魅了付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "幻惑付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で幻惑付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "スタン付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率でスタン付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "毒付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で毒付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "やけど付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率でやけど付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "霧付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で霧付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "暗闇付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率で暗闇付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "スキル不可付与"://足せないタイプ？
+                    {
+                        switch (valor[i].name) {
+                            case "攻撃時確率でスキル不可付与":
+                                {
+                                    normalValue = valor[i].value1 + "," + valor[i].value2;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "スキルクイック":
+                    {
+                        switch (valor[i].name) {
+                            case "確率でスキルクイック":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                    case "HP自動回復":
+                        {
+                            switch(valor[i].name){
+                                case "HP自動回復":
+                                case "HP自動回復&MP自動回復":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    case "MP自動回復":
+                        {
+                            switch(valor[i].name){
+                                case "MP自動回復":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                                case "HP自動回復&MP自動回復":
+                                    {
+                                        let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
+                                        normalValue += s;
+                                        specialValue += ChangeRoman(valor[i].value2);
+                                        flagMabi = 1;
+                                        break;
+                                    }
+    
+                            }
+                            break;
+                        }
+                case "MP獲得量UP":
+                    {
+                        switch (valor[i].name) {
+                            case "MP獲得量UP":
+                            case "MP獲得量UP＆弱点属性で攻撃されたときMPUP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "MP100以上時MP獲得量UP":
+                    {
+                        switch (valor[i].name) {
+                            case "MP100以上時MP獲得量UP":
+                                {
+                                    let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
+                                    normalValue += s;
+                                    specialValue += ChangeRoman(valor[i].value1);
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "呪い無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "呪い無効":
+                            case "確率で呪い無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "拘束無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "拘束無効":
+                            case "確率で拘束無効":
+                            case "拘束無効＆スタン無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "魅了無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "魅了無効":
+                            case "確率で魅了無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "幻惑無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "幻惑無効":
+                            case "確率で幻惑無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "スタン無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "スタン無効":
+                            case "確率でスタン無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                            case "拘束無効＆スタン無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value2);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "毒無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "毒無効":
+                            case "確率で毒無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "スキル不可無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "スキル不可無効":
+                            case "確率でスキル不可無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "マギア不可無効"://足せないタイプ
+                    {
+                        switch (valor[i].name) {
+                            case "マギア不可無効":
+                            case "確率でマギア不可無効":
+                                {
+                                    normalValue = valor[i].value1;//文字
+                                    specialValue = ChangeRoman(valor[i].value1);//数字
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case "マギアダメカット":
+                    {
+                        if ("マギアダメージカット" === valor[i].name) {
+                            normalValue = valor[i].value1;
+                            specialValue = ChangeRoman(valor[i].value1);//数字
+                            flagMabi = 1;
+                        }
+                        else if("アクセル＆マギアダメージカット" === valor[i].name) {
+                            normalValue = valor[i].value2;
+                            specialValue = ChangeRoman(valor[i].value2);//数字
+                            flagMabi = 1;
+                        }
+                        break;
+                    }
+                case "Charge数+1"://足せないタイプ
+                    {//+2が出てきたら項目名を考える
+                        switch (valor[i].name) {
+                            case "Charge combo時charge数+1":
+                                {
+                                    normalValue = "+1";
+                                    specialValue = "+1";
+                                    flagMabi = 1;
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                default://"対魔女ダメージアップ" "状態異常耐性UP"
+                    {
+                        if (parabra === valor[i].name) {
+                            normalValue = valor[i].value1;
+                            flagMabi = 1;
+                        }
+                        break;
+                    }
+               
+            }
+        }
+
+        if (flagMabi === 1) {
+            vuelta[0] = true;
+            vuelta[1] = normalValue;
+            vuelta[2] = specialValue;
+            return vuelta;
+        }
+        return false;
+    }
+
     // The Tool-Tip instance:
 function ToolTipC(canvas, region, width) {
 
@@ -5472,7 +6455,7 @@ function ToolTipC(canvas, region, width) {
                         }
                     case "マギア値":
                         {
-                            let M = [obj.Magia1, obj.Magia2, obj.Magia3, obj.Magia4, obj.Magia5];
+                            let M = [obj.Magia1, obj.Magia2, obj.Magia3, obj.Magia4, obj.Magia5,obj.Magia6];
                             for (let i = 0; i < M.length; i++){
                                 if (M[i].name !== "") {
                                     text += "<br/>" + M[i].name;
@@ -5490,7 +6473,7 @@ function ToolTipC(canvas, region, width) {
                             let MS = [obj.mSkill1, obj.mSkill2];
                             for (let i = 0; i < MS.length; i++){
                                 if (MS[i].name !== "") {
-                                    text += "<br/>" + MS[i].name;
+                                    text += `<br/>${MS[i].name}`;
                                     if ((MS[i].value !== "") && (typeof MS[i].value !== "undefined")) {
                                         if (MS[i].value === "必ず")
                                             text = text.substring(0,text.length-MS[i].name.length) + "必ず" + MS[i].name;
@@ -5505,6 +6488,128 @@ function ToolTipC(canvas, region, width) {
                                 }
                             }
                             widthC = obj.name.length * 17 < 180 ? 180 : obj.name.length * 17;
+                            break;
+                        }
+                    case "精神アビ":
+                        {
+                            let MA = [obj.mAbi1,obj.mAbi2,obj.mAbi3,obj.mAbi4,obj.mAbi5,obj.mAbi6,obj.mAbi7,obj.mAbi8,obj.mAbi9,obj.mAbi10,obj.mAbi11,obj.mAbi12,obj.mAbi13,obj.mAbi14,obj.mAbi15,obj.mAbi16,obj.mAbi17,obj.mAbi18,obj.mAbi19];
+                            MA.sort();
+                            text += " -精神アビ一覧-";
+                            for (let i = 0; i < MA.length; i++){
+                                if(MA[i].name !== ""){
+                                    switch(MA[i].name){
+                                        case "ドッペル＆マギアダメージUP":
+                                            {
+                                                text += `<br/>ドッペルダメージUP[${MA[i].value1}]&マギアダメージUP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "HP最大時攻撃力＆防御力UP":
+                                            {
+                                                text += `<br/>HP最大時攻撃力UP[${MA[i].value1}]&防御力UP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "BlastダメージUP＆AcceleMPUP":
+                                            {
+                                                text += `<br/>BlastダメージUP[${MA[i].value1}]&AcceleMPUP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "瀕死時攻撃力＆防御力UP":
+                                            {
+                                                text += `<br/>瀕死時攻撃力UP[${MA[i].value1}]&防御力UP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "瀕死時防御力UP＆防御力UP":
+                                            {
+                                                text += `<br/>瀕死時防御力UP[${MA[i].value1}]&防御力UP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "攻撃力UP＆瀕死時攻撃力UP":
+                                            {
+                                                text += `<br/>攻撃力UP[${MA[i].value1}]&瀕死時攻撃力UP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "HP自動回復&MP自動回復":
+                                            {
+                                                text += `<br/>HP自動回復[${MA[i].value1}]&MP自動回復[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "Charge後ダメージUP＆ChargeディスクダメージUP":
+                                            {
+                                                text += `<br/>Charge後ダメージUP[${MA[i].value1}]&ChargeディスクダメージUP[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "Charge combo時charge数+1":
+                                            {
+                                                text += `<br/>Charge combo時charge数[+${MA[i].value1}]`;
+                                                break;
+                                            }
+                                        case "攻撃時確率でスタン付与＆確率でクリティカル":
+                                            {
+                                                text += `<br/>攻撃時確率でスタン付与[${MA[i].value1}]&確率でクリティカル[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "拘束無効＆スタン無効":
+                                            {
+                                                if(MA[i].value1 === "必ず")
+                                                    text += `<br/>必ず拘束無効`;
+                                                else
+                                                    text += `<br/>確率で拘束無効[${MA[i].value1}]`;
+                                                if(MA[i].value2 === "必ず")
+                                                    text += `&必ずスタン無効`;
+                                                else
+                                                    text += `&確率でスタン無効[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "確率で回避＆カウンター無効":
+                                            {
+                                                if(MA[i].value1 === "必ず")
+                                                    text += `<br/>必ず回避無効`;
+                                                else
+                                                    text += `<br/>確率で回避無効[${MA[i].value1}]`;
+                                                if(MA[i].value2 === "必ず")
+                                                    text += `&必ずカウンター無効`;
+                                                else
+                                                    text += `&確率でカウンター無効[${MA[i].value2}]`;
+                                                break;
+                                            }
+                                        case "呪い無効":
+                                        case "確率で呪い無効":
+                                        case "拘束無効":
+                                        case "確率で拘束無効":
+                                        case "魅了無効":
+                                        case "確率で魅了無効":
+                                        case "幻惑無効":
+                                        case "確率で幻惑無効":
+                                        case "スタン無効":
+                                        case "確率でスタン無効":
+                                        case "毒無効":
+                                        case "確率で毒無効":
+                                        case "スキル不可無効":
+                                        case "確率でスキル不可無効":
+                                        case "マギア不可無効":
+                                        case "確率でマギア不可無効":
+                                        case "回避無効":
+                                        case "確率で回避無効":
+                                        {
+                                            let textSub = MA[i].name.indexOf("確率で")===-1 ? MA[i].name : MA[i].name.replace("確率で","");
+                                            if(MA[i].value1 === "必ず")
+                                                text += `<br/>必ず${textSub}`;
+                                            else
+                                                text += `<br/>確率で${textSub}[${MA[i].value1}]`;
+                                            break;
+                                        }
+                                        default:
+                                            text += "<br/>" + MA[i].name;
+                                            if ((MA[i].value1 != "") && (typeof MA[i].value1 != "undefined")) {
+                                                text += `[${MA[i].value1}]`;
+                                            }
+                                            if ((MA[i].value2 != "") && (typeof MA[i].value2 != "undefined")) {
+                                                text += `/${MA[i].value2}`;
+                                            }
+                                            break;
+                                    }
+                                }
+                            }
                             break;
                         }
                     default:
@@ -5600,7 +6705,42 @@ function ChangeRoman(roman) {
         case "最大まで": return 100;
         case "10%": return 10;
         case "15%": return 15;
+        case "1回": return 1;
+        case "2回": return 2;
+        case "3回": return 3;
         default: return 0;
+    }
+}
+
+function ChangeToRoman(decimal) {
+    switch (decimal) {
+        case 1: return "Ⅰ";
+        case 2: return "Ⅱ";
+        case 3: return "Ⅲ";
+        case 4: return "Ⅳ";
+        case 5: return "Ⅴ";
+        case 6: return "Ⅵ";
+        case 7: return "Ⅶ";
+        case 8: return "Ⅷ";
+        case 9: return "Ⅸ";
+        case 10: return "Ⅹ";
+        case 11: return "Ⅺ";
+        case 12: return "ⅩⅡ";
+        case 13: return "ⅩⅢ";
+        case 14: return "ⅩⅣ";
+        case 15: return "ⅩⅤ";
+        case 16: return "ⅩⅥ";
+        case 17: return "ⅩⅦ";
+        case 18: return "ⅩⅧ";
+        case 19: return "ⅩⅨ";
+        case 20: return "ⅩⅩ";
+        case 21: return "ⅩⅩⅠ";
+        case 22: return "ⅩⅩⅡ";
+        case 23: return "ⅩⅩⅢ";
+        case 24: return "ⅩⅩⅣ";
+        case 25: return "ⅩⅩⅤ";
+        case "+1": return false;
+        default: return false;
     }
 }
 
@@ -6042,6 +7182,12 @@ function BusquedaMemoria(parabra, value, selector) {
                         flagM = 1;
                     break;
                     
+                }
+            case "デバフ無効":
+                {
+                    if ("デバフ効果無効" === valor[i].name)
+                        flagM = 1;
+                    break;
                 }
         }
         if ((parabra === valor[i].name)||flagM===1) {
@@ -8393,11 +9539,11 @@ function CalcMirrors() {
     let magia = $('input[name="ctl00$MainContent$Mmagia"]:checked').val();
     let doppel = $('input[name="ctl00$MainContent$Mdoppel"]:checked').val();
     let skill = $('input[name="ctl00$MainContent$Mskill"]:checked').val();
-    let hp1 = $("#Mhp1").val();
-    let hp2 = $("#Mhp2").val();
-    let hp3 = $("#Mhp3").val();
-    let hp4 = $("#Mhp4").val();
-    let hp5 = $("#Mhp5").val();
+    let mhp = $('input[name="ctl00$MainContent$Mhp"]:checked').val();
+    // let hp2 = $("#Mhp2").val();
+    // let hp3 = $("#Mhp3").val();
+    // let hp4 = $("#Mhp4").val();
+    // let hp5 = $("#Mhp5").val();
     let pt = $('input[name="ctl00$MainContent$Mpt"]:checked').val();
     let death = $('input[name="ctl00$MainContent$Mdeath"]:checked').val();
     let bonus = $('input[name="ctl00$MainContent$Mbonus"]:checked').val();
@@ -8408,27 +9554,30 @@ function CalcMirrors() {
     switch(turn){
         case "1T":
             {
-                calcT = 1.85;
+                // calcT = 1.85;//2.45?
+                calcT = 2.45;
                 break;
             }
         case "2T":
             {
-                calcT = 1.75;
+                // calcT = 1.75;//2.25?
+                calcT = 2.45;
                 break;
             }
         case "3T":
             {
-                calcT = 1.55;
+                // calcT = 1.55;//2.05?
+                calcT = 2.25;
                 break;
         }
         case "4T":
             {
-                calcT = 1.45;
+                calcT = 1.65;//変更なし
                 break;
             }
         case "5T":
             {
-                calcT = 1.35;
+                calcT = 1.35;//変更なし
                 break;
             }
     }
@@ -8451,7 +9600,33 @@ function CalcMirrors() {
     if (skill !== "0回")
         calcS = Number(skill.substr(0, 1)) * 0.05;
     let calcH = 0;
-    calcH = hp2 * (-0.05) + hp3 * (-0.1) + hp4 * (-0.15) + hp5 * (-0.2);
+    switch(mhp){
+        case "1"://100-80
+            {
+                calcH = 0;
+                break;
+            }
+        case "2"://79-70
+            {
+                calcH = -0.05;
+                break;
+            }
+        case "3"://69-60
+            {
+                calcH = -0.1;
+                break;
+            }
+        case "4"://59-50
+            {
+                calcH = -0.15;
+                break;
+            }
+        case "5"://49-0
+            {
+                calcH = -0.2;
+                break;
+            }
+    }
     let deathPt = 0;
     switch (pt) {
         case "2人PT":
@@ -8480,8 +9655,8 @@ function CalcMirrors() {
     let calcBp = Number(breakpt);
 
     let calcFinal = (calcT + calcC + calcM + calcDoppel + calcS + calcH + calcD) * calcB * calcBp;
-    calcFinal = Math.floor(calcFinal * 100);
-    calcFinal *= 10;
+    calcFinal = Math.floor(calcFinal * 1000);
+    // calcFinal *= 10;
 
     //表示用
     calcT = Math.floor(calcT * 1000);
@@ -8510,7 +9685,7 @@ function CalcMirrors() {
     Mmagia.innerText = "マギア発動回数 " + calcM + "pt";
     Mdoppel.innerText = "ドッペル発動回数 " + calcDoppel + "pt";
     Mskill.innerText = "スキル回数 " + calcS + "pt";
-    Mhp.innerText = "残HP人数 " + calcH + "pt";
+    Mhp.innerText = "残HPボーナス " + calcH + "pt";
     Mdeath.innerText = "生存人数 " + calcD + "pt";        
 
 }
@@ -8549,21 +9724,24 @@ window.onload = function () {
         $('input[name="ctl00$MainContent$Mdoppel"]:radio').change(function () {
             CalcMirrors();
         });
-        $('input[name="Mhp1"]').change(function () {
+        $('input[name="ctl00$MainContent$Mhp"]:radio').change(function () {
             CalcMirrors();
         });
-        $('input[name="Mhp2"]').change(function () {
-            CalcMirrors();
-        });
-        $('input[name="Mhp3"]').change(function () {
-            CalcMirrors();
-        });
-        $('input[name="Mhp4"]').change(function () {
-            CalcMirrors();
-        });
-        $('input[name="Mhp5"]').change(function () {
-            CalcMirrors();
-        });
+        // $('input[name="Mhp1"]').change(function () {
+        //     CalcMirrors();
+        // });
+        // $('input[name="Mhp2"]').change(function () {
+        //     CalcMirrors();
+        // });
+        // $('input[name="Mhp3"]').change(function () {
+        //     CalcMirrors();
+        // });
+        // $('input[name="Mhp4"]').change(function () {
+        //     CalcMirrors();
+        // });
+        // $('input[name="Mhp5"]').change(function () {
+        //     CalcMirrors();
+        // });
         $('input[name="ctl00$MainContent$Mpt"]:radio').change(function () {
             CalcMirrors();
         });

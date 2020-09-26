@@ -1,5 +1,37 @@
-﻿
+﻿//デバイス判定
+//var deviceType = 0;//1:タッチ 2:マウス
+
+
+//document.addEventListener("touchstart", detectDeviceType);
+//document.addEventListener("mousemove", detectDeviceType);
+
+//function detectDeviceType(event) {
+//    deviceType = event.changedTouches ? 1 : 2;
+
+//    document.removeEventListener("touchstart", detectDeviceType);
+//    document.removeEventListener("mousemove", detectDeviceType);
+
+//    var str = location.href;//ページ名取得
+//    if (str.match("/")) {
+//        if (deviceType !== 2)
+//            $(".contents").find(".text").css("display", "block");
+//    }
+//}
+
 $(function () {
+
+    //master内でちょっとしたお遊び
+    $(".dropdown-menu li").hover(function () {
+        $(this).animate({
+            "opacity": "1"
+        },100)
+
+     },function () {
+        $(this).animate({
+            "opacity": "0.5"
+        },500)
+        });
+
 
     //上の開ボタン
     //一発目だけなぜか閉じてしまうので、それを防ぐ処理を入れた
@@ -272,8 +304,6 @@ $(function () {
         if (str.match("/FKG_register")) {
             Iniciar_FKG_register();
         }
-
-
     });
 
     //ランキングの短縮名表示チェックボックス処理
@@ -1058,6 +1088,50 @@ $(function () {
         DmmPtCalc();
     });
 
+    //Default内処理
+    $(".title1").mouseenter(function () {
+            if (deviceType === 2) {
+                $(".text1").slideDown(500, function (e) { $(".text1").stop(false, true); });
+                $(".text1").addClass("open");
+            }
+    });
+
+    $(".title1").mouseleave(function () {
+            if (deviceType === 2) {
+                if ($(this).find("open")) {
+                    $(".text1").removeClass("open");
+                    $(".text1").slideUp(500, function (e) { $(".text1").stop(false, true); });
+                }
+            }
+    });
+    $(".title2").mouseenter(function () {
+            if (deviceType === 2) {
+                $(".text2").slideDown(500, function (e) { $(".text2").stop(false, true); });
+                $(".text2").addClass("open");
+            }
+    });
+    $(".title2").mouseleave(function () {
+            if (deviceType === 2) {
+                if ($(this).find("open")) {
+                    $(".text2").removeClass("open");
+                    $(".text2").slideUp(500, function (e) { $(".text2").stop(false, true); });
+                }
+        };
+    });
+    $(".title3").mouseenter(function () {
+            if (deviceType === 2) {
+                $(".text3").slideDown(500, function (e) { $(".text3").stop(false, true); });
+                $(".text3").addClass("open");
+            }
+    });
+    $(".title3").mouseleave(function () {
+            if (deviceType === 2) {
+                if ($(this).find("open")) {
+                    $(".text3").removeClass("open");
+                    $(".text3").slideUp(500, function (e) { $(".text3").stop(false, true); });
+                }
+        }
+    });
 });
 
 /////////////////////////////////////////////////////
