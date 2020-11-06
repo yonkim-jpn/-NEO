@@ -117,6 +117,11 @@ textarea {
     display: flex;
 }
 
+.inner {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .highlight {
     background-color: yellow;
 }
@@ -186,6 +191,7 @@ textarea {
     letter-spacing:2px;
 }
 
+
 .explain{
     opacity:0.7;
 }
@@ -237,6 +243,9 @@ textarea {
 
 .selector {
     margin-bottom:5px;
+}
+.selector2{
+    margin-top:10px;
 }
 
 .gratitud a:hover {

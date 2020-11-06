@@ -1099,8 +1099,8 @@ $(function () {
     $(".title1").mouseleave(function () {
             if (deviceType === 2) {
                 if ($(this).find("open")) {
-                    $(".text1").removeClass("open");
-                    $(".text1").slideUp(500, function (e) { $(".text1").stop(false, true); });
+                    // $(".text1").removeClass("open");
+                    // $(".text1").slideUp(500, function (e) { $(".text1").stop(false, true); });
                 }
             }
     });
@@ -1113,8 +1113,8 @@ $(function () {
     $(".title2").mouseleave(function () {
             if (deviceType === 2) {
                 if ($(this).find("open")) {
-                    $(".text2").removeClass("open");
-                    $(".text2").slideUp(500, function (e) { $(".text2").stop(false, true); });
+                    // $(".text2").removeClass("open");
+                    // $(".text2").slideUp(500, function (e) { $(".text2").stop(false, true); });
                 }
         };
     });
@@ -1127,8 +1127,8 @@ $(function () {
     $(".title3").mouseleave(function () {
             if (deviceType === 2) {
                 if ($(this).find("open")) {
-                    $(".text3").removeClass("open");
-                    $(".text3").slideUp(500, function (e) { $(".text3").stop(false, true); });
+                    // $(".text3").removeClass("open");
+                    // $(".text3").slideUp(500, function (e) { $(".text3").stop(false, true); });
                 }
         }
     });

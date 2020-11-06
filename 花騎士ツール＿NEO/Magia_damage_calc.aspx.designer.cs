@@ -132,6 +132,15 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.CheckBox apareceAbiDetalle;
 
         /// <summary>
+        /// espiritu2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox espiritu2;
+
+        /// <summary>
         /// orden1 コントロール。
         /// </summary>
         /// <remarks>
@@ -310,15 +319,6 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox669;
-
-        /// <summary>
-        /// tipoPuella4 コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tipoPuella4;
 
         /// <summary>
         /// ordendeBatalla4 コントロール。
@@ -670,5 +670,14 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox @decimal;
+
+        /// <summary>
+        /// espiritu コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox espiritu;
     }
 }
