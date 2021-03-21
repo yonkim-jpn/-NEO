@@ -72,7 +72,7 @@
         <p>
             アビリティ1</p>
         <p>
-            発動形態&nbsp;&nbsp;&nbsp; 対象人数 スキル内容&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;　上昇値&nbsp;&nbsp;&nbsp;&nbsp; 上昇値二つ目</p>
+            発動形態&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 対象人数&nbsp;&nbsp;&nbsp;対象人数2&nbsp;&nbsp;&nbsp;対象人数3&nbsp;&nbsp;&nbsp;スキル内容&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;　上昇値&nbsp;&nbsp;&nbsp;&nbsp; 上昇値二つ目</p>
         <asp:DropDownList ID="DropDownList50002" runat="server">
             <asp:ListItem Value="0">常時発動</asp:ListItem>
             <asp:ListItem Value="1">1ターン目</asp:ListItem>
@@ -86,20 +86,40 @@
             <asp:ListItem>3</asp:ListItem>
             <asp:ListItem>4</asp:ListItem>
         </asp:DropDownList>
+        <asp:DropDownList ID="A1NO2" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="A1NO3" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
         <asp:DropDownList ID="DropDownList50004" runat="server" OnSelectedIndexChanged="DropDownList50004_SelectedIndexChanged">
             <asp:ListItem>攻撃力上昇</asp:ListItem>
             <asp:ListItem>敵の数で攻撃力上昇</asp:ListItem>
             <asp:ListItem>ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>ターンで攻撃力とダメージ上昇</asp:ListItem>
             <asp:ListItem>スキルLVで攻撃力上昇</asp:ListItem>
             <asp:ListItem>残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>残りHPで攻撃力とクリダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇ターンでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇1T目さらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇HP割合ダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、残HPでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む3人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵の数でさらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、属性種類数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、PTメンバー数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
@@ -110,72 +130,113 @@
             <asp:ListItem>攻撃力上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、敵全体の防御力低下</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵3体が攻撃ミス</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、回避</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、再行動</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ無効</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、移動力追加</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、ソラ効果上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ソラ発動毎に更に上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、追撃</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自身のHP回復(効果値はEx2)</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>属性種類数により攻撃力上昇</asp:ListItem>
             <asp:ListItem>防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>PTメンバーの数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>ダメージ上昇</asp:ListItem>
+            <asp:ListItem>ダメージ上昇し自身が更に上昇</asp:ListItem>
             <asp:ListItem>ターン毎ダメージ上昇</asp:ListItem>
             <asp:ListItem>HP割合ダメ上昇率</asp:ListItem>
+            <asp:ListItem>残りHPでダメ上昇</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加</asp:ListItem>
+            <asp:ListItem>弱点属性の敵に対するダメージ増加し、自身が更に増加</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加し、スキル発動率上昇</asp:ListItem>
-            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>ガッツ付与</asp:ListItem>
+            <asp:ListItem>ガッツ付与し、再行動</asp:ListItem>
             <asp:ListItem>クリ率上昇</asp:ListItem>
+            <asp:ListItem>クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>クリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身が再行動</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリ率上昇さらに自身のクリ率とダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率1T目と3T目</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、さらに1T目上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身のスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動後3ターンの間、スキル発動率上昇し再行動</asp:ListItem>
             <asp:ListItem>スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>PTと自身スキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、弱点属性の敵に対するダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、攻撃力低下</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇自身のボスダメ上昇</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇し、敵の数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、HP割合でダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身が更に上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力ダメ上昇</asp:ListItem>
-            <asp:ListItem>攻撃力上昇し、対ボス攻撃力上昇</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、光ゲージ充填</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem Value="再行動">自身が再行動</asp:ListItem>
             <asp:ListItem>自身が再行動し、シャイクリ泥率上昇</asp:ListItem>
+            <asp:ListItem>自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>PTに再行動付与</asp:ListItem>
             <asp:ListItem>回避</asp:ListItem>
             <asp:ListItem>回避し、残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキルダメ上昇</asp:ListItem>
             <asp:ListItem>回避し、反撃</asp:ListItem>
             <asp:ListItem>回避し、敵3体が攻撃ミス</asp:ListItem>
+            <asp:ListItem>回避し、再行動</asp:ListItem>
+            <asp:ListItem>回避付与</asp:ListItem>
+            <asp:ListItem>回避付与し、回避</asp:ListItem>
+            <asp:ListItem>回避3回成功後、攻撃力、回避、再行動率上昇</asp:ListItem>
+            <asp:ListItem>回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇</asp:ListItem>
             <asp:ListItem>迎撃</asp:ListItem>
             <asp:ListItem>反撃</asp:ListItem>
             <asp:ListItem>追撃</asp:ListItem>
             <asp:ListItem>追撃し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、自身が再行動</asp:ListItem>
+            <asp:ListItem>追撃付与</asp:ListItem>
             <asp:ListItem>PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇</asp:ListItem>
             <asp:ListItem>光ゲージ充填</asp:ListItem>
@@ -185,11 +246,17 @@
             <asp:ListItem>ソラ効果シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>ソラ効果光ゲージ充填上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇し自身が再行動</asp:ListItem>
+            <asp:ListItem>ソラ効果上昇しソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎にダメ上昇</asp:ListItem>
+            <asp:ListItem>ソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ダメ無効</asp:ListItem>
             <asp:ListItem>攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、スキル発動率低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>ターン毎に攻撃力低下</asp:ListItem>
             <asp:ListItem>防御力低下</asp:ListItem>
+            <asp:ListItem>攻撃力と防御力低下</asp:ListItem>
             <asp:ListItem>スキル発動率低下</asp:ListItem>
             <asp:ListItem>攻撃ミス</asp:ListItem>
             <asp:ListItem>ターン毎に行動回数減</asp:ListItem>
@@ -202,11 +269,19 @@
             <asp:ListItem>PT移動力増加し、自身が再行動</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇</asp:ListItem>
+            <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、回復</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tに攻撃力上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+            <asp:ListItem>イロモノ系</asp:ListItem>
+            <asp:ListItem>召喚獣攻撃指令</asp:ListItem>
+            <asp:ListItem>変身サブアビ</asp:ListItem>
             <asp:ListItem>その他(MAP画面スキル)</asp:ListItem>
             <asp:ListItem>MAP画面アビと、攻撃力上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>MAP画面アビと、スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、回避</asp:ListItem>
             <asp:ListItem>MAP画面アビと、移動力増加</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="TextBox50008" runat="server" Width="100px"></asp:TextBox>
@@ -228,16 +303,54 @@
             <asp:ListItem>斬突魔</asp:ListItem>
             <asp:ListItem>打突魔</asp:ListItem>
             <asp:ListItem>超反撃</asp:ListItem>
+            <asp:ListItem>敵の数増加</asp:ListItem>
             <asp:ListItem>敵の数減少</asp:ListItem>
+            <asp:ListItem>PTメンバー数で</asp:ListItem>
+            <asp:ListItem>スキルLVで</asp:ListItem>
             <asp:ListItem Value="追撃1">追撃1:単体</asp:ListItem>
             <asp:ListItem Value="追撃2">追撃2:全体</asp:ListItem>
             <asp:ListItem Value="追撃3">追撃3:単体と全体</asp:ListItem>
             <asp:ListItem Value="追撃4">追撃4:PT全体に単体20%付与</asp:ListItem>
             <asp:ListItem>25</asp:ListItem>
             <asp:ListItem>ガッツ付与1回</asp:ListItem>
+            <asp:ListItem>2ターン</asp:ListItem>
             <asp:ListItem>3ターン</asp:ListItem>
+            <asp:ListItem>4ターン</asp:ListItem>
+            <asp:ListItem>5ターン</asp:ListItem>
+            <asp:ListItem>6ターン</asp:ListItem>
             <asp:ListItem>PT全体</asp:ListItem>
             <asp:ListItem>自身</asp:ListItem>
+            <asp:ListItem>敵1体</asp:ListItem>
+            <asp:ListItem>敵2体</asp:ListItem>
+            <asp:ListItem>敵3体</asp:ListItem>
+            <asp:ListItem>敵全体</asp:ListItem>
+            <asp:ListItem>20%</asp:ListItem>
+            <asp:ListItem>10</asp:ListItem>
+            <asp:ListItem>20</asp:ListItem>
+            <asp:ListItem>25</asp:ListItem>
+            <asp:ListItem>30</asp:ListItem>
+            <asp:ListItem>40</asp:ListItem>
+            <asp:ListItem>50</asp:ListItem>
+            <asp:ListItem>60</asp:ListItem>
+            <asp:ListItem>70</asp:ListItem>
+            <asp:ListItem>80</asp:ListItem>
+            <asp:ListItem>90</asp:ListItem>
+            <asp:ListItem>100</asp:ListItem>
+            <asp:ListItem>150</asp:ListItem>
+            <asp:ListItem>200</asp:ListItem>
+            <asp:ListItem>攻撃20%上昇</asp:ListItem>
+            <asp:ListItem>常時</asp:ListItem>
+            <asp:ListItem>PT全体が常に</asp:ListItem>
+            <asp:ListItem>自身が常に</asp:ListItem>
+            <asp:ListItem>1T目の自身の</asp:ListItem>
+            <asp:ListItem>1T目の攻撃50%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃70%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃100%上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビ</asp:ListItem>
+            <asp:ListItem>召喚</asp:ListItem>
+            <asp:ListItem>変身</asp:ListItem>
+            <asp:ListItem>アビ1</asp:ListItem>
+            <asp:ListItem>アビ2</asp:ListItem>
         </asp:DropDownList>
         <p>
             アビリティ2</p>
@@ -256,20 +369,40 @@
             <asp:ListItem>3</asp:ListItem>
             <asp:ListItem>4</asp:ListItem>
         </asp:DropDownList>
+        <asp:DropDownList ID="A2NO2" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="A2NO3" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
         <asp:DropDownList ID="DropDownList50009" runat="server">
             <asp:ListItem>攻撃力上昇</asp:ListItem>
             <asp:ListItem>敵の数で攻撃力上昇</asp:ListItem>
             <asp:ListItem>ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>ターンで攻撃力とダメージ上昇</asp:ListItem>
             <asp:ListItem>スキルLVで攻撃力上昇</asp:ListItem>
             <asp:ListItem>残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>残りHPで攻撃力とクリダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇ターンでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇1T目さらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇HP割合ダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、残HPでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む3人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵の数でさらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、属性種類数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、PTメンバー数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
@@ -280,71 +413,113 @@
             <asp:ListItem>攻撃力上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、敵全体の防御力低下</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵3体が攻撃ミス</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、回避</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、再行動</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ無効</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、移動力追加</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、ソラ効果上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ソラ発動毎に更に上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、追撃</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自身のHP回復(効果値はEx2)</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>属性種類数により攻撃力上昇</asp:ListItem>
             <asp:ListItem>防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>PTメンバーの数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>ダメージ上昇</asp:ListItem>
+            <asp:ListItem>ダメージ上昇し自身が更に上昇</asp:ListItem>
             <asp:ListItem>ターン毎ダメージ上昇</asp:ListItem>
             <asp:ListItem>HP割合ダメ上昇率</asp:ListItem>
+            <asp:ListItem>残りHPでダメ上昇</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加</asp:ListItem>
+            <asp:ListItem>弱点属性の敵に対するダメージ増加し、自身が更に増加</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加し、スキル発動率上昇</asp:ListItem>
-            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>ガッツ付与</asp:ListItem>
+            <asp:ListItem>ガッツ付与し、再行動</asp:ListItem>
             <asp:ListItem>クリ率上昇</asp:ListItem>
+            <asp:ListItem>クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>クリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身が再行動</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリ率上昇さらに自身のクリ率とダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率1T目と3T目</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、さらに1T目上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身のスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動後3ターンの間、スキル発動率上昇し再行動</asp:ListItem>
             <asp:ListItem>スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>PTと自身スキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、弱点属性の敵に対するダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、攻撃力低下</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇自身のボスダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、敵の数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、HP割合でダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身が更に上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力ダメ上昇</asp:ListItem>
-            <asp:ListItem>攻撃力上昇し、対ボス攻撃力上昇</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、光ゲージ充填</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem Value="再行動">自身が再行動</asp:ListItem>
             <asp:ListItem>自身が再行動し、シャイクリ泥率上昇</asp:ListItem>
+            <asp:ListItem>自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>PTに再行動付与</asp:ListItem>
             <asp:ListItem>回避</asp:ListItem>
             <asp:ListItem>回避し、残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキルダメ上昇</asp:ListItem>
             <asp:ListItem>回避し、反撃</asp:ListItem>
             <asp:ListItem>回避し、敵3体が攻撃ミス</asp:ListItem>
+            <asp:ListItem>回避し、再行動</asp:ListItem>
+            <asp:ListItem>回避付与</asp:ListItem>
+            <asp:ListItem>回避付与し、回避</asp:ListItem>
+            <asp:ListItem>回避3回成功後、攻撃力、回避、再行動率上昇</asp:ListItem>
+            <asp:ListItem>回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇</asp:ListItem>
             <asp:ListItem>迎撃</asp:ListItem>
             <asp:ListItem>反撃</asp:ListItem>
             <asp:ListItem>追撃</asp:ListItem>
             <asp:ListItem>追撃し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、自身が再行動</asp:ListItem>
+            <asp:ListItem>追撃付与</asp:ListItem>
             <asp:ListItem>PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇</asp:ListItem>
             <asp:ListItem>光ゲージ充填</asp:ListItem>
@@ -354,11 +529,17 @@
             <asp:ListItem>ソラ効果シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>ソラ効果光ゲージ充填上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇し自身が再行動</asp:ListItem>
+            <asp:ListItem>ソラ効果上昇しソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎にダメ上昇</asp:ListItem>
+            <asp:ListItem>ソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ダメ無効</asp:ListItem>
             <asp:ListItem>攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、スキル発動率低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>ターン毎に攻撃力低下</asp:ListItem>
             <asp:ListItem>防御力低下</asp:ListItem>
+            <asp:ListItem>攻撃力と防御力低下</asp:ListItem>
             <asp:ListItem>スキル発動率低下</asp:ListItem>
             <asp:ListItem>攻撃ミス</asp:ListItem>
             <asp:ListItem>ターン毎に行動回数減</asp:ListItem>
@@ -371,11 +552,19 @@
             <asp:ListItem>PT移動力増加し、自身が再行動</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇</asp:ListItem>
+            <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、回復</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tに攻撃力上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+            <asp:ListItem>イロモノ系</asp:ListItem>
+            <asp:ListItem>召喚獣攻撃指令</asp:ListItem>
+            <asp:ListItem>変身サブアビ</asp:ListItem>
             <asp:ListItem>その他(MAP画面スキル)</asp:ListItem>
             <asp:ListItem>MAP画面アビと、攻撃力上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>MAP画面アビと、スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、回避</asp:ListItem>
             <asp:ListItem>MAP画面アビと、移動力増加</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="TextBox50010" runat="server" Width="100px"></asp:TextBox>
@@ -397,16 +586,54 @@
             <asp:ListItem>斬突魔</asp:ListItem>
             <asp:ListItem>打突魔</asp:ListItem>
             <asp:ListItem>超反撃</asp:ListItem>
+            <asp:ListItem>敵の数増加</asp:ListItem>
             <asp:ListItem>敵の数減少</asp:ListItem>
+            <asp:ListItem>PTメンバー数で</asp:ListItem>
+            <asp:ListItem>スキルLVで</asp:ListItem>
             <asp:ListItem Value="追撃1">追撃1:単体</asp:ListItem>
             <asp:ListItem Value="追撃2">追撃2:全体</asp:ListItem>
             <asp:ListItem Value="追撃3">追撃3:単体と全体</asp:ListItem>
             <asp:ListItem Value="追撃4">追撃4:PT全体に単体20%付与</asp:ListItem>
             <asp:ListItem>25</asp:ListItem>
             <asp:ListItem>ガッツ付与1回</asp:ListItem>
+            <asp:ListItem>2ターン</asp:ListItem>
             <asp:ListItem>3ターン</asp:ListItem>
+            <asp:ListItem>4ターン</asp:ListItem>
+            <asp:ListItem>5ターン</asp:ListItem>
+            <asp:ListItem>6ターン</asp:ListItem>
             <asp:ListItem>PT全体</asp:ListItem>
             <asp:ListItem>自身</asp:ListItem>
+            <asp:ListItem>敵1体</asp:ListItem>
+            <asp:ListItem>敵2体</asp:ListItem>
+            <asp:ListItem>敵3体</asp:ListItem>
+            <asp:ListItem>敵全体</asp:ListItem>
+            <asp:ListItem>20%</asp:ListItem>
+            <asp:ListItem>10</asp:ListItem>
+            <asp:ListItem>20</asp:ListItem>
+            <asp:ListItem>25</asp:ListItem>
+            <asp:ListItem>30</asp:ListItem>
+            <asp:ListItem>40</asp:ListItem>
+            <asp:ListItem>50</asp:ListItem>
+            <asp:ListItem>60</asp:ListItem>
+            <asp:ListItem>70</asp:ListItem>
+            <asp:ListItem>80</asp:ListItem>
+            <asp:ListItem>90</asp:ListItem>
+            <asp:ListItem>100</asp:ListItem>
+            <asp:ListItem>150</asp:ListItem>
+            <asp:ListItem>200</asp:ListItem>
+            <asp:ListItem>攻撃20%上昇</asp:ListItem>
+            <asp:ListItem>常時</asp:ListItem>
+            <asp:ListItem>PT全体が常に</asp:ListItem>
+            <asp:ListItem>自身が常に</asp:ListItem>
+            <asp:ListItem>1T目の自身の</asp:ListItem>
+            <asp:ListItem>1T目の攻撃50%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃70%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃100%上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビ</asp:ListItem>
+            <asp:ListItem>召喚</asp:ListItem>
+            <asp:ListItem>変身</asp:ListItem>
+            <asp:ListItem>アビ1</asp:ListItem>
+            <asp:ListItem>アビ2</asp:ListItem>
         </asp:DropDownList>
         <p>
             アビリティ3</p>
@@ -425,20 +652,40 @@
             <asp:ListItem>3</asp:ListItem>
             <asp:ListItem>4</asp:ListItem>
         </asp:DropDownList>
+        <asp:DropDownList ID="A3NO2" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="A3NO3" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
         <asp:DropDownList ID="DropDownList50012" runat="server">
             <asp:ListItem>攻撃力上昇</asp:ListItem>
             <asp:ListItem>敵の数で攻撃力上昇</asp:ListItem>
             <asp:ListItem>ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>ターンで攻撃力とダメージ上昇</asp:ListItem>
             <asp:ListItem>スキルLVで攻撃力上昇</asp:ListItem>
             <asp:ListItem>残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>残りHPで攻撃力とクリダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇ターンでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇1T目さらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇HP割合ダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、残HPでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む3人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵の数でさらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、属性種類数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、PTメンバー数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
@@ -449,70 +696,113 @@
             <asp:ListItem>攻撃力上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、敵全体の防御力低下</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵3体が攻撃ミス</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、回避</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、再行動</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ無効</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、移動力追加</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、ソラ効果上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ソラ発動毎に更に上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、追撃</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自身のHP回復(効果値はEx2)</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>属性種類数により攻撃力上昇</asp:ListItem>
             <asp:ListItem>防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>PTメンバーの数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>ダメージ上昇</asp:ListItem>
+            <asp:ListItem>ダメージ上昇し自身が更に上昇</asp:ListItem>
             <asp:ListItem>ターン毎ダメージ上昇</asp:ListItem>
             <asp:ListItem>HP割合ダメ上昇率</asp:ListItem>
+            <asp:ListItem>残りHPでダメ上昇</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加</asp:ListItem>
+            <asp:ListItem>弱点属性の敵に対するダメージ増加し、自身が更に増加</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加し、スキル発動率上昇</asp:ListItem>
-            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>ガッツ付与</asp:ListItem>
+            <asp:ListItem>ガッツ付与し、再行動</asp:ListItem>
             <asp:ListItem>クリ率上昇</asp:ListItem>
+            <asp:ListItem>クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>クリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身が再行動</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリ率上昇さらに自身のクリ率とダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ターンで攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動率1T目と3T目</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、さらに1T目上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身のスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動後3ターンの間、スキル発動率上昇し再行動</asp:ListItem>
             <asp:ListItem>スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>PTと自身スキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、弱点属性の敵に対するダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、攻撃力低下</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇自身のボスダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、敵の数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、HP割合でダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身が更に上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力ダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、光ゲージ充填</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem Value="再行動">自身が再行動</asp:ListItem>
             <asp:ListItem>自身が再行動し、シャイクリ泥率上昇</asp:ListItem>
+            <asp:ListItem>自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>PTに再行動付与</asp:ListItem>
             <asp:ListItem>回避</asp:ListItem>
             <asp:ListItem>回避し、残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキルダメ上昇</asp:ListItem>
             <asp:ListItem>回避し、反撃</asp:ListItem>
             <asp:ListItem>回避し、敵3体が攻撃ミス</asp:ListItem>
+            <asp:ListItem>回避し、再行動</asp:ListItem>
+            <asp:ListItem>回避付与</asp:ListItem>
+            <asp:ListItem>回避付与し、回避</asp:ListItem>
+            <asp:ListItem>回避3回成功後、攻撃力、回避、再行動率上昇</asp:ListItem>
+            <asp:ListItem>回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇</asp:ListItem>
             <asp:ListItem>迎撃</asp:ListItem>
             <asp:ListItem>反撃</asp:ListItem>
             <asp:ListItem>追撃</asp:ListItem>
             <asp:ListItem>追撃し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、自身が再行動</asp:ListItem>
+            <asp:ListItem>追撃付与</asp:ListItem>
             <asp:ListItem>PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇</asp:ListItem>
             <asp:ListItem>光ゲージ充填</asp:ListItem>
@@ -522,11 +812,17 @@
             <asp:ListItem>ソラ効果シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>ソラ効果光ゲージ充填上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇し自身が再行動</asp:ListItem>
+            <asp:ListItem>ソラ効果上昇しソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎にダメ上昇</asp:ListItem>
+            <asp:ListItem>ソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ダメ無効</asp:ListItem>
             <asp:ListItem>攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、スキル発動率低下</asp:ListItem>
             <asp:ListItem>防御力低下</asp:ListItem>
+            <asp:ListItem>攻撃力と防御力低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>ターン毎に攻撃力低下</asp:ListItem>
             <asp:ListItem>スキル発動率低下</asp:ListItem>
             <asp:ListItem>攻撃ミス</asp:ListItem>
             <asp:ListItem>ターン毎に行動回数減</asp:ListItem>
@@ -539,11 +835,19 @@
             <asp:ListItem>PT移動力増加し、自身が再行動</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇</asp:ListItem>
+            <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、回復</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tに攻撃力上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+            <asp:ListItem>イロモノ系</asp:ListItem>
+            <asp:ListItem>召喚獣攻撃指令</asp:ListItem>
+            <asp:ListItem>変身サブアビ</asp:ListItem>
             <asp:ListItem>その他(MAP画面スキル)</asp:ListItem>
             <asp:ListItem>MAP画面アビと、攻撃力上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>MAP画面アビと、スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、回避</asp:ListItem>
             <asp:ListItem>MAP画面アビと、移動力増加</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="TextBox50012" runat="server" Width="100px"></asp:TextBox>
@@ -565,16 +869,54 @@
             <asp:ListItem>斬突魔</asp:ListItem>
             <asp:ListItem>打突魔</asp:ListItem>
             <asp:ListItem>超反撃</asp:ListItem>
+            <asp:ListItem>敵の数増加</asp:ListItem>
             <asp:ListItem>敵の数減少</asp:ListItem>
+            <asp:ListItem>PTメンバー数で</asp:ListItem>
+            <asp:ListItem>スキルLVで</asp:ListItem>
             <asp:ListItem Value="追撃1">追撃1:単体</asp:ListItem>
             <asp:ListItem Value="追撃2">追撃2:全体</asp:ListItem>
             <asp:ListItem Value="追撃3">追撃3:単体と全体</asp:ListItem>
             <asp:ListItem Value="追撃4">追撃4:PT全体に単体20%付与</asp:ListItem>
             <asp:ListItem>25</asp:ListItem>
             <asp:ListItem>ガッツ付与1回</asp:ListItem>
+            <asp:ListItem>2ターン</asp:ListItem>
             <asp:ListItem>3ターン</asp:ListItem>
+            <asp:ListItem>4ターン</asp:ListItem>
+            <asp:ListItem>5ターン</asp:ListItem>
+            <asp:ListItem>6ターン</asp:ListItem>
             <asp:ListItem>PT全体</asp:ListItem>
             <asp:ListItem>自身</asp:ListItem>
+            <asp:ListItem>敵1体</asp:ListItem>
+            <asp:ListItem>敵2体</asp:ListItem>
+            <asp:ListItem>敵3体</asp:ListItem>
+            <asp:ListItem>敵全体</asp:ListItem>
+            <asp:ListItem>20%</asp:ListItem>
+            <asp:ListItem>10</asp:ListItem>
+            <asp:ListItem>20</asp:ListItem>
+            <asp:ListItem>25</asp:ListItem>
+            <asp:ListItem>30</asp:ListItem>
+            <asp:ListItem>40</asp:ListItem>
+            <asp:ListItem>50</asp:ListItem>
+            <asp:ListItem>60</asp:ListItem>
+            <asp:ListItem>70</asp:ListItem>
+            <asp:ListItem>80</asp:ListItem>
+            <asp:ListItem>90</asp:ListItem>
+            <asp:ListItem>100</asp:ListItem>
+            <asp:ListItem>150</asp:ListItem>
+            <asp:ListItem>200</asp:ListItem>
+            <asp:ListItem>攻撃20%上昇</asp:ListItem>
+            <asp:ListItem>常時</asp:ListItem>
+            <asp:ListItem>PT全体が常に</asp:ListItem>
+            <asp:ListItem>自身が常に</asp:ListItem>
+            <asp:ListItem>1T目の自身の</asp:ListItem>
+            <asp:ListItem>1T目の攻撃50%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃70%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃100%上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビ</asp:ListItem>
+            <asp:ListItem>召喚</asp:ListItem>
+            <asp:ListItem>変身</asp:ListItem>
+            <asp:ListItem>アビ1</asp:ListItem>
+            <asp:ListItem>アビ2</asp:ListItem>
         </asp:DropDownList>
         <p>
             アビリティ4</p>
@@ -593,20 +935,40 @@
             <asp:ListItem>3</asp:ListItem>
             <asp:ListItem>4</asp:ListItem>
         </asp:DropDownList>
+        <asp:DropDownList ID="A4NO2" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="A4NO3" runat="server">
+            <asp:ListItem Value="0">無し</asp:ListItem>
+            <asp:ListItem Value="5">PT全体</asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+        </asp:DropDownList>
         <asp:DropDownList ID="DropDownList50015" runat="server">
             <asp:ListItem>攻撃力上昇</asp:ListItem>
             <asp:ListItem>敵の数で攻撃力上昇</asp:ListItem>
-           <asp:ListItem>ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>ターンで攻撃力とダメージ上昇</asp:ListItem>
             <asp:ListItem>スキルLVで攻撃力上昇</asp:ListItem>
             <asp:ListItem>残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>残りHPで攻撃力とクリダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇ターンでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇1T目さらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇HP割合ダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、残HPでさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自信を含む3人がさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵の数でさらに上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、属性種類数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、PTメンバー数でさらに上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
@@ -617,70 +979,113 @@
             <asp:ListItem>攻撃力上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、敵全体の防御力低下</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、敵3体が攻撃ミス</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、回避</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、再行動</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ダメージ無効</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、移動力追加</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、ソラ効果上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、ソラ発動毎に更に上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、追撃</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>攻撃力上昇し、自身のHP回復(効果値はEx2)</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>攻撃力上昇し、スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>属性種類数により攻撃力上昇</asp:ListItem>
             <asp:ListItem>防御力に応じて攻撃力上昇</asp:ListItem>
             <asp:ListItem>PTメンバーの数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>ダメージ上昇</asp:ListItem>
+            <asp:ListItem>ダメージ上昇し自身が更に上昇</asp:ListItem>
             <asp:ListItem>ターン毎ダメージ上昇</asp:ListItem>
             <asp:ListItem>HP割合ダメ上昇率</asp:ListItem>
+            <asp:ListItem>残りHPでダメ上昇</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加</asp:ListItem>
+            <asp:ListItem>弱点属性の敵に対するダメージ増加し、自身が更に増加</asp:ListItem>
             <asp:ListItem>弱点属性の敵に対するダメージ増加し、スキル発動率上昇</asp:ListItem>
-            <asp:ListItem>移動力を攻撃力に追加</asp:ListItem>
             <asp:ListItem>防御ダメ軽減率上昇</asp:ListItem>
+            <asp:ListItem>ガッツ付与</asp:ListItem>
+            <asp:ListItem>ガッツ付与し、再行動</asp:ListItem>
             <asp:ListItem>クリ率上昇</asp:ListItem>
+            <asp:ListItem>クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇</asp:ListItem>
             <asp:ListItem>クリダメ上昇し自身がさらに上昇</asp:ListItem>
             <asp:ListItem>クリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身が再行動</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇</asp:ListItem>
+            <asp:ListItem>クリ率クリダメ上昇しさらに自身のクリダメ上昇</asp:ListItem>
             <asp:ListItem>クリ率上昇さらに自身のクリ率とダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ターンで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、ダメージ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率1T目と3T目</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、さらに1T目上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身のスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、光ゲージ充填</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキル発動率上昇し、敵全体の攻撃力低下</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
+            <asp:ListItem>スキル発動後3ターンの間、スキル発動率上昇し再行動</asp:ListItem>
             <asp:ListItem>スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>自身と同属性のPTメンバーのスキルダメ上昇</asp:ListItem>
             <asp:ListItem>PTと自身スキルダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、弱点属性の敵に対するダメ上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>スキルダメ上昇し、ダメ無効</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、再行動</asp:ListItem>
+            <asp:ListItem>スキルダメ上昇し、攻撃力低下</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇</asp:ListItem>
             <asp:ListItem>対ボスダメ上昇自身のボスダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、敵の数で攻撃力上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、HP割合でダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボスダメ上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身が更に上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力上昇し、自身を含む2人がさらに上昇</asp:ListItem>
             <asp:ListItem>対ボス攻撃力ダメ上昇</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、光ゲージ充填</asp:ListItem>
+            <asp:ListItem>対ボス攻撃力上昇し、シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem Value="再行動">自身が再行動</asp:ListItem>
             <asp:ListItem>自身が再行動し、シャイクリ泥率上昇</asp:ListItem>
+            <asp:ListItem>自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>PTに再行動付与</asp:ListItem>
             <asp:ListItem>回避</asp:ListItem>
             <asp:ListItem>回避し、残りHPで攻撃力上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキル発動率上昇</asp:ListItem>
+            <asp:ListItem>回避し、スキルダメ上昇</asp:ListItem>
             <asp:ListItem>回避し、反撃</asp:ListItem>
             <asp:ListItem>回避し、敵3体が攻撃ミス</asp:ListItem>
+            <asp:ListItem>回避し、再行動</asp:ListItem>
+            <asp:ListItem>回避付与</asp:ListItem>
+            <asp:ListItem>回避付与し、回避</asp:ListItem>
+            <asp:ListItem>回避3回成功後、攻撃力、回避、再行動率上昇</asp:ListItem>
+            <asp:ListItem>回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇</asp:ListItem>
             <asp:ListItem>迎撃</asp:ListItem>
             <asp:ListItem>反撃</asp:ListItem>
             <asp:ListItem>追撃</asp:ListItem>
             <asp:ListItem>追撃し、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、スキルLVでスキル発動率上昇</asp:ListItem>
             <asp:ListItem>追撃し、自身が再行動</asp:ListItem>
+            <asp:ListItem>追撃付与</asp:ListItem>
             <asp:ListItem>PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇</asp:ListItem>
             <asp:ListItem>光ゲージ充填</asp:ListItem>
@@ -690,11 +1095,17 @@
             <asp:ListItem>ソラ効果シャイクリ泥率上昇</asp:ListItem>
             <asp:ListItem>ソラ効果光ゲージ充填上昇</asp:ListItem>
             <asp:ListItem>ソラ効果上昇し自身が再行動</asp:ListItem>
+            <asp:ListItem>ソラ効果上昇しソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎に攻撃力上昇</asp:ListItem>
             <asp:ListItem>ソラ発動毎にダメ上昇</asp:ListItem>
+            <asp:ListItem>ソラ発動毎に防御力上昇</asp:ListItem>
             <asp:ListItem>ダメ無効</asp:ListItem>
             <asp:ListItem>攻撃力低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、スキル発動率低下</asp:ListItem>
+            <asp:ListItem>攻撃力低下し、攻撃ミス</asp:ListItem>
+            <asp:ListItem>ターン毎に攻撃力低下</asp:ListItem>
             <asp:ListItem>防御力低下</asp:ListItem>
+            <asp:ListItem>攻撃力と防御力低下</asp:ListItem>
             <asp:ListItem>スキル発動率低下</asp:ListItem>
             <asp:ListItem>攻撃ミス</asp:ListItem>
             <asp:ListItem>ターン毎に行動回数減</asp:ListItem>
@@ -707,11 +1118,18 @@
             <asp:ListItem>PT移動力増加し、自身が再行動</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇</asp:ListItem>
+            <asp:ListItem>自身が攻撃を受けた次Tにスキル発動率上昇し、回復</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tに攻撃力上昇</asp:ListItem>
             <asp:ListItem>自身が攻撃を受けた次Tにダメ上昇</asp:ListItem>
+            <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+            <asp:ListItem>イロモノ系</asp:ListItem>
+            <asp:ListItem>召喚獣攻撃指令</asp:ListItem>
+            <asp:ListItem>変身サブアビ</asp:ListItem>
             <asp:ListItem>その他(MAP画面スキル)</asp:ListItem>
             <asp:ListItem>MAP画面アビと、攻撃力上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、スキル発動率上昇</asp:ListItem>
             <asp:ListItem>MAP画面アビと、スキルダメ上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビと、回避</asp:ListItem>
             <asp:ListItem>MAP画面アビと、移動力増加</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="TextBox50014" runat="server" Width="100px"></asp:TextBox>
@@ -733,16 +1151,54 @@
             <asp:ListItem>斬突魔</asp:ListItem>
             <asp:ListItem>打突魔</asp:ListItem>
             <asp:ListItem>超反撃</asp:ListItem>
+            <asp:ListItem>敵の数増加</asp:ListItem>
             <asp:ListItem>敵の数減少</asp:ListItem>
+            <asp:ListItem>PTメンバー数で</asp:ListItem>
+            <asp:ListItem>スキルLVで</asp:ListItem>
             <asp:ListItem Value="追撃1">追撃1:単体</asp:ListItem>
             <asp:ListItem Value="追撃2">追撃2:全体</asp:ListItem>
             <asp:ListItem Value="追撃3">追撃3:単体と全体</asp:ListItem>
             <asp:ListItem Value="追撃4">追撃4:PT全体に単体20%付与</asp:ListItem>
             <asp:ListItem>25</asp:ListItem>
             <asp:ListItem>ガッツ付与1回</asp:ListItem>
+            <asp:ListItem>2ターン</asp:ListItem>
             <asp:ListItem>3ターン</asp:ListItem>
+            <asp:ListItem>4ターン</asp:ListItem>
+            <asp:ListItem>5ターン</asp:ListItem>
+            <asp:ListItem>6ターン</asp:ListItem>
             <asp:ListItem>PT全体</asp:ListItem>
             <asp:ListItem>自身</asp:ListItem>
+            <asp:ListItem>敵1体</asp:ListItem>
+            <asp:ListItem>敵2体</asp:ListItem>
+            <asp:ListItem>敵3体</asp:ListItem>
+            <asp:ListItem>敵全体</asp:ListItem>
+            <asp:ListItem>20%</asp:ListItem>
+            <asp:ListItem>10</asp:ListItem>
+            <asp:ListItem>20</asp:ListItem>
+            <asp:ListItem>25</asp:ListItem>
+            <asp:ListItem>30</asp:ListItem>
+            <asp:ListItem>40</asp:ListItem>
+            <asp:ListItem>50</asp:ListItem>
+            <asp:ListItem>60</asp:ListItem>
+            <asp:ListItem>70</asp:ListItem>
+            <asp:ListItem>80</asp:ListItem>
+            <asp:ListItem>90</asp:ListItem>
+            <asp:ListItem>100</asp:ListItem>
+            <asp:ListItem>150</asp:ListItem>
+            <asp:ListItem>200</asp:ListItem>
+            <asp:ListItem>攻撃20%上昇</asp:ListItem>
+            <asp:ListItem>常時</asp:ListItem>
+            <asp:ListItem>PT全体が常に</asp:ListItem>
+            <asp:ListItem>自身が常に</asp:ListItem>
+            <asp:ListItem>1T目の自身の</asp:ListItem>
+            <asp:ListItem>1T目の攻撃50%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃70%上昇</asp:ListItem>
+            <asp:ListItem>1T目の攻撃100%上昇</asp:ListItem>
+            <asp:ListItem>MAP画面アビ</asp:ListItem>
+            <asp:ListItem>召喚</asp:ListItem>
+            <asp:ListItem>変身</asp:ListItem>
+            <asp:ListItem>アビ1</asp:ListItem>
+            <asp:ListItem>アビ2</asp:ListItem>
         </asp:DropDownList>
         <p>
             <asp:CheckBox ID="CheckBox50001" runat="server" Text="編集モード" />
@@ -750,5 +1206,15 @@
             　　　　　　　　　<asp:Button ID="Button50002" runat="server" Height="75px" OnClick="Button50002_Click" Text="入力クリア" Width="200px" />
             <a href="#DBtop">△</a>
         </p>
+        <%--<iframe id="if1"
+            title="Inline Frame Example"
+            width="1200"
+            height="800"
+            src="https://twitter.com/home?lang=ja">
+        </iframe>--%>
+        <object data="https://twitter.com/home?lang=ja" width="900" height="600"></object>
+        <%--<a class="twitter-timeline" href="https://twitter.com/chiyokanemaru?ref_src=twsrc%5Etfw">Tweets by chiyokanemaru</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>--%>
+
     </div>
 </asp:Content>

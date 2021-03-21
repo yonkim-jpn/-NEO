@@ -768,6 +768,24 @@ $(function () {
         mouseCount++;
     });
 
+    //50音インデックス処理
+    $('#MainContent_RadioButtonList2006').change(function () {
+        FkgIndex("1");
+    });
+    $('#MainContent_RadioButtonList2007').change(function () {
+        FkgIndex("2");
+    });
+    $('#MainContent_RadioButtonList2008').change(function () {
+        FkgIndex("3");
+    });
+    $('#MainContent_RadioButtonList2009').change(function () {
+        FkgIndex("4");
+    });
+    $('#MainContent_RadioButtonList2010').change(function () {
+        FkgIndex("5");
+    });
+
+
 
     ////////////////////////////////////////////////////
     //おまけ
@@ -1463,8 +1481,6 @@ function ActivateTextBox(number) {
         case "クリティカル率上昇（PT全体対象）":
         case "クリティカルダメージ増加（PT全体対象）":
         case "再行動":
-        case "攻撃力低下":
-        case "スキル発動率低下":
             {
             $(objectTextbox).prop("disabled", false);
             break;
@@ -1703,7 +1719,18 @@ function ShortText(originalText, count) {
             if (versionStr.indexOf("憧れの青春想う教育係") != -1) {
                 versionStr = versionStr.replace("憧れの青春想う教育係", "憧れ");
             }
-
+            if (versionStr.indexOf("夢語る花の聖女") != -1) {
+                versionStr = versionStr.replace("夢語る花の聖女", "聖女");
+            }
+            if (versionStr.indexOf("希望の母なる愛") != -1) {
+                versionStr = versionStr.replace("希望の母なる愛", "希望");
+            }
+            if (versionStr.indexOf("希望の若き騎士") != -1) {
+                versionStr = versionStr.replace("希望の若き騎士", "希望");
+            }
+            if (versionStr.indexOf("希望の新星の副議長") != -1) {
+                versionStr = versionStr.replace("希望の新星の副議長", "希望");
+            }
             //括弧を全角→半角に変換
             versionStr = versionStr.replace("（", "(");
             versionStr = versionStr.replace("）", ")");
@@ -2020,7 +2047,54 @@ function GetRegisteredData() {
     return returnData;
 }
 
-
+//インデックス処理
+function FkgIndex(orden) {
+    switch (orden) {
+        case "1":
+            var index50 = $("input[name='ctl00$MainContent$RadioButtonList2006']:checked").val();
+            break;
+        case "2":
+            index50 = $("input[name='ctl00$MainContent$RadioButtonList2007']:checked").val();
+            break;
+        case "3":
+            index50 = $("input[name='ctl00$MainContent$RadioButtonList2008']:checked").val();
+            break;
+        case "4":
+            index50 = $("input[name='ctl00$MainContent$RadioButtonList2009']:checked").val();
+            break;
+        case "5":
+            index50 = $("input[name='ctl00$MainContent$RadioButtonList2010']:checked").val();
+            break;
+    }
+        var fkgMember = [];
+    var fkgName = GetFkgName();
+    var selectIndex = 0;
+    //ラジオボタンのチェック文字との大小判定
+    $.each(fkgName, function (index, value) {
+        if (value.innerText > index50) {
+            selectIndex = index;
+            return false;
+        }
+    });
+    //設定
+    switch(orden){
+        case "1":
+            $("#MainContent_DropDownList2001").prop("selectedIndex", selectIndex);
+            break;
+        case "2":
+            $("#MainContent_DropDownList2002").prop("selectedIndex", selectIndex + 1);
+            break;
+        case "3":
+            $("#MainContent_DropDownList2003").prop("selectedIndex", selectIndex + 1);
+            break;
+        case "4":
+            $("#MainContent_DropDownList2004").prop("selectedIndex", selectIndex + 1);
+            break;
+        case "5":
+            $("#MainContent_DropDownList2005").prop("selectedIndex", selectIndex + 1);
+            break;
+    }
+}
 
 //grid作成
 function MakeGrid()

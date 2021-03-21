@@ -99,16 +99,20 @@
                                     <asp:ListItem>ダメージ増加</asp:ListItem>
                                     <asp:ListItem>ターン毎ダメージ増加</asp:ListItem>
                                     <asp:ListItem>回避</asp:ListItem>
+                                    <asp:ListItem>回避付与</asp:ListItem>
                                     <asp:ListItem>迎撃</asp:ListItem>
                                     <asp:ListItem>反撃</asp:ListItem>
                                     <asp:ListItem>反撃（超反撃有）</asp:ListItem>
                                     <asp:ListItem>再行動</asp:ListItem>
+                                    <asp:ListItem>再行動付与</asp:ListItem>
                                     <asp:ListItem>防御力・ダメージ軽減率上昇</asp:ListItem>
                                     <asp:ListItem>攻撃力低下</asp:ListItem>
+                                    <asp:ListItem>防御力低下</asp:ListItem>
                                     <asp:ListItem>スキル発動率低下</asp:ListItem>
                                     <asp:ListItem>命中率低下</asp:ListItem>                                
                                     <asp:ListItem>行動回数減少</asp:ListItem>
                                     <asp:ListItem>追撃</asp:ListItem>
+                                    <asp:ListItem>追撃付与</asp:ListItem>
                                     <asp:ListItem>ダメージ無効化</asp:ListItem>
                                     <asp:ListItem>属性付与</asp:ListItem>
                                     <asp:ListItem>弱点属性ダメ増加</asp:ListItem>
@@ -117,6 +121,9 @@
                                     <asp:ListItem>シャインクリスタルドロップ率上昇</asp:ListItem>
                                     <asp:ListItem>光ゲージ充填</asp:ListItem>
                                     <asp:ListItem>移動力増加</asp:ListItem>
+                                    <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+                                    <asp:ListItem>イロモノ系</asp:ListItem>
+                                    <asp:ListItem>イロモノサブアビ</asp:ListItem>
                                     <asp:ListItem>1ターン目系</asp:ListItem>
                                     <asp:ListItem>スキル：全体</asp:ListItem>
                                     <asp:ListItem>スキル：2体</asp:ListItem>
@@ -167,16 +174,20 @@
                                             <asp:ListItem>ダメージ増加</asp:ListItem>
                                             <asp:ListItem>ターン毎ダメージ増加</asp:ListItem>
                                             <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>回避付与</asp:ListItem>
                                             <asp:ListItem>迎撃</asp:ListItem>
                                             <asp:ListItem>反撃</asp:ListItem>
                                             <asp:ListItem>反撃（超反撃有）</asp:ListItem>
                                             <asp:ListItem>再行動</asp:ListItem>
+                                            <asp:ListItem>再行動付与</asp:ListItem>
                                             <asp:ListItem>防御力・ダメージ軽減率上昇</asp:ListItem>
                                             <asp:ListItem>攻撃力低下</asp:ListItem>
+                                            <asp:ListItem>防御力低下</asp:ListItem>
                                             <asp:ListItem>スキル発動率低下</asp:ListItem>
                                             <asp:ListItem>命中率低下</asp:ListItem>                                
                                             <asp:ListItem>行動回数減少</asp:ListItem>
                                             <asp:ListItem>追撃</asp:ListItem>
+                                            <asp:ListItem>追撃付与</asp:ListItem>
                                             <asp:ListItem>ダメージ無効化</asp:ListItem>
                                             <asp:ListItem>属性付与</asp:ListItem>
                                             <asp:ListItem>弱点属性ダメ増加</asp:ListItem>
@@ -185,6 +196,9 @@
                                             <asp:ListItem>シャインクリスタルドロップ率上昇</asp:ListItem>
                                             <asp:ListItem>光ゲージ充填</asp:ListItem>
                                             <asp:ListItem>移動力増加</asp:ListItem>
+                                            <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+                                            <asp:ListItem>イロモノ系</asp:ListItem>
+                                            <asp:ListItem>イロモノサブアビ</asp:ListItem>
                                         </asp:DropDownList>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
@@ -227,16 +241,20 @@
                                             <asp:ListItem>ダメージ増加</asp:ListItem>
                                             <asp:ListItem>ターン毎ダメージ増加</asp:ListItem>
                                             <asp:ListItem>回避</asp:ListItem>
+                                            <asp:ListItem>回避付与</asp:ListItem>
                                             <asp:ListItem>迎撃</asp:ListItem>
                                             <asp:ListItem>反撃</asp:ListItem>
                                             <asp:ListItem>反撃（超反撃有）</asp:ListItem>
                                             <asp:ListItem>再行動</asp:ListItem>
+                                            <asp:ListItem>再行動付与</asp:ListItem>
                                             <asp:ListItem>防御力・ダメージ軽減率上昇</asp:ListItem>
                                             <asp:ListItem>攻撃力低下</asp:ListItem>
+                                            <asp:ListItem>防御力低下</asp:ListItem>
                                             <asp:ListItem>スキル発動率低下</asp:ListItem>
                                             <asp:ListItem>命中率低下</asp:ListItem>                                
                                             <asp:ListItem>行動回数減少</asp:ListItem>
                                             <asp:ListItem>追撃</asp:ListItem>
+                                            <asp:ListItem>追撃付与</asp:ListItem>
                                             <asp:ListItem>ダメージ無効化</asp:ListItem>
                                             <asp:ListItem>属性付与</asp:ListItem>
                                             <asp:ListItem>弱点属性ダメ増加</asp:ListItem>
@@ -245,6 +263,9 @@
                                             <asp:ListItem>シャインクリスタルドロップ率上昇</asp:ListItem>
                                             <asp:ListItem>光ゲージ充填</asp:ListItem>
                                             <asp:ListItem>移動力増加</asp:ListItem>
+                                            <asp:ListItem>スキルにHP吸収付与</asp:ListItem>
+                                            <asp:ListItem>イロモノ系</asp:ListItem>
+                                            <asp:ListItem>イロモノサブアビ</asp:ListItem>
                                         </asp:DropDownList>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>

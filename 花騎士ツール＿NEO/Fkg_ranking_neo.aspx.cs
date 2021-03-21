@@ -321,7 +321,10 @@ namespace 花騎士ツール＿NEO
             if (RadioButtonList5.SelectedItem.Text == "昇順")
             {
                 DataView view1 = new DataView(dt_fkg);
-                view1.Sort = sortKey + " ASC";
+                if((flag == "ID") || (flag == "登録日"))
+                    view1.Sort = sortKey + " ASC";
+                else
+                    view1.Sort = sortKey + " DESC";
                 //最終出力データテーブルに格納する
                 dt_fkg2 = view1.ToTable();
             }

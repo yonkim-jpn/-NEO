@@ -273,6 +273,8 @@
     <Content Include="png\hanekawaon.png" />
     <Content Include="png\hanna.png" />
     <Content Include="png\hannaon.png" />
+    <Content Include="png\haruka.png" />
+    <Content Include="png\harukaon.png" />
     <Content Include="png\hayate.png" />
     <Content Include="png\hayateon.png" />
     <Content Include="png\hikaru.png" />
@@ -299,6 +301,8 @@
     <Content Include="png\irohaon.png" />
     <Content Include="png\iroha_mizugi.png" />
     <Content Include="png\iroha_mizugion.png" />
+    <Content Include="png\iroui.png" />
+    <Content Include="png\irouion.png" />
     <Content Include="png\iroyati.png" />
     <Content Include="png\iroyation.png" />
     <Content Include="png\kaede.png" />
@@ -915,6 +919,8 @@
     <Content Include="png\sigureon.png" />
     <Content Include="png\sinobu.png" />
     <Content Include="png\sinobuon.png" />
+    <Content Include="png\sizuka.png" />
+    <Content Include="png\sizukaon.png" />
     <Content Include="png\sudachi.png" />
     <Content Include="png\sudachion.png" />
     <Content Include="png\sunao.png" />
@@ -926,11 +932,15 @@
     <Content Include="png\tarutofinalon.png" />
     <Content Include="png\tarutoon.png" />
     <Content Include="png\touka.png" />
+    <Content Include="png\toukanemu.png" />
+    <Content Include="png\toukanemuon.png" />
     <Content Include="png\toukaon.png" />
     <Content Include="png\tsukasa.png" />
     <Content Include="png\tsukasaon.png" />
     <Content Include="png\tsukuyo.png" />
     <Content Include="png\tsukuyoon.png" />
+    <Content Include="png\tsuruferi.png" />
+    <Content Include="png\tsuruferion.png" />
     <Content Include="png\tsuruno.png" />
     <Content Include="png\tsurunoon.png" />
     <Content Include="png\tumugi.png" />
@@ -959,6 +969,7 @@
     <Content Include="Scripts\jquery.mCustomScrollbar.min.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.min.js" />
+    <Content Include="Scripts\yonkim_script\chatwork_scraping.js" />
     <Content Include="Scripts\yonkim_script\handler.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -509,6 +509,12 @@ namespace 花騎士ツール＿NEO
             this.RadioButtonList2004.SelectedIndex = 0;
             this.RadioButtonList2005.SelectedIndex = 0;
 
+            this.RadioButtonList2006.SelectedIndex = 0;
+            this.RadioButtonList2007.SelectedIndex = 0;
+            this.RadioButtonList2008.SelectedIndex = 0;
+            this.RadioButtonList2009.SelectedIndex = 0;
+            this.RadioButtonList2010.SelectedIndex = 0;
+
             //デバッグ用登録成功確認窓　必要？
             if (readString != null)
             {

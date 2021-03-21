@@ -225,6 +225,7 @@
                                             <asp:ListItem>マギアダメージUP</asp:ListItem>
                                             <asp:ListItem>ドッペルダメージUP</asp:ListItem>
                                             <asp:ListItem>対魔女ダメージアップ</asp:ListItem>
+                                            <asp:ListItem>Blast攻撃時MP獲得</asp:ListItem>
                                             <asp:ListItem>ダメUP状態</asp:ListItem>
                                             <asp:ListItem>ダメCUT状態</asp:ListItem>
                                             <asp:ListItem>属性ダメCUT状態</asp:ListItem>
@@ -277,6 +278,7 @@
                                             <asp:ListItem>マギアダメージUP</asp:ListItem>
                                             <asp:ListItem>ドッペルダメージUP</asp:ListItem>
                                             <asp:ListItem>対魔女ダメージアップ</asp:ListItem>
+                                            <asp:ListItem>Blast攻撃時MP獲得</asp:ListItem>
                                             <asp:ListItem>ダメUP状態</asp:ListItem>
                                             <asp:ListItem>ダメCUT状態</asp:ListItem>
                                             <asp:ListItem>属性ダメCUT状態</asp:ListItem>

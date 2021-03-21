@@ -31,11 +31,11 @@ namespace 花騎士ツール＿NEO
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Button9.Click += new EventHandler(this.Button1_Click);
-            Button9.Click += new EventHandler(this.Button2_Click);
-            Button9.Click += new EventHandler(this.Button3_Click);
-            Button9.Click += new EventHandler(this.Button4_Click);
-            Button9.Click += new EventHandler(this.Button5_Click);
+            //Button9.Click += new EventHandler(this.Button1_Click);
+            //Button9.Click += new EventHandler(this.Button2_Click);
+            //Button9.Click += new EventHandler(this.Button3_Click);
+            //Button9.Click += new EventHandler(this.Button4_Click);
+            //Button9.Click += new EventHandler(this.Button5_Click);
         }
 
         
@@ -2655,7 +2655,7 @@ namespace 花騎士ツール＿NEO
                 {
                     if(dt_in.Rows[i]["id"].ToString() == cookieFkg[j,0])
                     {
-                        dt_in.Rows[i]["Name"] = "#" + dt_in.Rows[i]["Name"].ToString();
+                        dt_in.Rows[i]["Name"] = "<span class=\"fkg-value\">" + dt_in.Rows[i]["Name"].ToString() + "</span>";
 
                         try
                         {

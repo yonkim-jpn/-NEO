@@ -16,99 +16,182 @@
                 <asp:Label ID="Label2103" runat="server" Text="0人"></asp:Label>
             </div>
             <div class="col-xs-12">
-                <div class="form-group">
-                    <h4>花騎士名1</h4>
+                <h4>花騎士名1</h4>
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2006" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="ア">あ</asp:ListItem>
+                            <asp:ListItem Value="カ">か</asp:ListItem>
+                            <asp:ListItem Value="サ">さ</asp:ListItem>
+                            <asp:ListItem Value="タ">た</asp:ListItem>
+                            <asp:ListItem Value="ナ">な</asp:ListItem>
+                            <asp:ListItem Value="ハ">は</asp:ListItem>
+                            <asp:ListItem Value="マ">ま</asp:ListItem>
+                            <asp:ListItem Value="ヤ">や</asp:ListItem>
+                            <asp:ListItem Value="ラ">ら</asp:ListItem>
+                            <asp:ListItem Value="ワ">わ</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
                     <asp:DropDownList ID="DropDownList2001" runat="server"></asp:DropDownList>
                     <asp:Label ID="Label2001" runat="server" ForeColor="Red"></asp:Label>
                     <asp:HiddenField ID="HiddenValue1" runat="server" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <asp:RadioButtonList ID="RadioButtonList2001" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
-                        <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
-                        <asp:ListItem Value="3">Skil LV3</asp:ListItem>
-                        <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
-                        <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
-                    </asp:RadioButtonList>
-                </div>
-                
-            </div>
-
-            <div class="col-xs-12">
-                <div class="form-group">
-                    <h4>花騎士名2</h4>
-                    <asp:DropDownList ID="DropDownList2002" runat="server"></asp:DropDownList>
-                    <asp:Label ID="Label2002" runat="server" ForeColor="Red"></asp:Label>
-                    <asp:HiddenField ID="HiddenValue2" runat="server" />
-                </div>
-                <div class="form-group">
-                    <asp:RadioButtonList ID="RadioButtonList2002" runat="server" RepeatDirection="Horizontal">
+                <div class="col-xs-12 col-lg-8">
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2001" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
                             <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
                             <asp:ListItem Value="3">Skil LV3</asp:ListItem>
                             <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
                             <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
-                    </asp:RadioButtonList>
+                        </asp:RadioButtonList>
+                    </div>
                 </div>
             </div>
 
             <div class="col-xs-12">
-                <div class="form-group">
-                    <h4>花騎士名3</h4>
-                    <asp:DropDownList ID="DropDownList2003" runat="server"></asp:DropDownList>
-                    
-                    <asp:Label ID="Label2003" runat="server" ForeColor="Red"></asp:Label>
-                    <asp:HiddenField ID="HiddenValue3" runat="server" />
-                    
+                <h4>花騎士名2</h4>
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2007" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="ア">あ</asp:ListItem>
+                            <asp:ListItem Value="カ">か</asp:ListItem>
+                            <asp:ListItem Value="サ">さ</asp:ListItem>
+                            <asp:ListItem Value="タ">た</asp:ListItem>
+                            <asp:ListItem Value="ナ">な</asp:ListItem>
+                            <asp:ListItem Value="ハ">は</asp:ListItem>
+                            <asp:ListItem Value="マ">ま</asp:ListItem>
+                            <asp:ListItem Value="ヤ">や</asp:ListItem>
+                            <asp:ListItem Value="ラ">ら</asp:ListItem>
+                            <asp:ListItem Value="ワ">わ</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <asp:DropDownList ID="DropDownList2002" runat="server"></asp:DropDownList>
+                        <asp:Label ID="Label2002" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="HiddenValue2" runat="server" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <asp:RadioButtonList ID="RadioButtonList2003" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
-                        <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
-                        <asp:ListItem Value="3">Skil LV3</asp:ListItem>
-                        <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
-                        <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
-                    </asp:RadioButtonList>
-                </div>
-            </div>
-
-            <div class="col-xs-12">
-                <div class="form-group">
-                    <h4>花騎士名4</h4>
-                    <asp:DropDownList ID="DropDownList2004" runat="server"></asp:DropDownList>
-                    
-                    <asp:Label ID="Label2004" runat="server" ForeColor="Red"></asp:Label>
-                    <asp:HiddenField ID="HiddenValue4" runat="server" />
-                    
-                </div>
-                <div class="form-group">
-                    <asp:RadioButtonList ID="RadioButtonList2004" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
-                        <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
-                        <asp:ListItem Value="3">Skil LV3</asp:ListItem>
-                        <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
-                        <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
-                    </asp:RadioButtonList>
+                <div class="col-xs-12 col-lg-8">
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2002" runat="server" RepeatDirection="Horizontal">
+                                <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
+                                <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
+                                <asp:ListItem Value="3">Skil LV3</asp:ListItem>
+                                <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
+                                <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
                 </div>
             </div>
 
             <div class="col-xs-12">
-                <div class="form-group">
-                    <h4>花騎士名5</h4>
+                <h4>花騎士名3</h4>
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2008" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="ア">あ</asp:ListItem>
+                            <asp:ListItem Value="カ">か</asp:ListItem>
+                            <asp:ListItem Value="サ">さ</asp:ListItem>
+                            <asp:ListItem Value="タ">た</asp:ListItem>
+                            <asp:ListItem Value="ナ">な</asp:ListItem>
+                            <asp:ListItem Value="ハ">は</asp:ListItem>
+                            <asp:ListItem Value="マ">ま</asp:ListItem>
+                            <asp:ListItem Value="ヤ">や</asp:ListItem>
+                            <asp:ListItem Value="ラ">ら</asp:ListItem>
+                            <asp:ListItem Value="ワ">わ</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <asp:DropDownList ID="DropDownList2003" runat="server"></asp:DropDownList>
+                        <asp:Label ID="Label2003" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="HiddenValue3" runat="server" />
+                    </div>                    
+                </div>          
+                <div class="col-xs-12 col-lg-8">
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2003" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
+                            <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
+                            <asp:ListItem Value="3">Skil LV3</asp:ListItem>
+                            <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
+                            <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <h4>花騎士名4</h4>
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2009" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="ア">あ</asp:ListItem>
+                            <asp:ListItem Value="カ">か</asp:ListItem>
+                            <asp:ListItem Value="サ">さ</asp:ListItem>
+                            <asp:ListItem Value="タ">た</asp:ListItem>
+                            <asp:ListItem Value="ナ">な</asp:ListItem>
+                            <asp:ListItem Value="ハ">は</asp:ListItem>
+                            <asp:ListItem Value="マ">ま</asp:ListItem>
+                            <asp:ListItem Value="ヤ">や</asp:ListItem>
+                            <asp:ListItem Value="ラ">ら</asp:ListItem>
+                            <asp:ListItem Value="ワ">わ</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
+                        <asp:DropDownList ID="DropDownList2004" runat="server"></asp:DropDownList>
+                        <asp:Label ID="Label2004" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:HiddenField ID="HiddenValue4" runat="server" />
+                    </div>
+                </div>       
+                <div class="col-xs-12 col-lg-8">
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2004" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
+                            <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
+                            <asp:ListItem Value="3">Skil LV3</asp:ListItem>
+                            <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
+                            <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <h4>花騎士名5</h4>
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2010" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="ア">あ</asp:ListItem>
+                            <asp:ListItem Value="カ">か</asp:ListItem>
+                            <asp:ListItem Value="サ">さ</asp:ListItem>
+                            <asp:ListItem Value="タ">た</asp:ListItem>
+                            <asp:ListItem Value="ナ">な</asp:ListItem>
+                            <asp:ListItem Value="ハ">は</asp:ListItem>
+                            <asp:ListItem Value="マ">ま</asp:ListItem>
+                            <asp:ListItem Value="ヤ">や</asp:ListItem>
+                            <asp:ListItem Value="ラ">ら</asp:ListItem>
+                            <asp:ListItem Value="ワ">わ</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="form-group">
                     <asp:DropDownList ID="DropDownList2005" runat="server"></asp:DropDownList>
-                    
                     <asp:Label ID="Label2005" runat="server" ForeColor="Red"></asp:Label>
                     <asp:HiddenField ID="HiddenValue5" runat="server" />
-                    
+                    </div>
                 </div>
-                <div class="form-group">
-                    <asp:RadioButtonList ID="RadioButtonList2005" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
-                        <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
-                        <asp:ListItem Value="3">Skil LV3</asp:ListItem>
-                        <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
-                        <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
-                    </asp:RadioButtonList>
+                <div class="col-xs-12 col-lg-8">
+                    <div class="form-group">
+                        <asp:RadioButtonList ID="RadioButtonList2005" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem Selected="True" Value="1">Skil Lv1</asp:ListItem>
+                            <asp:ListItem Value="2">Skil Lv2</asp:ListItem>
+                            <asp:ListItem Value="3">Skil LV3</asp:ListItem>
+                            <asp:ListItem Value="4">Skil Lv4</asp:ListItem>
+                            <asp:ListItem Value="5">Skil Lv5</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </div>
                 </div>
             </div>
         </div>

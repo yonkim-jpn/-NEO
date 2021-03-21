@@ -30,6 +30,9 @@ var yM = [120, 120, 120];
 var mentalEfectoA = new Array(3);//アビ用
 var mentalEfectoS = new Array(3);//スキル用
 
+//Charge消費無しフラグ
+var chargeFree = new Array(3);
+
 //データ出力用配列
 var salida1 = new Array();
 var salida2 = new Array();
@@ -270,7 +273,7 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
             }
         case "C":
             {
-                calcA = 0.8;
+                calcA = 1;
                 break;
             }
     }
@@ -339,22 +342,39 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
     var ratioCori = Number($('#chargePlus').val()) || 0;
     //この溜まったチャージをどこで使うか確認する
     //1回目で使った場合は、二回目以降では使えない
+
+    //charge消費無し設定
+    for(let i = 0;i<3;i++)
+    {
+        chargeFree[i] = 0;
+        if (connectAjustado[i][7] >= 1)
+            chargeFree[i] = 1;
+    }
+    //選択されたキャラ自身がCharge消費無しを持っている場合の処理追加
+
+
     switch (orden) {
         case 2:
             {
-                if (eleccion[0] !== "C")
-                    //すでに使った
+                if (eleccion[0] !== "C"){
+                    if(chargeFree[0] === 0)//charge消費無しじゃない場合
+                    //すでに使ったのでリセット
                     ratioCori = 0;
+                }
                 break;
             }
         case 3:
             {
-                if (eleccion[0] !== "C")
-                    //すでに使った
-                    ratioCori = 0;
-                else if (eleccion[1] !== "C")
-                    //すでに使った
-                    ratioCori = 0;
+                if (eleccion[0] !== "C") {
+                    if (chargeFree[0] === 0)//charge消費無しじゃない場合
+                        //すでに使ったのでリセット
+                        ratioCori = 0;
+                }
+                else if (eleccion[1] !== "C"){
+                if(chargeFree[1] === 0)//charge消費無しじゃない場合
+                //すでに使ったのでリセット
+                ratioCori = 0;
+                }
                 break;
             }
     }
@@ -429,8 +449,10 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
         case 2:
             {
                 if (eleccion[0] !== "C") {
-                    calcC = 1;
-                    cmp = 1;
+                    if (chargeFree[0] === 0) {//charge消費無しじゃない場合
+                        calcC = 1;
+                        cmp = 1;
+                    }
                 }
                 else if(eleccion[1] !== "C")
                     chargeFlag = 1;
@@ -439,8 +461,10 @@ function CalcAjustado(eleccion1, eleccion2, eleccion3, orden) {
         case 3:
             {
                 if (eleccion[1] !== "C") {
-                    calcC = 1;
-                    cmp = 1;
+                    if (chargeFree[1] === 0) {//charge消費無しじゃない場合
+                        calcC = 1;
+                        cmp = 1;
+                    }
                 }
                 else if(eleccion[2] !== "C")
                     chargeFlag = 1;
@@ -905,6 +929,9 @@ function GenerateConnect() {
     connectPosition[0] = connectArray[0].indexOf("無") === -1 ? true : false;
     connectPosition[1] = connectArray[1].indexOf("無") === -1 ? true : false;
     connectPosition[2] = connectArray[2].indexOf("無") === -1 ? true : false;
+
+    //ついでにcharge消費無しについてフラグ取得
+
 
 
     //選択されたキャラの名前部分抜き出し
@@ -2481,6 +2508,7 @@ var connectElegido = [array01,array02,array03];
 // 4:敵状態異常時ダメージUP
 // 5:防御無視
 // 6:月咲にコネクトで攻撃力UP
+// 7:Charge消費無し
 //
 //ダメージ計算に関係無い系
 // 10:AccelMPUP
@@ -2855,20 +2883,26 @@ function draw3() {
                 switch (tipoOrden) {
                     case "ATK":
                         {
-                            // DrawImageText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].ATK);
-                            Draw2ndText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].ATK, Xoffset, Yoffset, canvasFlag);
+                            let text = Number(jsonData.personas[i].ATK);
+                            if ($("#MainContent_espiritu2").prop("checked"))
+                                text += Number(jsonData.personas[i].menteATK);
+                            Draw2ndText(ctx3, charaX[i], charaY, charaR, text, Xoffset, Yoffset, canvasFlag);
                             break;
                         }
                     case "DEF":
                         {
-                            // DrawImageText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].DEF);
-                            Draw2ndText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].DEF, Xoffset, Yoffset, canvasFlag);
+                            let text = Number(jsonData.personas[i].DEF);
+                            if ($("#MainContent_espiritu2").prop("checked"))
+                                text += Number(jsonData.personas[i].menteDEF);
+                            Draw2ndText(ctx3, charaX[i], charaY, charaR, text, Xoffset, Yoffset, canvasFlag);
                             break;
                         }
                     case "HP":
                         {
-                            // DrawImageText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].HP);
-                            Draw2ndText(ctx3, charaX[i], charaY, charaR, jsonData.personas[i].HP, Xoffset, Yoffset, canvasFlag);
+                            let text = Number(jsonData.personas[i].HP);
+                            if ($("#MainContent_espiritu2").prop("checked"))
+                                text += Number(jsonData.personas[i].menteHP);
+                            Draw2ndText(ctx3, charaX[i], charaY, charaR, text, Xoffset, Yoffset, canvasFlag);
                             break;
                         }
                     case "マギア値":
@@ -3573,6 +3607,10 @@ function draw3() {
         if (BusquedaConectiva("月咲にコネクトで攻撃力UP", inputJson, 1)) {
             resultado = BusquedaConectiva("月咲にコネクトで攻撃力UP", inputJson, 1);
             connectElegido[selector][6] = (ChangeRoman(resultado[1]) * 2.5) + 17.5;
+        }
+        if (BusquedaConectiva("Charge消費無し", inputJson, 1)) {
+            resultado = BusquedaConectiva("Charge消費無し", inputJson, 1);
+            connectElegido[selector][7] = 1;
         }
         if (BusquedaConectiva("AcceleMPUP", inputJson, 1)) {
             resultado = BusquedaConectiva("AcceleMPUP", inputJson, 1);
@@ -6135,7 +6173,7 @@ function BusquedaMagia(parabra, value, selector) {
 //selector 1はvalue、2はtarget、3はturnを返す 0は不要な場合
 function BusquedaMskill(parabra, value, selector) {
     var vuelta = [2];
-    var valor = [value.mSkill1, value.mSkill2];
+    var valor = [value.mSkill1, value.mSkill2,value.mSkill3];
     var flagMskill = 0;
     for (let i = 0; i < valor.length; i++) {
         switch (parabra) {
@@ -6312,6 +6350,7 @@ function BusquedaMabi(parabra, value) {
                     switch (valor[i].name) {
                         case "攻撃力UP":
                         case "攻撃力UP＆瀕死時攻撃力UP":
+                        case "攻撃力UP＆防御力UP":
                             {
                                 let s = specialValue === 0 ? valor[i].value1 : "," + valor[i].value1;
                                 normalValue += s;
@@ -6377,6 +6416,7 @@ function BusquedaMabi(parabra, value) {
                                 break;
                             }
                         case "瀕死時防御力UP＆防御力UP":
+                        case "攻撃力UP＆防御力UP":
                             {
                                 let s = specialValue === 0 ? valor[i].value2 : "," + valor[i].value2;
                                 normalValue += s;
@@ -7172,6 +7212,11 @@ function ChangeRoman(roman) {
         case "1回": return 1;
         case "2回": return 2;
         case "3回": return 3;
+        case "1": return 1;
+        case "2": return 2;
+        case "3": return 3;
+        case "4": return 4;
+        case "5": return 5;
         default: return 0;
     }
 }

@@ -210,7 +210,7 @@
                     <div class="form-group">
                         <asp:UpdatePanel ID ="UpdatePanel1" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="Button1" runat="server" Text="花騎士1読込" OnClick="Button1_Click" CssClass="btn-primary"/>
+                                <asp:Button ID="Button1" runat="server" Text="花騎士1読込" OnClick="Button1_Click" CssClass="btn-primary" Enabled="True"/>
                                 <br />    
                                 <br />
                         
@@ -398,7 +398,7 @@
                     <div class="form-group">
                          <asp:UpdatePanel ID ="UpdatePanel2" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="Button2" runat="server" Text="花騎士2読込" OnClick="Button2_Click" CssClass="btn-primary"/>
+                                <asp:Button ID="Button2" runat="server" Text="花騎士2読込" OnClick="Button2_Click" CssClass="btn-primary" Enabled="True"/>
                                 <br />    
                                 <br />
                                 <asp:DropDownList ID="DropDownList6" runat="server" Width="160px">
@@ -582,7 +582,7 @@
                     <div class="form-group">
                         <asp:UpdatePanel ID ="UpdatePanel3" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="Button3" runat="server" Text="花騎士3読込" OnClick="Button3_Click" CssClass="btn-primary"/>
+                                <asp:Button ID="Button3" runat="server" Text="花騎士3読込" OnClick="Button3_Click" CssClass="btn-primary" Enabled="True"/>
                                 <br />    
                                 <br />
                                 <asp:DropDownList ID="DropDownList9" runat="server" Width="160px">
@@ -757,7 +757,7 @@
                     <div class="form-group">
                         <asp:UpdatePanel ID ="UpdatePanel4" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="Button4" runat="server" Text="花騎士4読込" OnClick="Button4_Click" CssClass="btn-primary"/>
+                                <asp:Button ID="Button4" runat="server" Text="花騎士4読込" OnClick="Button4_Click" CssClass="btn-primary" Enabled="True"/>
                                 <br />    
                                 <br />
                                 <asp:DropDownList ID="DropDownList12" runat="server" Width="160px">
@@ -934,7 +934,7 @@
                     <div class="form-group">
                         <asp:UpdatePanel ID ="UpdatePanel5" runat="server">
                             <ContentTemplate>
-                                <asp:Button ID="Button5" runat="server" Text="花騎士5読込" OnClick="Button5_Click" CssClass="btn-primary"/>
+                                <asp:Button ID="Button5" runat="server" Text="花騎士5読込" OnClick="Button5_Click" CssClass="btn-primary" Enabled="True"/>
                                 <br />    
                                 <br />    
                                 <asp:DropDownList ID="DropDownList15" runat="server" Width="160px">

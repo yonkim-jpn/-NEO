@@ -195,6 +195,24 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList DropDownList50003;
 
         /// <summary>
+        /// A1NO2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A1NO2;
+
+        /// <summary>
+        /// A1NO3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A1NO3;
+
+        /// <summary>
         /// DropDownList50004 コントロール。
         /// </summary>
         /// <remarks>
@@ -247,6 +265,24 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList50008;
+
+        /// <summary>
+        /// A2NO2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A2NO2;
+
+        /// <summary>
+        /// A2NO3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A2NO3;
 
         /// <summary>
         /// DropDownList50009 コントロール。
@@ -303,6 +339,24 @@ namespace 花騎士ツール＿NEO
         protected global::System.Web.UI.WebControls.DropDownList DropDownList50011;
 
         /// <summary>
+        /// A3NO2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A3NO2;
+
+        /// <summary>
+        /// A3NO3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A3NO3;
+
+        /// <summary>
         /// DropDownList50012 コントロール。
         /// </summary>
         /// <remarks>
@@ -355,6 +409,24 @@ namespace 花騎士ツール＿NEO
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList50014;
+
+        /// <summary>
+        /// A4NO2 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A4NO2;
+
+        /// <summary>
+        /// A4NO3 コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList A4NO3;
 
         /// <summary>
         /// DropDownList50015 コントロール。

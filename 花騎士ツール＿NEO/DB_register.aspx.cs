@@ -85,6 +85,15 @@ namespace 花騎士ツール＿NEO
             this.TextBox50014.Text = "";
             this.TextBox50015.Text = "";
             this.DropDownList50024.SelectedIndex = 0;
+
+            this.A1NO2.SelectedIndex = 0;
+            this.A1NO3.SelectedIndex = 0;
+            this.A2NO2.SelectedIndex = 0;
+            this.A2NO3.SelectedIndex = 0;
+            this.A3NO2.SelectedIndex = 0;
+            this.A3NO3.SelectedIndex = 0;
+            this.A4NO2.SelectedIndex = 0;
+            this.A4NO3.SelectedIndex = 0;
         }
 
         protected void Button50001_Click(object sender, EventArgs e)
@@ -99,30 +108,33 @@ namespace 花騎士ツール＿NEO
                 //特殊処理 防御選択時、小数がＤＢ内に入力されるため、値を十倍して入力する
                 double diffValue = 0;
                 string diff = "防御ダメ軽減率上昇";
-                if ((this.DropDownList50004.Text == diff) | (this.DropDownList50009.Text == diff) | (this.DropDownList50012.Text == diff) | (this.DropDownList50015.Text == diff))
+                string diff_add = "攻撃力上昇し、防御ダメ軽減率上昇";
+                if ((this.DropDownList50004.Text == diff) | (this.DropDownList50009.Text == diff) | (this.DropDownList50012.Text == diff) | (this.DropDownList50015.Text == diff)
+                    |(this.DropDownList50004.Text == diff_add) | (this.DropDownList50009.Text == diff_add) | (this.DropDownList50012.Text == diff_add) | (this.DropDownList50015.Text == diff_add)
+                    )
                 {
-                    if (this.DropDownList50004.Text == diff)
+                    if ((this.DropDownList50004.Text == diff)| (this.DropDownList50004.Text == diff_add))
                     {
                         diffValue = Convert.ToDouble(TextBox50009.Text);
                         diffValue *= 10;
                         TextBox50009.Text = diffValue.ToString();
                     }
 
-                    if (this.DropDownList50009.Text == diff)
+                    if ((this.DropDownList50009.Text == diff)| (this.DropDownList50009.Text == diff_add))
                     {
                         diffValue = Convert.ToDouble(TextBox50011.Text);
                         diffValue *= 10;
                         TextBox50011.Text = diffValue.ToString();
                     }
 
-                    if (this.DropDownList50012.Text == diff)
+                    if ((this.DropDownList50012.Text == diff)| (this.DropDownList50012.Text == diff_add))
                     {
                         diffValue = Convert.ToDouble(TextBox50013.Text);
                         diffValue *= 10;
                         TextBox50013.Text = diffValue.ToString();
                     }
 
-                    if (this.DropDownList50015.Text == diff)
+                    if ((this.DropDownList50015.Text == diff)| (this.DropDownList50015.Text == diff_add))
                     {
                         diffValue = Convert.ToDouble(TextBox50015.Text);
                         diffValue *= 10;
@@ -195,16 +207,16 @@ namespace 花騎士ツール＿NEO
                     cn.Open();
                     cmd.Connection = cn;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO [dbo].[Fkgmbr] (Id, Name, Rarity, ATT, Unit, HP, ATK, DEF, MOV, STP, STPMax, ANum, SType, SRatio, A1st1, A1NO, A1Ex1, A1V1, A1V2, A1Ex2, A2st1, A2NO, A2Ex1, A2V1, A2V2, A2Ex2, A3st1, A3NO, A3Ex1, A3V1, A3V2, A3Ex2, A4st1, A4NO, A4Ex1, A4V1, A4V2, A4Ex2, Date) VALUES(" +
+                    cmd.CommandText = "INSERT INTO [dbo].[Fkgmbr] (Id, Name, Rarity, ATT, Unit, HP, ATK, DEF, MOV, STP, STPMax, ANum, SType, SRatio, A1st1, A1NO, A1NO2, A1NO3, A1Ex1, A1V1, A1V2, A1Ex2, A2st1, A2NO, A2NO2, A2NO3, A2Ex1, A2V1, A2V2, A2Ex2, A3st1, A3NO, A3NO2, A3NO3, A3Ex1, A3V1, A3V2, A3Ex2, A4st1, A4NO, A4NO2, A4NO3, A4Ex1, A4V1, A4V2, A4Ex2, Date) VALUES(" +
                                        "'" + TextBox50001.Text + "'," + "N'" + TextBox50002.Text + "'," +
                                        "'" + DropDownList50001.Text + "'," + "N'" + DropDownList50005.Text + "'," + "N'" + DropDownList50006.Text + "'," +
                                        "'" + TextBox50003.Text + "'," + "'" + TextBox50004.Text + "'," + "'" + TextBox50005.Text + "'," + "'" + TextBox50006.Text + "'," +
                                        "'" + TextBox50007.Text + "'," + "'" + TextBox50016.Text + "'," + "'" + DropDownList50016.Text + "'," +
                                        "N'" + DropDownList50017.Text + "'," + "'" + TextBox50017.Text + "'," +
-                                       "'" + DropDownList50002.SelectedValue + "'," + "'" + DropDownList50003.SelectedValue + "'," + "N'" + DropDownList50004.Text + "'," + "'" + TextBox50008.Text + "'," + "'" + TextBox50009.Text + "'," + "N'" + DropDownList50021.Text + "'," +
-                                       "'" + DropDownList50007.SelectedValue + "'," + "'" + DropDownList50008.SelectedValue + "'," + "N'" + DropDownList50009.Text + "'," + "'" + TextBox50010.Text + "'," + "'" + TextBox50011.Text + "'," + "N'" + DropDownList50022.Text + "'," +
-                                       "'" + DropDownList50010.SelectedValue + "'," + "'" + DropDownList50011.SelectedValue + "'," + "N'" + DropDownList50012.Text + "'," + "'" + TextBox50012.Text + "'," + "'" + TextBox50013.Text + "'," + "N'" + DropDownList50023.Text + "'," +
-                                       "'" + DropDownList50013.SelectedValue + "'," + "'" + DropDownList50014.SelectedValue + "'," + "N'" + DropDownList50015.Text + "'," + "'" + TextBox50014.Text + "'," + "'" + TextBox50015.Text + "'," + "N'" + DropDownList50024.Text + "'," +
+                                       "'" + DropDownList50002.SelectedValue + "'," + "'" + DropDownList50003.SelectedValue + "'," + "'" + A1NO2.SelectedValue + "'," + "'" + A1NO3.SelectedValue + "'," + "N'" + DropDownList50004.Text + "'," + "'" + TextBox50008.Text + "'," + "'" + TextBox50009.Text + "'," + "N'" + DropDownList50021.Text + "'," +
+                                       "'" + DropDownList50007.SelectedValue + "'," + "'" + DropDownList50008.SelectedValue + "'," + "'" + A2NO2.SelectedValue + "'," + "'" + A2NO3.SelectedValue + "'," + "N'" + DropDownList50009.Text + "'," + "'" + TextBox50010.Text + "'," + "'" + TextBox50011.Text + "'," + "N'" + DropDownList50022.Text + "'," +
+                                       "'" + DropDownList50010.SelectedValue + "'," + "'" + DropDownList50011.SelectedValue + "'," + "'" + A3NO2.SelectedValue + "'," + "'" + A3NO3.SelectedValue + "'," + "N'" + DropDownList50012.Text + "'," + "'" + TextBox50012.Text + "'," + "'" + TextBox50013.Text + "'," + "N'" + DropDownList50023.Text + "'," +
+                                       "'" + DropDownList50013.SelectedValue + "'," + "'" + DropDownList50014.SelectedValue + "'," + "'" + A4NO2.SelectedValue + "'," + "'" + A4NO3.SelectedValue + "'," + "N'" + DropDownList50015.Text + "'," + "'" + TextBox50014.Text + "'," + "'" + TextBox50015.Text + "'," + "N'" + DropDownList50024.Text + "'," +
                                        "'" + DateTime.Now + "')";
                     rd = cmd.ExecuteReader();
                     rd.Close();
@@ -248,35 +260,38 @@ namespace 花騎士ツール＿NEO
                     //特殊処理 防御選択時、小数がＤＢ内に入力されるため、値を十倍して入力する
                     double diffValue = 0;
                     string diff = "防御ダメ軽減率上昇";
+                    string diff_add = "攻撃力上昇し、防御ダメ軽減率上昇";
                     string text50009 = TextBox50009.Text;
                     string text50011 = TextBox50011.Text;
                     string text50013 = TextBox50013.Text;
                     string text50015 = TextBox50015.Text;
 
-                    if ((this.DropDownList50004.Text == diff) | (this.DropDownList50009.Text == diff) | (this.DropDownList50012.Text == diff) | (this.DropDownList50015.Text == diff))
+                    if ((this.DropDownList50004.Text == diff) | (this.DropDownList50009.Text == diff) | (this.DropDownList50012.Text == diff) | (this.DropDownList50015.Text == diff)
+                        | (this.DropDownList50004.Text == diff_add) | (this.DropDownList50009.Text == diff_add) | (this.DropDownList50012.Text == diff_add) | (this.DropDownList50015.Text == diff_add)
+                        )
                     {
-                        if (this.DropDownList50004.Text == diff)
+                        if ((this.DropDownList50004.Text == diff)| (this.DropDownList50004.Text == diff_add))
                         {
                             diffValue = Convert.ToDouble(text50009);
                             diffValue *= 10;
                             text50009 = diffValue.ToString();
                         }
 
-                        if (this.DropDownList50009.Text == diff)
+                        if ((this.DropDownList50009.Text == diff)| (this.DropDownList50009.Text == diff_add))
                         {
                             diffValue = Convert.ToDouble(text50011);
                             diffValue *= 10;
                             text50011 = diffValue.ToString();
                         }
 
-                        if (this.DropDownList50012.Text == diff)
+                        if ((this.DropDownList50012.Text == diff)| (this.DropDownList50012.Text == diff_add))
                         {
                             diffValue = Convert.ToDouble(text50013);
                             diffValue *= 10;
                             text50013 = diffValue.ToString();
                         }
 
-                        if (this.DropDownList50015.Text == diff)
+                        if ((this.DropDownList50015.Text == diff)| (this.DropDownList50015.Text == diff_add))
                         {
                             diffValue = Convert.ToDouble(text50015);
                             diffValue *= 10;
@@ -336,10 +351,10 @@ namespace 花騎士ツール＿NEO
                                        "', HP = '" + TextBox50003.Text + "', ATK = '" + TextBox50004.Text + "', DEF = '" + TextBox50005.Text + "', MOV = '" + TextBox50006.Text +
                                        "', STP = '" + TextBox50007.Text + "', STPMax = '" + TextBox50016.Text + "', ANum = '" + DropDownList50016.Text +
                                        "', SType = N'" + DropDownList50017.Text + "', SRatio = '" + text50017 +
-                                       "', A1st1 = '" + DropDownList50002.SelectedValue + "', A1NO = '" + DropDownList50003.SelectedValue + "', A1Ex1 = N'" + DropDownList50004.Text + "', A1V1 = '" + TextBox50008.Text + "', A1V2 = '" + text50009 + "', A1Ex2 = N'" + DropDownList50021.Text +
-                                       "', A2st1 = '" + DropDownList50007.SelectedValue + "', A2NO = '" + DropDownList50008.SelectedValue + "', A2Ex1 = N'" + DropDownList50009.Text + "', A2V1 = '" + TextBox50010.Text + "', A2V2 = '" + text50011 + "', A2Ex2 = N'" + DropDownList50022.Text +
-                                       "', A3st1 = '" + DropDownList50010.SelectedValue + "', A3NO = '" + DropDownList50011.SelectedValue + "', A3Ex1 = N'" + DropDownList50012.Text + "', A3V1 = '" + TextBox50012.Text + "', A3V2 = '" + text50013 + "', A3Ex2 = N'" + DropDownList50023.Text +
-                                       "', A4st1 = '" + DropDownList50013.SelectedValue + "', A4NO = '" + DropDownList50014.SelectedValue + "', A4Ex1 = N'" + DropDownList50015.Text + "', A4V1 = '" + TextBox50014.Text + "', A4V2 = '" + text50015 + "', A4Ex2 = N'" + DropDownList50024.Text +
+                                       "', A1st1 = '" + DropDownList50002.SelectedValue + "', A1NO = '" + DropDownList50003.SelectedValue + "', A1NO2 = '" + A1NO2.SelectedValue + "', A1NO3 = '" + A1NO3.SelectedValue + "', A1Ex1 = N'" + DropDownList50004.Text + "', A1V1 = '" + TextBox50008.Text + "', A1V2 = '" + text50009 + "', A1Ex2 = N'" + DropDownList50021.Text +
+                                       "', A2st1 = '" + DropDownList50007.SelectedValue + "', A2NO = '" + DropDownList50008.SelectedValue + "', A2NO2 = '" + A2NO2.SelectedValue + "', A2NO3 = '" + A2NO3.SelectedValue + "', A2Ex1 = N'" + DropDownList50009.Text + "', A2V1 = '" + TextBox50010.Text + "', A2V2 = '" + text50011 + "', A2Ex2 = N'" + DropDownList50022.Text +
+                                       "', A3st1 = '" + DropDownList50010.SelectedValue + "', A3NO = '" + DropDownList50011.SelectedValue + "', A3NO2 = '" + A3NO2.SelectedValue + "', A3NO3 = '" + A3NO3.SelectedValue + "', A3Ex1 = N'" + DropDownList50012.Text + "', A3V1 = '" + TextBox50012.Text + "', A3V2 = '" + text50013 + "', A3Ex2 = N'" + DropDownList50023.Text +
+                                       "', A4st1 = '" + DropDownList50013.SelectedValue + "', A4NO = '" + DropDownList50014.SelectedValue + "', A4NO2 = '" + A4NO2.SelectedValue + "', A4NO3 = '" + A4NO3.SelectedValue + "', A4Ex1 = N'" + DropDownList50015.Text + "', A4V1 = '" + TextBox50014.Text + "', A4V2 = '" + text50015 + "', A4Ex2 = N'" + DropDownList50024.Text +
                                        "', Date = '" + DateTime.Now + "' " +
                                        "WHERE Id = '" + TextBox50001.Text + "'";
                     rd = cmd.ExecuteReader();
@@ -428,7 +443,7 @@ namespace 花騎士ツール＿NEO
             }
 
             string get_query = "";
-            get_query = "SELECT Id, Name, Rarity, ATT, Unit, HP, ATK, DEF, MOV, STP, STPMax, SType, SRatio, ANum, A1st1, A1NO, A1Ex1, A1V1, A1V2, A1Ex2, A2st1, A2NO, A2Ex1, A2V1, A2V2, A2Ex2, A3st1, A3NO, A3Ex1, A3V1, A3V2, A3Ex2, A4st1, A4NO, A4Ex1, A4V1, A4V2, A4Ex2 " +
+            get_query = "SELECT Id, Name, Rarity, ATT, Unit, HP, ATK, DEF, MOV, STP, STPMax, SType, SRatio, ANum, A1st1, A1NO, A1NO2, A1NO3, A1Ex1, A1V1, A1V2, A1Ex2, A2st1, A2NO, A2NO2, A2NO3, A2Ex1, A2V1, A2V2, A2Ex2, A3st1, A3NO, A3NO2, A3NO3, A3Ex1, A3V1, A3V2, A3Ex2, A4st1, A4NO, A4NO2, A4NO3, A4Ex1, A4V1, A4V2, A4Ex2 " +
             //"FROM [dbo].[Fkgmbr] WHERE Id =" + mbrid[0] + ", Id =" + mbrid[1] + ", Id =" + mbrid[2] + ", Id =" + mbrid[3] + ", Id =" + mbrid[4];
             "FROM [dbo].[Fkgmbr] WHERE " + partQuery;
 
@@ -475,6 +490,8 @@ namespace 花騎士ツール＿NEO
 
             DropDownList50002.Text = dt_row["A1st1"].ToString();
             DropDownList50003.Text = dt_row["A1NO"].ToString();
+            A1NO2.Text = dt_row["A1NO2"].ToString();
+            A1NO3.Text = dt_row["A1NO3"].ToString();
             DropDownList50004.Text = dt_row["A1Ex1"].ToString();
             TextBox50008.Text = dt_row["A1V1"].ToString();
             TextBox50009.Text = dt_row["A1V2"].ToString();
@@ -482,6 +499,8 @@ namespace 花騎士ツール＿NEO
 
             DropDownList50007.Text = dt_row["A2st1"].ToString();
             DropDownList50008.Text = dt_row["A2NO"].ToString();
+            A2NO2.Text = dt_row["A2NO2"].ToString();
+            A2NO3.Text = dt_row["A2NO3"].ToString();
             DropDownList50009.Text = dt_row["A2Ex1"].ToString();
             TextBox50010.Text = dt_row["A2V1"].ToString();
             TextBox50011.Text = dt_row["A2V2"].ToString();
@@ -489,6 +508,8 @@ namespace 花騎士ツール＿NEO
 
             DropDownList50010.Text = dt_row["A3st1"].ToString();
             DropDownList50011.Text = dt_row["A3NO"].ToString();
+            A3NO2.Text = dt_row["A3NO2"].ToString();
+            A3NO3.Text = dt_row["A3NO3"].ToString();
             DropDownList50012.Text = dt_row["A3Ex1"].ToString();
             TextBox50012.Text = dt_row["A3V1"].ToString();
             TextBox50013.Text = dt_row["A3V2"].ToString();
@@ -496,6 +517,8 @@ namespace 花騎士ツール＿NEO
 
             DropDownList50013.Text = dt_row["A4st1"].ToString();
             DropDownList50014.Text = dt_row["A4NO"].ToString();
+            A4NO2.Text = dt_row["A4NO2"].ToString();
+            A4NO3.Text = dt_row["A4NO3"].ToString();
             DropDownList50015.Text = dt_row["A4Ex1"].ToString();
             TextBox50014.Text = dt_row["A4V1"].ToString();
             TextBox50015.Text = dt_row["A4V2"].ToString();
@@ -505,30 +528,33 @@ namespace 花騎士ツール＿NEO
             //特殊処理 防御選択時、ＤＢ内では小数ではないので、値を1/10にして入力する
             double diffValue = 0;
             string diff = "防御ダメ軽減率上昇";
-            if ((this.DropDownList50004.Text == diff) | (this.DropDownList50009.Text == diff) | (this.DropDownList50012.Text == diff) | (this.DropDownList50015.Text == diff))
+            string diff_add = "攻撃力上昇し、防御ダメ軽減率上昇";
+            if ((this.DropDownList50004.Text == diff) | (this.DropDownList50009.Text == diff) | (this.DropDownList50012.Text == diff) | (this.DropDownList50015.Text == diff)
+                | (this.DropDownList50004.Text == diff_add) | (this.DropDownList50009.Text == diff_add) | (this.DropDownList50012.Text == diff_add) | (this.DropDownList50015.Text == diff_add)
+                )
             {
-                if (this.DropDownList50004.Text == diff)
+                if ((this.DropDownList50004.Text == diff)| (this.DropDownList50004.Text == diff_add))
                 {
                     diffValue = Convert.ToDouble(TextBox50009.Text);
                     diffValue /= 10;
                     TextBox50009.Text = diffValue.ToString();
                 }
 
-                if (this.DropDownList50009.Text == diff)
+                if ((this.DropDownList50009.Text == diff)| (this.DropDownList50009.Text == diff_add))
                 {
                     diffValue = Convert.ToDouble(TextBox50011.Text);
                     diffValue /= 10;
                     TextBox50011.Text = diffValue.ToString();
                 }
 
-                if (this.DropDownList50012.Text == diff)
+                if ((this.DropDownList50012.Text == diff)| (this.DropDownList50012.Text == diff_add))
                 {
                     diffValue = Convert.ToDouble(TextBox50013.Text);
                     diffValue /= 10;
                     TextBox50013.Text = diffValue.ToString();
                 }
 
-                if (this.DropDownList50015.Text == diff)
+                if ((this.DropDownList50015.Text == diff)|(this.DropDownList50015.Text == diff_add))
                 {
                     diffValue = Convert.ToDouble(TextBox50015.Text);
                     diffValue /= 10;
@@ -701,7 +727,10 @@ namespace 花騎士ツール＿NEO
                         {
                             case 1:
                                 {
-                                    skill = s[i].QuerySelector("td:nth-child(3)").InnerHtml;
+                                    if((s[i].QuerySelector("th:nth-child(2)") != null)&&(s[i].QuerySelector("th:nth-child(2)").InnerHtml == "通常"))
+                                        skill = s[i].QuerySelector("td:nth-child(4)").InnerHtml;
+                                    else
+                                        skill = s[i].QuerySelector("td:nth-child(3)").InnerHtml;
                                     break;
                                 }
                             case 2:
@@ -774,8 +803,14 @@ namespace 花騎士ツール＿NEO
                 this.TextBox50001.Text = urlElements0.InnerHtml.Substring(urlElements0.InnerHtml.IndexOf(".") + 1, 3);
             }
             else
-            {
-                this.TextBox50001.Text = (Convert.ToInt32(urlElements0.InnerHtml.Substring(urlElements0.InnerHtml.IndexOf(".") + 1, 3)) + 10000).ToString();
+            {//昇華の場合の処理
+                //IDNoが正確ではない場合(???標記の場合)かどうか判定
+                int i = 0;
+                if(int.TryParse(urlElements0.InnerHtml.Substring(urlElements0.InnerHtml.IndexOf(".") + 1, 3), out i))
+                    this.TextBox50001.Text = (Convert.ToInt32(urlElements0.InnerHtml.Substring(urlElements0.InnerHtml.IndexOf(".") + 1, 3)) + 10000).ToString();
+                else//正確ではない場合の処理、そのまま入力
+                    this.TextBox50001.Text = urlElements0.InnerHtml.Substring(urlElements0.InnerHtml.IndexOf(".") + 1, 3);
+
                 shouka = "　昇華";
             }
             //name
@@ -840,6 +875,12 @@ namespace 花騎士ツール＿NEO
                 this.TextBox50016.Text = (Convert.ToInt32(skill.Substring(0, 2)) + 10).ToString();
             //スキルタイプ
             string Stype = "";
+            //記述があるか確認処理
+            if(skillType.IndexOf("倍") == -1)
+            {
+                //記述無い場合、敵全体に280倍ダメージとする
+                skillType = "敵全体に280倍ダメージ";
+            }
             switch (skillType.Substring(0,skillType.IndexOf("倍")-3))
             {
                 case "敵全体に":
@@ -905,7 +946,7 @@ namespace 花騎士ツール＿NEO
 
         protected void WriteAbility(int abiNo,string ability)
         {
-            string[,] pattern = new string[34,2];
+            string[,] pattern = new string[35,2];
             pattern[0,0] = @"^戦闘中、\w*(パーティメンバー|パーティーメンバー|自身)の攻撃力が\d{2}%上昇$"; pattern[0, 1] = "1";
             pattern[1,0] = @"戦闘中、(パーティメンバーが.*それぞれ|パーティーメンバーが.*それぞれ|自身は)\d回ダメージを無効化する\w*?"; pattern[1, 1] = "1";
             pattern[2,0] = @"攻撃力を\d{2}%低下させる\w*?"; pattern[2, 1] = "1";
@@ -917,7 +958,7 @@ namespace 花騎士ツール＿NEO
             pattern[8,0] = @"(パーティメンバー|パーティーメンバー|自身)の防御力が\d{2}%、防御時のダメージ軽減率が\d\.?\d?%上昇、自身は確率で3回まで戦闘不能にならずHP1で耐える\w*?"; pattern[8, 1] = "2";
             pattern[9,0] = @"攻撃を受けた時、100%の確率で防御力の\d\.*\d*倍を攻撃力に変換し反撃\w*?"; pattern[9, 1] = "2";
             pattern[10,0] = @"戦闘中、自身は\dターンまで\d{2}%、以降は\d{2}%の確率で敵の攻撃を回避する"; pattern[10, 1] = "2";
-            pattern[11,0] = @"自身が敵に攻撃を与えた後.*\d{2,3}%の確率で自身は再行動する"; pattern[11, 1] = "1";
+            pattern[11,0] = @"自身が敵に攻撃を与えた後.*\d{2,3}%の確率で(自身は再行動|再行動)する"; pattern[11, 1] = "1";
             pattern[12,0] = @"毎ターン\d{2}%の確率で\w*最大HPの\d{1,2}%回復する\w*?"; pattern[12, 1] = "2";
             pattern[13,0] = @"光GAUGEが\d+%溜まった状態から討伐開始"; pattern[13, 1] = "1";
             pattern[14,0] = @"戦闘中、(パーティメンバー|パーティーメンバー|自身)のクリティカル攻撃発生率が\d{2}%\w*?、クリティカルダメージが\d{2,3}%上昇\w*?"; pattern[14, 1] = "2";
@@ -941,6 +982,7 @@ namespace 花騎士ツール＿NEO
             pattern[31, 0] = @"防御力を\d{2}%低下させる\w*?"; pattern[31, 1] = "1";
             pattern[32, 0] = @"ボス敵との戦闘中、(パーティメンバー|パーティーメンバー|自身)の攻撃力が\d{2}%上昇し、さらに自身の攻撃力が\d{2,3}%上昇";pattern[32, 1] = "2";
             pattern[33, 0] = @"戦闘中、(パーティ|パーティー)メンバーの攻撃力が\d{2}%上昇し、スキル発動率がそれぞれの好感度に応じて最大\d\.\d{1,2}倍上昇"; pattern[33, 1] = "2";
+            pattern[34, 0] = @"戦闘中、(パーティ|パーティー)メンバーの弱点属性の敵に対するダメージが\d{2}%上昇する"; pattern[34, 1] = "1";
 
             for (int i = 0; i < pattern.GetLength(0);i++)
             {
@@ -1225,6 +1267,11 @@ namespace 花騎士ツール＿NEO
                 case 32:
                     {
                         abiText = "対ボス攻撃力上昇し、自身が更に上昇";
+                        break;
+                    }
+                case 34:
+                    {
+                        abiText = "弱点属性の敵に対するダメージ増加";
                         break;
                     }
             }

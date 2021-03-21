@@ -31,13 +31,13 @@ namespace 花騎士ツール＿NEO
         
         protected void Button20_Click(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         //
         //メイン計算処理
         //
-        private void Main_Caluc()
+        private void Main_Calc()
         { 
             //初期状態チェック
             //属性フィルタ
@@ -127,7 +127,7 @@ namespace 花騎士ツール＿NEO
 
             //クエリ作成
             string get_query = "";
-            get_query = "SELECT Id,Name,Rarity,ATT,A1st1,A1NO,A1Ex1,A1V1,A1V2,A1Ex2,A2st1,A2NO,A2Ex1,A2V1,A2V2,A2Ex2,A3st1,A3NO,A3Ex1,A3V1,A3V2,A3Ex2,A4st1,A4NO,A4Ex1,A4V1,A4V2,A4Ex2,SType,SRatio " +
+            get_query = "SELECT Id,Name,Rarity,ATT,A1st1,A1NO,A1NO2,A1NO3,A1Ex1,A1V1,A1V2,A1Ex2,A2st1,A2NO,A2NO2,A2NO3,A2Ex1,A2V1,A2V2,A2Ex2,A3st1,A3NO,A3NO2,A3NO3,A3Ex1,A3V1,A3V2,A3Ex2,A4st1,A4NO,A4NO2,A4NO3,A4Ex1,A4V1,A4V2,A4Ex2,SType,SRatio,MOV " +
                 "FROM [dbo].[Fkgmbr]";
             DataSet ds_fkg = new DataSet();
             ds_fkg = GetData(get_query);
@@ -192,6 +192,7 @@ namespace 花騎士ツール＿NEO
 
             int[] requestValue = new int[3];//検索値
 
+            string option = "";//検索オプション
 
             requestWord[0,0] = this.DropDownList1.SelectedValue;
             requestWord[1,0] = this.DropDownList2.SelectedValue;
@@ -271,6 +272,8 @@ namespace 花騎士ツール＿NEO
                                 {
                                     requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
                                 }
+                                else
+                                    requestValue[i] = 0;
                             }
                             break;
                         }
@@ -285,6 +288,8 @@ namespace 花騎士ツール＿NEO
                                 {
                                     requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
                                 }
+                                else
+                                    requestValue[i] = 0;
                             }
                             break;
                         }
@@ -293,6 +298,7 @@ namespace 花騎士ツール＿NEO
                         {
                             fieldStr[i] = "クリ率上昇";
                             selectValue[i] = 5;
+                            option = "PT全体対象";
                             if (requestWord[i, 1] != "0")
                             {
                                 //さらに数字であるか確認
@@ -300,6 +306,8 @@ namespace 花騎士ツール＿NEO
                                 {
                                     requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
                                 }
+                                else
+                                    requestValue[i] = 0;
                             }
                             break;
                         }
@@ -307,6 +315,7 @@ namespace 花騎士ツール＿NEO
                         {
                             fieldStr[i] = "クリダメ上昇";
                             selectValue[i] = 5;
+                            option = "PT全体対象";
                             if (requestWord[i, 1] != "0")
                             {
                                 //さらに数字であるか確認
@@ -314,6 +323,8 @@ namespace 花騎士ツール＿NEO
                                 {
                                     requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
                                 }
+                                else
+                                    requestValue[i] = 0;
                             }
                             break;
                         }
@@ -364,6 +375,11 @@ namespace 花騎士ツール＿NEO
                             fieldStr[i] = "回避";
                             break;
                         }
+                    case "回避付与":
+                        {
+                            fieldStr[i] = "回避付与";
+                            break;
+                        }
                     case "迎撃":
                         {
                             fieldStr[i] = "迎撃";
@@ -389,7 +405,14 @@ namespace 花騎士ツール＿NEO
                                 {
                                     requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
                                 }
+                                else
+                                    requestValue[i] = 0;
                             }
+                            break;
+                        }
+                    case "再行動付与":
+                        {
+                            fieldStr[i] = "再行動付与";
                             break;
                         }
                     case "防御力・ダメージ軽減率上昇":
@@ -400,14 +423,6 @@ namespace 花騎士ツール＿NEO
                     case "攻撃力低下":
                         {
                             fieldStr[i] = "攻撃力低下";
-                            if (requestWord[i, 1] != "0")
-                            {
-                                //さらに数字であるか確認
-                                if (int.TryParse(requestWord[i, 1], out int test))
-                                {
-                                    requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
-                                }
-                            }
                             break;
                         }
                     case "防御力低下":
@@ -418,14 +433,6 @@ namespace 花騎士ツール＿NEO
                     case "スキル発動率低下":
                         {
                             fieldStr[i] = "スキル発動率低下";
-                            if (requestWord[i, 1] != "0")
-                            {
-                                //さらに数字であるか確認
-                                if (int.TryParse(requestWord[i, 1], out int test))
-                                {
-                                    requestValue[i] = Convert.ToInt32(requestWord[i, 1]);
-                                }
-                            }
                             break;
                         }
                     case "命中率低下":
@@ -441,6 +448,11 @@ namespace 花騎士ツール＿NEO
                     case "追撃":
                         {
                             fieldStr[i] = "追撃";
+                            break;
+                        }
+                    case "追撃付与":
+                        {
+                            fieldStr[i] = "追撃付与";
                             break;
                         }
                     case "ダメージ無効化":
@@ -489,6 +501,21 @@ namespace 花騎士ツール＿NEO
                             selectValue[i] = 1;
                             break;
                         }
+                    case "スキルにHP吸収付与":
+                        {
+                            fieldStr[i] = "スキルにHP吸収付与";
+                            break;
+                        }
+                    case "イロモノ系":
+                        {
+                            fieldStr[i] = "イロモノ系";
+                            break;
+                        }
+                    case "イロモノサブアビ":
+                        {
+                            fieldStr[i] = "イロモノサブアビ";
+                            break;
+                        }
                     case "スキル：全体":
                         {
                             fieldStr[i] = "全体";
@@ -533,7 +560,7 @@ namespace 花騎士ツール＿NEO
             dt_fkg.Columns.Add("Key3", typeof(int));
 
             //データテーブル取得
-            DataTable dt_fkg_out = GetDataFilter(ref fieldStr, ref selectValue, ref inputValue, ref requestValue, dt_fkg);
+            DataTable dt_fkg_out = GetDataFilter(ref fieldStr, ref selectValue, ref inputValue, ref requestValue, option,dt_fkg);
             if (dt_fkg_out == null)
             {
                 //メッセージボックス表示
@@ -620,12 +647,15 @@ namespace 花騎士ツール＿NEO
             //  第一検索キー取得
             string[] findKey = new string[3];
             int count = 0;
+            // selectValueも取得
+            int[] findValue = new int[3];
 
             for (int i = 0; i < 3; i++)
             {
                 if (fieldStr[i] != "")
                 {
                     findKey[count] = fieldStr[i];
+                    findValue[count] = selectValue[i];
                     count++;
                 }
             }
@@ -646,10 +676,10 @@ namespace 花騎士ツール＿NEO
 
                 //出力文字列
                 string[] outAOri = new string[4];
-                outAOri[0] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A1st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A1NO"]), dt_fkg_out.Rows[i]["A1Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A1V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A1V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A1Ex2"].ToString());
-                outAOri[1] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A2st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A2NO"]), dt_fkg_out.Rows[i]["A2Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A2V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A2V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A2Ex2"].ToString());
-                outAOri[2] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A3st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A3NO"]), dt_fkg_out.Rows[i]["A3Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A3V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A3V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A3Ex2"].ToString());
-                outAOri[3] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A4st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A4NO"]), dt_fkg_out.Rows[i]["A4Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A4V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A4V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A4Ex2"].ToString());
+                outAOri[0] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A1st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A1NO"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A1NO2"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A1NO3"]), dt_fkg_out.Rows[i]["A1Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A1V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A1V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A1Ex2"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["MOV"].ToString()));
+                outAOri[1] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A2st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A2NO"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A2NO2"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A2NO3"]), dt_fkg_out.Rows[i]["A2Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A2V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A2V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A2Ex2"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["MOV"].ToString()));
+                outAOri[2] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A3st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A3NO"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A3NO2"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A3NO3"]), dt_fkg_out.Rows[i]["A3Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A3V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A3V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A3Ex2"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["MOV"].ToString()));
+                outAOri[3] = OutString(Convert.ToInt32(dt_fkg_out.Rows[i]["A4st1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A4NO"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A4NO2"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A4NO3"]), dt_fkg_out.Rows[i]["A4Ex1"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["A4V1"]), Convert.ToInt32(dt_fkg_out.Rows[i]["A4V2"]), dt_fkg_out.Rows[i]["Name"].ToString(), dt_fkg_out.Rows[i]["A4Ex2"].ToString(), Convert.ToInt32(dt_fkg_out.Rows[i]["MOV"].ToString()));
 
                 int[] outAVOri = new int[4];
                 outAVOri[0] = Convert.ToInt32(dt_fkg_out.Rows[i]["A1V1"]);
@@ -662,6 +692,24 @@ namespace 花騎士ツール＿NEO
                 outAV2Ori[1] = Convert.ToInt32(dt_fkg_out.Rows[i]["A2V2"]);
                 outAV2Ori[2] = Convert.ToInt32(dt_fkg_out.Rows[i]["A3V2"]);
                 outAV2Ori[3] = Convert.ToInt32(dt_fkg_out.Rows[i]["A4V2"]);
+
+                string[] outAEx2 = new string[4];
+                outAEx2[0] = dt_fkg_out.Rows[i]["A1Ex2"].ToString();
+                outAEx2[1] = dt_fkg_out.Rows[i]["A2Ex2"].ToString();
+                outAEx2[2] = dt_fkg_out.Rows[i]["A3Ex2"].ToString();
+                outAEx2[3] = dt_fkg_out.Rows[i]["A4Ex2"].ToString();
+
+                //PT全体対象判定の為の変数追加
+                int[] ANO = new int[4];
+                ANO[0] = Convert.ToInt32(dt_fkg_out.Rows[i]["A1NO"]);
+                ANO[1] = Convert.ToInt32(dt_fkg_out.Rows[i]["A2NO"]);
+                ANO[2] = Convert.ToInt32(dt_fkg_out.Rows[i]["A3NO"]);
+                ANO[3] = Convert.ToInt32(dt_fkg_out.Rows[i]["A4NO"]);
+                int[] ANO2 = new int[4];
+                ANO2[0] = Convert.ToInt32(dt_fkg_out.Rows[i]["A1NO2"]);
+                ANO2[1] = Convert.ToInt32(dt_fkg_out.Rows[i]["A2NO2"]);
+                ANO2[2] = Convert.ToInt32(dt_fkg_out.Rows[i]["A3NO2"]);
+                ANO2[3] = Convert.ToInt32(dt_fkg_out.Rows[i]["A4NO2"]);
 
                 //出力処理前の出力文字列
                 string[] outAEx = new string[4];
@@ -685,82 +733,182 @@ namespace 花騎士ツール＿NEO
                             //アビの値比較用
                             string[] A = new string[4];
                             int[] AV = new int[4];
+                            string[] AEx2 = new string[4];
 
                             for (int j = 0; j < 4; j++)
                             {
-                                for (int m = 0; m < count; m++)//mは検索Keyナンバー
+                                for (int m = 0; m < 1; m++)//mは検索Keyナンバー
                                 {
                                     string pattern = @"\s*(?<!対ボス|防御力に応じて|ターンで)攻撃力上昇\s*";
                                     //基本的に複合アビに対して必要な部分
                                     //ソートにA1V1を使うタイプ
                                     if ((findKey[m] == outAEx[j])
                                          || ((findKey[m] == "攻撃力上昇") && (Regex.IsMatch(outAEx[j].ToString(), pattern)))
+                                         || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "回避3回成功後、攻撃力、回避、再行動率上昇"))
+                                         || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                         || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "残りHPで攻撃力とクリダメ上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキルLVでスキル発動率上昇"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、さらに1T目上昇"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、ターンで攻撃力上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、対ボス攻撃力上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、対ボスダメ上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、自身のスキルダメ上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、ダメ無効"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、再行動"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、ダメージ上昇"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、光ゲージ充填"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、シャイクリ泥率上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、敵全体の攻撃力低下"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、攻撃ミス"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率1T目と3T目"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇"))
                                          || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "MAP画面アビと、スキル発動率上昇"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                         || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動後3ターンの間、スキル発動率上昇し再行動"))
+                                         || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇"))
                                          || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率クリダメ上昇"))
+                                         || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身が再行動"))
+                                         || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇"))
+                                         || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身のクリダメ上昇"))
+                                         || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率上昇さらに自身のクリ率とダメ上昇"))
                                          || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリダメ上昇し自身がさらに上昇"))
+                                         || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "PTと自身スキルダメ上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、対ボスダメ上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、シャイクリ泥率上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、スキル発動率上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇"))
+                                         || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、スキルLVでスキル発動率上昇"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、ダメ無効"))
+                                         || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、再行動"))
+                                         || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキルダメ上昇し、攻撃力低下"))
                                          || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "MAP画面アビと、スキルダメ上昇"))
                                          || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "対ボス攻撃力ダメ上昇"))
                                          || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "対ボス攻撃力上昇し、自身が更に上昇"))
                                          || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "対ボス攻撃力上昇し、自身を含む2人がさらに上昇"))
+                                         || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "対ボス攻撃力上昇し、光ゲージ充填"))
+                                         || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "対ボス攻撃力上昇し、シャイクリ泥率上昇"))
                                          || ((findKey[m] == "光ゲージ充填") && (outAEx[j] == "光ゲージ充填シャイクリ泥率上昇"))
                                          || ((findKey[m] == "光ゲージ充填") && (outAEx[j] == "光ゲージ充填し、自身が再行動"))
                                          || ((findKey[m] == "ソラ効果上昇") && (outAEx[j] == "ソラ効果シャイクリ泥率上昇"))
                                          || ((findKey[m] == "ソラ効果上昇") && (outAEx[j] == "ソラ効果光ゲージ充填上昇"))
                                          || ((findKey[m] == "ソラ効果上昇") && (outAEx[j] == "ソラ効果上昇し自身が再行動"))
+                                         || ((findKey[m] == "ソラ効果上昇") && (outAEx[j] == "ソラ効果上昇しソラ発動毎に防御力上昇"))
                                          || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "攻撃力上昇し、自信を含む2人がさらに上昇"))
                                          || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "攻撃力上昇し、自信を含む3人がさらに上昇"))
                                          || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "攻撃力上昇し、スキル発動率上昇"))
                                          || ((findKey[m] == "対ボスダメ上昇") && (outAEx[j] == "対ボスダメ上昇自身のボスダメ上昇"))
                                          || ((findKey[m] == "対ボスダメ上昇") && (outAEx[j] == "対ボスダメ上昇し、敵の数で攻撃力上昇"))
+                                         || ((findKey[m] == "対ボスダメ上昇") && (outAEx[j] == "対ボスダメ上昇し、HP割合でダメ上昇"))
+                                         || ((findKey[m] == "対ボスダメ上昇") && (outAEx[j] == "対ボスダメ上昇し、シャイクリ泥率上昇"))
                                          || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "ターン毎ダメージ上昇"))
                                          || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "ソラ発動毎にダメ上昇"))
                                          || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにダメ上昇"))
                                          || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "HP割合ダメ上昇率"))
+                                         || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "ダメージ上昇し自身が更に上昇"))
                                          || ((findKey[m] == "弱点属性の敵に対するダメージ増加") && (outAEx[j] == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇"))
+                                         || ((findKey[m] == "弱点属性の敵に対するダメージ増加") && (outAEx[j] == "弱点属性の敵に対するダメージ増加し、自身が更に増加"))
                                          || ((findKey[m] == "PT移動力増加") && (outAEx[j] == "PT移動力増加し、スキルLVでスキル発動率上昇"))
                                          || ((findKey[m] == "PT移動力増加") && (outAEx[j] == "PT移動力増加し、移動力を攻撃力に追加"))
                                          || ((findKey[m] == "PT移動力増加") && (outAEx[j] == "PT移動力増加し、対ボス攻撃力上昇"))
                                          || ((findKey[m] == "PT移動力増加") && (outAEx[j] == "MAP画面アビと、移動力増加"))
                                          || ((findKey[m] == "PT移動力増加") && (outAEx[j] == "PT移動力増加し、自身が再行動"))
+                                         || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "攻撃力と防御力低下"))
+                                         || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "攻撃力低下し、スキル発動率低下"))
+                                         || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "攻撃力低下し、攻撃ミス"))
+                                         || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "ターン毎に攻撃力低下"))
                                          || ((findKey[m] == "回避") && (outAEx[j] == "回避し、残りHPで攻撃力上昇"))
+                                         || ((findKey[m] == "回避") && (outAEx[j] == "回避し、スキルダメ上昇"))
+                                         || ((findKey[m] == "回避") && (outAEx[j] == "回避し、スキル発動率上昇"))
                                          || ((findKey[m] == "回避") && (outAEx[j] == "回避し、敵3体が攻撃ミス"))
                                          || ((findKey[m] == "回避") && (outAEx[j] == "回避し、反撃"))
+                                         || ((findKey[m] == "回避") && (outAEx[j] == "回避し、再行動"))
+                                         || ((findKey[m] == "回避") && (outAEx[j] == "MAP画面アビと、回避"))
+                                         || ((findKey[m] == "回避") && (outAEx[j] == "回避付与"))
+                                         || ((findKey[m] == "回避付与") && (outAEx[j] == "回避付与し、回避"))
                                          || ((findKey[m] == "追撃") && (outAEx[j] == "追撃し、スキル発動率上昇"))
                                          || ((findKey[m] == "追撃") && (outAEx[j] == "追撃し、スキルLVでスキル発動率上昇"))
                                          || ((findKey[m] == "追撃") && (outAEx[j] == "追撃し、自身が再行動"))
                                          || ((findKey[m] == "再行動") && (outAEx[j] == "PTに再行動付与"))
                                          || ((findKey[m] == "再行動") && (outAEx[j] == "自身が再行動し、シャイクリ泥率上昇"))
+                                         || ((findKey[m] == "再行動") && (outAEx[j] == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                         || ((findKey[m] == "再行動") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身が再行動"))
+                                         || ((findKey[m] == "再行動") && (outAEx[j] == "回避3回成功後、攻撃力、回避、再行動率上昇"))
+                                         || ((findKey[m] == "再行動") && (outAEx[j] == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                         || ((findKey[m] == "HP回復") && (outAEx[j] == "攻撃力上昇し、自身のHP回復(効果値はEx2)"))
+                                         || ((findKey[m] == "再行動付与") && (outAEx[j] == "PTに再行動付与"))
                                          || ((findKey[m] == "自身が攻撃を受けた次Tにスキル発動率上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇"))
+                                         || ((findKey[m] == "自身が攻撃を受けた次Tにスキル発動率上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復"))
+                                         || ((findKey[m] == "防御ダメ軽減率上昇") && (outAEx[j] == "攻撃力上昇し、防御ダメ軽減率上昇"))
+                                         || ((findKey[m] == "イロモノサブアビ") && (outAEx[j] == "召喚獣攻撃指令"))
+                                         || ((findKey[m] == "イロモノサブアビ") && (outAEx[j] == "変身サブアビ"))
                                          )
 
                                     {//if文の中身
+                                        //PT全体対象の場合の確認
+                                        if (findValue[m] == 5)
+                                        {
+                                            if (ANO[j] != 5)
+                                                continue;
+                                        }
                                         A[j] = outAOri[j];
                                         AV[j] = outAVOri[j];
-
+                                        AEx2[j] = outAEx2[j];
+                                        if (//Ex2の値をソートに使いたい場合
+                                            ((findKey[m] == "再行動") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身が再行動"))
+                                            || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "回避し、残りHPで攻撃力上昇"))
+                                            || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                            || ((findKey[m] == "再行動") && (outAEx[j] == "回避3回成功後、攻撃力、回避、再行動率上昇"))
+                                            || ((findKey[m] == "再行動") && (outAEx[j] == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                            || ((findKey[m] == "HP回復") && (outAEx[j] == "攻撃力上昇し、自身のHP回復(効果値はEx2)"))
+                                            )//この場合のみEx2からソート用の値を抽出
+                                        {//ここに来るときはEx2の値は数値のはずなのでエラー出ないと思うｗ
+                                            AV[j] = Convert.ToInt32(AEx2[j]);
+                                        }
+                                        //V2の値を使いたい場合
+                                        else if ((findKey[m] == "HP回復") && (outAEx[j] == "HP回復"))
+                                        {
+                                            AV[j] = outAV2Ori[j];
+                                        }
+                                        //V1とV2から最大値を選ぶ処理
+                                        else if (((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && selectValue[0] != 5)
+                                            || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率上昇さらに自身のクリ率とダメ上昇"))
+                                            || ((findKey[m] == "攻撃力上昇") && (outAEx[j] == "攻撃力上昇し自身がさらに上昇"))
+                                            )
+                                        {
+                                            AV[j] = Math.Max(AV[j],outAV2Ori[j]);
+                                        }
+                                        //V1とEx2から最大値を選ぶ処理
+                                        else if ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && selectValue[0] != 5)
+                                        {
+                                            AV[j] = Math.Max(AV[j],Convert.ToInt32(AEx2[j]));
+                                        }
                                         //検索Keyに対応するアビリティ番号を代入
                                         switch (m)
                                         {
                                             case 0:
                                                 {
-                                                    dt_fkg_out.Rows[i]["Key1"] = j + 1;
+                                                    if (dt_fkg_out.Rows[i].IsNull("Key1"))
+                                                        dt_fkg_out.Rows[i]["Key1"] = j + 1;
+                                                    else//既にKey1をほかのアビが占めていた場合
+                                                    {
+                                                        int maxV = Math.Max((Math.Max(AV[0], AV[1])), (Math.Max(AV[2], AV[3])));
+                                                        //index算出
+                                                        for (int lp = 0; lp < j; lp++)
+                                                        {
+                                                            if (maxV == AV[lp])
+                                                            {
+                                                                dt_fkg_out.Rows[i]["Key1"] = lp + 1;
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
                                                     break;
                                                 }
                                             case 1:
@@ -785,12 +933,15 @@ namespace 花騎士ツール＿NEO
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "攻撃力上昇し、スキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "攻撃力上昇し、スキルLVでスキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "攻撃力上昇し、1T目のスキル発動率上昇"))
+                                     || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキルダメ上昇し、スキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "スキルダメ上昇し、スキルLVでスキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇"))
+                                     || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "追撃し、スキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "追撃し、スキルLVでスキル発動率上昇"))
+                                     || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "回避し、スキル発動率上昇"))
                                      || ((findKey[m] == "スキル発動率上昇") && (outAEx[j] == "PT移動力増加し、スキルLVでスキル発動率上昇"))
                                      || ((findKey[m] == "スキルLVでスキル発動率上昇") && (outAEx[j] == "攻撃力上昇し、スキルLVでスキル発動率上昇"))
                                      || ((findKey[m] == "スキルLVでスキル発動率上昇") && (outAEx[j] == "スキルダメ上昇し、スキルLVでスキル発動率上昇"))
@@ -799,8 +950,14 @@ namespace 花騎士ツール＿NEO
                                      || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "攻撃力上昇し、スキルダメージ上昇"))
                                      || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキル発動率上昇し、自身のスキルダメ上昇"))
                                      || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇"))
+                                     || ((findKey[m] == "スキルダメ上昇") && (outAEx[j] == "回避し、スキルダメ上昇"))
                                      || ((findKey[m] == "クリ率上昇") && (outAEx[j] == "クリ率上昇さらに自身のクリ率とダメ上昇"))
+                                     || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率上昇さらに自身のクリ率とダメ上昇"))
+                                     || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇"))
                                      || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率クリダメ上昇"))
+                                     || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身が再行動"))
+                                     || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "クリ率クリダメ上昇しさらに自身のクリダメ上昇"))
+                                     || ((findKey[m] == "クリダメ上昇") && (outAEx[j] == "残りHPで攻撃力とクリダメ上昇"))
                                      || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "攻撃力上昇し、対ボス攻撃力上昇"))
                                      || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "スキル発動率上昇し、対ボス攻撃力上昇"))
                                      || ((findKey[m] == "対ボス攻撃力上昇") && (outAEx[j] == "PT移動力増加し、対ボス攻撃力上昇"))
@@ -809,46 +966,89 @@ namespace 花騎士ツール＿NEO
                                      || ((findKey[m] == "対ボスダメ上昇") && (outAEx[j] == "スキル発動率上昇し、対ボスダメ上昇"))
                                      || ((findKey[m] == "対ボスダメ上昇") && (outAEx[j] == "スキルダメ上昇し、対ボスダメ上昇"))
                                      || ((findKey[m] == "ターン毎ダメージ上昇") && (outAEx[j] == "攻撃力上昇し、ターン毎にダメージ上昇"))
+                                     || ((findKey[m] == "ターン毎ダメージ上昇") && (outAEx[j] == "ターンで攻撃力とダメージ上昇"))
+                                     || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "攻撃力上昇し、ダメージ上昇"))
                                      || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "攻撃力上昇し、ターン毎にダメージ上昇"))
                                      || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "攻撃力上昇HP割合ダメ上昇"))
+                                     || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "ターンで攻撃力とダメージ上昇"))
+                                     || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "対ボスダメ上昇し、HP割合でダメ上昇"))
                                      || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇"))
                                      || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "クリ率上昇さらに自身のクリ率とダメ上昇"))
+                                     || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "スキル発動率上昇し、ダメージ上昇"))
                                      || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇"))
+                                     || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇"))
+                                     || ((findKey[m] == "ダメージ上昇") && (outAEx[j] == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇"))
                                      || ((findKey[m] == "弱点属性の敵に対するダメージ増加") && (outAEx[j] == "攻撃力上昇し、弱点属性の敵に対するダメージ増加"))
+                                     || ((findKey[m] == "弱点属性の敵に対するダメージ増加") && (outAEx[j] == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇"))
+                                     || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "対ボスダメ上昇し、シャイクリ泥率上昇"))
                                      || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "光ゲージ充填シャイクリ泥率上昇"))
                                      || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "ソラ効果シャイクリ泥率上昇"))
                                      || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "攻撃力上昇し、シャイクリ泥率上昇"))
+                                     || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "対ボス攻撃力上昇し、シャイクリ泥率上昇"))
                                      || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "スキル発動率上昇し、シャイクリ泥率上昇"))
                                      || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "スキルダメ上昇し、シャイクリ泥率上昇"))
                                      || ((findKey[m] == "シャイクリ泥率上昇") && (outAEx[j] == "自身が再行動し、シャイクリ泥率上昇"))
                                      || ((findKey[m] == "ソラ効果上昇") && (outAEx[j] == "攻撃力上昇し、ソラ効果上昇"))
                                      || ((findKey[m] == "光ゲージ充填") && (outAEx[j] == "ソラ効果光ゲージ充填上昇"))
                                      || ((findKey[m] == "光ゲージ充填") && (outAEx[j] == "攻撃力上昇し、光ゲージ充填"))
+                                     || ((findKey[m] == "光ゲージ充填") && (outAEx[j] == "対ボス攻撃力上昇し、光ゲージ充填"))
+                                     || ((findKey[m] == "光ゲージ充填") && (outAEx[j] == "スキル発動率上昇し、光ゲージ充填"))
                                      || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "攻撃力上昇し、敵全体の攻撃力低下"))
                                      || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "スキル発動率上昇し、敵全体の攻撃力低下"))
+                                     || ((findKey[m] == "攻撃力低下") && (outAEx[j] == "スキルダメ上昇し、攻撃力低下"))
+                                     || ((findKey[m] == "防御力低下") && (outAEx[j] == "攻撃力上昇し、敵全体の防御力低下"))
+                                     || ((findKey[m] == "防御力低下") && (outAEx[j] == "攻撃力と防御力低下"))
+                                     || ((findKey[m] == "スキル発動率低下") && (outAEx[j] == "攻撃力低下し、スキル発動率低下"))
                                      || ((findKey[m] == "攻撃ミス") && (outAEx[j] == "攻撃力上昇し、敵3体が攻撃ミス"))
+                                     || ((findKey[m] == "攻撃ミス") && (outAEx[j] == "スキル発動率上昇し、攻撃ミス"))
                                      || ((findKey[m] == "攻撃ミス") && (outAEx[j] == "回避し、敵3体が攻撃ミス"))
+                                     || ((findKey[m] == "攻撃ミス") && (outAEx[j] == "攻撃力低下し、攻撃ミス"))
                                      || ((findKey[m] == "再行動") && (outAEx[j] == "攻撃力上昇し、再行動"))
+                                     || ((findKey[m] == "再行動") && (outAEx[j] == "スキル発動率上昇し、再行動"))
+                                     || ((findKey[m] == "再行動") && (outAEx[j] == "ガッツ付与し、再行動"))
+                                     || ((findKey[m] == "再行動") && (outAEx[j] == "スキルダメ上昇し、再行動"))
                                      || ((findKey[m] == "再行動") && (outAEx[j] == "ソラ効果上昇し自身が再行動"))
                                      || ((findKey[m] == "再行動") && (outAEx[j] == "光ゲージ充填し、自身が再行動"))
                                      || ((findKey[m] == "再行動") && (outAEx[j] == "PT移動力増加し、自身が再行動"))
+                                     || ((findKey[m] == "再行動") && (outAEx[j] == "回避し、再行動"))
                                      || ((findKey[m] == "再行動") && (outAEx[j] == "追撃し、自身が再行動"))
+                                     || ((findKey[m] == "再行動") && (outAEx[j] == "スキル発動後3ターンの間、スキル発動率上昇し再行動"))
+                                     || ((findKey[m] == "再行動付与") && (outAEx[j] == "スキル発動後3ターンの間、スキル発動率上昇し再行動"))
                                      || ((findKey[m] == "回避") && (outAEx[j] == "攻撃力上昇し、回避"))
+                                     || ((findKey[m] == "回避") && (outAEx[j] == "回避付与し、回避"))
+                                     || ((findKey[m] == "回避") && (outAEx[j] == "回避3回成功後、攻撃力、回避、再行動率上昇"))
+                                     || ((findKey[m] == "回避") && (outAEx[j] == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
                                      || ((findKey[m] == "追撃") && (outAEx[j] == "攻撃力上昇し、追撃"))
+                                     || ((findKey[m] == "追撃") && (outAEx[j] == "追撃付与"))
+                                     || ((findKey[m] == "ダメ無効") && (outAEx[j] == "攻撃力上昇し、ダメ無効"))
+                                     || ((findKey[m] == "ダメ無効") && (outAEx[j] == "攻撃力上昇し、ダメージ無効"))
                                      || ((findKey[m] == "ダメ無効") && (outAEx[j] == "スキルダメ上昇し、ダメ無効"))
                                      || ((findKey[m] == "ダメ無効") && (outAEx[j] == "スキル発動率上昇し、ダメ無効"))
                                      || ((findKey[m] == "ターンで攻撃力上昇") && (outAEx[j] == "攻撃力上昇ターンでさらに上昇"))
                                      || ((findKey[m] == "ターンで攻撃力上昇") && (outAEx[j] == "攻撃力上昇1T目さらに上昇"))
+                                     || ((findKey[m] == "ターンで攻撃力上昇") && (outAEx[j] == "スキル発動率上昇し、ターンで攻撃力上昇"))
                                      || ((findKey[m] == "1ターン目系") && (outAEx[j] == "攻撃力上昇1T目さらに上昇"))
                                      || ((findKey[m] == "1ターン目系") && (outAEx[j] == "攻撃力上昇し、1T目のスキル発動率上昇"))
-                                     || ((findKey[m] == "HP回復") && (outAEx[j] == "攻撃力上昇し、自身のHP回復(効果値はEx2)"))
+                                     || ((findKey[m] == "HP回復") && (outAEx[j] == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復"))
                                      || ((findKey[m] == "PT移動力増加") && (outAEx[j] == "攻撃力上昇し、移動力追加"))
+                                     || ((findKey[m] == "自身が攻撃を受けた次Tにスキル発動率上昇") && (outAEx[j] == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                     || ((findKey[m] == "自身が攻撃を受けた次Tにスキル発動率上昇") && (outAEx[j] == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                      || ((findKey[m] == "自身が攻撃を受けた次Tにスキル発動率上昇") && (outAEx[j] == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                     || ((findKey[m] == "自身が攻撃を受けた次Tにスキル発動率上昇") && (outAEx[j] == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                     || ((findKey[m] == "自身が攻撃を受けた次Tにダメ上昇") && (outAEx[j] == "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇"))
                                      || ((findKey[m] == "自身が攻撃を受けた次Tにダメ上昇") && (outAEx[j] == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇"))
                                      )
 
 
-                                    {
+                                    {//
+                                        //PT全体対象の場合の確認
+                                        if (findValue[m] == 5)
+                                        {
+                                            if (ANO2[j] != 5)
+                                            {
+                                                //continue;//複合スキルの第2枠がまだ入力しきれていない
+                                            }
+                                        }
                                         A[j] = outAOri[j];
                                         AV[j] = outAV2Ori[j];
 
@@ -857,7 +1057,21 @@ namespace 花騎士ツール＿NEO
                                         {
                                             case 0:
                                                 {
-                                                    dt_fkg_out.Rows[i]["Key1"] = j + 1;
+                                                    if(dt_fkg_out.Rows[i].IsNull("Key1"))
+                                                        dt_fkg_out.Rows[i]["Key1"] = j + 1;
+                                                    else//既にKey1をほかのアビが占めていた場合
+                                                    {
+                                                        int maxV = Math.Max((Math.Max(AV[0],AV[1])), (Math.Max(AV[2], AV[3])));
+                                                        //index算出
+                                                        for(int lp = 0;lp < j;lp++)
+                                                        {
+                                                            if (maxV == AV[lp])
+                                                            {
+                                                                dt_fkg_out.Rows[i]["Key1"] = lp + 1;
+                                                                break;
+                                                            }
+                                                        }
+                                                    }
                                                     break;
                                                 }
                                             case 1:
@@ -1233,7 +1447,7 @@ namespace 花騎士ツール＿NEO
         //
         //与えられたクエリ要素と、AND、ORの別より、データテーブル生成する関数
         //
-        private DataTable GetDataFilter(ref string[] fieldStrIn, ref int[] selectValueIn, ref int[] inputValueIn,ref int[] requestValueIn, DataTable dt_input)
+        private DataTable GetDataFilter(ref string[] fieldStrIn, ref int[] selectValueIn, ref int[] inputValueIn,ref int[] requestValueIn, string option, DataTable dt_input)
         {
 
             string[] fieldStr = new string[3];
@@ -1290,25 +1504,39 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキルLVでスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルLVでスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルLVでスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルLVでスキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、さらに1T目上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、さらに1T目上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、さらに1T目上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、さらに1T目上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、スキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、対ボスダメ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、対ボスダメ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、対ボスダメ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、対ボスダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ダメ無効") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、ダメ無効") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、ダメ無効") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、ダメ無効"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、再行動") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、再行動") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、再行動") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、再行動"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、ダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、光ゲージ充填") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、光ゲージ充填") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、光ゲージ充填") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、光ゲージ充填"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、攻撃ミス") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、攻撃ミス") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、攻撃ミス") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、攻撃ミス"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率1T目と3T目") || (p.Field<string>("A2Ex1") == "スキル発動率1T目と3T目") || (p.Field<string>("A3Ex1") == "スキル発動率1T目と3T目") || (p.Field<string>("A4Ex1") == "スキル発動率1T目と3T目"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") || (p.Field<string>("A2Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") || (p.Field<string>("A3Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") || (p.Field<string>("A4Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動"))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、スキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "PT移動力増加し、スキルLVでスキル発動率上昇") || (p.Field<string>("A2Ex1") == "PT移動力増加し、スキルLVでスキル発動率上昇") || (p.Field<string>("A3Ex1") == "PT移動力増加し、スキルLVでスキル発動率上昇") || (p.Field<string>("A4Ex1") == "PT移動力増加し、スキルLVでスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "追撃し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "追撃し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "追撃し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "追撃し、スキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "回避し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "回避し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "回避し、スキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "MAP画面アビと、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "MAP画面アビと、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "MAP画面アビと、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "MAP画面アビと、スキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A2Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A3Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A4Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1357,8 +1585,12 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where (
                                                  (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復"))
+                                                 || ((p.Field<string>("A1Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  )
                                                  select p;
 
@@ -1382,7 +1614,11 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where (
                                                  (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A4V1") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A1V1"), p.Field<int>("A1V2")) >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A2V1"), p.Field<int>("A2V2")) >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A3V1"), p.Field<int>("A3V2")) >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A4V1"), p.Field<int>("A4V2")) >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A4V1") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  )
                                                  select p;
@@ -1408,8 +1644,14 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where (
                                                  (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
-                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i])))
-                                                 || (((p.Field<string>("A1Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A1Ex2") != "自身"))) && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A2Ex2") != "自身"))) && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A3Ex2") != "自身"))) && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A4Ex2") != "自身"))) && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A1V1"), Convert.ToInt32(p.Field<string>("A1Ex2"))) >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A2V1"), Convert.ToInt32(p.Field<string>("A2Ex2"))) >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A3V1"), Convert.ToInt32(p.Field<string>("A3Ex2"))) >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (Math.Max(p.Field<int>("A4V1"), Convert.ToInt32(p.Field<string>("A4Ex2"))) >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身のクリダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A1V1") >= requestValue[i]) ) || ((p.Field<string>("A2Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || ((((p.Field<string>("A1Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i]))) && (option != "PT全体対象"))
+                                                 || (((p.Field<string>("A1Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  )
                                                  select p;
 
@@ -1435,6 +1677,7 @@ namespace 花騎士ツール＿NEO
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇1T目さらに上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇1T目さらに上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇1T目さらに上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇1T目さらに上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇ターンでさらに上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇ターンでさらに上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇ターンでさらに上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇ターンでさらに上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1460,6 +1703,8 @@ namespace 花騎士ツール＿NEO
                                                  || ((p.Field<string>("A1Ex1") == "対ボス攻撃力ダメ上昇") || (p.Field<string>("A2Ex1") == "対ボス攻撃力ダメ上昇") || (p.Field<string>("A3Ex1") == "対ボス攻撃力ダメ上昇") || (p.Field<string>("A4Ex1") == "対ボス攻撃力ダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "対ボスダメ上昇し、敵の数で攻撃力上昇") || (p.Field<string>("A2Ex1") == "対ボスダメ上昇し、敵の数で攻撃力上昇") || (p.Field<string>("A3Ex1") == "対ボスダメ上昇し、敵の数で攻撃力上昇") || (p.Field<string>("A4Ex1") == "対ボスダメ上昇し、敵の数で攻撃力上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "対ボスダメ上昇自身のボスダメ上昇") || (p.Field<string>("A2Ex1") == "対ボスダメ上昇自身のボスダメ上昇") || (p.Field<string>("A3Ex1") == "対ボスダメ上昇自身のボスダメ上昇") || (p.Field<string>("A4Ex1") == "対ボスダメ上昇自身のボスダメ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇") || (p.Field<string>("A2Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇") || (p.Field<string>("A3Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇") || (p.Field<string>("A4Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、対ボスダメ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、対ボスダメ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、対ボスダメ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、対ボスダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、対ボスダメ上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、対ボスダメ上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、対ボスダメ上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、対ボスダメ上昇"))
                                                  select p;
@@ -1487,6 +1732,8 @@ namespace 花騎士ツール＿NEO
                                                  || ((p.Field<string>("A1Ex1") == "対ボス攻撃力ダメ上昇") || (p.Field<string>("A2Ex1") == "対ボス攻撃力ダメ上昇") || (p.Field<string>("A3Ex1") == "対ボス攻撃力ダメ上昇") || (p.Field<string>("A4Ex1") == "対ボス攻撃力ダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "対ボス攻撃力上昇し、自身が更に上昇") || (p.Field<string>("A2Ex1") == "対ボス攻撃力上昇し、自身が更に上昇") || (p.Field<string>("A3Ex1") == "対ボス攻撃力上昇し、自身が更に上昇") || (p.Field<string>("A4Ex1") == "対ボス攻撃力上昇し、自身が更に上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "対ボス攻撃力上昇し、自身を含む2人がさらに上昇") || (p.Field<string>("A2Ex1") == "対ボス攻撃力上昇し、自身を含む2人がさらに上昇") || (p.Field<string>("A3Ex1") == "対ボス攻撃力上昇し、自身を含む2人がさらに上昇") || (p.Field<string>("A4Ex1") == "対ボス攻撃力上昇し、自身を含む2人がさらに上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボス攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A2Ex1") == "対ボス攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A3Ex1") == "対ボス攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A4Ex1") == "対ボス攻撃力上昇し、光ゲージ充填"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、対ボス攻撃力上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、対ボス攻撃力上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、対ボス攻撃力上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、対ボス攻撃力上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "PT移動力増加し、対ボス攻撃力上昇") || (p.Field<string>("A2Ex1") == "PT移動力増加し、対ボス攻撃力上昇") || (p.Field<string>("A3Ex1") == "PT移動力増加し、対ボス攻撃力上昇") || (p.Field<string>("A4Ex1") == "PT移動力増加し、対ボス攻撃力上昇"))
@@ -1516,6 +1763,7 @@ namespace 花騎士ツール＿NEO
                                                  || (((p.Field<string>("A1Ex1") == "ソラ効果シャイクリ泥率上昇") && (p.Field<int>("A1V1") >= inputValue[i])) || ((p.Field<string>("A2Ex1") == "ソラ効果シャイクリ泥率上昇") && (p.Field<int>("A2V1") >= inputValue[i])) || ((p.Field<string>("A3Ex1") == "ソラ効果シャイクリ泥率上昇") && (p.Field<int>("A3V1") >= inputValue[i])) || ((p.Field<string>("A4Ex1") == "ソラ効果シャイクリ泥率上昇")) && (p.Field<int>("A4V1") >= inputValue[i]))
                                                  || (((p.Field<string>("A1Ex1") == "ソラ効果光ゲージ充填上昇") && (p.Field<int>("A1V1") >= inputValue[i])) || ((p.Field<string>("A2Ex1") == "ソラ効果光ゲージ充填上昇") && (p.Field<int>("A2V1") >= inputValue[i])) || ((p.Field<string>("A3Ex1") == "ソラ効果光ゲージ充填上昇") && (p.Field<int>("A3V1") >= inputValue[i])) || ((p.Field<string>("A4Ex1") == "ソラ効果光ゲージ充填上昇")) && (p.Field<int>("A4V1") >= inputValue[i]))
                                                  || (((p.Field<string>("A1Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A1V1") >= inputValue[i])) || ((p.Field<string>("A2Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A2V1") >= inputValue[i])) || ((p.Field<string>("A3Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A3V1") >= inputValue[i])) || ((p.Field<string>("A4Ex1") == "ソラ効果上昇し自身が再行動")) && (p.Field<int>("A4V1") >= inputValue[i]))
+                                                 || (((p.Field<string>("A1Ex1") == "ソラ効果上昇しソラ発動毎に防御力上昇") && (p.Field<int>("A1V1") >= inputValue[i])) || ((p.Field<string>("A2Ex1") == "ソラ効果上昇しソラ発動毎に防御力上昇") && (p.Field<int>("A2V1") >= inputValue[i])) || ((p.Field<string>("A3Ex1") == "ソラ効果上昇しソラ発動毎に防御力上昇") && (p.Field<int>("A3V1") >= inputValue[i])) || ((p.Field<string>("A4Ex1") == "ソラ効果上昇しソラ発動毎に防御力上昇")) && (p.Field<int>("A4V1") >= inputValue[i]))
                                                  || (((p.Field<string>("A1Ex1") == "攻撃力上昇し、ソラ効果上昇") && (p.Field<int>("A1V1") >= inputValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、ソラ効果上昇") && (p.Field<int>("A2V1") >= inputValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、ソラ効果上昇") && (p.Field<int>("A3V1") >= inputValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、ソラ効果上昇")) && (p.Field<int>("A4V1") >= inputValue[i]))
                                                  select p;
 
@@ -1537,6 +1785,8 @@ namespace 花騎士ツール＿NEO
                             {
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "対ボス攻撃力上昇し、シャイクリ泥率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "対ボスダメ上昇し、シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "ソラ効果シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "ソラ効果シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "ソラ効果シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "ソラ効果シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "光ゲージ充填シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "光ゲージ充填シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "光ゲージ充填シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "光ゲージ充填シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、シャイクリ泥率上昇"))
@@ -1567,6 +1817,8 @@ namespace 花騎士ツール＿NEO
                                                  || ((p.Field<string>("A1Ex1") == "光ゲージ充填シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "光ゲージ充填シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "光ゲージ充填シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "光ゲージ充填シャイクリ泥率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "ソラ効果光ゲージ充填上昇") || (p.Field<string>("A2Ex1") == "ソラ効果光ゲージ充填上昇") || (p.Field<string>("A3Ex1") == "ソラ効果光ゲージ充填上昇") || (p.Field<string>("A4Ex1") == "ソラ効果光ゲージ充填上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、光ゲージ充填"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボス攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A2Ex1") == "対ボス攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A3Ex1") == "対ボス攻撃力上昇し、光ゲージ充填") || (p.Field<string>("A4Ex1") == "対ボス攻撃力上昇し、光ゲージ充填"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、光ゲージ充填") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、光ゲージ充填") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、光ゲージ充填") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、光ゲージ充填"))
                                                  || ((p.Field<string>("A1Ex1") == "光ゲージ充填し、自身が再行動") || (p.Field<string>("A2Ex1") == "光ゲージ充填し、自身が再行動") || (p.Field<string>("A3Ex1") == "光ゲージ充填し、自身が再行動") || (p.Field<string>("A4Ex1") == "光ゲージ充填し、自身が再行動"))
                                                  select p;
 
@@ -1590,7 +1842,12 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "攻撃力上昇し、敵全体の攻撃力低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、敵全体の攻撃力低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、敵全体の攻撃力低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、敵全体の攻撃力低下") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "攻撃力低下し、攻撃ミス") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力低下し、攻撃ミス") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力低下し、攻撃ミス") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力低下し、攻撃ミス") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "ターン毎に攻撃力低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "ターン毎に攻撃力低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "ターン毎に攻撃力低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "ターン毎に攻撃力低下") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、攻撃力低下") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、攻撃力低下") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、攻撃力低下") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、攻撃力低下"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1606,11 +1863,33 @@ namespace 花騎士ツール＿NEO
                                 }
                                 break;
                             }
+                        case "防御力低下":
+                            {
+                                var outputData = from p in dt[i].AsEnumerable()
+                                                 where (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "攻撃力上昇し、敵全体の防御力低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、敵全体の防御力低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、敵全体の防御力低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、敵全体の防御力低下") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力と防御力低下") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 select p;
+
+                                //検索結果が無い場合
+                                if (outputData.Count() == 0)
+                                {
+                                    return null;
+                                }
+
+                                dt[i + 1] = outputData.CopyToDataTable();
+                                if (countInput == (i + 1))
+                                {
+                                    return dt[i + 1];
+                                }
+                                break;
+                            }
 
                         case "スキル発動率低下":
                             {
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力低下し、スキル発動率低下") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1633,7 +1912,9 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、敵3体が攻撃ミス") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、敵3体が攻撃ミス") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、敵3体が攻撃ミス") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、敵3体が攻撃ミス"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、攻撃ミス") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、攻撃ミス") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、攻撃ミス") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、攻撃ミス"))
                                                  || ((p.Field<string>("A1Ex1") == "回避し、敵3体が攻撃ミス") || (p.Field<string>("A2Ex1") == "回避し、敵3体が攻撃ミス") || (p.Field<string>("A3Ex1") == "回避し、敵3体が攻撃ミス") || (p.Field<string>("A4Ex1") == "回避し、敵3体が攻撃ミス"))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力低下し、攻撃ミス") || (p.Field<string>("A2Ex1") == "攻撃力低下し、攻撃ミス") || (p.Field<string>("A3Ex1") == "攻撃力低下し、攻撃ミス") || (p.Field<string>("A4Ex1") == "攻撃力低下し、攻撃ミス"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1698,8 +1979,16 @@ namespace 花騎士ツール＿NEO
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、回避") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、回避") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、回避") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、回避"))
                                                  || ((p.Field<string>("A1Ex1") == "回避し、残りHPで攻撃力上昇") || (p.Field<string>("A2Ex1") == "回避し、残りHPで攻撃力上昇") || (p.Field<string>("A3Ex1") == "回避し、残りHPで攻撃力上昇") || (p.Field<string>("A4Ex1") == "回避し、残りHPで攻撃力上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避し、スキルダメ上昇") || (p.Field<string>("A2Ex1") == "回避し、スキルダメ上昇") || (p.Field<string>("A3Ex1") == "回避し、スキルダメ上昇") || (p.Field<string>("A4Ex1") == "回避し、スキルダメ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "回避し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "回避し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "回避し、スキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "回避し、反撃") || (p.Field<string>("A2Ex1") == "回避し、反撃") || (p.Field<string>("A3Ex1") == "回避し、反撃") || (p.Field<string>("A4Ex1") == "回避し、反撃"))
                                                  || ((p.Field<string>("A1Ex1") == "回避し、敵3体が攻撃ミス") || (p.Field<string>("A2Ex1") == "回避し、敵3体が攻撃ミス") || (p.Field<string>("A3Ex1") == "回避し、敵3体が攻撃ミス") || (p.Field<string>("A4Ex1") == "回避し、敵3体が攻撃ミス"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避し、再行動") || (p.Field<string>("A2Ex1") == "回避し、再行動") || (p.Field<string>("A3Ex1") == "回避し、再行動") || (p.Field<string>("A4Ex1") == "回避し、再行動"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") || (p.Field<string>("A2Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") || (p.Field<string>("A3Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") || (p.Field<string>("A4Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A2Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A3Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A4Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "MAP画面アビと、回避") || (p.Field<string>("A2Ex1") == "MAP画面アビと、回避") || (p.Field<string>("A3Ex1") == "MAP画面アビと、回避") || (p.Field<string>("A4Ex1") == "MAP画面アビと、回避"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避付与") || (p.Field<string>("A2Ex1") == "回避付与") || (p.Field<string>("A3Ex1") == "回避付与") || (p.Field<string>("A4Ex1") == "回避付与"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避付与し、回避") || (p.Field<string>("A2Ex1") == "回避付与し、回避") || (p.Field<string>("A3Ex1") == "回避付与し、回避") || (p.Field<string>("A4Ex1") == "回避付与し、回避"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1708,6 +1997,26 @@ namespace 花騎士ツール＿NEO
                                     return null;
                                 }
                                 
+                                dt[i + 1] = outputData.CopyToDataTable();
+                                if (countInput == (i + 1))
+                                {
+                                    return dt[i + 1];
+                                }
+                                break;
+                            }
+                        case "回避付与":
+                            {
+                                var outputData = from p in dt[i].AsEnumerable()
+                                                 where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "回避付与し、回避") || (p.Field<string>("A2Ex1") == "回避付与し、回避") || (p.Field<string>("A3Ex1") == "回避付与し、回避") || (p.Field<string>("A4Ex1") == "回避付与し、回避"))
+                                                 select p;
+
+                                //検索結果が無い場合
+                                if (outputData.Count() == 0)
+                                {
+                                    return null;
+                                }
+
                                 dt[i + 1] = outputData.CopyToDataTable();
                                 if (countInput == (i + 1))
                                 {
@@ -1728,10 +2037,14 @@ namespace 花騎士ツール＿NEO
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、スキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、ダメ無効") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、ダメ無効") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、ダメ無効") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、ダメ無効"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、再行動") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、再行動") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、再行動") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、再行動"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、攻撃力低下") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、攻撃力低下") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、攻撃力低下") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、攻撃力低下"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避し、スキルダメ上昇") || (p.Field<string>("A2Ex1") == "回避し、スキルダメ上昇") || (p.Field<string>("A3Ex1") == "回避し、スキルダメ上昇") || (p.Field<string>("A4Ex1") == "回避し、スキルダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "MAP画面アビと、スキルダメ上昇") || (p.Field<string>("A2Ex1") == "MAP画面アビと、スキルダメ上昇") || (p.Field<string>("A3Ex1") == "MAP画面アビと、スキルダメ上昇") || (p.Field<string>("A4Ex1") == "MAP画面アビと、スキルダメ上昇"))
                                                  select p;
 
@@ -1755,12 +2068,21 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "攻撃力上昇し、再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "スキルダメ上昇し、再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "スキルダメ上昇し、再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "スキルダメ上昇し、再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "スキルダメ上昇し、再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "ガッツ付与し、再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "ガッツ付与し、再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "ガッツ付与し、再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "ガッツ付与し、再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "ソラ効果上昇し自身が再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "光ゲージ充填し、自身が再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "光ゲージ充填し、自身が再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "光ゲージ充填し、自身が再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "光ゲージ充填し、自身が再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "PT移動力増加し、自身が再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "PT移動力増加し、自身が再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "PT移動力増加し、自身が再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "PT移動力増加し、自身が再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "追撃し、自身が再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "追撃し、自身が再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "追撃し、自身が再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "追撃し、自身が再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
-                                                 || ((p.Field<string>("A1Ex1") == "自身が再行動し、シャイクリ泥率上昇") || (p.Field<string>("A2Ex1") == "自身が再行動し、シャイクリ泥率上昇") || (p.Field<string>("A3Ex1") == "自身が再行動し、シャイクリ泥率上昇") || (p.Field<string>("A4Ex1") == "自身が再行動し、シャイクリ泥率上昇"))
+                                                 || (((p.Field<string>("A1Ex1") == "回避し、再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "回避し、再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "回避し、再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "回避し、再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "自身が再行動し、シャイクリ泥率上昇") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "自身が再行動し、シャイクリ泥率上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "自身が再行動し、シャイクリ泥率上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "自身が再行動し、シャイクリ泥率上昇")) && (p.Field<int>("A4V1") >= requestValue[i]))
+                                                 || (((p.Field<string>("A1Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇")) && (p.Field<int>("A4V1") >= requestValue[i]))
                                                  || (((p.Field<string>("A1Ex1") == "PTに再行動付与") && (p.Field<int>("A1V1") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "PTに再行動付与") && (p.Field<int>("A2V1") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "PTに再行動付与") && (p.Field<int>("A3V1") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "PTに再行動付与") && (p.Field<int>("A4V1") >= requestValue[i])))
+                                                 || ((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (int.Parse(p.Field<string>("A1Ex2")) >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (int.Parse(p.Field<string>("A2Ex2")) >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (int.Parse(p.Field<string>("A3Ex2")) >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (int.Parse(p.Field<string>("A1Ex2")) >= requestValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") && (int.Parse(p.Field<string>("A1Ex2")) >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") && (int.Parse(p.Field<string>("A2Ex2")) >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") && (int.Parse(p.Field<string>("A3Ex2")) >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") && (int.Parse(p.Field<string>("A1Ex2")) >= requestValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A1Ex2")) >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A2Ex2")) >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A3Ex2")) >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A1Ex2")) >= requestValue[i]))
+                                                 || (((p.Field<string>("A1Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A4V2") >= requestValue[i])))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1777,6 +2099,28 @@ namespace 花騎士ツール＿NEO
                                 break;
                             }
 
+                        case "再行動付与":
+                            {
+                                var outputData = from p in dt[i].AsEnumerable()
+                                                 where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "PTに再行動付与") || (p.Field<string>("A2Ex1") == "PTに再行動付与") || (p.Field<string>("A3Ex1") == "PTに再行動付与") || (p.Field<string>("A4Ex1") == "PTに再行動付与"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") || (p.Field<string>("A2Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") || (p.Field<string>("A3Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") || (p.Field<string>("A4Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動"))
+                                                 select p;
+
+                                //検索結果が無い場合
+                                if (outputData.Count() == 0)
+                                {
+                                    return null;
+                                }
+
+                                dt[i + 1] = outputData.CopyToDataTable();
+                                if (countInput == (i + 1))
+                                {
+                                    return dt[i + 1];
+                                }
+                                break;
+                            }
+
                         case "追撃":
                             {
                                 var outputData = from p in dt[i].AsEnumerable()
@@ -1785,6 +2129,7 @@ namespace 花騎士ツール＿NEO
                                                  || ((p.Field<string>("A1Ex1") == "追撃し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "追撃し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "追撃し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "追撃し、スキル発動率上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "追撃し、自身が再行動") || (p.Field<string>("A2Ex1") == "追撃し、自身が再行動") || (p.Field<string>("A3Ex1") == "追撃し、自身が再行動") || (p.Field<string>("A4Ex1") == "追撃し、自身が再行動"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、追撃") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、追撃") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、追撃") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、追撃"))
+                                                 || ((p.Field<string>("A1Ex1") == "追撃付与") || (p.Field<string>("A2Ex1") == "追撃付与") || (p.Field<string>("A3Ex1") == "追撃付与") || (p.Field<string>("A4Ex1") == "追撃付与"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1806,6 +2151,7 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、自身のHP回復(効果値はEx2)") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、自身のHP回復(効果値はEx2)") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、自身のHP回復(効果値はEx2)") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、自身のHP回復(効果値はEx2)"))
+                                                 || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1852,16 +2198,22 @@ namespace 花騎士ツール＿NEO
                             {
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、ダメージ上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、ダメージ上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、ダメージ上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、ダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "ダメージ上昇し自身が更に上昇") || (p.Field<string>("A2Ex1") == "ダメージ上昇し自身が更に上昇") || (p.Field<string>("A3Ex1") == "ダメージ上昇し自身が更に上昇") || (p.Field<string>("A4Ex1") == "ダメージ上昇し自身が更に上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "ターン毎ダメージ上昇") || (p.Field<string>("A2Ex1") == "ターン毎ダメージ上昇") || (p.Field<string>("A3Ex1") == "ターン毎ダメージ上昇") || (p.Field<string>("A4Ex1") == "ターン毎ダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "ターンで攻撃力とダメージ上昇") || (p.Field<string>("A2Ex1") == "ターンで攻撃力とダメージ上昇") || (p.Field<string>("A3Ex1") == "ターンで攻撃力とダメージ上昇") || (p.Field<string>("A4Ex1") == "ターンで攻撃力とダメージ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "ソラ発動毎にダメ上昇") || (p.Field<string>("A2Ex1") == "ソラ発動毎にダメ上昇") || (p.Field<string>("A3Ex1") == "ソラ発動毎にダメ上昇") || (p.Field<string>("A4Ex1") == "ソラ発動毎にダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、ダメージ上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、ダメージ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "HP割合ダメ上昇率") || (p.Field<string>("A2Ex1") == "HP割合ダメ上昇率") || (p.Field<string>("A3Ex1") == "HP割合ダメ上昇率") || (p.Field<string>("A4Ex1") == "HP割合ダメ上昇率"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇HP割合ダメ上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇HP割合ダメ上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇HP割合ダメ上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇HP割合ダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇") || (p.Field<string>("A2Ex1") == "PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇") || (p.Field<string>("A3Ex1") == "PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇") || (p.Field<string>("A4Ex1") == "PTメンバーのHPが50%以下の場合、自身の攻撃、与ダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") || (p.Field<string>("A2Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") || (p.Field<string>("A3Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") || (p.Field<string>("A4Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにダメ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇") || (p.Field<string>("A2Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇") || (p.Field<string>("A3Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇") || (p.Field<string>("A4Ex1") == "対ボスダメ上昇し、HP割合でダメ上昇"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1883,6 +2235,7 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、ターン毎にダメージ上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "ターンで攻撃力とダメージ上昇") || (p.Field<string>("A2Ex1") == "ターンで攻撃力とダメージ上昇") || (p.Field<string>("A3Ex1") == "ターンで攻撃力とダメージ上昇") || (p.Field<string>("A4Ex1") == "ターンで攻撃力とダメージ上昇"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1904,7 +2257,9 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
                                                  || ((p.Field<string>("A1Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") || (p.Field<string>("A2Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") || (p.Field<string>("A3Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") || (p.Field<string>("A4Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "弱点属性の敵に対するダメージ増加し、自身が更に増加") || (p.Field<string>("A2Ex1") == "弱点属性の敵に対するダメージ増加し、自身が更に増加") || (p.Field<string>("A3Ex1") == "弱点属性の敵に対するダメージ増加し、自身が更に増加") || (p.Field<string>("A4Ex1") == "弱点属性の敵に対するダメージ増加し、自身が更に増加"))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、弱点属性の敵に対するダメージ増加") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、弱点属性の敵に対するダメージ増加") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、弱点属性の敵に対するダメージ増加") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、弱点属性の敵に対するダメージ増加"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、弱点属性の敵に対するダメ上昇"))
                                                  select p;
 
                                 //検索結果が無い場合
@@ -1920,11 +2275,33 @@ namespace 花騎士ツール＿NEO
                                 }
                                 break;
                             }
+                        case "防御ダメ軽減率上昇":
+                            {
+                                var outputData = from p in dt[i].AsEnumerable()
+                                                 where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、防御ダメ軽減率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、防御ダメ軽減率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、防御ダメ軽減率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、防御ダメ軽減率上昇"))
+                                                 select p;
+
+                                //検索結果が無い場合
+                                if (outputData.Count() == 0)
+                                {
+                                    return null;
+                                }
+
+                                dt[i + 1] = outputData.CopyToDataTable();
+                                if (countInput == (i + 1))
+                                {
+                                    return dt[i + 1];
+                                }
+                                break;
+                            }
 
                         case "ダメ無効":
                             {
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、ダメ無効") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、ダメ無効") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、ダメ無効") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、ダメ無効"))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、ダメージ無効") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、ダメージ無効") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、ダメージ無効") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、ダメージ無効"))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、ダメ無効") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、ダメ無効") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、ダメ無効") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、ダメ無効"))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ダメ無効") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、ダメ無効") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、ダメ無効") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、ダメ無効"))
                                                  select p;
@@ -1935,6 +2312,27 @@ namespace 花騎士ツール＿NEO
                                     return null;
                                 }
                                 
+                                dt[i + 1] = outputData.CopyToDataTable();
+                                if (countInput == (i + 1))
+                                {
+                                    return dt[i + 1];
+                                }
+                                break;
+                            }
+                        case "イロモノサブアビ":
+                            {
+                                var outputData = from p in dt[i].AsEnumerable()
+                                                 where ((p.Field<string>("A1Ex1") == fieldStr[i]) || (p.Field<string>("A2Ex1") == fieldStr[i]) || (p.Field<string>("A3Ex1") == fieldStr[i]) || (p.Field<string>("A4Ex1") == fieldStr[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "召喚獣攻撃指令") || (p.Field<string>("A2Ex1") == "召喚獣攻撃指令") || (p.Field<string>("A3Ex1") == "召喚獣攻撃指令") || (p.Field<string>("A4Ex1") == "召喚獣攻撃指令"))
+                                                 || ((p.Field<string>("A1Ex1") == "変身サブアビ") || (p.Field<string>("A2Ex1") == "変身サブアビ") || (p.Field<string>("A3Ex1") == "変身サブアビ") || (p.Field<string>("A4Ex1") == "変身サブアビ"))
+                                                 select p;
+
+                                //検索結果が無い場合
+                                if (outputData.Count() == 0)
+                                {
+                                    return null;
+                                }
+
                                 dt[i + 1] = outputData.CopyToDataTable();
                                 if (countInput == (i + 1))
                                 {
@@ -1958,6 +2356,9 @@ namespace 花騎士ツール＿NEO
                                                  || (Regex.IsMatch(p.Field<string>("A1Ex1").ToString(), pattern_ex) && Regex.IsMatch(p.Field<string>("A1Ex1").ToString(), pattern)) || (Regex.IsMatch(p.Field<string>("A2Ex1").ToString(), pattern_ex) && Regex.IsMatch(p.Field<string>("A2Ex1").ToString(), pattern)) || (Regex.IsMatch(p.Field<string>("A3Ex1").ToString(), pattern_ex) && Regex.IsMatch(p.Field<string>("A3Ex1").ToString(), pattern)) || (Regex.IsMatch(p.Field<string>("A4Ex1").ToString(), pattern_ex) && Regex.IsMatch(p.Field<string>("A4Ex1").ToString(), pattern))
                                                 //  || (Regex.IsMatch(p.Field<string>("A1Ex1").ToString(), pattern) || Regex.IsMatch(p.Field<string>("A2Ex1").ToString(), pattern) || Regex.IsMatch(p.Field<string>("A3Ex1").ToString(), pattern) || Regex.IsMatch(p.Field<string>("A4Ex1").ToString(), pattern))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、対ボス攻撃力上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、対ボス攻撃力上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、対ボス攻撃力上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、対ボス攻撃力上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") || (p.Field<string>("A2Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") || (p.Field<string>("A3Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇") || (p.Field<string>("A4Ex1") == "回避3回成功後、攻撃力、回避、再行動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A2Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A3Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") || (p.Field<string>("A4Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "残りHPで攻撃力とクリダメ上昇") || (p.Field<string>("A2Ex1") == "残りHPで攻撃力とクリダメ上昇") || (p.Field<string>("A3Ex1") == "残りHPで攻撃力とクリダメ上昇") || (p.Field<string>("A4Ex1") == "残りHPで攻撃力とクリダメ上昇"))
                                                  //|| ((p.Field<string>("A1Ex1") == "攻撃力上昇HP割合ダメ上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇HP割合ダメ上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇HP割合ダメ上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇HP割合ダメ上昇"))
                                                  //|| ((p.Field<string>("A1Ex1") == "攻撃力上昇し自身がさらに上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し自身がさらに上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し自身がさらに上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し自身がさらに上昇"))
                                                  //|| ((p.Field<string>("A1Ex1") == "スキル発動毎に攻撃力上昇") || (p.Field<string>("A2Ex1") == "スキル発動毎に攻撃力上昇") || (p.Field<string>("A3Ex1") == "スキル発動毎に攻撃力上昇") || (p.Field<string>("A4Ex1") == "スキル発動毎に攻撃力上昇"))
@@ -2090,23 +2491,36 @@ namespace 花騎士ツール＿NEO
                                                  where (((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率1T目と3T目") && (p.Field<int>("A4V2") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、さらに1T目上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、さらに1T目上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、さらに1T目上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、さらに1T目上昇") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、ターンで攻撃力上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、対ボス攻撃力上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、対ボスダメ上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、対ボスダメ上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、対ボスダメ上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、対ボスダメ上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身のスキルダメ上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ダメ無効") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、ダメ無効") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、ダメ無効") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、ダメ無効") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、再行動") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、光ゲージ充填") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、光ゲージ充填") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、光ゲージ充填") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、光ゲージ充填") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、シャイクリ泥率上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、敵全体の攻撃力低下") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、攻撃ミス") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、攻撃ミス") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、攻撃ミス") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、攻撃ミス") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキル発動後3ターンの間、スキル発動率上昇し再行動") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、ダメージ上昇") && (p.Field<int>("A4V1") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") && (p.Field<int>("A1V1") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") && (p.Field<int>("A2V1") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") && (p.Field<int>("A3V1") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "自身が攻撃を受けた次Tにスキル発動率上昇し、回復") && (p.Field<int>("A4V1") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、スキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、スキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、スキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、スキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
-                                                //  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
+                                                 //  || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "攻撃力上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、スキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキルダメ上昇し、スキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキルダメ上昇し、スキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキルダメ上昇し、スキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
-                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") || (p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇"))
+                                                 || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキルダメ上昇し、自身が攻撃を受けた次Tにスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
                                                  //  || ((p.Field<string>("A1Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "スキルダメ上昇し、スキルLVでスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "弱点属性の敵に対するダメージ増加し、スキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
                                                  || ((p.Field<string>("A1Ex1") == "追撃し、スキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "追撃し、スキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "追撃し、スキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "追撃し、スキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
-                                                //  || ((p.Field<string>("A1Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "回避し、スキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "回避し、スキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "回避し、スキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "回避し、スキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "MAP画面アビと、スキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "MAP画面アビと、スキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "MAP画面アビと、スキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "MAP画面アビと、スキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
+                                                 || ((p.Field<string>("A1Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A1Ex2")) == requestValue[i])) || ((p.Field<string>("A2Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A2Ex2")) == requestValue[i])) || ((p.Field<string>("A3Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A3Ex2")) == requestValue[i])) || ((p.Field<string>("A4Ex1") == "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇") && (int.Parse(p.Field<string>("A1Ex2")) == requestValue[i]))
+                                                 //  || ((p.Field<string>("A1Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A1V2") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A2V2") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A3V2") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "追撃し、スキルLVでスキル発動率上昇") && (p.Field<int>("A4V2") == selectValue[i]))
                                                  || ((Regex.IsMatch(p.Field<string>("A1Ex1").ToString(), pattern) && (p.Field<int>("A1V2") == selectValue[i])) || (Regex.IsMatch(p.Field<string>("A2Ex1").ToString(), pattern) && (p.Field<int>("A2V2") == selectValue[i])) || (Regex.IsMatch(p.Field<string>("A3Ex1").ToString(), pattern) && (p.Field<int>("A3V2") == selectValue[i])) || (Regex.IsMatch(p.Field<string>("A4Ex1").ToString(), pattern) && (p.Field<int>("A4V2") == selectValue[i])))
                                                  )
                                                  select p;
@@ -2132,6 +2546,8 @@ namespace 花騎士ツール＿NEO
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
                                                  || (((p.Field<string>("A1Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
                                                  )
                                                  select p;
@@ -2156,8 +2572,12 @@ namespace 花騎士ツール＿NEO
                             {
                                 var outputData = from p in dt[i].AsEnumerable()
                                                  where ((((p.Field<string>("A1Ex1") == fieldStr[i]) && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == fieldStr[i]) && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == fieldStr[i]) && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == fieldStr[i]) && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
-                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A1V2") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i]) && ((p.Field<int>("A4NO") == selectValue[i]))))
-                                                 || (((p.Field<string>("A1Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A1Ex2") != "自身"))) && (p.Field<int>("A1NO") == selectValue[i]) && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇") && (p.Field<int>("A2NO") == selectValue[i]) && ((option != "PT全体対象") || ((p.Field<string>("A2Ex2") != "自身")))  && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A3Ex2") != "自身"))) && (p.Field<int>("A3NO") == selectValue[i]) && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇") && ((option != "PT全体対象") || ((p.Field<string>("A4Ex2") != "自身"))) && (p.Field<int>("A4NO") == selectValue[i]) && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇") && (p.Field<int>("A4V1") >= requestValue[i]) && ((p.Field<int>("A4NO") == selectValue[i]))))
+                                                 || (((p.Field<string>("A1Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A1V2") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A2V2") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A3V2") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率クリダメ上昇しさらに自身が再行動") && (p.Field<int>("A4V2") >= requestValue[i]) && ((p.Field<int>("A4NO") == selectValue[i]))))
+                                                 || ((((p.Field<string>("A1Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A1V1") >= requestValue[i]) && (p.Field<int>("A1NO") == selectValue[i])) || ((p.Field<string>("A2Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A2V1") >= requestValue[i]) && (p.Field<int>("A2NO") == selectValue[i])) || ((p.Field<string>("A3Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A3V1") >= requestValue[i]) && (p.Field<int>("A3NO") == selectValue[i])) || ((p.Field<string>("A4Ex1") == "クリダメ上昇し自身がさらに上昇") && (p.Field<int>("A4V1") >= requestValue[i]) && (p.Field<int>("A4NO") == selectValue[i]))) && (option != "PT全体対象"))//PT全体対象の場合ははじく
+                                                 || (((p.Field<string>("A1Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A1NO") == selectValue[i]) && (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A2NO") == selectValue[i]) && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A3NO") == selectValue[i]) && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "残りHPで攻撃力とクリダメ上昇") && (p.Field<int>("A4NO") == selectValue[i]) && (p.Field<int>("A4V2") >= requestValue[i])))
+                                                 || ((((p.Field<string>("A1Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇")  && (p.Field<int>("A1NO") == selectValue[i])&& (p.Field<int>("A1V2") >= requestValue[i])) || ((p.Field<string>("A2Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A2V2") >= requestValue[i])) || ((p.Field<string>("A3Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A3V2") >= requestValue[i])) || ((p.Field<string>("A4Ex1") == "クリ率上昇さらに自身のクリ率とダメ上昇") && (p.Field<int>("A4V2") >= requestValue[i]))) && (option != "PT全体対象"))
                                                  )
                                                  select p;
 
@@ -2479,6 +2899,7 @@ namespace 花騎士ツール＿NEO
                                          where !(((p.Field<int>("A1st1") == keyValue) || (p.Field<int>("A2st1") == keyValue) || (p.Field<int>("A3st1") == keyValue) || (p.Field<int>("A4st1") == keyValue))
                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇し、1T目のスキル発動率上昇"))
                                                 || ((p.Field<string>("A1Ex1") == "スキル発動率1T目と3T目") || (p.Field<string>("A2Ex1") == "スキル発動率1T目と3T目") || (p.Field<string>("A3Ex1") == "スキル発動率1T目と3T目") || (p.Field<string>("A4Ex1") == "スキル発動率1T目と3T目"))
+                                                || ((p.Field<string>("A1Ex1") == "スキル発動率上昇し、さらに1T目上昇") || (p.Field<string>("A2Ex1") == "スキル発動率上昇し、さらに1T目上昇") || (p.Field<string>("A3Ex1") == "スキル発動率上昇し、さらに1T目上昇") || (p.Field<string>("A4Ex1") == "スキル発動率上昇し、さらに1T目上昇"))
                                                 || ((p.Field<string>("A1Ex1") == "攻撃力上昇1T目さらに上昇") || (p.Field<string>("A2Ex1") == "攻撃力上昇1T目さらに上昇") || (p.Field<string>("A3Ex1") == "攻撃力上昇1T目さらに上昇") || (p.Field<string>("A4Ex1") == "攻撃力上昇1T目さらに上昇"))
                                                 )
                                          select p;
@@ -2744,14 +3165,15 @@ namespace 花騎士ツール＿NEO
         //
         //出力文字生成関数
         //
-        string OutString(int turn, int num, string Ex, int v1, int v2, string Name, string Ex2)
+        string OutString(int turn, int num, int num2, int num3, string Ex, int v1, int v2, string Name, string Ex2, int Mov)
         {
 
 
             string turnStr = "";
             string numStr = "";
+            string numStr2 = "";
+            string numStr3 = "";
             string outStr = "";
-
             //常套句
             if (turn == 1)
             {
@@ -2778,34 +3200,151 @@ namespace 花騎士ツール＿NEO
                         break;
                     }
             }
+            //登録されていない場合はスルー
+            switch (num2)
+            {
+                case 1:
+                    {
+                        numStr2 = "<span class=\"fkg-value2\">自身の</span>";
+                        break;
+                    }
+                case 2:
+                case 3:
+                case 4:
+                    {
+                        numStr2 = "<span class=\"fkg-value2\">自身を含む" + num2 + "人の</span>";
+                        break;
+                    }
+                case 5:
+                    {
+                        numStr2 = "<span class=\"fkg-value2\">PT全体の</span>";
+                        break;
+                    }
+            }
+            //登録されていない場合はスルー
+            switch (num3)
+            {
+                case 1:
+                    {
+                        numStr3 = "<span class=\"fkg-value2\">自身の</span>";
+                        break;
+                    }
+                case 2:
+                case 3:
+                case 4:
+                    {
+                        numStr3 = "<span class=\"fkg-value2\">自身を含む" + num3 + "人の</span>";
+                        break;
+                    }
+                case 5:
+                    {
+                        numStr3 = "<span class=\"fkg-value2\">PT全体の</span>";
+                        break;
+                    }
+            }
+            //属性による場合分け
+            string Att = "";
+            switch (Ex2)
+            {
+                case "斬":
+                    {
+                        Att = "<span class=\"fkg-value\">" + "斬" + "</span>";
+                        break;
+                    }
+                case "打":
+                    {
+                        Att = "<span class=\"fkg-value2\">" + "打" + "</span>";
+                        break;
+                    }
+                case "突":
+                    {
+                        Att = "<span class=\"fkg-value3\">" + "突" + "</span>";
+                        break;
+                    }
+                case "魔":
+                    {
+                        Att = "<span class=\"fkg-value4\">" + "魔" + "</span>";
+                        break;
+                    }
+            }
+            if (Att != "")
+                Att = "自身と</span>" + Att + "<span class=\"fkg-value2\">属性のPTメンバーの</span>";
+            else
+                Att = numStr;
 
             switch (Ex)
             {
                 case "攻撃力上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + Att + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇";
                         return outStr;
                     }
 
                 case "敵の数で攻撃力上昇":
                     {
-                        if (v2 == -1)
-                        {//ウキツリボク専用
-                            outStr = "敵の数が3体で<span class=\"fkg-value\">" + v1 + "</span>％攻撃力増加、敵の数が減るほど<span class=\"fkg-value\">" + v1 + "</span>％ずつ<span class=\"fkg-value2\">" +numStr + "</span>攻撃力増加";
+                        if (v2 == -1 || Ex2 == "敵の数減少")
+                        {
+                            outStr = "敵の数が3体で<span class=\"fkg-value\">" + v1 + "</span>％攻撃力増加、敵の数が減るほど<span class=\"fkg-value\">" + v1 + "</span>％ずつ<span class=\"fkg-value2\">" + numStr + "</span>攻撃力増加";
                         }
                         else
                         {
-                            outStr = "敵の数ｘ<span class=\"fkg-value\">" + v1 + "</span>％<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が上昇";
+                            outStr = "敵の数ｘ<span class=\"fkg-value\">" + v1 + "</span>％<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が上昇";
                         }
                         return outStr;
                     }
 
                 case "ターンで攻撃力上昇"://シャクヤクハロ、スノドロ、ヤドリギ(MAX40%)
                     {
-                        int maxValue = v1 * 2;
+                        string maxValue = "";
                         if (v2 != 0)
-                            maxValue = v2;
-                        outStr = "ターン毎に<span class=\"fkg-value2\">" +numStr + "</span>攻撃力<span class=\"fkg-value\">" + v1 + "</span>％上昇　最大" + maxValue + "％";
+                            maxValue = "　最大" + v1 * 2 + "％";
+                        string add = maxValue;
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v1 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v1 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v1 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v1 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v1 * 6 + "％";
+                                break;
+
+                        }
+                        outStr = "ターン毎に<span class=\"fkg-value2\">" + numStr + "</span>攻撃力<span class=\"fkg-value\">" + v1 + "</span>％上昇" + add;
+                        return outStr;
+                    }
+
+                case "ターンで攻撃力とダメージ上昇":
+                    {
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v1 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v1 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v1 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v1 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v1 * 6 + "％";
+                                break;
+
+                        }
+                        outStr = "ターン毎に<span class=\"fkg-value2\">" + numStr + "</span>攻撃力と与ダメージが<span class=\"fkg-value\">" + v1 + "</span>％上昇" + add;
                         return outStr;
                     }
 
@@ -2817,19 +3356,53 @@ namespace 花騎士ツール＿NEO
 
                 case "残りHPで攻撃力上昇":
                     {
-                        outStr = "自身の</span>残HPにより攻撃力上昇";
+                        outStr = "自身の</span>残HPにより<span class=\"fkg-value2\">PT全体の</span>攻撃力上昇　最大" + v1 + "％";
+                        return outStr;
+                    }
+                case "残りHPで攻撃力とクリダメ上昇":
+                    {
+                        outStr = "自身の</span>残HPにより<span class=\"fkg-value2\">PT全体の</span>攻撃力上昇　最大" + v1 + "％　クリティカルダメージ増加　最大" + v2 + "％";
                         return outStr;
                     }
 
                 case "攻撃力上昇ターンでさらに上昇"://アデニウム昇華
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し," + turnStr + "ターン毎にPT全体の攻撃力<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v2 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v2 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v2 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v2 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v2 * 6 + "％";
+                                break;
+
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、" + turnStr + "ターン毎に<span class=\"fkg-value2\">PT全体の</span>攻撃力<span class=\"fkg-value\">" + v2 + "</span>％上昇" + add;
                         return outStr;
                     }
 
                 case "攻撃力上昇1T目さらに上昇"://マンリョウ
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、1T目の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        string add = "";
+                        if (Ex2 == "自身")
+                            add = "<span class=\"fkg-value2\">自身の</span>";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、" + add + "1T目の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        return outStr;
+                    }
+
+                case "攻撃力上昇し、ダメージ上昇"://シャボンソウ
+                    {
+                        outStr = "PT全体の攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value2\">" + numStr + "</span>与ダメージが<span class=\"fkg-value2\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
@@ -2843,55 +3416,102 @@ namespace 花騎士ツール＿NEO
                                 v2Sub = "1/2";
                                 break;
                         }
-                        outStr = "PT全体の攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し更に<span class=\"fkg-value2\">" +numStr + "</span>現在のHPの" + v2Sub + "の割合で<span class=\"fkg-value2\">" +numStr + "</span>与ダメージが増加";
+                        outStr = "PT全体の攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し更に<span class=\"fkg-value2\">" + numStr + "</span>現在のHPの" + v2Sub + "の割合で<span class=\"fkg-value2\">" + numStr + "</span>与ダメージが増加";
                         return outStr;
                     }
 
                 case "攻撃力上昇し自身がさらに上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        string addStr = "";
+                        switch (Ex2)
+                        {
+                            case "1T目の攻撃100%上昇":
+                                addStr = "、更に<span class=\"fkg-value2\">1T目の自身の</span>攻撃力が<span class=\"fkg-value\">100</span>%上昇";
+                                break;
+                            case "1T目の攻撃70%上昇":
+                                addStr = "、更に<span class=\"fkg-value2\">1T目の自身の</span>攻撃力が<span class=\"fkg-value\">70</span>%上昇";
+                                break;
+                            case "1T目の攻撃50%上昇":
+                                addStr = "、更に<span class=\"fkg-value2\">1T目の自身の</span>攻撃力が<span class=\"fkg-value\">50</span>%上昇";
+                                break;
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value2\">自身の</span>攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇" + addStr;
                         return outStr;
                     }
 
                 case "攻撃力上昇し、残HPでさらに上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、残HPにより<span class=\"fkg-value2\">自身の</span>攻撃力上昇";
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "10":
+                            case "20":
+                            case "30":
+                            case "40":
+                            case "50":
+                            case "60":
+                            case "70":
+                            case "80":
+                            case "100":
+                            case "200":
+                                add = "　最大" + Ex2 + "％";
+                                break;
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、残HPにより<span class=\"fkg-value2\">自身の</span>攻撃力上昇" + add;
                         return outStr;
                     }
 
                 case "攻撃力上昇し、自信を含む2人がさらに上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身を含む2人の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身を含む2人の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
                 case "攻撃力上昇し、自信を含む3人がさらに上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身を含む3人の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身を含む3人の攻撃力が更に<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
                 case "攻撃力上昇し、敵の数でさらに上昇":
                     {
-                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、 敵の数ｘ<span class=\"fkg-value\">" + v2 + "</span>％攻撃力が上昇";
-                            return outStr;
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、 敵の数ｘ<span class=\"fkg-value\">" + v2 + "</span>％攻撃力が上昇";
+                        return outStr;
+                    }
+                case "攻撃力上昇し、属性種類数でさらに上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、 PT全体の属性種類が多いほど<span class=\"fkg-value\">" + v2 + "</span>％攻撃力が上昇";
+                        return outStr;
                     }
 
                 case "攻撃力上昇し、PTメンバー数でさらに上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、更に戦闘開始時のメンバーの数ｘ<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、更に戦闘開始時のメンバーの数ｘ<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
                 case "攻撃力上昇し、防御力に応じて攻撃力上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、更にPTメンバーの攻撃力にそれぞれの防御力の<span class=\"fkg-value\">" + v2 + "</span>％を追加";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、更にPTメンバーの攻撃力にそれぞれの防御力の<span class=\"fkg-value\">" + v2 + "</span>％を追加";
                         return outStr;
                     }
 
                 case "攻撃力上昇し、スキル発動率上昇":
                     {
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "敵の数増加":
+                                add = "敵の数ｘ";
+                                break;
+                            case "敵の数減少":
+                                add = "敵の数が3体から減る度に";
+                                break;
+                            case "PTメンバー数で":
+                                add = "戦闘開始時のメンバーの数ｘ";
+                                break;
+                        }
                         double v2D = (double)(v2 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が" + add + "<span class=\"fkg-value\">" + v1 + "</span>％上昇し、スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
                         return outStr;
 
                     }
@@ -2908,27 +3528,55 @@ namespace 花騎士ツール＿NEO
                 case "攻撃力上昇し、1T目のスキル発動率上昇":
                     {
                         double v2D = (double)(v2 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、1T目のスキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        string add = numStr;
+                        if (Ex2 == "自身")
+                            add = "自身の";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、1T目の<span class=\"fkg-value2\">" + add + "</span>スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        return outStr;
+                    }
+                case "攻撃力上昇し、自身が攻撃を受けた次Tにスキル発動率上昇":
+                    {
+                        double v2D = (double)(v2 + 100) / 100;
+                        string add = numStr;
+                        if (Ex2 == "自身")
+                            add = "自身の";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + add + "</span>スキル発動率<span class=\"fkg-value\">" + v2D + "</span>倍";
                         return outStr;
                     }
 
                 case "攻撃力上昇し、スキルダメージ上昇":
                     {
-                        if (num != 5)
-                        {
-                            outStr = turnStr + "PT全体のスキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加し、<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇";
-                        }
-                        else
-                        {
-                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、スキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
-                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、" + numStr2 + "スキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
 
                     }
 
                 case "攻撃力上昇し、ターン毎にダメージ上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、与ダメージがターン毎に<span class=\"fkg-value\">" + v2 + "</span>％増加 最大" + v2 * 2 + "％";
+                        string maxValue = "";
+                        if (v2 != 0)
+                            maxValue = "　最大" + v2 * 2 + "％";
+                        string add = maxValue;
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v2 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v2 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v2 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v2 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v2 * 6 + "％";
+                                break;
+
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、与ダメージがターン毎に<span class=\"fkg-value\">" + v2 + "</span>％増加" + add;
 
 
                         return outStr;
@@ -2937,7 +3585,10 @@ namespace 花騎士ツール＿NEO
 
                 case "攻撃力上昇し、弱点属性の敵に対するダメージ増加":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、弱点属性の敵に対してダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        string add = "";
+                        if (Ex2 == "自身")
+                            add = "<span class=\"fkg-value2\">自身の</span>";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、" + add + "弱点属性の敵に対してダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
 
 
                         return outStr;
@@ -2946,19 +3597,54 @@ namespace 花騎士ツール＿NEO
 
                 case "攻撃力上昇し、対ボス攻撃力上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、ボス敵に対して攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        string add = "";
+                        string add2 = "";
+                        switch (Ex2) {
+                            case "自身":
+                                add = "<span class=\"fkg-value2\">自身の</span>";
+                                break;
+                            case "敵の数増加":
+                                add2 = "敵の数ｘ";
+                                break;
+                            case "敵の数減少":
+                                add2 = "敵の数が3体から減る度に";
+                                break;
+                        }
+                    outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + add + "</span>攻撃力が" + add2 + "<span class=\"fkg-value\">" + v1 + "</span>％上昇し、ボス敵に対して" + numStr2 + "攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
                 case "攻撃力上昇し、対ボスダメ上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、ボスに対して与えるダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        string add = "";
+                        string add2 = "";
+                        switch (Ex2)
+                        {
+                            case "自身":
+                                add = "<span class=\"fkg-value2\">自身の</span>";
+                                break;
+                            case "敵の数増加":
+                                add2 = "敵の数ｘ";
+                                break;
+                            case "敵の数減少":
+                                add2 = "敵の数が3体から減る度に";
+                                break;
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、" + add + "ボスに対して与えるダメージが" + add2 + "<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
                 case "攻撃力上昇し、敵全体の攻撃力低下":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、敵全体の攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％低下";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value2\">敵全体の</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％低下";
+                        return outStr;
+                    }
+                case "攻撃力上昇し、敵全体の防御力低下":
+                    {
+                        string add = "";
+                        if (Ex2 == "常時")
+                            add = "<span class=\"fkg-value4\">常に</span>";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、" + add + "<span class=\"fkg-value2\">敵全体の</span>防御力が<span class=\"fkg-value\">" + v2 + "</span>％低下";
                         return outStr;
                     }
                 case "攻撃力上昇し、敵3体が攻撃ミス":
@@ -2978,7 +3664,7 @@ namespace 花騎士ツール＿NEO
                                 }
                         }
 
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身が" + "2T目まで<span class=\"fkg-value\">" + v2 + "</span>％、以降は" + v3 + "％の確率で回避";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身が" + "2T目まで<span class=\"fkg-value\">" + v2 + "</span>％、以降は<span class=\"fkg-value\">" + v3 + "</span>％の確率で回避";
                         return outStr;
                     }
                 case "攻撃力上昇し、再行動":
@@ -3002,12 +3688,19 @@ namespace 花騎士ツール＿NEO
                                     break;
                                 }
                         }
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身の攻撃後、自身はPT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身の攻撃後、<span class=\"fkg-value2\">自身は</span>PT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃";
                         return outStr;
                     }
                 case "攻撃力上昇し、移動力追加":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、パーティの移動力が<span class=\"fkg-value\">" + v2 + "</span>増加";
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、パーティの移動力が<span class=\"fkg-value\">" + v2 + "</span>増加" + movT;
+                        return outStr;
+                    }
+                case "攻撃力上昇し、移動力を攻撃力に追加":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、PT全体の攻撃力に移動力の<span class=\"fkg-value\">" + v2 + "</span>％を追加";
                         return outStr;
                     }
                 case "攻撃力上昇し、ソラ効果上昇":
@@ -3015,19 +3708,72 @@ namespace 花騎士ツール＿NEO
                         outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、ソーラードライブの効果が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
+                case "攻撃力上昇し、ソラ発動毎に更に上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、ソーラードライブ発動毎に<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇。最大<span class=\"fkg-value\">" + v2 * 3 + "</span>％";
+                        return outStr;
+                    }
                 case "攻撃力上昇し、光ゲージ充填":
-                   
-                    outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、光GAUGEが<span class=\"fkg-value\">" + v2 + "</span>％溜まった状態から討伐開始";
-                    return outStr;
-
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、光GAUGEが<span class=\"fkg-value\">" + v2 + "</span>％溜まった状態から討伐開始";
+                        return outStr;
+                    }
                 case "攻撃力上昇し、シャイクリ泥率上昇":
-                    outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、シャインクリスタルのドロップ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
-                    return outStr;
-
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、シャインクリスタルのドロップ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        return outStr;
+                    }
+                case "攻撃力上昇し、ダメ無効":
+                case "攻撃力上昇し、ダメージ無効":
+                    {
+                        string add = "PTメンバーがそれぞれ";
+                        if (Ex2 == "自身")
+                            add = "自身が";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value2\">" + add + "</span><span class=\"fkg-value\">" + v2 + "</span>回ダメージ無効化";
+                        return outStr;
+                    }
                 case "攻撃力上昇し、自身のHP回復(効果値はEx2)":
                     outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value2\">自身は</span>毎ターン<span class=\"fkg-value\">" + v2 + "</span>％の確率で最大HPの<span class=\"fkg-value\">" + Ex2 + "</span>％回復";
                     return outStr;
-
+                case "攻撃力上昇し、防御ダメ軽減率上昇":
+                    {
+                        string gut = "<span class=\"fkg-value2\">自身が</span><span class=\"fkg-value\">3</span>回GUTS発動";
+                        if (Ex2 == "ガッツ付与1回")
+                            gut = "<span class=\"fkg-value2\">全員に</span><span class=\"fkg-value\">1</span>回100%発動するGUTS付与";
+                        double v2D = (double)v2 / 10;                        
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、防御時のダメージ軽減率を<span class=\"fkg-value\">" + v2D + "</span>％軽減、" + gut;
+                        return outStr;
+                    }
+                case "攻撃力上昇し、自身が攻撃を受けた次Tにダメ上昇":
+                    {
+                        //2つめの指定が前と異なる場合の処理
+                        string add = numStr;
+                        switch (Ex2)
+                        {
+                            case "PT全体":
+                                {
+                                    add = "PT全体の";
+                                    break;
+                                }
+                            case "自身":
+                                {
+                                    add = "自身";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + add + "</span>ダメージ<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        return outStr;
+                    }
+                case "攻撃力上昇し、スキル発動毎に攻撃力上昇":
+                    {
+                        string add = "";
+                        if (Ex2 != "150")
+                        {
+                            add = "　最大で<span class=\"fkg-value\">" + Ex2 + "</span>％";
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、スキル発動毎に<span class=\"fkg-value2\">自身の</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇" + add;
+                        return outStr;
+                    }
                 case "スキル発動毎に攻撃力上昇":
                     {
                         string add = "";
@@ -3041,7 +3787,7 @@ namespace 花騎士ツール＿NEO
 
                 case "属性種類数により攻撃力上昇":
                     {
-                        if (v2 == -1)
+                        if ((v2 == -1)||(Ex2 == "敵の数減少"))
                             outStr = "PT全体の属性種類が少ないほど攻撃力が上昇。3属性以上で<span class=\"fkg-value\">" + v1 + "</span>％、2属性で<span class=\"fkg-value\">" + v1 * 2 + "</span>％、1属性で<span class=\"fkg-value\">" + v1 * 3 + "</span>％";
                         else
                             outStr = "PT全体の属性種類が多いほど攻撃力が上昇。1属性で<span class=\"fkg-value\">" + v1 + "</span>％、2属性で<span class=\"fkg-value\">" + v1 * 2 + "</span>％、3属性以上で<span class=\"fkg-value\">" + v1 * 3 + "<span>％";
@@ -3058,6 +3804,11 @@ namespace 花騎士ツール＿NEO
                 case "PTメンバーの数で攻撃力上昇":
                     {
                         outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が戦闘開始時のメンバーの数ｘ<span class=\"fkg-value\">" + v1 + "</span>％上昇";
+                        return outStr;
+                    }
+                case "移動力を攻撃力に追加":
+                    {
+                        outStr = "<span class=\"fkg-value2\">PT全体の</span>攻撃力にPT移動力の<span class=\"fkg-value\">" + v1 + "</span>％を追加";
                         return outStr;
                     }
                 case "ダメージ上昇":
@@ -3080,18 +3831,54 @@ namespace 花騎士ツール＿NEO
                         return outStr;
                     }
 
-                case "ターン毎ダメージ上昇"://パフィオペディルム
+                case "残りHPでダメ上昇":
                     {
-                        int maxValue = v1 * 3;
-                        if(v2 != 0)
-                            maxValue = v2;
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>与ダメージがターン毎に<span class=\"fkg-value\">" + v1 + "</span>％増加　最大" + maxValue + "％";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>残りHPが低ければ低いほど<span class=\"fkg-value2\">PT全体の</span>与ダメージが増加　最大" + v1 + "％";
                         return outStr;
                     }
 
+                case "ターン毎ダメージ上昇"://パフィオペディルム
+                    {
+                        string maxValue = "　最大" + v1 * 3 + "％";
+                        if(v2 != 0)
+                            maxValue = "　最大" + v2 + "％";
+                        string add = maxValue;
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v1 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v1 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v1 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v1 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v1 * 6 + "％";
+                                break;
+
+                        }
+                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>与ダメージがターン毎に<span class=\"fkg-value\">" + v1 + "</span>％増加" + add;
+                        return outStr;
+                    }
+                case "ダメージ上昇し自身が更に上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>与ダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、更に<span class=\"fkg-value2\">自身の</spna>与ダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        return outStr;
+                    }
                 case "弱点属性の敵に対するダメージ増加":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
+                        return outStr;
+
+                    }
+                case "弱点属性の敵に対するダメージ増加し、自身が更に増加":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、さらに<span class=\"fkg-value2\">自身の</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
 
                     }
@@ -3099,13 +3886,10 @@ namespace 花騎士ツール＿NEO
                 case "弱点属性の敵に対するダメージ増加し、スキル発動率上昇":
                     {
                         double v2D = (double)(v2 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">" +numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
-                        return outStr;
-                    }
-
-                case "移動力を攻撃力に追加":
-                    {
-                        outStr = "PT全体の攻撃力に移動力の<span class=\"fkg-value\">" + v1 + "</span>％を追加";
+                        string add = "";
+                        if (Ex2 == "自身")
+                            add = "自身の";
+                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">" + add + "</span>スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
                         return outStr;
                     }
 
@@ -3115,7 +3899,31 @@ namespace 花騎士ツール＿NEO
                         if (Ex2 == "ガッツ付与1回")
                             gut = "<span class=\"fkg-value2\">全員に</span><span class=\"fkg-value\">1</span>回100%発動するGUTS付与";
                         double v2D = (double)v2 / 10;
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>防御力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、防御時のダメージ軽減率を<span class=\"fkg-value\">" + v2D + "</span>％軽減、" + gut;
+                        if(Ex2 != "攻撃20%上昇")
+                            outStr = "<span class=\"fkg-value2\">" +numStr + "</span>防御力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、防御時のダメージ軽減率を<span class=\"fkg-value\">" + v2D + "</span>％軽減、" + gut;
+                        else
+                            outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">20</span>％上昇し、防御時のダメージ軽減率を<span class=\"fkg-value\">" + v2D + "</span>％軽減、" + gut;
+                        return outStr;
+                    }
+
+                case "ガッツ付与":
+                    {
+                        if (numStr == "自身の")
+                            numStr = "自身が";
+                        string priOutStr = "";
+                        if (Ex2 == "攻撃20%上昇")
+                            priOutStr = "<span class=\"fkg-value2\">PT全体の</span>攻撃力が<span class=\"fkg-value\">20</span>％上昇し、";
+                        outStr = priOutStr + "<span class=\"fkg-value2\">" + numStr + "</span><span class=\"fkg-value\">3</span>回GUTS発動";
+                        return outStr;
+                    }
+                case "ガッツ付与し、再行動":
+                    {
+                        if (numStr == "自身の")
+                            numStr = "自身が";
+                        string priOutStr = "";
+                        if (Ex2 == "攻撃20%上昇")
+                            priOutStr = "<span class=\"fkg-value2\">PT全体の</span>攻撃力が<span class=\"fkg-value\">20</span>％上昇し、";
+                        outStr = priOutStr + "<span class=\"fkg-value2\">" + numStr + "</span><span class=\"fkg-value\">"+ v1 + "</span>回GUTS発動し、<span class=\"fkg-value2\">自身が</span>敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
                         return outStr;
                     }
 
@@ -3134,7 +3942,7 @@ namespace 花騎士ツール＿NEO
 
                 case "クリダメ上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + Att + "</span>クリティカルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
                         return outStr;
                     }
 
@@ -3143,17 +3951,53 @@ namespace 花騎士ツール＿NEO
                         outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、自身のクリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
+                case "クリ率上昇し、自身と同属性のPTメンバーのクリダメ上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカル率が<span class=\"fkg-value\">" + v1 + "</span>％上昇し" + Att + "クリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        return outStr;
+                    }
 
                 case "クリ率クリダメ上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカル率が<span class=\"fkg-value\">" + v1 + "</span>％上昇しクリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        string add = "";
+                        if (Ex2 == "自身")
+                            add = "<span class=\"fkg-value2\">自身の</span>";
+                        else if (Ex2 == "斬" || Ex2 == "打" || Ex2 == "突" || Ex2 == "魔")
+                            add = "<span class=\"fkg-value2\">" + Att;
+                        if (v1 != 1000)
+                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカル率が<span class=\"fkg-value\">" + v1 + "</span>％上昇し" + add + "クリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        else
+                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>攻撃が<span class=\"fkg-value\">必ず</span>クリティカルになり" + add + "クリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        return outStr;
+                    }
+
+                case "クリ率クリダメ上昇しさらに自身が再行動":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカル率が<span class=\"fkg-value\">" + v1 + "</span>％上昇しクリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加し、自身が<span class=\"fkg-value\">" + Ex2 + "</span>％の確率で再行動";
+                        return outStr;
+                    }
+                case "クリ率クリダメ上昇しさらに自身のクリダメ上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカル率が<span class=\"fkg-value\">" + v1 + "</span>％上昇しクリティカルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加し、更に自身のクリダメが<span class=\"fkg-value\">" + Ex2 + "</span>％増加";
+                        return outStr;
+                    }
+                case "クリ率クリダメ上昇しさらに自身のクリ率クリダメ上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>クリティカル率が<span class=\"fkg-value\">" + v1 + "</span>％上昇しクリティカルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、更に自身のクリ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇、クリダメが<span class=\"fkg-value\">" + Ex2 + "</span>％増加";
                         return outStr;
                     }
 
                 case "スキル発動率上昇":
                     {
                         double v1D = (double)(v1 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍";
+                        string preAdd = "";
+                        if (Ex2 == "MAP画面アビ")
+                            preAdd = "MAP画面アビリティ、更に";
+                        if (v1 != 1000)
+                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍";
+                        else
+                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキルが<span class=\"fkg-value\">必ず</span>発動";
+                        outStr = preAdd + outStr;
                         return outStr;
                     }
 
@@ -3164,18 +4008,69 @@ namespace 花騎士ツール＿NEO
                         outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、3T目のスキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
                         return outStr;
                     }
+                case "スキル発動率上昇し、さらに1T目上昇":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        double v2D = (double)(v2 + 100) / 100;
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、1T目のスキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        return outStr;
+                    }
+                case "スキル発動率上昇し、ターンで攻撃力上昇":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v2 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v2 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v2 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v2 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v2 * 6 + "％";
+                                break;
 
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、ターン毎に攻撃力が <span class=\"fkg-value\">" + v2 + "</span>％上昇" + add;
+                        return outStr;
+                    }
                 case "スキル発動率上昇し、対ボス攻撃力上昇":
                     {
                         double v1D = (double)(v1 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、ボス敵に対して攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        string add = "";
+                        if (Ex2 == "PT全体が常に")
+                            add = "<span class=\"fkg-value4\">常に</span><span class=\"fkg-value2\">PT全体の</span>";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、" + add + "ボス敵に対して攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
                 case "スキル発動率上昇し、対ボスダメ上昇":
                     {
                         double v1D = (double)(v1 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、ボスに与えるダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        switch (numStr2)
+                        {
+                            case "PT全体の":
+                                numStr2 = "PT全体が";
+                                break;
+                        }
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "常時":
+                                add = numStr2 + "<span class=\"fkg-value4\">常に</span>";
+                                break;
+                            case "PT全体が常に":
+                                add = "<span class=\"fkg-value2\">PT全体が</span><span class=\"fkg-value4\">常に</span>";
+                                break;
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、" + add + "ボスに与えるダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
@@ -3189,33 +4084,25 @@ namespace 花騎士ツール＿NEO
                 case "スキル発動率上昇し、自身と同属性のPTメンバーのスキルダメ上昇":
                     {
                         double v1D = (double)(v1 + 100) / 100;
-                        //属性による場合分け
-                        string Att = "";
-                        switch (Ex2)
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、" + Att + "PTメンバーの</span>スキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        return outStr;
+                    }
+                case "スキル発動率上昇し、ダメージ上昇":
+                    {
+                        string numStr_2 = "";
+                        switch (num)
                         {
-                            case "残":
+                            case 5:
                                 {
-                                    Att = "<span class=\"fkg-value\">" + "斬" + "</span>";
-                                    break;
-                                }
-                            case "打":
-                                {
-                                    Att = "<span class=\"fkg-value2\">" + "打" + "</span>";
-                                    break;
-                                }
-                            case "突":
-                                {
-                                    Att = "<span class=\"fkg-value3\">" + "突" + "</span>";
-                                    break;
-                                }
-                            case "魔":
-                                {
-                                    Att = "<span class=\"fkg-value4\">" + "魔" + "</span>";
+                                    numStr_2 = "PTメンバーがそれぞれ";
                                     break;
                                 }
                         }
-
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、<span class=\"fkg-value2\">自身</span>と" + Att + "<span class=\"fkg-value2\">属性のPTメンバーの</span>スキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        double v1D = (double)(v1 + 100) / 100;
+                        if(v1 != 1000)
+                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、<span class=\"fkg-value2\">" + numStr_2 + "</span>ダメージ<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        else
+                            outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキルが<span class=\"fkg-value\">必ず</span>発動し、<span class=\"fkg-value2\">" + numStr_2 + "</span>ダメージ<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
@@ -3234,7 +4121,37 @@ namespace 花騎士ツール＿NEO
                         outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、<span class=\"fkg-value2\">" + numStr_2 + "</span><span class=\"fkg-value\">" + v2 + "</span>回ダメージ無効化";
                         return outStr;
                     }
-
+                case "スキル発動率上昇し、再行動":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        switch (Ex2)
+                        {
+                            case "スキルLVで":
+                                {
+                                    double v2D = 0;
+                                    if (v1 == 28)
+                                        v2D = 1.36;
+                                    outStr = "スキル発動率が自身のスキルレベルに応じ <span class=\"fkg-value\">" + v1D + "</span>～<span class=\"fkg-value\">" + v2D + "</span>倍";
+                                    break;
+                                }
+                            default:
+                                {
+                                    if(v1 != 1000)
+                                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍";
+                                    else
+                                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキルが<span class=\"fkg-value\">必ず</span>発動し";
+                                    break;
+                                }
+                        }
+                        outStr += "、" + turnStr + "<span class=\"fkg-value2\">自身が</span>敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
+                        return outStr;
+                    }
+                case "スキル発動率上昇し、光ゲージ充填":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、光GAUGEが<span class=\"fkg-value\">" + v2 + "</span>％溜まった状態から討伐開始";
+                        return outStr;
+                    }
                 case "スキル発動率上昇し、シャイクリ泥率上昇":
                     {
                         double v1D = (double)(v1 + 100) / 100;
@@ -3245,7 +4162,36 @@ namespace 花騎士ツール＿NEO
                 case "スキル発動率上昇し、敵全体の攻撃力低下":
                     {
                         double v1D = (double)(v1 + 100) / 100;
-                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、<span class=\"fkg-value2\">敵全体の</spnan>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％低下";
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、<span class=\"fkg-value2\">敵全体の</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％低下";
+                        return outStr;
+                    }
+                case "スキル発動率上昇し、攻撃ミス":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍、<span class=\"fkg-value2\">敵全体が</span><span class=\"fkg-value\">" + v2 + "</span>％の確率で攻撃ミス";
+                        return outStr;
+                    }
+                case "スキル発動率上昇し、自身が攻撃を受けた次Tにスキル発動率上昇":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        double v2D = (double)(v2 + 100) / 100;
+                        string add = numStr;
+                        outStr = "<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍し、自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + add + "</span>スキル発動率<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        return outStr;
+                    }
+                case "スキル発動後3ターンの間、スキル発動率上昇し再行動":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        outStr = "自身がスキル発動した次のターンから<span class=\"fkg-value\">3</span>ターンの間、" + Att + "スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍し、<span class=\"fkg-value2\">PT全体の</span>再行動確率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        return outStr;
+                    }
+                case "MAP画面アビと、スキル発動率上昇":
+                    {
+                        double v1D = (double)(v1 + 100) / 100;
+                        if (v1 != 1000)
+                            outStr = "MAP画面アビリティ、更に<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v1D + "</span>倍";
+                        else
+                            outStr = "MAP画面アビリティ、更に<span class=\"fkg-value2\">" + turnStr + numStr + "</span>スキルが<span class=\"fkg-value\">必ず</span>発動";
                         return outStr;
                     }
 
@@ -3253,19 +4199,23 @@ namespace 花騎士ツール＿NEO
                     {
                         double v1D = (double)(v1 + 100) / 100;
                         double v2D = (double)(v2 + 100) / 100;
+                        string preAdd = "";
+                        if (Ex2 == "MAP画面アビ")
+                            preAdd = "MAP画面アビリティ、更に";
                         outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキル発動率が自身のスキルレベルに応じ<span class=\"fkg-value\">" + v1D + "</span>～<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        outStr = preAdd + outStr;
                         return outStr;
                     }
 
                 case "スキルダメ上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
+                        outStr = "<span class=\"fkg-value2\">" + Att + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
                         return outStr;
                     }
 
                 case "PTと自身スキルダメ上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、更に自身のスキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、更に<span class=\"fkg-value2\">自身の</span>スキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
@@ -3283,7 +4233,11 @@ namespace 花騎士ツール＿NEO
 
                 case "スキルダメ上昇し、スキル発動率上昇":
                     {
-                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">" +numStr + "</span>スキル発動率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        string add = numStr;
+                        if (Ex2 == "1T目の自身の")
+                            add = "1ターン目の自身の";
+                        double v2D = (double)(v2 + 100) / 100;
+                        outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">" +add + "</span>スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>％上昇";
                         return outStr;
                     }
 
@@ -3299,7 +4253,7 @@ namespace 花騎士ツール＿NEO
                                 }
                             case "自身":
                                 {
-                                    add = "自身";
+                                    add = "自身の";
                                     break;
                                 }
                         }
@@ -3320,11 +4274,30 @@ namespace 花騎士ツール＿NEO
                                 }
                             case "自身":
                                 {
-                                    add = "自身";
+                                    add = "自身の";
                                     break;
                                 }
                         }
-                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + numStr + "</span>ダメージ<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + add + "</span>ダメージ<span class=\"fkg-value\">" + v2 + "</span>％増加";
+                        return outStr;
+                    }
+                case "スキルダメ上昇し、弱点属性の敵に対するダメ上昇":
+                    {
+                        string add = numStr;
+                        switch (Ex2)
+                        {
+                            case "PT全体":
+                                {
+                                    add = "PT全体の";
+                                    break;
+                                }
+                            case "自身":
+                                {
+                                    add = "自身の";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、" + add + "弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
@@ -3350,6 +4323,40 @@ namespace 花騎士ツール＿NEO
                         outStr = "<span class=\"fkg-value2\">" +numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">" + numStr_2 + "</span><span class=\"fkg-value\">" + v2 + "</span>回ダメージを無効化";
                         return outStr;
                     }
+                case "スキルダメ上昇し、再行動":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
+                        return outStr;
+                    }
+                case "スキルダメ上昇し、攻撃力低下":
+                    {
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "敵1体":
+                                {
+                                    add = "敵1体の";
+                                    break;
+                                }
+                            case "敵2体":
+                                {
+                                    add = "敵2体の";
+                                    break;
+                                }
+                            case "敵3体":
+                                {
+                                    add = "敵3体の";
+                                    break;
+                                }
+                            case "敵全体":
+                                {
+                                    add = "敵全体の";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>スキルダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">" + add + "</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％低下";
+                        return outStr;
+                    }
                 case "対ボスダメ上昇":
                     {
                         outStr = "<span class=\"fkg-value2\">" +numStr + "</span>ボスに与えるダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加";
@@ -3362,9 +4369,27 @@ namespace 花騎士ツール＿NEO
                         return outStr;
                     }
 
+                case "対ボスダメ上昇し、HP割合でダメ上昇":
+                    {
+                        string v2Sub = "";
+                        switch (v2)
+                        {
+                            case 50:
+                                v2Sub = "1/2";
+                                break;
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>ボスに与えるダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、<span class=\"fkg-value2\">自身の</span>現在のHPの<span class=\"fkg-value\">" + v2Sub + "</span>の割合で<span class=\"fkg-value2\">自身の</span>与ダメージが増加";
+                        return outStr;
+                    }
+
                 case "対ボスダメ上昇し、敵の数で攻撃力上昇":
                     {
                         outStr = "<span class=\"fkg-value2\">" +numStr + "</span>ボスに与えるダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、敵の数ｘ<span class=\"fkg-value\">" + v2 + "</span>％攻撃力が上昇";
+                        return outStr;
+                    }
+                case "対ボスダメ上昇し、シャイクリ泥率上昇":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>ボスに与えるダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加し、シャインクリスタルのドロップ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
@@ -3376,7 +4401,7 @@ namespace 花騎士ツール＿NEO
 
                 case "対ボス攻撃力上昇し、自身が更に上昇":
                     {
-                        outStr = "ボス敵に対してPT全体の攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value\">自身が</span>さらに<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        outStr = "ボス敵に対して<span class=\"fkg-value2\">PT全体の</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value2\">自身が</span>さらに<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
@@ -3392,6 +4417,16 @@ namespace 花騎士ツール＿NEO
                         outStr = "ボス敵に対して<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、与ダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
+                case "対ボス攻撃力上昇し、光ゲージ充填":
+                    {
+                        outStr = "ボス敵に対して<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、光GAUGEが<span class=\"fkg-value\">" + v2 + "</span>％溜まった状態から討伐開始";
+                        return outStr;
+                    }
+                case "対ボス攻撃力上昇し、シャイクリ泥率上昇":
+                    {
+                        outStr = "ボス敵に対して<span class=\"fkg-value2\">" + numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、シャインクリスタルのドロップ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        return outStr;
+                    }
 
                 case "再行動":
                     {
@@ -3399,8 +4434,11 @@ namespace 花騎士ツール＿NEO
                         {
                             turnStr = "1T目に";
                         }
-
-                        outStr = turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v1 + "</span>％の確率で自身が再行動";
+                        //1T目と以降のターンで発動率が異なる場合
+                        if(v2 != 0)
+                            outStr = "自身が敵にダメージを与えた後<span class=\"fkg-value2\">1Tまで</span><span class=\"fkg-value\">" + v1 + "</span>％、以降<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
+                        else
+                            outStr = turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v1 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
                         return outStr;
                     }
 
@@ -3411,10 +4449,33 @@ namespace 花騎士ツール＿NEO
                             turnStr = "1T目に";
                         }
 
-                        outStr = turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v1 + "</span>％の確率で自身が再行動し、シャインクリスタルのドロップ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        outStr = turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v1 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動し、シャインクリスタルのドロップ率が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
-
+                case "自身が再行動し、自身が攻撃を受けた次Tにスキル発動率上昇":
+                    {
+                        string add = numStr;
+                        switch (Ex2)
+                        {
+                            case "PT全体":
+                                {
+                                    add = "PT全体の";
+                                    break;
+                                }
+                            case "自身":
+                                {
+                                    add = "自身の";
+                                    break;
+                                }
+                        }
+                        if (turn == 1)
+                        {
+                            turnStr = "1T目に";
+                        }
+                        double v2D = (double)(v2 + 100) / 100;
+                        outStr = turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v1 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動し、自身が攻撃を受けた次ターンに <span class=\"fkg-value2\">" + add + "</span>スキル発動率<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        return outStr;
+                    }
                 case "PTに再行動付与":
                     {
                         outStr = "<span class=\"fkg-value2\">PT全体の</span>再行動確率を<span class=\"fkg-value\">" + v1 + "</span>％上昇";
@@ -3422,11 +4483,15 @@ namespace 花騎士ツール＿NEO
                     }
 
                 case "回避":
+                case "MAP画面アビと、回避":
                     {
                         string turnV = "<span class=\"fkg-value2\">2</span>T目まで";
                         if (Ex2 == "3ターン")
                             turnV = "<span class=\"fkg-value2\">3</span>T目まで";
-                        outStr = turnV + "<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v2 + "</span>％の確率で回避";
+                        string add = "";
+                        if (Ex == "MAP画面アビと、回避")
+                            add = "MAP画面アビリティ、更に";
+                        outStr = add + turnV + "<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v2 + "</span>％の確率で回避";
                         return outStr;
                     }
 
@@ -3435,7 +4500,31 @@ namespace 花騎士ツール＿NEO
                         string turnV = "<span class=\"fkg-value2\">2</span>T目まで";
                         if (Ex2 == "3ターン")
                             turnV = "<span class=\"fkg-value2\">3</span>T目まで";
-                        outStr = turnV + "<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v2 + "</span>％の確率で回避し、<span class=\"fkg-value2\">自身の</span>残HPにより攻撃力上昇";
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "10":
+                            case "20":
+                            case "30":
+                            case "40":
+                            case "50":
+                            case "60":
+                            case "70":
+                            case "80":
+                            case "100":
+                            case "200":
+                                add = "　最大" + Ex2 + "％";
+                                break;
+                        }
+                        outStr = turnV + "<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v2 + "</span>％の確率で回避し、<span class=\"fkg-value2\">自身の</span>残HPにより" + numStr2 + "攻撃力上昇" + add;
+                        return outStr;
+                    }
+
+                case "回避し、スキルダメ上昇":
+                    {
+                        string turnV = "<span class=\"fkg-value2\">2</span>T目まで";
+                        int exV2 = 50;
+                        outStr = turnV + "<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + exV2 + "</span>％の確率で回避し、<span class=\"fkg-value2\">自身の</span>スキルダメージが<span class=\"fkg-value\">" + v2 + "</span>％増加";
                         return outStr;
                     }
 
@@ -3451,7 +4540,7 @@ namespace 花騎士ツール＿NEO
                             add = "(超反撃)";
                         }
                         double v2D = (double)v2 / 100;
-                        return outStr =  "2T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v1_2 + "</span>％の確率で回避し、攻撃を受けた時<span class=\"fkg-value\">" + v2_1 + "</span>％の確率で防御力の<span class=\"fkg-value\">" + v2D + "</span>倍を攻撃力に変換し反撃<span class=\"fkg-value3\">" + add + "</span>";
+                        return outStr = "<span class=\"fkg-value2\">2</span>T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v1_2 + "</span>％の確率で回避し、攻撃を受けた時<span class=\"fkg-value\">" + v2_1 + "</span>％の確率で防御力の<span class=\"fkg-value\">" + v2D + "</span>倍を攻撃力に変換し反撃<span class=\"fkg-value3\">" + add + "</span>";
                     }
 
                 case "回避し、敵3体が攻撃ミス":
@@ -3459,10 +4548,97 @@ namespace 花騎士ツール＿NEO
                         int v1_2 = 0;
                         if(v1 == 80)
                             v1_2 = 50;
-                        outStr = "2T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v1_2 + "</span>％の確率で回避し、敵3体が<span class=\"fkg-value\">" + v2 + "</span>%の確率で攻撃ミス";
+                        outStr = "<span class=\"fkg-value2\">2</spna>T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v1_2 + "</span>％の確率で回避し、<span class=\"fkg-value2\">敵3体が</span><span class=\"fkg-value\">" + v2 + "</span>%の確率で攻撃ミス";
                         return outStr;
                     }
-
+                case "回避し、再行動":
+                    {
+                        int v1_2 = 0;
+                        if (v1 == 80)
+                            v1_2 = 50;
+                        outStr = "<span class=\"fkg-value2\">2</span>T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v1_2 + "</span>％の確率で回避し、自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
+                        return outStr;
+                    }
+                case "回避付与":
+                    {
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    numStr = "自身が";
+                                    break;
+                                }
+                            case 2:
+                            case 3:
+                            case 4:
+                                {
+                                    numStr = "自身を含む" + num + "人が";
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    numStr = "PT全体が";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span><span class=\"fkg-value\">" + v1 + "</span>％の確率で回避";
+                        return outStr;
+                    }
+                case "回避付与し、回避":
+                    {
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    numStr = "自身が";
+                                    break;
+                                }
+                            case 2:
+                            case 3:
+                            case 4:
+                                {
+                                    numStr = "自身を含む" + num + "人が";
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    numStr = "PT全体が";
+                                    break;
+                                }
+                        }
+                        int v2_2 = 0;
+                        if (v2 == 80)
+                            v2_2 = 50;
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span><span class=\"fkg-value\">" + v1 + "</span>％の確率で回避し、<span class=\"fkg-value2\">自身が</span>2T目まで<span class=\"fkg-value\">" + v2 + "</span>％、以降は<span class=\"fkg-value\">" + v2_2 + "</span>％の確率で回避";
+                        return outStr;
+                    }
+                case "回避3回成功後、攻撃力、回避、再行動率上昇":
+                    {
+                        int times = 3;
+                        int vEx2 = Convert.ToInt32(Ex2);
+                        outStr = "<span class=\"fkg-value2\">自身が</span>回避に<span class=\"fkg-value\">" + times + "</span>回成功した次ターン以降、<span class=\"fkg-value2\">自身の</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％、回避率が<span class=\"fkg-value\">" + v2 + "</span>％上昇し、自身が<span class=\"fkg-value\">" + vEx2 + "</span>％の確率で再行動";
+                        return outStr;
+                    }
+                case "回避5回成功後、攻撃力、回避、スキル発動率と再行動率上昇":
+                    {
+                        int times = 5;
+                        int vEx2 = Convert.ToInt32(Ex2);
+                        double vEx2d = (double)(vEx2 + 100) / 100;
+                        outStr = "<span class=\"fkg-value2\">自身が</span>回避に<span class=\"fkg-value\">" + times + "</span>回成功した次ターン以降、<span class=\"fkg-value2\">自身の</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％、回避率が<span class=\"fkg-value\">" + v2 + "</span>％上昇し、スキル発動率が<span class=\"fkg-value\">" + vEx2d + "</span>倍、自身が<span class=\"fkg-value\">" + vEx2 + "</span>％の確率で再行動";
+                        return outStr;
+                    }
+                case "回避し、スキル発動率上昇":
+                    {
+                        int v1_2 = 0;
+                        if (v1 == 80)
+                            v1_2 = 50;
+                        double v2d = (double)(v2 + 100) / 100;
+                        string add = numStr;
+                        if (Ex2 == "PT全体")
+                            add = "PT全体の";
+                        outStr = "2T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v1_2 + "</span>％の確率で回避し、<span class=\"fkg-value2\">" + add + "</span>スキル発動率が<span class=\"fkg-value\">" + v2d + "</span>倍";
+                        return outStr;
+                    }
                 case "迎撃":
                     {
                         outStr = "2T目まで<span class=\"fkg-value\">" + v1 + "</span>％、以降は<span class=\"fkg-value\">" + v2 + "</span>％の確率で回避し、回避成功時100%の確率で迎撃する";
@@ -3498,7 +4674,7 @@ namespace 花騎士ツール＿NEO
                                 }
                             case "追撃3":
                                 {
-                                    outStr = "自身の攻撃後、自身はPT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">攻撃した敵に</span>追撃、更にPT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">敵全体に</span>追撃";
+                                    outStr = "自身の攻撃後、<span class=\"fkg-value2\">自身は</span>PT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">攻撃した敵に</span>追撃、更にPT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">敵全体に</span>追撃";
                                     return outStr;
                                 }
                             case "追撃4:PT全体に単体20%付与":
@@ -3507,7 +4683,7 @@ namespace 花騎士ツール＿NEO
                                     return outStr;
                                 }
                         }
-                        outStr = "自身の攻撃後、自身はPT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃";
+                        outStr = "自身の攻撃後、<span class=\"fkg-value2\">自身は</span>PT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃";
                         return outStr;
                     }
 
@@ -3528,7 +4704,7 @@ namespace 花騎士ツール＿NEO
                                 }
                         }
                         double v2D = (double)(v2 + 100)/100;
-                        outStr = "自身の攻撃後、自身はPT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃し、<span class=\"fkg-value2\">PT全体の</span>スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
+                        outStr = "自身の攻撃後、<span class=\"fkg-value2\">自身は</span>PT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃し、<span class=\"fkg-value2\">PT全体の</span>スキル発動率が<span class=\"fkg-value\">" + v2D + "</span>倍";
                         return outStr;
                     }
 
@@ -3574,7 +4750,32 @@ namespace 花騎士ツール＿NEO
                                     break;
                                 }
                         }
-                        outStr = "自身の攻撃後、自身はPT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃し、" + turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で自身が再行動";
+                        outStr = "自身の攻撃後、<span class=\"fkg-value2\">自身は</span>PT総合力の<span class=\"fkg-value\">" + v1 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" +add + "</span>追撃し、" + turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
+                        return outStr;
+                    }
+
+                case "追撃付与":
+                    {
+                        string add = "攻撃した敵に";
+                        switch (Ex2)
+                        {
+                            case "追撃1":
+                                {
+                                    add = "攻撃した敵に";
+                                    break;
+                                }
+                            case "追撃2":
+                                {
+                                    add = "敵全体に";
+                                    break;
+                                }
+                            case "追撃3"://恐らくないと思うけど、同確率で単体と全体に追撃
+                                {
+                                    outStr = "<span class=\"fkg-value2\">PTメンバーが</span><span class=\"fkg-value\">" + v1 + "</span>％の確率でPT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">攻撃した敵に</span>追撃、更にPT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">敵全体に</span>追撃";
+                                    return outStr;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">PTメンバーが</span><span class=\"fkg-value\">" + v1 + "</span>％の確率でPT総合力の<span class=\"fkg-value\">" + v2 + "</span>％を攻撃力に変換し<span class=\"fkg-value2\">" + add + "</span>追撃";
                         return outStr;
                     }
 
@@ -3603,7 +4804,7 @@ namespace 花騎士ツール＿NEO
 
                 case "光ゲージ充填し、自身が再行動":
                     {
-                        outStr = "光GAUGEが<span class=\"fkg-value\">" + v1 + "</span>％溜まった状態から討伐開始し、自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で自身が再行動";
+                        outStr = "光GAUGEが<span class=\"fkg-value\">" + v1 + "</span>％溜まった状態から討伐開始し、自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
                         return outStr;
                     }
 
@@ -3627,20 +4828,32 @@ namespace 花騎士ツール＿NEO
 
                 case "ソラ効果上昇し自身が再行動":
                     {
-                        outStr = "ソーラードライブの効果が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で自身が再行動";
+                        outStr = "ソーラードライブの効果が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
+                        return outStr;
+                    }
+
+                case "ソラ効果上昇しソラ発動毎に防御力上昇":
+                    {
+                        outStr = "ソーラードライブの効果が<span class=\"fkg-value\">" + v1 + "</span>％上昇し、ソーラードライブ発動毎に<span class=\"fkg-value2\">" + numStr + "</span>防御力が<span class=\"fkg-value\">" + v2 + "</span>％上昇。最大<span class=\"fkg-value\">" + v2 * 3 + "</span>％";
                         return outStr;
                     }
 
                 case "ソラ発動毎に攻撃力上昇":
                     {
                         
-                        outStr = "ソーラードライブ発動毎に<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇";
+                        outStr = "ソーラードライブ発動毎に<span class=\"fkg-value2\">" +numStr + "</span>攻撃力が<span class=\"fkg-value\">" + v1 + "</span>％上昇。最大<span class=\"fkg-value\">" + v1 * 3 + "</span>％";
                         return outStr;
                     }
 
                 case "ソラ発動毎にダメ上昇":
                     {
-                        outStr = "ソーラードライブ発動毎に<span class=\"fkg-value2\">" +numStr + "</span>与ダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加。最大<span class=\"fkg-value\">" + v2 + "</span>％";
+                        outStr = "ソーラードライブ発動毎に<span class=\"fkg-value2\">" +numStr + "</span>与ダメージが<span class=\"fkg-value\">" + v1 + "</span>％増加。最大<span class=\"fkg-value\">" + v1 * 3 + "</span>％";
+                        return outStr;
+                    }
+
+                case "ソラ発動毎に防御力上昇":
+                    {
+                        outStr = "ソーラードライブ発動毎に<span class=\"fkg-value2\">" + numStr + "</span>防御力が<span class=\"fkg-value\">" + v1 + "</span>％上昇。最大<span class=\"fkg-value\">" + v1 * 3 + "</span>％";
                         return outStr;
                     }
 
@@ -3703,6 +4916,119 @@ namespace 花騎士ツール＿NEO
                         outStr = "<span class=\"fkg-value2\">" +numStr + "</span>攻撃力を<span class=\"fkg-value\">" + v1 + "</span>％低下";
                         return outStr;
                     }
+                case "攻撃力低下し、スキル発動率低下":
+                    {
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    numStr = "敵1体の" +
+                                        "";
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    numStr = "敵2体の" +
+                                        "";
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    numStr = "敵3体の";
+                                    break;
+                                }
+                            case 4:
+                            case 5:
+                                {
+                                    numStr = "敵全体の";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力を<span class=\"fkg-value\">" + v1 + "</span>％低下し、スキル発動率を<span class=\"fkg-value\">" + v2 + "</span>％低下";
+                        return outStr;
+                    }
+                case "攻撃力低下し、攻撃ミス":
+                    {
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    numStr = "敵1体の" +
+                                        "";
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    numStr = "敵2体の" +
+                                        "";
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    numStr = "敵3体の";
+                                    break;
+                                }
+                            case 4:
+                            case 5:
+                                {
+                                    numStr = "敵全体の";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力を<span class=\"fkg-value\">" + v1 + "</span>％低下し、<span class=\"fkg-value\">" + v2 + "</span>％の確率で攻撃ミス";
+                        return outStr;
+                    }
+                case "ターン毎に攻撃力低下":
+                    {
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    numStr = "敵1体の" +
+                                        "";
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    numStr = "敵2体の" +
+                                        "";
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    numStr = "敵3体の";
+                                    break;
+                                }
+                            case 4:
+                            case 5:
+                                {
+                                    numStr = "敵全体の";
+                                    break;
+                                }
+                        }
+                        string add = "";
+                        switch (Ex2)
+                        {
+                            case "2ターン":
+                                add = "　最大" + v1 * 2 + "％";
+                                break;
+                            case "3ターン":
+                                add = "　最大" + v1 * 3 + "％";
+                                break;
+                            case "4ターン":
+                                add = "　最大" + v1 * 4 + "％";
+                                break;
+                            case "5ターン":
+                                add = "　最大" + v1 * 5 + "％";
+                                break;
+                            case "6ターン":
+                                add = "　最大" + v1 * 6 + "％";
+                                break;
+
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力をターン毎に<span class=\"fkg-value\">" + v1 + "</span>％低下" + add;
+                        return outStr;
+                    }
 
                 case "防御力低下":
                     {
@@ -3733,6 +5059,38 @@ namespace 花騎士ツール＿NEO
                                 }
                         }
                         outStr = "<span class=\"fkg-value2\">" + numStr + "</span>防御力を<span class=\"fkg-value\">" + v1 + "</span>％低下";
+                        return outStr;
+                    }
+
+                case "攻撃力と防御力低下":
+                    {
+                        switch (num)
+                        {
+                            case 1:
+                                {
+                                    numStr = "敵1体の" +
+                                        "";
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    numStr = "敵2体の" +
+                                        "";
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    numStr = "敵3体の";
+                                    break;
+                                }
+                            case 4:
+                            case 5:
+                                {
+                                    numStr = "敵全体の";
+                                    break;
+                                }
+                        }
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>攻撃力を<span class=\"fkg-value\">" + v1 + "</span>％低下、" +  "</span>防御力を<span class=\"fkg-value\">" + v2 + "</span>％低下";
                         return outStr;
                     }
 
@@ -3930,17 +5288,17 @@ namespace 花騎士ツール＿NEO
                         {
                             case 1:
                                 {
-                                    outStr = "毎ターン<span class=\"fkg-value\">" + v1 + "</span>％の確率で自身の最大HPの<span class=\"fkg-value\">" + v2 + "</span>％回復";
+                                    outStr = "毎ターン<span class=\"fkg-value\">" + v1 + "</span>％の確率で<span class=\"fkg-value2\">自身の</span>最大HPの<span class=\"fkg-value\">" + v2 + "</span>％回復";
                                     break;
                                 }
                             case 3:
                                 {
-                                    outStr = "自身のHPが0になった場合、1度だけ敵のターン終了後、自身を含む3人のHPを<span class=\"fkg-value\">" + v2 + "</span>％回復";
+                                    outStr = "自身のHPが0になった場合、1度だけ敵のターン終了後、<span class=\"fkg-value2\">自身を含む3人の</span>HPを<span class=\"fkg-value\">" + v2 + "</span>％回復";
                                     break;
                                 }
                             case 5:
                                 {
-                                    outStr = "PT全体がそれぞれ毎ターン<span class=\"fkg-value\">" + v1 + "</span>％の確率で最大HPの<span class=\"fkg-value\">" + v2 + "</span>％回復";
+                                    outStr = "<span class=\"fkg-value2\">PT全体が</span>それぞれ毎ターン<span class=\"fkg-value\">" + v1 + "</span>％の確率で最大HPの<span class=\"fkg-value\">" + v2 + "</span>％回復";
                                     break;
                                 }
                         }
@@ -3949,27 +5307,35 @@ namespace 花騎士ツール＿NEO
 
                 case "PT移動力増加":
                     {
-                        outStr = "パーティの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加";
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
+                        outStr = "パーティの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加" + movT;
                         return outStr;
                     }
 
                 case "PT移動力増加し、スキルLVでスキル発動率上昇":
                     {
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
                         double v2D = (double)(v2 + 100) / 100;
                         double v3D = v2D + 0.08;
-                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し、PT全体のスキル発動率が自身のスキルレベルに応じ<span class=\"fkg-value\">" + v2D + "</span>～<span class=\"fkg-value\">" + v3D + "</span>倍";
+                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し" + movT + "、<span class=\"fkg-value2\">PT全体の</span>スキル発動率が自身のスキルレベルに応じ<span class=\"fkg-value\">" + v2D + "</span>～<span class=\"fkg-value\">" + v3D + "</span>倍";
                         return outStr;
                     }
 
                 case "PT移動力増加し、移動力を攻撃力に追加":
                     {
-                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し、PT全体の攻撃力に移動力の<span class=\"fkg-value\">" + v2 + "</span>％を追加";
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
+                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し" + movT + "、<span class=\"fkg-value2\">PT全体の</span>攻撃力に移動力の<span class=\"fkg-value\">" + v2 + "</span>％を追加";
                         return outStr;
                     }
 
                 case "PT移動力増加し、対ボス攻撃力上昇":
                     {
-                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し、ボス敵に対して<span class=\"fkg-value\">PT全体の</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
+                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し" + movT + "、ボス敵に対して<span class=\"fkg-value2\">PT全体の</span>攻撃力が<span class=\"fkg-value\">" + v2 + "</span>％上昇";
                         return outStr;
                     }
 
@@ -3979,7 +5345,9 @@ namespace 花騎士ツール＿NEO
                         {
                             turnStr = "1T目に";
                         }
-                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し、" + turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で自身が再行動";
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
+                        outStr = "PTの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加し" + movT + "、" + turnStr + "自身が敵にダメージを与えた後<span class=\"fkg-value\">" + v2 + "</span>％の確率で<span class=\"fkg-value2\">自身が</span>再行動";
                         return outStr;
                     }
 
@@ -4008,6 +5376,26 @@ namespace 花騎士ツール＿NEO
                         }
                                 double v1D = (double)(v1 + 100) / 100;
                         outStr = "自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + numStr + "</span>スキル発動率<span class=\"fkg-value\">" + v1D + "</span>倍し、<span class=\"fkg-value2\">" + add + "</span>与ダメージが<span class=\"fkg-value\">" + v2 + "</span>%増加";
+                        return outStr;
+                    }
+                case "自身が攻撃を受けた次Tにスキル発動率上昇し、回復":
+                    {
+                        string add = numStr;
+                        switch (Ex2)
+                        {
+                            case "PT全体":
+                                {
+                                    add = "PT全体の";
+                                    break;
+                                }
+                            case "自身":
+                                {
+                                    add = "自身";
+                                    break;
+                                }
+                        }
+                        double v1D = (double)(v1 + 100) / 100;
+                        outStr = "自身が攻撃を受けた次ターンに<span class=\"fkg-value2\">" + numStr + "</span>スキル発動率<span class=\"fkg-value\">" + v1D + "</span>倍し、<span class=\"fkg-value2\">PT全体が</span>それぞれ毎ターン<span class=\"fkg-value\">" + v2 + "</span>％の確率で最大HPの<span class=\"fkg-value\">" + Ex2 + "</span>％回復";
                         return outStr;
                     }
 
@@ -4042,7 +5430,45 @@ namespace 花騎士ツール＿NEO
 
                 case "MAP画面アビと、移動力増加":
                     {
-                        outStr = "MAP画面アビリティ、更にパーティの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加";
+                        //移動力テキスト追加
+                        string movT = "(<span class=\"fkg-value4\">自身の値</span>" + Mov + ")";
+                        outStr = "MAP画面アビリティ、更にパーティの移動力が<span class=\"fkg-value\">" + v1 + "</span>増加" + movT;
+                        return outStr;
+                    }
+                case "スキルにHP吸収付与":
+                    {
+                        outStr = "<span class=\"fkg-value2\">" + numStr + "</span>戦闘スキルに、与えたダメージの<span class=\"fkg-value\">" + v1 + "</span>％のHP吸収効果を付与　1回で最大HPの半分まで吸収可";
+                        return outStr;
+                    }
+                case "イロモノ系":
+                    {
+                        switch(Ex2)
+                        {
+                            case "召喚":
+                                outStr = "自身が3回攻撃を行った次ターンから<span class=\"fkg-value\">" + v1 + "</span>ターンの間、召喚獣召喚 召喚獣の攻撃力は召喚者の攻撃力の<span class=\"fkg-value\">" + v2 + "</span>倍";
+                                break;
+                            case "変身":
+                                outStr = "自身がスキルを発動した次ターンから<span class=\"fkg-value\">" + v1 + "</span>ターンの間、自身は「アイテル・ドレス」に変身し、スキルが「アステル・オブ・アイテル」に変化";
+                                break;
+                        }
+                        return outStr;
+                    }
+                case "召喚獣攻撃指令":
+                    {
+                        outStr = "召喚直後の召喚獣に攻撃スキルを実行させる。召喚者の攻撃力の<span class=\"fkg-value\">" + v1 + "</span>倍で敵全体に攻撃し、敵全体の受けるダメージを<span class=\"fkg-value\">" + v2 + "</span>％上昇";
+                        return outStr;
+                    }
+                case "変身サブアビ":
+                    {
+                        switch (Ex2)
+                        {
+                            case "アビ1":
+                                outStr = "変身中、<span class=\"fkg-value2\">PT全体の</span>弱点属性の敵に対するダメージが<span class=\"fkg-value\">" + v1 + "</span>％上昇し、<span class=\"fkg-value4\">魔</span>属性を付与";
+                                break;
+                            case "アビ2":
+                                outStr = "変身中、<span class=\"fkg-value2\">PTメンバーの</span>所持する「スキルダメージ上昇」アビ効果を<span class=\"fkg-value\">" + v1 + "</span>％上昇させ、計算を合算から乗算に変更";
+                                break;
+                        }
                         return outStr;
                     }
             }
@@ -4369,49 +5795,49 @@ namespace 花騎士ツール＿NEO
         protected void DropDownList1Changed(object sender, EventArgs e)
         {
             
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void DropDownList2Changed(object sender, EventArgs e)
         {
 
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void DropDownList3Changed(object sender, EventArgs e)
         {
 
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void CheckBoxList2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void CheckBoxList3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void CheckBoxList4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void RadioButtonList2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
         protected void IniciarAbilitySerch()
         {
@@ -4420,27 +5846,27 @@ namespace 花騎士ツール＿NEO
             
             if (HttpContext.Current.Request.Cookies["FkgName"] == null)
             {
-                this.registido.Text = "登録した人数は"+ 0 + "人";
+                this.registido.Text = "登録した人数は"+ 0 + "人" + "　（登録済みのキャラ名は<span class=\"fkg-value\">赤く</span>表示されます）";
                 return;
             }
 
 
-            this.registido.Text = "登録した人数は" + registeredString.GetLength(0) + "人";
+            this.registido.Text = "登録した人数は" + registeredString.GetLength(0) + "人" + "　（登録済みのキャラ名は<span class=\"fkg-value\">赤く</span>表示されます）";
         }
 
         protected void TextBox101_TextChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void TextBox102_TextChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
 
         protected void TextBox103_TextChanged(object sender, EventArgs e)
         {
-            Main_Caluc();
+            Main_Calc();
         }
     }//クラスお終い
 }
