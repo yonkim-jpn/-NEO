@@ -185,12 +185,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\client\public\index.html" />
     <Content Include="Client\client\public\off.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Client\client\public\on.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Client\client\src\main.js" />
     <Content Include="Client\client\src\router\index.js" />
     <Content Include="Client\client\vue.config.js" />
     <Content Include="Content\add.css" />
@@ -1008,6 +1010,16 @@
     <Content Include="Static\css\index.css" />
     <Content Include="Static\js\chunk-vendors.js.map" />
     <Content Include="Static\js\index.js.map" />
+    <Content Include="Client\client\src\components\accordion.vue" />
+    <Content Include="Client\client\src\components\umaCalcMain.vue" />
+    <Content Include="Client\client\src\components\umaCalcSub.vue" />
+    <Content Include="Client\client\src\components\umaLayout.vue" />
+    <Content Include="Client\client\src\components\umaSelect.vue" />
+    <Content Include="Client\client\src\components\umaSkill.vue" />
+    <Content Include="Client\client\src\components\umaStar.vue" />
+    <Content Include="Client\client\src\App.vue" />
+    <Content Include="Client\client\src\assets\json\hantei.json" />
+    <Content Include="Client\client\src\assets\json\skills.json" />
     <None Include="参考コード\花騎士登録フォーム_neo_old.aspx" />
     <None Include="参考コード\花騎士登録フォーム.aspx" />
     <None Include="参考コード\ability_search.aspx" />
@@ -1204,7 +1216,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Client\client\src\components\" />
     <Folder Include="Content\yeti\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\Package\PackageTmp\Static\js\" />
