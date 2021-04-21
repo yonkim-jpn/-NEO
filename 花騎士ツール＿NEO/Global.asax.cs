@@ -24,7 +24,13 @@ namespace 花騎士ツール＿NEO
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-
+        protected void Application_EndRequest(Object sender, EventArgs e)
+        {
+            if(Response.RedirectLocation != null)
+            {
+                Response.RedirectLocation = Response.RedirectLocation.Replace("http", "https");
+            }
+        }
         
     }
 }

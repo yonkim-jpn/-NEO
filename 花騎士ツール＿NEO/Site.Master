@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="application/json; charset=utf-8"/>
     <meta charset="utf-8" />
-    <meta name="description" content="趣味でWEBアプリを作ってます。現在マギレコ関係のWEBアプリ作成中です。以前はDMM　フラワーナイトガール（花騎士）のパーティー編成シミュレーターも作成していましたが現在更新停止中です。"/>
+    <meta name="description" content="趣味でWEBアプリを作ってます。現在ウマ娘の評価値計算WEBアプリ作成中です。DMM　フラワーナイトガール（花騎士）のアビリティ検索もたまにデータ入れてます"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Expires" content="Thu, 16 Mar 2023 07:22:09 GMT">
     <title><%: Page.Title %></title>
@@ -75,7 +75,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">管理人の趣味ツール</a>
+                    <a class="navbar-brand" runat="server" href="~/Default">管理人の趣味ツール</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -94,7 +94,8 @@
                                 <li><a runat="server" href="~/Fkg_register">花騎士登録</a></li>
 	                        </ul>
                         </li>
-                        <li><a runat="server" href="~/Magia_damage_calc">マギレコダメージ計算</a></li>
+                        <li><a runat="server" href="~/">ウマ娘評価値(スマホ用)</a></li>
+                        <%--<li><a runat="server" href="~/Magia_damage_calc">マギレコダメージ計算</a></li>--%>
                     </ul>
                 </div>
             </div>
@@ -105,9 +106,9 @@
             <hr />
             <footer>
                 <%--<p>&copy; <%: DateTime.Now.Year %> - マイ ASP.NET アプリケーション</p>--%>
-                <div class="gratitud">
+               <%-- <div class="gratitud">
                     <p>マギレコの精神強化アビリティのデータは<a href="javascript:void(0);" target="_blank" onclick="window.open('https://magireco-friends.com/s/menu','_blank')">マギレコフレンズ</a>様よりデータ提供していただきました。</p>
-                </div>
+                </div>--%>
                 <p>ご意見ご要望については下記製作者のツイッターアカウントにお願いします。</p>
                 <div class="twitter">
                     <a href="javascript:void(0);" target="_blank" onclick="window.open('https://twitter.com/chiyokanemaru','_blank')"><span class="fa fa-twitter"></span>@chiyokanemaru</a>

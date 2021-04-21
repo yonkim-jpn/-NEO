@@ -185,6 +185,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\client\public\off.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\client\public\on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Client\client\src\router\index.js" />
+    <Content Include="Client\client\vue.config.js" />
     <Content Include="Content\add.css" />
     <Content Include="Content\handsontable\handsontable.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -199,6 +207,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Content\styles_uma.css" />
     <Content Include="customError.html" />
     <Content Include="404.html" />
     <Content Include="About.aspx" />
@@ -958,6 +967,8 @@
     <Content Include="png\yuzuru.png" />
     <Content Include="png\yuzuruon.png" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\axios.js" />
+    <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\handsontable\handsontable.full.js" />
@@ -969,6 +980,9 @@
     <Content Include="Scripts\jquery.mCustomScrollbar.min.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.js" />
     <Content Include="Scripts\jquery.rwdImageMaps.min.js" />
+    <Content Include="Scripts\uma_vue.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
     <Content Include="Scripts\yonkim_script\chatwork_scraping.js" />
     <Content Include="Scripts\yonkim_script\handler.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -990,6 +1004,10 @@
     <Content Include="Scripts\magia_json\escogido.json" />
     <Content Include="Scripts\magia_json\memoria.json" />
     <Content Include="Scripts\magia_json\sub_mente.json" />
+    <None Include=".bin\node.cmd" />
+    <Content Include="Static\css\index.css" />
+    <Content Include="Static\js\chunk-vendors.js.map" />
+    <Content Include="Static\js\index.js.map" />
     <None Include="参考コード\花騎士登録フォーム_neo_old.aspx" />
     <None Include="参考コード\花騎士登録フォーム.aspx" />
     <None Include="参考コード\ability_search.aspx" />
@@ -1032,6 +1050,19 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <None Include="ViewSwitcher.ascx" />
+    <Content Include="Static\favicon.ico" />
+    <Content Include="Static\index.html" />
+    <Content Include="Static\js\chunk-vendors.js" />
+    <Content Include="Static\js\index.js" />
+    <Content Include="Static\off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Static\on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vue_try\css\styles.css" />
+    <Content Include="vue_try\js\vue.js" />
+    <Content Include="vue_try\vue_text.html" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config">
       <SubType>Designer</SubType>
@@ -1173,8 +1204,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Client\client\src\components\" />
     <Folder Include="Content\yeti\" />
     <Folder Include="Models\" />
+    <Folder Include="obj\Debug\Package\PackageTmp\Static\js\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
@@ -1236,6 +1269,14 @@
   <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
   <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
   <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.9.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.9.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>cd $(ProjectDir)\Client\client
+npm run build</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
